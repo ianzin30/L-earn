@@ -1,36 +1,35 @@
 import 'package:flutter/material.dart';
 
-class SupBar extends StatelessWidget {
+class LearnAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
-  SupBar({required this.title});
+  final List<Widget>? actions;
+  final Widget? leading;
+  final PreferredSizeWidget? bottom;
+  final Color? backgroundColor;
+  final bool centerTitle;
+
+  LearnAppBar({
+    required this.title,
+    this.actions,
+    this.leading,
+    this.bottom,
+    this.backgroundColor,
+    this.centerTitle = false,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 200,
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: [Colors.deepPurple.shade800, Colors.deepPurpleAccent.shade400],
-        ),
-        borderRadius: BorderRadius.vertical(
-          bottom: Radius.circular(30),
-        ),
-      ),
-      child: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Text(
-            title,
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ),
-      ),
+    return AppBar(
+      title: Text(title),
+      leading: leading,
+      actions: actions,
+      bottom: bottom,
+      backgroundColor: backgroundColor ?? Theme.of(context).primaryColor,
+      centerTitle: centerTitle,
+      elevation: 0, // Customize elevation or remove the shadow
     );
   }
+
+  @override
+  Size get preferredSize => bottom?.preferredSize ?? Size.fromHeight(kToolbarHeight);
 }

@@ -1,26 +1,38 @@
 import 'package:flutter/material.dart';
 
-class NavBar extends StatelessWidget {
+class LearnNavBar extends StatelessWidget {
   final int selectedIndex;
   final Function(int) onItemTapped;
-
-  NavBar({required this.selectedIndex, required this.onItemTapped});
+  final List<Map<String, dynamic>> navItems;
+  final Color? selectedItemColor;
+  final Color? unselectedItemColor;
+  
+  LearnNavBar({
+    required this.selectedIndex,
+    required this.onItemTapped,
+    required this.navItems,
+    this.selectedItemColor,
+    this.unselectedItemColor,
+  });
 
   @override
   Widget build(BuildContext context) {
+    List<BottomNavigationBarItem> bottomNavBarItems = navItems.map((item) {
+      return BottomNavigationBarItem(
+        icon: Icon(item['icon'] as IconData),
+        label: item['name'] as String,
+        // You can also add 'activeIcon' property if needed
+      );
+    }).toList();
+
     return BottomNavigationBar(
-      type: BottomNavigationBarType.fixed,
-      items: const <BottomNavigationBarItem>[
-        BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-        BottomNavigationBarItem(icon: Icon(Icons.fitness_center), label: 'Atividades'),
-        BottomNavigationBarItem(icon: Icon(Icons.monitor), label: 'Monitorar'),
-        BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Perfil'),
-      ],
+      items: bottomNavBarItems,
       currentIndex: selectedIndex,
       onTap: onItemTapped,
-      selectedItemColor: Colors.deepPurple.shade500,
-      unselectedItemColor: Colors.grey,
-      elevation: 10, // Remove shadow
+      selectedItemColor: selectedItemColor ?? Theme.of(context).colorScheme.secondary,
+      unselectedItemColor: unselectedItemColor ?? Colors.grey,
+      type: BottomNavigationBarType.fixed,
+      elevation: 0, // Customize or remove elevation
     );
   }
 }
