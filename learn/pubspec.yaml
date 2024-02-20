@@ -19,7 +19,11 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 assets:
-  - assets/images/appImages/icon.png
+  - ./assets/images/appImages/icon.png
+  - ./assets/images/mascote/background.png
+  - ./assets/images/mascote/mascote.png
+  - ./assets/mascote.png
+  - ./mascote.png
 
 environment:
   sdk: '>=3.2.5 <4.0.0'
