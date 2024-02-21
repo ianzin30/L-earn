@@ -51,7 +51,7 @@ class _ParentsMainState extends State<ParentsMain> {
     List<Map<String, dynamic>> navItems = [
       {'icon': Icons.home, 'name': 'Home'},
       {'icon': Icons.directions_run, 'name': 'Atividades'},
-      {'icon': Icons.monitor, 'name': 'Monitoramento'},
+      {'icon': Icons.monitor, 'name': 'Monitorar'},
       {'icon': Icons.person, 'name': 'Perfil'},
     ];
 

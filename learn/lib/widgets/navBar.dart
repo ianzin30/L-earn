@@ -21,18 +21,35 @@ class LearnNavBar extends StatelessWidget {
       return BottomNavigationBarItem(
         icon: Icon(item['icon'] as IconData),
         label: item['name'] as String,
-        // You can also add 'activeIcon' property if needed
       );
     }).toList();
 
-    return BottomNavigationBar(
-      items: bottomNavBarItems,
-      currentIndex: selectedIndex,
-      onTap: onItemTapped,
-      selectedItemColor: selectedItemColor ?? Theme.of(context).colorScheme.secondary,
-      unselectedItemColor: unselectedItemColor ?? Colors.grey,
-      type: BottomNavigationBarType.fixed,
-      elevation: 0, // Customize or remove elevation
+    return Container(
+      decoration: const BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.all(Radius.circular(14)),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black12, 
+            spreadRadius: 0.0,
+            blurRadius: 10.0,
+            offset: Offset(0,-1),
+          )
+        ],
+      ),
+      margin: const EdgeInsets.all(10),
+      child : ClipRRect(
+        borderRadius: const BorderRadius.all(Radius.circular(14)),
+        child: BottomNavigationBar(
+          items: bottomNavBarItems,
+          currentIndex: selectedIndex,
+          onTap: onItemTapped,
+          selectedItemColor: selectedItemColor ?? Theme.of(context).colorScheme.secondary,
+          unselectedItemColor: unselectedItemColor ?? Colors.grey,
+          type: BottomNavigationBarType.fixed,
+          elevation: 0
+        ),
+      ),
     );
   }
 }
