@@ -14,11 +14,20 @@ class ChildrenMain extends StatefulWidget {
 class _ChildrenMainState extends State<ChildrenMain> {
   int _selectedIndex = 0;
   PageController _pageController = PageController();
+  ValueNotifier<bool> isAppBarRounded = ValueNotifier(true);
 
   @override
   void initState() {
     super.initState();
     _pageController = PageController(initialPage: _selectedIndex);
+  
+    _pageController.addListener(() {
+      if (_pageController.page != _pageController.page?.floor()) {
+        isAppBarRounded.value = false;
+      } else {
+        isAppBarRounded.value = true;
+      }
+    });
   }
 
   @override
@@ -41,8 +50,8 @@ class _ChildrenMainState extends State<ChildrenMain> {
   @override
   Widget build(BuildContext context) {
     List<Widget> _pageOptions = [
-      ChildrenHomePage(),
-      ChildrenActivitiesPage(),
+      ChildrenHomePage(isRounded: isAppBarRounded),
+      ChildrenActivitiesPage(isRounded: isAppBarRounded),
       MascotPage(),
     ];
 
