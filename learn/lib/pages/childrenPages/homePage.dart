@@ -6,10 +6,10 @@ class ChildrenHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: LearnAppBar(
-        title: 'Atividades',
+        title: 'Home',
       ),
       body: Center(
-        child: Text('Atividades Content'),
+        child: Text('Página da Home das Crianças'),
       ),
     );
   }

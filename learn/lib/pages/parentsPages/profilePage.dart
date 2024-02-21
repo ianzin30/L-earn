@@ -6,10 +6,10 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: LearnAppBar(
-        title: 'Home',
+        title: 'Perfil',
       ),
       body: Center(
-        child: Text('Home Content'),
+        child: Text('Página do Perifl dos Pais'),
       ),
     );
   }

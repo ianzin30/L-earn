@@ -6,10 +6,10 @@ class MonitorigPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: LearnAppBar(
-        title: 'Home',
+        title: 'Monitoramento',
       ),
       body: Center(
-        child: Text('Home Content'),
+        child: Text('Página de Monitoramento'),
       ),
     );
   }

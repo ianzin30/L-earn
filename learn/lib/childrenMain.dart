@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '/widgets/appBar.dart';
+import 'package:flutter_iconify/flutter_iconify.dart';
+
 import '/widgets/navBar.dart';
 import '/pages/childrenPages/homePage.dart';
 import '/pages/childrenPages/activitiesPage.dart';
@@ -30,7 +31,11 @@ class _ChildrenMainState extends State<ChildrenMain> {
     setState(() {
       _selectedIndex = index;
     });
-    _pageController.jumpToPage(index);
+    _pageController.animateToPage(
+      index,
+      duration: Duration(milliseconds: 500),
+      curve: Curves.ease,
+    );
   }
 
   @override
@@ -38,18 +43,16 @@ class _ChildrenMainState extends State<ChildrenMain> {
     List<Widget> _pageOptions = [
       ChildrenHomePage(),
       ChildrenActivitiesPage(),
-      MascotPage(), // MascotPage não terá AppBar ou NavBar
+      MascotPage(),
     ];
 
-    // Configuração da LearnNavBar com base nos ícones e textos desejados
     List<Map<String, dynamic>> navItems = [
       {'icon': Icons.home, 'name': 'Home'},
       {'icon': Icons.gamepad, 'name': 'Atividades'},
-      // O MascotPage não aparece na NavBar
+      {'icon': Icons.network_ping_outlined, 'name': 'Mascote'		}
     ];
 
     return Scaffold(
-      appBar: _selectedIndex != 2 ? LearnAppBar(title: navItems[_selectedIndex]['name']) : null, // Esconde a AppBar na página do mascote
       body: PageView(
         controller: _pageController,
         onPageChanged: (index) {
@@ -59,7 +62,7 @@ class _ChildrenMainState extends State<ChildrenMain> {
         },
         children: _pageOptions,
       ),
-      bottomNavigationBar: _selectedIndex != 2 ? LearnNavBar( // Esconde a NavBar na página do mascote
+      bottomNavigationBar: _selectedIndex != 2 ? LearnNavBar( 
         selectedIndex: _selectedIndex,
         onItemTapped: _onItemTapped,
         navItems: navItems,

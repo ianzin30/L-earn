@@ -32,7 +32,11 @@ class _ParentsMainState extends State<ParentsMain> {
     setState(() {
       _selectedIndex = index;
     });
-    _pageController.jumpToPage(index);
+    _pageController.animateToPage(
+      index,
+      duration: Duration(milliseconds: 500),
+      curve: Curves.ease,
+    ); 
   }
 
   @override
@@ -40,15 +44,15 @@ class _ParentsMainState extends State<ParentsMain> {
     List<Widget> _pageOptions = [
       ParentsHPage(),
       ParentsActivitiesPage(),
-      ProfilePage(),
-      MonitorigPage()
+      MonitorigPage(),
+      ProfilePage()
     ];
 
     List<Map<String, dynamic>> navItems = [
       {'icon': Icons.home, 'name': 'Home'},
-      {'icon': Icons.directions_run, 'name': 'Activities'},
-      {'icon': Icons.person, 'name': 'Profile'},
-      {'icon': Icons.monitor, 'name': 'Monitoring'},
+      {'icon': Icons.directions_run, 'name': 'Atividades'},
+      {'icon': Icons.monitor, 'name': 'Monitoramento'},
+      {'icon': Icons.person, 'name': 'Perfil'},
     ];
 
     return Scaffold(
@@ -61,7 +65,7 @@ class _ParentsMainState extends State<ParentsMain> {
         },
         children: _pageOptions,
       ),
-      bottomNavigationBar: LearnNavBar( // A NavBar é definida aqui com os itens necessários
+      bottomNavigationBar: LearnNavBar(
         selectedIndex: _selectedIndex,
         onItemTapped: _onItemTapped,
         navItems: navItems,

@@ -16,7 +16,7 @@ class _LoginPageState extends State<LoginPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Image.asset('assets/images/appImages/logo.png', height: 120), // Substitua pelo caminho do seu logotipo
+            Image.asset('assets/images/appImages/icon.png', height: 120), // Substitua pelo caminho do seu logotipo
             SizedBox(height: 48),
             Text(
               'Bem-vindo à Soldi',

@@ -9,7 +9,7 @@ class ParentsHPage extends StatelessWidget {
         title: 'Home',
       ),
       body: Center(
-        child: Text('Home Content'),
+        child: Text('Home Page dos Pais'),
       ),
     );
   }
