@@ -18,7 +18,7 @@ class LearnNavBar extends StatelessWidget {
       return BottomNavigationBarItem(
         icon: Image.asset(
           'assets/images/appIcons/icon-$iconName-${selectedIndex == navItems.indexOf(item) ? 'select' : 'default'}.png',
-          width: 24,
+          //width: 24,
           height: 24,
         ),
         label: item['name'] as String,
