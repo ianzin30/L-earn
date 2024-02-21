@@ -67,8 +67,17 @@ flutter:
   - ./assets/images/appImages/icon.png
   - ./assets/images/mascote/background.png
   - ./assets/images/mascote/mascote.png
-  - ./assets/mascote.png
-
+  - ./assets/images/appIcons/icon-atividades-default.png
+  - ./assets/images/appIcons/icon-atividades-select.png
+  - ./assets/images/appIcons/icon-home-default.png
+  - ./assets/images/appIcons/icon-home-select.png
+  - ./assets/images/appIcons/icon-mascote-default.png
+  - ./assets/images/appIcons/icon-mascote-select.png
+  - ./assets/images/appIcons/icon-monitorar-default.png
+  - ./assets/images/appIcons/icon-monitorar-select.png
+  - ./assets/images/appIcons/icon-perfil-default.png
+  - ./assets/images/appIcons/icon-perfil-select.png
+  
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
