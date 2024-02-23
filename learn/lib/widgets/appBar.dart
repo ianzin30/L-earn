@@ -1,73 +1,49 @@
 import 'package:flutter/material.dart';
 
 class LearnAppBar extends StatelessWidget implements PreferredSizeWidget {
-  final String title;
-  final List<Widget>? actions;
-  final Widget? leading;
+  final List<Widget> children;
+  final double pagePosition;
+  final int pageIndex;
 
   LearnAppBar({
-    required this.title,
-    this.actions,
-    this.leading,
+    required this.children,
+    required this.pagePosition,
+    required this.pageIndex
   });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    bool isRounded = pagePosition == pagePosition.floorToDouble();
+    double pageOffset = pagePosition - pageIndex;
+    Alignment gradientStart = Alignment(-pageOffset, -1.0);
+    Alignment gradientEnd = Alignment(pageOffset, 1.0);
+
+    return AnimatedContainer(
+      duration: const Duration(milliseconds: 300),
       height: preferredSize.height,
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
+          begin: gradientStart,
+          end: gradientEnd,
           colors: [
-            Color(0xFF7A7FFF), // Cor mais clara no início do gradiente
-            Color(0xFF040862), // Cor mais escura no final do gradiente
+            Color(0xFF7A7FFF),
+            Color(0xFF040862),
           ],
         ),
-        borderRadius: BorderRadius.vertical(
-          bottom: Radius.circular(50), // Bordas arredondadas na parte inferior
-        ),
+        borderRadius: isRounded
+            ? BorderRadius.vertical(bottom: Radius.circular(50))
+            : BorderRadius.zero,
       ),
       child: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            if (leading != null)
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  leading!,
-                  Expanded(
-                    child: Text(
-                      title,
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                      ),
-                    ),
-                  ),
-                  ...?actions ?? [SizedBox(width: 48)], // Spacer for alignment
-                ],
-              ),
-            if (leading == null)
-              Center(
-                child: Text(
-                  title,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
-                  ),
-                ),
-              ),
-          ],
+          children: children,
         ),
       ),
     );
   }
 
+
   @override
-  Size get preferredSize => Size.fromHeight(200); // Altura personalizada para a AppBar
+  Size get preferredSize => Size.fromHeight(200);
 }

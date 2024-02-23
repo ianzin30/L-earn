@@ -2,6 +2,13 @@ import 'package:flutter/material.dart';
 import '/widgets/mascotPopUp.dart';
 
 class MascotPage extends StatelessWidget {
+
+  final PageController pageController;
+
+  MascotPage({
+    required this.pageController,
+  });
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -9,7 +16,11 @@ class MascotPage extends StatelessWidget {
         leading: IconButton(
           icon: Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () {
-            Navigator.of(context).pop(); // Volta para a HomePage da criança
+            pageController.animateToPage(
+              0,
+              duration: Duration(milliseconds: 500),
+              curve: Curves.ease,
+            );
           },
         ),
         backgroundColor: Colors.transparent,
@@ -30,7 +41,6 @@ class MascotPage extends StatelessWidget {
               width: MediaQuery.of(context).size.width * 0.6, // ajuste conforme necessário
             ),
           ),
-          // Aqui adicionaremos a NavBar lateral
         ],
       ),
       floatingActionButton: FloatingActionButton(
@@ -40,8 +50,11 @@ class MascotPage extends StatelessWidget {
             builder: (BuildContext context) {
               return MascotPopUp(
                 onStartPressed: () {
-                  // Aqui você pode adicionar a lógica que acontece quando o botão Iniciar é pressionado
-                  Navigator.of(context).pop(); // Fecha o PopUp
+                  pageController.animateToPage(
+                    1,
+                    duration: Duration(milliseconds: 500),
+                    curve: Curves.ease,
+                  );
                 },
               );
             },

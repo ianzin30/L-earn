@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_iconify/flutter_iconify.dart';
-
 import '/widgets/navBar.dart';
 import '/pages/childrenPages/homePage.dart';
 import '/pages/childrenPages/activitiesPage.dart';
@@ -14,6 +12,7 @@ class ChildrenMain extends StatefulWidget {
 class _ChildrenMainState extends State<ChildrenMain> {
   int _selectedIndex = 0;
   PageController _pageController = PageController();
+  ValueNotifier<double> pagePosition = ValueNotifier(0.0);
 
   @override
   void initState() {
@@ -41,9 +40,9 @@ class _ChildrenMainState extends State<ChildrenMain> {
   @override
   Widget build(BuildContext context) {
     List<Widget> _pageOptions = [
-      ChildrenHomePage(),
-      ChildrenActivitiesPage(),
-      MascotPage(),
+      ChildrenHomePage(pagePosition: pagePosition),
+      ChildrenActivitiesPage(pagePosition: pagePosition),
+      MascotPage(pageController: _pageController),
     ];
 
     List<Map<String, dynamic>> navItems = [

@@ -18,7 +18,6 @@ class LearnNavBar extends StatelessWidget {
       return BottomNavigationBarItem(
         icon: Image.asset(
           'assets/images/appIcons/icon-$iconName-${selectedIndex == navItems.indexOf(item) ? 'select' : 'default'}.png',
-          //width: 24,
           height: 24,
         ),
         label: item['name'] as String,
@@ -26,7 +25,7 @@ class LearnNavBar extends StatelessWidget {
     }).toList();
 
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: Colors.white, // Define a cor do fundo da NavBar
         borderRadius: BorderRadius.all(Radius.circular(14)), // Bordas arredondadas
         boxShadow: [
@@ -38,9 +37,9 @@ class LearnNavBar extends StatelessWidget {
           ),
         ],
       ),
-      margin: EdgeInsets.all(10), // Margem ao redor da NavBar
+      margin: const EdgeInsets.all(10), // Margem ao redor da NavBar
       child: ClipRRect(
-        borderRadius: BorderRadius.all(Radius.circular(14)), // Bordas arredondadas
+        borderRadius: const BorderRadius.all(Radius.circular(14)), // Bordas arredondadas
         child: BottomNavigationBar(
           items: bottomNavBarItems,
           currentIndex: selectedIndex,
