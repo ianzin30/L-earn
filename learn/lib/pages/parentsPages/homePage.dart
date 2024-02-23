@@ -2,13 +2,24 @@ import 'package:flutter/material.dart';
 import '/widgets/appBar.dart';
 
 class ParentsHPage extends StatelessWidget {
+  final ValueNotifier<double> pagePosition;
+
+  ParentsHPage({
+    required this.pagePosition
+  });
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: LearnAppBar(
-        title: 'Home',
+        pageIndex: 0,
+        pagePosition: pagePosition.value,
+        children: const [
+          Text('Home', style: TextStyle(color: Colors.white)),
+        ] 
       ),
-      body: Center(
+      body: const Center(
         child: Text('Home Page dos Pais'),
       ),
     );
