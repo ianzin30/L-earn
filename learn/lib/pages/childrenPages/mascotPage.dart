@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '/widgets/mascotPopUp.dart';
+import '/widgets/mascotProgressBar.dart';
 
 class MascotPage extends StatelessWidget {
 
@@ -28,6 +29,7 @@ class MascotPage extends StatelessWidget {
       ),
       body: Stack(
         children: [
+          MascotProgressBar(pontuation: 8000, mascotName: "Pedro"),
           Align(
             alignment: Alignment.bottomCenter,
             child: Image.asset(
