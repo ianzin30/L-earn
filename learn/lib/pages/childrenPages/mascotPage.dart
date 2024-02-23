@@ -29,11 +29,15 @@ class MascotPage extends StatelessWidget {
       ),
       body: Stack(
         children: [
-          MascotProgressBar(pontuation: 9999, mascotName: "Pedro"),
+          Container(
+             child :MascotProgressBar(pontuation: 200, mascotName: "Pedro"),
+             padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0)
+
+          ),
           Align(
             alignment: Alignment.bottomCenter,
             child: Image.asset(
-              'assets/images/mascote/background.png',
+              'assets/images/mascote/backgroundLarge.png',
               fit: BoxFit.cover,
             ),
           ),

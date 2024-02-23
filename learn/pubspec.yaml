@@ -66,6 +66,7 @@ flutter:
   assets:
   - ./assets/images/appImages/icon.png
   - ./assets/images/mascote/background.png
+  - ./assets/images/mascote/backgroundLarge.png
   - ./assets/images/mascote/mascote.png
   - ./assets/images/appIcons/icon-atividades-default.png
   - ./assets/images/appIcons/icon-atividades-select.png
@@ -78,6 +79,7 @@ flutter:
   - ./assets/images/appIcons/icon-perfil-default.png
   - ./assets/images/appIcons/icon-perfil-select.png
   - ./assets/images/appIcons/progressField.png
+  - ./assets/images/appIcons/progressFieldWithStars.png
   - ./assets/images/appIcons/progressStar.png
   
 
