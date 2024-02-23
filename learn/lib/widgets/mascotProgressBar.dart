@@ -22,16 +22,17 @@ class MascotProgressBar extends StatelessWidget {
   };
 
   final Map<String, List<Color>> boxesCollors = {
-    'Bronze' : [const Color(0xFF562400),const Color(0xFFBF5100), const Color(0xFFFFD0AE)],
-    'Prata'  : [const Color(0xFF49454F),const Color(0xFF848484), const Color(0xFFD9D9D9)],
-    'Ouro'   : [const Color(0xFFD07904),const Color(0xFFDDC235), const Color(0xFFFFF3AF)]
+    'Bronze' : [ const Color(0xFFFFD0AE),const Color(0xFFBF5100),const Color(0xFF562400) ],
+    'Prata'  : [const Color(0xFFD9D9D9),const Color(0xFF848484),const Color(0xFF49454F) ],
+    'Ouro'   : [const Color(0xFFFFF3AF),const Color(0xFFDDC235), const Color(0xFFD07904)]
   };
 
   final Map<String, Color> levelColors = {
-    'Bronze': const Color(0xFFBF5100),
-    'Prata' : const Color(0xFF848484),
-    'Ouro'  : const Color(0xFFDDC235),
+    'Bronze': const Color(0xFF562400),
+    'Prata' : const Color(0xFF49454F),
+    'Ouro'  : const Color(0xFFD07904),
   };
+
 
     @override
   Widget build(BuildContext context) {
@@ -45,6 +46,7 @@ class MascotProgressBar extends StatelessWidget {
     var progress = pontuation / nextLevelPontuation;
     final List<Color> defaultGradientCollors = [const Color(0xFF7A7FFF),const Color(0xFF040862)];
     final List<Color> collorsGradients = boxesCollors[currentLevel['level']] ?? defaultGradientCollors;
+    final Color fontCollor = levelColors[currentLevel['level']] ?? Colors.white;
 
     return Container(
       padding: const EdgeInsets.all(16),
@@ -69,15 +71,15 @@ class MascotProgressBar extends StatelessWidget {
                 children : [
                   Text(
                     mascotName,
-                    style: const TextStyle(color: Colors.white, fontSize: 18),
+                    style: TextStyle(color: fontCollor, fontSize: 18),
                   ),
                   Text(
                     '${currentLevel['level']} ${currentLevel['class']}',
-                    style: const TextStyle(color: Colors.white, fontSize: 16),
+                    style: TextStyle(color: fontCollor, fontSize: 16),
                   ),
                   Text(
                     '$pontuation / $nextLevelPontuation XP',
-                    style: const TextStyle(color: Colors.white, fontSize: 10),
+                    style: TextStyle(color: fontCollor, fontSize: 10),
                   ),
                 ],
             ),
