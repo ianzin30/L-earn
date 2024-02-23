@@ -35,9 +35,10 @@ class MascotProgressBar extends StatelessWidget {
 
     @override
   Widget build(BuildContext context) {
-    var currentLevel = getValues();
-    var progressColor = levelColors[currentLevel['level']] ?? Colors.blue;
-    var nextLevelPontuation = levelsPontuations.keys.firstWhere(
+    final currentLevel = getValues();
+    //final progressColor = levelColors[currentLevel['level']] ?? Colors.blue;
+    final progressColor = Colors.white ?? Colors.blue;
+    final nextLevelPontuation = levelsPontuations.keys.firstWhere(
       (k) => k > pontuation,
       orElse: () => pontuation,
     );
@@ -59,29 +60,44 @@ class MascotProgressBar extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            mascotName,
-            style: TextStyle(color: Colors.white, fontSize: 18),
-          ),
-          Text(
-            '${currentLevel['level']} ${currentLevel['class']}',
-            style: TextStyle(color: Colors.white, fontSize: 16),
-          ),
-          Text(
-            '$pontuation / $nextLevelPontuation XP',
-            style: TextStyle(color: Colors.white, fontSize: 10),
-          ),
-          SizedBox(height: 8),
-          LinearProgressIndicator(
-            value: progress,
-            backgroundColor: progressColor.withAlpha(50),
-            valueColor: AlwaysStoppedAnimation<Color>(progressColor),
-          ),
-          SizedBox(height: 8),
           Row(
-            children: [
-            ],
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children : [
+            Column( // Texto do nome, nível e XP
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+                children : [
+                  Text(
+                    mascotName,
+                    style: const TextStyle(color: Colors.white, fontSize: 18),
+                  ),
+                  Text(
+                    '${currentLevel['level']} ${currentLevel['class']}',
+                    style: const TextStyle(color: Colors.white, fontSize: 16),
+                  ),
+                  Text(
+                    '$pontuation / $nextLevelPontuation XP',
+                    style: const TextStyle(color: Colors.white, fontSize: 10),
+                  ),
+                ],
+            ),
+            const SizedBox(height: 8),
+            Row(
+             children: [
+                 Image.asset(
+                   'assets/images/appIcons/progressField.png'
+                 ),
+             ],
           ),
+          ],
+          ),
+          
+          const SizedBox(height: 8),
+            LinearProgressIndicator(
+              value: progress,
+              backgroundColor: progressColor.withAlpha(50),
+              valueColor: AlwaysStoppedAnimation<Color>(progressColor),
+            ),
         ],
       ),
     );
