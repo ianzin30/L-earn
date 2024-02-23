@@ -77,6 +77,8 @@ flutter:
   - ./assets/images/appIcons/icon-monitorar-select.png
   - ./assets/images/appIcons/icon-perfil-default.png
   - ./assets/images/appIcons/icon-perfil-select.png
+  - ./assets/images/appIcons/progressField.png
+  - ./assets/images/appIcons/progressStar.png
   
 
   # An image asset can refer to one or more resolution-specific "variants", see
