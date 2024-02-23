@@ -2,20 +2,23 @@ import 'package:flutter/material.dart';
 import '/widgets/appBar.dart';
 
 class MonitorigPage extends StatelessWidget {
-  final ValueNotifier<bool> isRounded;
+  final ValueNotifier<double> pagePosition;
 
   MonitorigPage({
-    required this.isRounded
+    required this.pagePosition
   });
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: LearnAppBar(
-        title: 'Monitoramento',
-        isAppBarRounded: isRounded,
+        pageIndex: 2,
+        pagePosition: pagePosition.value,
+        children: const [
+          Text('Monitoramento', style: TextStyle(color: Colors.white)),
+        ] 
       ),
-      body: Center(
+      body: const Center(
         child: Text('Página de Monitoramento'),
       ),
     );

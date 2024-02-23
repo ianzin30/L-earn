@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import '/widgets/appBar.dart';
 
 class ParentsHPage extends StatelessWidget {
-  final ValueNotifier<bool> isRounded;
+  final ValueNotifier<double> pagePosition;
 
   ParentsHPage({
-    required this.isRounded
+    required this.pagePosition
   });
 
 
@@ -13,10 +13,13 @@ class ParentsHPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: LearnAppBar(
-        title: 'Home',
-        isAppBarRounded: isRounded,
+        pageIndex: 0,
+        pagePosition: pagePosition.value,
+        children: const [
+          Text('Home', style: TextStyle(color: Colors.white)),
+        ] 
       ),
-      body: Center(
+      body: const Center(
         child: Text('Home Page dos Pais'),
       ),
     );

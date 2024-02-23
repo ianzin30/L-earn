@@ -15,18 +15,17 @@ class ParentsMain extends StatefulWidget {
 class _ParentsMainState extends State<ParentsMain> {
   int _selectedIndex = 0;
   PageController _pageController = PageController();
-  ValueNotifier<bool> isAppBarRounded = ValueNotifier(true);
+  ValueNotifier<double> pagePosition = ValueNotifier(0.0);
 
   @override
   void initState() {
     super.initState();
     _pageController = PageController(initialPage: _selectedIndex);
-    
     _pageController.addListener(() {
-      if (_pageController.page != _pageController.page?.floor()) {
-        isAppBarRounded.value = false;
-      } else {
-        isAppBarRounded.value = true;
+      if (pagePosition.value != _pageController.page) {
+        setState(() {
+          pagePosition.value = _pageController.page!;
+        });
       }
     });
   }
@@ -43,7 +42,7 @@ class _ParentsMainState extends State<ParentsMain> {
     });
     _pageController.animateToPage(
       index,
-      duration: Duration(milliseconds: 500),
+      duration: const Duration(milliseconds: 500),
       curve: Curves.ease,
     ); 
   }
@@ -51,10 +50,10 @@ class _ParentsMainState extends State<ParentsMain> {
   @override
   Widget build(BuildContext context) {
     List<Widget> _pageOptions = [
-      ParentsHPage(isRounded: isAppBarRounded),
-      ParentsActivitiesPage(isRounded: isAppBarRounded),
-      MonitorigPage(isRounded: isAppBarRounded),
-      ProfilePage(isRounded: isAppBarRounded)
+      ParentsHPage(pagePosition: pagePosition),
+      ParentsActivitiesPage(pagePosition: pagePosition),
+      MonitorigPage(pagePosition: pagePosition),
+      ProfilePage(pagePosition: pagePosition)
     ];
 
     List<Map<String, dynamic>> navItems = [

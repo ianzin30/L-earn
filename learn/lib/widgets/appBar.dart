@@ -1,79 +1,49 @@
 import 'package:flutter/material.dart';
 
 class LearnAppBar extends StatelessWidget implements PreferredSizeWidget {
-  final String title;
-  final List<Widget>? actions;
-  final Widget? leading;
-  final ValueNotifier<bool> isAppBarRounded;
+  final List<Widget> children;
+  final double pagePosition;
+  final int pageIndex;
 
   LearnAppBar({
-    required this.title,
-    this.actions,
-    this.leading,
-    required this.isAppBarRounded,
+    required this.children,
+    required this.pagePosition,
+    required this.pageIndex
   });
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedBuilder(
-      animation: isAppBarRounded,
-      builder: (_, __) => AnimatedContainer(
-        duration: const Duration(milliseconds: 300),
-        height: preferredSize.height,
-        decoration: BoxDecoration(
-          gradient: const LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [
-              Color(0xFF7A7FFF),
-              Color(0xFF040862),
-            ],
-          ),
-          borderRadius: BorderRadius.vertical(
-            bottom: Radius.circular(isAppBarRounded.value ? 50 : 0),
-          ),
+    bool isRounded = pagePosition == pagePosition.floorToDouble();
+    double pageOffset = pagePosition - pageIndex;
+    Alignment gradientStart = Alignment(-pageOffset, -1.0);
+    Alignment gradientEnd = Alignment(pageOffset, 1.0);
+
+    return AnimatedContainer(
+      duration: const Duration(milliseconds: 300),
+      height: preferredSize.height,
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: gradientStart,
+          end: gradientEnd,
+          colors: [
+            Color(0xFF7A7FFF),
+            Color(0xFF040862),
+          ],
         ),
-        child: SafeArea(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              if (leading != null)
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    leading!,
-                    Expanded(
-                      child: Text(
-                        title,
-                        textAlign: TextAlign.center,
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20,
-                        ),
-                      ),
-                    ),
-                    ...actions ?? [SizedBox(width: 48)],
-                  ],
-                ),
-              if (leading == null)
-                Center(
-                  child: Text(
-                    title,
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,
-                    ),
-                  ),
-                ),
-            ],
-          ),
+        borderRadius: isRounded
+            ? BorderRadius.vertical(bottom: Radius.circular(50))
+            : BorderRadius.zero,
+      ),
+      child: SafeArea(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: children,
         ),
       ),
     );
   }
 
+
   @override
-  Size get preferredSize => const Size.fromHeight(200);
+  Size get preferredSize => Size.fromHeight(200);
 }
