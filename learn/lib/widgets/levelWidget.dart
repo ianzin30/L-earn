@@ -2,15 +2,14 @@ import 'package:flutter/material.dart';
 import '/widgets/animatedProgressBar.dart';
 import '/utils/levelBarUtils.dart';
 
-class MascotProgressBar extends StatelessWidget {
+class LevelWidget extends StatelessWidget {
   final int pontuation;
   final String mascotName;
 
-  MascotProgressBar({
+  LevelWidget({
     required this.pontuation,
     required this.mascotName
   });
-
 
     @override
   Widget build(BuildContext context) {
@@ -19,9 +18,9 @@ class MascotProgressBar extends StatelessWidget {
       (k) => k > pontuation,
       orElse: () => pontuation,
     );
-    final List<Color> defaultGradientCollors = [const Color(0xFF7A7FFF),const Color(0xFF040862)];
-    final List<Color> collorsGradients = boxesCollors[currentLevel['level']] ?? defaultGradientCollors;
-    final Color fontCollor = levelColors[currentLevel['level']] ?? Colors.white;
+    final List<Color> defaultGradientCollors = [Colors.white,Colors.white];
+    final List<Color> collorsGradients = defaultGradientCollors;
+    final Color fontCollor =  Color(0xFF040862);
 
     return Container(
       padding: const EdgeInsets.all(16),
@@ -64,7 +63,7 @@ class MascotProgressBar extends StatelessWidget {
               children: [
                  Center(
                    child: Image.asset(
-                     'assets/images/appIcons/progressFieldWithStars.png',
+                     'assets/images/appIcons/progressFieldWithStarsBlue.png',
                      width: 72,
                    ),
                  ),
@@ -72,7 +71,7 @@ class MascotProgressBar extends StatelessWidget {
                     padding: const EdgeInsets.only(bottom: 5), 
                     child: Text(
                      '${currentLevel['class']}',
-                     style: TextStyle(color: Colors.white, fontSize:32),
+                     style: TextStyle(color: Color(0xFF040862), fontSize:32),
                     )
                  )
               ],
@@ -84,7 +83,7 @@ class MascotProgressBar extends StatelessWidget {
             AnimatedProgressBar(
               progress: pontuation.floorToDouble(), 
               maxProgress: nextLevelPontuation.floorToDouble(),
-              barColor: Colors.white,
+              barColor: Color(0xFF040862),
             ),
         ],
       ),

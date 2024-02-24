@@ -80,6 +80,7 @@ flutter:
   - ./assets/images/appIcons/icon-perfil-select.png
   - ./assets/images/appIcons/progressField.png
   - ./assets/images/appIcons/progressFieldWithStars.png
+  - ./assets/images/appIcons/progressFieldWithStarsBlue.png
   - ./assets/images/appIcons/progressStar.png
   
 
