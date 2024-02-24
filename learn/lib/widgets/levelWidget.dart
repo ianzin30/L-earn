@@ -25,12 +25,8 @@ class LevelWidget extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        gradient: LinearGradient(
-          colors: collorsGradients,
-          begin: Alignment.centerLeft,
-          end: Alignment.centerRight,
-        ),
-        borderRadius: BorderRadius.circular(25), // Arredondamento das bordas
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
             color: fontCollor,
@@ -51,17 +47,17 @@ class LevelWidget extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
                 children : [
-                  Text(
-                    mascotName,
-                    style: TextStyle(color: fontCollor, fontSize: 18),
+                  const Text(
+                    "Nível Atual",
+                    style: TextStyle(color: Color(0XFF282C93), fontSize: 12,fontFamily: 'Fieldwork-Geo', fontWeight: FontWeight.w300),
                   ),
                   Text(
                     '${currentLevel['level']} ${currentLevel['class']}',
-                    style: TextStyle(color: fontCollor, fontSize: 16),
+                    style: const TextStyle(color: Color(0XFF282C93), fontSize: 20 ,fontFamily: 'Fieldwork-Geo', fontWeight: FontWeight.w600),
                   ),
                   Text(
-                    '$pontuation / $nextLevelPontuation XP',
-                    style: TextStyle(color: fontCollor, fontSize: 10),
+                    '$pontuation XP/$nextLevelPontuation XP',
+                    style: const TextStyle(color: Color(0XFF282C93), fontSize: 10, fontFamily: 'Fieldwork-Geo', fontWeight: FontWeight.w300),
                   ),
                 ],
             ),
@@ -79,7 +75,7 @@ class LevelWidget extends StatelessWidget {
                     padding: const EdgeInsets.only(bottom: 5), 
                     child: Text(
                      '${currentLevel['class']}',
-                     style: TextStyle(color: Color(0xFF040862), fontSize:32),
+                     style: TextStyle(color: Color(0xFF040862), fontSize:32, fontFamily: 'Fieldwork-Geo', fontWeight: FontWeight.w900),
                     )
                  )
               ],
