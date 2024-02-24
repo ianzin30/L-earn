@@ -1,24 +1,27 @@
 import 'package:flutter/material.dart';
+import '/widgets/appBar.dart';
 
-class GenericPage extends StatelessWidget {
-  final String pageName;
+class GenericPageTemplate extends StatelessWidget {
+  final ValueNotifier<double> pagePosition;
 
-  GenericPage({required this.pageName});
+  GenericPageTemplate({
+    required this.pagePosition
+  });
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(pageName),
-        elevation: 0, // Customize elevation or remove the shadow
+      appBar: LearnAppBar(
+        pageIndex: 0,
+        pagePosition: pagePosition.value,
+        children: const [
+          Text('Generic Page Template', style: TextStyle(color: Colors.white)),
+        ] 
       ),
-      body: Center(
-        child: Text(
-          '$pageName Content',
-          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-        ),
+      body: const Center(
+        child: Text('Generic Page Template'),
       ),
-      // O LearnNavBar será movido para o widget ParentsMain
     );
   }
 }
