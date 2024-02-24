@@ -18,6 +18,13 @@ class _ChildrenMainState extends State<ChildrenMain> {
   void initState() {
     super.initState();
     _pageController = PageController(initialPage: _selectedIndex);
+    _pageController.addListener(() {
+      if (pagePosition.value != _pageController.page) {
+        setState(() {
+          pagePosition.value = _pageController.page!;
+        });
+      }
+    });
   }
 
   @override

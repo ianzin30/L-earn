@@ -15,9 +15,9 @@ class MascotProgressBar extends StatelessWidget {
     500   : {'level' : 'Bronze', 'class' : 'III'},
     1000  : {'level' : 'Prata' , 'class' : 'I'  },
     2000  : {'level' : 'Prata' , 'class' : 'II' },
-    3000  : {'level' : 'Prata' , 'class' : 'III'},
-    4500  : {'level' : 'Ouro'  , 'class' : 'I'  },
-    7000  : {'level' : 'Ouro'  , 'class' : 'II' },
+    4000  : {'level' : 'Prata' , 'class' : 'III'},
+    6000  : {'level' : 'Ouro'  , 'class' : 'I'  },
+    8000  : {'level' : 'Ouro'  , 'class' : 'II' },
     10000 : {'level' : 'Ouro'  , 'class' : 'III'}
   };
 
@@ -84,12 +84,23 @@ class MascotProgressBar extends StatelessWidget {
                 ],
             ),
             const SizedBox(height: 8),
-            Row(
-             children: [
-                 Image.asset(
-                   'assets/images/appIcons/progressField.png'
+            Stack(
+              alignment: Alignment.center,
+              children: [
+                 Center(
+                   child: Image.asset(
+                     'assets/images/appIcons/progressFieldWithStars.png',
+                     width: 72,
+                   ),
                  ),
-             ],
+                 Container(
+                    padding: const EdgeInsets.only(bottom: 5), 
+                    child: Text(
+                     '${currentLevel['class']}',
+                     style: TextStyle(color: Colors.white, fontSize:32),
+                    )
+                 )
+              ],
           ),
           ],
           ),
