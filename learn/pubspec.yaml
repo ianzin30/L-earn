@@ -68,6 +68,10 @@ flutter:
   - ./assets/images/mascote/background.png
   - ./assets/images/mascote/backgroundLarge.png
   - ./assets/images/mascote/mascote.png
+  - ./assets/images/mascote/Loja-Button.png
+  - ./assets/images/mascote/Atividades-Button.png
+  - ./assets/images/mascote/Roupas-Button.png
+  - ./assets/images/mascote/Alimentos-Button.png
   - ./assets/images/appIcons/icon-atividades-default.png
   - ./assets/images/appIcons/icon-atividades-select.png
   - ./assets/images/appIcons/icon-home-default.png
