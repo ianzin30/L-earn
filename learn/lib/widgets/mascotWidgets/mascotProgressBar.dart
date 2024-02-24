@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '/widgets/animatedProgressBar.dart';
 
 class MascotProgressBar extends StatelessWidget {
   final int pontuation;
@@ -106,10 +107,10 @@ class MascotProgressBar extends StatelessWidget {
           ),
           
           const SizedBox(height: 8),
-            LinearProgressIndicator(
-              value: progress,
-              backgroundColor: progressColor.withAlpha(50),
-              valueColor: AlwaysStoppedAnimation<Color>(progressColor),
+            AnimatedProgressBar(
+              progress: pontuation.floorToDouble(), 
+              maxProgress: nextLevelPontuation.floorToDouble(),
+              barColor: Colors.white,
             ),
         ],
       ),
