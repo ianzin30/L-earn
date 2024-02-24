@@ -19,7 +19,7 @@ class MascotPage extends StatelessWidget {
       body: Stack(
         children: [
           Container(
-             padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
+             padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 25.0),
              child :MascotProgressBar(pontuation: 200, mascotName: "Pedro"),
           ),
           MascoteWidget()
