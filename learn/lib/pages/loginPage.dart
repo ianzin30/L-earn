@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../widgets/boxselectorlogin.dart'; // Make sure this import is correct
+import 'childrenPages/loginChildPage.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -77,7 +78,7 @@ class _LoginPageState extends State<LoginPage> {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(30),
                       gradient: const LinearGradient(
-                         colors: [
+                        colors: [
                           Color.fromARGB(
                               255, 44, 52, 199), // Start color of the gradient
                           Color.fromARGB(
@@ -110,8 +111,12 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       onPressed: () {
                         if (userType == 'aprendiz') {
-                          Navigator.pushReplacementNamed(
-                              context, '/childrenMain');
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => LoginChildPage(),
+                            ),
+                          );
                         } else {
                           Navigator.pushReplacementNamed(
                               context, '/parentsMain');
