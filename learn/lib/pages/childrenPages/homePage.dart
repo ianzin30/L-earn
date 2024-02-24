@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '/widgets/appBar.dart';
-
+import 'package:learn/widgets/levelWidget.dart';
 class ChildrenHomePage extends StatelessWidget {
   final ValueNotifier<double> pagePosition;
 
@@ -14,8 +14,13 @@ class ChildrenHomePage extends StatelessWidget {
       appBar: LearnAppBar(
         pageIndex: 0,
         pagePosition: pagePosition.value,
-        children: const [
-          Text('Home', style: TextStyle(color: Colors.white)),
+        children:  [
+          const Text('Home', style: TextStyle(color: Colors.white)),
+          Container(
+             padding: const EdgeInsets.fromLTRB(20.0, 22.0, 20.0, 10.0),
+             child :LevelWidget(pontuation: 200, mascotName: "Pedro"),
+          )
+          
         ] 
       ),
       body: const Center(
