@@ -11,20 +11,23 @@ class ChildrenHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: LearnAppBar(
+      appBar: 
+      LearnAppBar(
         pageIndex: 0,
         pagePosition: pagePosition.value,
         children:  [
           const Text('Home', style: TextStyle(color: Colors.white)),
-          Container(
-             padding: const EdgeInsets.fromLTRB(20.0, 22.0, 20.0, 10.0),
-             child :LevelWidget(pontuation: 200, mascotName: "Pedro"),
-          )
           
         ] 
       ),
-      body: const Center(
-        child: Text('Página da Home das Crianças'),
+      body: Column(
+        children:[ 
+          Container(
+             padding: const EdgeInsets.fromLTRB(20.0, 22.0, 20.0, 10.0),
+             child :LevelWidget(pontuation: 200, mascotName: "Pedro"),
+          ),
+          const Text('Página da Home das Crianças'),
+          ]
       ),
     );
   }

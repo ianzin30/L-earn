@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '/widgets/animatedProgressBar.dart';
+import '/utils/animatedProgressBar.dart';
 import '/utils/levelBarUtils.dart';
 
 class MascotProgressBar extends StatelessWidget {
@@ -32,6 +32,14 @@ class MascotProgressBar extends StatelessWidget {
           end: Alignment.centerRight,
         ),
         borderRadius: BorderRadius.circular(25), // Arredondamento das bordas
+        boxShadow: [
+          BoxShadow(
+            color: fontCollor,
+            spreadRadius: 2.5,
+            blurRadius: 8,
+            offset: Offset(0,0),
+          )
+        ] 
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
