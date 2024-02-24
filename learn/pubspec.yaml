@@ -82,6 +82,8 @@ flutter:
   - ./assets/images/appIcons/progressFieldWithStars.png
   - ./assets/images/appIcons/progressFieldWithStarsBlue.png
   - ./assets/images/appIcons/progressStar.png
+  - ./assets/images/appIcons/trophieIcon.png
+  - ./assets/images/appIcons/awardIcon.png
 
   fonts:
   - family: Fieldwork-Geo

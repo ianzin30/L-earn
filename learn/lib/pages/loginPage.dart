@@ -98,9 +98,9 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        primary: Colors
-                            .transparent, // Background color (transparent)
-                        onSurface:
+                        backgroundColor: Colors
+                            .transparent,         // Background color (transparent)
+                        foregroundColor:
                             Colors.transparent, // Splash color (transparent)
                         shadowColor:
                             Colors.transparent, // Shadow color (transparent)
