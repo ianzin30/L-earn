@@ -54,15 +54,15 @@ class MascotProgressBar extends StatelessWidget {
                 children : [
                   Text(
                     mascotName,
-                    style: TextStyle(color: fontCollor, fontSize: 18),
+                    style: TextStyle(color: fontCollor, fontSize: 18, fontFamily: 'Fieldwork-Geo', fontWeight: FontWeight.w600),
                   ),
                   Text(
                     '${currentLevel['level']} ${currentLevel['class']}',
-                    style: TextStyle(color: fontCollor, fontSize: 16),
+                    style: TextStyle(color: fontCollor, fontSize: 16, fontFamily: 'Fieldwork-Geo', fontWeight: FontWeight.w400),
                   ),
                   Text(
                     '$pontuation / $nextLevelPontuation XP',
-                    style: TextStyle(color: fontCollor, fontSize: 10),
+                    style: TextStyle(color: fontCollor, fontSize: 10, fontFamily: 'Fieldwork-Geo', fontWeight: FontWeight.w200),
                   ),
                 ],
             ),
@@ -80,7 +80,7 @@ class MascotProgressBar extends StatelessWidget {
                     padding: const EdgeInsets.only(bottom: 5), 
                     child: Text(
                      '${currentLevel['class']}',
-                     style: TextStyle(color: Colors.white, fontSize:32),
+                     style: TextStyle(color: Colors.white, fontSize:32, fontFamily: 'Fieldwork-Geo', fontWeight: FontWeight.w900),
                     )
                  )
               ],
