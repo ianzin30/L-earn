@@ -3,6 +3,7 @@ import '/widgets/mascotWidgets/mascotPopUp.dart';
 import '/widgets/mascotWidgets/mascotProgressBar.dart';
 import '/widgets/mascotWidgets/mascote.dart';
 import '/widgets/mascotWidgets/mascotBar.dart';
+import '/widgets/mascotWidgets/mascotSideBar.dart';
 
 class MascotPage extends StatelessWidget {
 
@@ -22,7 +23,8 @@ class MascotPage extends StatelessWidget {
              padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 25.0),
              child :MascotProgressBar(pontuation: 200, mascotName: "Pedro"),
           ),
-          MascoteWidget()
+          MascoteWidget(),
+          MascotSideBar(pageController: pageController),
         ],
       ),
     );

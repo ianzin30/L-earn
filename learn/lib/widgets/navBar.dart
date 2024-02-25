@@ -52,7 +52,7 @@ class LearnNavBar extends StatelessWidget {
           selectedLabelStyle: TextStyle(color: Color(0xFF3034AD)), // Estilo do texto selecionado
           unselectedLabelStyle: TextStyle(color: Color(0xFF49454F)), // Estilo do texto não selecionado
           type: BottomNavigationBarType.fixed,
-          elevation: 0, // Remover qualquer elevação interna adicional
+          elevation: 0,
         ),
       ),
     );

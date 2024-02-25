@@ -180,12 +180,12 @@ class _LoginChildPageState extends State<LoginChildPage> {
                       ),
                       child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            primary: Colors
+                            backgroundColor: Colors
                                 .transparent, // Background color (transparent)
-                            onSurface: Colors
-                                .transparent, // Splash color (transparent)
-                            shadowColor: Colors
-                                .transparent, // Shadow color (transparent)
+                            foregroundColor:
+                                Colors.transparent, // Splash color (transparent)
+                            shadowColor:
+                                Colors.transparent, // Shadow color (transparent)
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(30),
                             ),
