@@ -32,7 +32,6 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_native_splash: ^1.2.0
-  flutter_iconify: ^1.0.0
 
 
 
@@ -64,16 +63,12 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-  - ./assets/images/appIcons/Vector.png
-  - ./assets/images/appImages/icon.png
-  - ./assets/images/appImages/ianzinho.jpg
-  - ./assets/images/mascote/background.png
-  - ./assets/images/mascote/backgroundLarge.png
-  - ./assets/images/mascote/mascote.png
-  - ./assets/images/mascote/Loja-Button.png
-  - ./assets/images/mascote/Atividades-Button.png
-  - ./assets/images/mascote/Roupas-Button.png
-  - ./assets/images/mascote/Alimentos-Button.png
+  # Icons Images
+  - ./assets/images/appIcons/icon-steak.png
+  - ./assets/images/mascote/icon-loja-default.png
+  - ./assets/images/mascote/icon-atividades-default.png
+  - ./assets/images/mascote/icon-roupas-default.png
+  - ./assets/images/mascote/icon-alimentos-default.png
   - ./assets/images/appIcons/icon-atividades-default.png
   - ./assets/images/appIcons/icon-atividades-select.png
   - ./assets/images/appIcons/icon-home-default.png
@@ -84,12 +79,19 @@ flutter:
   - ./assets/images/appIcons/icon-monitorar-select.png
   - ./assets/images/appIcons/icon-perfil-default.png
   - ./assets/images/appIcons/icon-perfil-select.png
-  - ./assets/images/appIcons/progressField.png
   - ./assets/images/appIcons/progressFieldWithStars.png
   - ./assets/images/appIcons/progressFieldWithStarsBlue.png
-  - ./assets/images/appIcons/progressStar.png
-  - ./assets/images/appIcons/trophieIcon.png
-  - ./assets/images/appIcons/awardIcon.png
+  - ./assets/images/appIcons/icon-trophie.png
+  - ./assets/images/appIcons/icon-award.png
+  # Person Images
+  - ./assets/images/appImages/ianzinho.jpg
+  # Mascot Images
+  - ./assets/images/mascote/background.png
+  - ./assets/images/mascote/backgroundLarge.png
+  - ./assets/images/mascote/mascote.png
+  # App Images
+  - ./assets/images/appImages/icon.png
+
 
   fonts:
   - family: Fieldwork-Geo

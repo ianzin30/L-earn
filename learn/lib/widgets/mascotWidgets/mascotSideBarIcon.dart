@@ -17,7 +17,7 @@ class MascotSideBarIcon extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                   Image.asset(
-                    'assets/images/mascote/$name-Button.png',
+                    'assets/images/mascote/icon-${name.toLowerCase()}-default.png',
                     height: 30,
                   ),
                   Text(name,
