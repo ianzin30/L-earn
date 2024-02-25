@@ -51,7 +51,7 @@ class AchievementsWidget extends StatelessWidget {
                           style :  TextStyle(color: Colors.white, fontSize:12, fontFamily: 'Fieldwork-Geo', fontWeight: FontWeight.w800)
                         ),
                         Image.asset(
-                          'assets/images/appIcons/awardIcon.png',
+                          'assets/images/appIcons/icon-award.png',
                           height: 24),
                         
                       ],

@@ -41,7 +41,7 @@ class AchievementIcon extends StatelessWidget {
                 child: Opacity(
                   opacity: 0.5,
                   child: Image.asset(
-                     'assets/images/appIcons/trophieIcon.png',
+                     'assets/images/appIcons/icon-trophie.png',
                      height: heigth,
                      
                     ),
@@ -67,7 +67,7 @@ class AchievementIcon extends StatelessWidget {
                     child: Row( 
                       children : [
                         Container(
-                          child: Image.asset('assets/images/appIcons/awardIcon.png',
+                          child: Image.asset('assets/images/appIcons/icon-award.png',
                           height: 15)
                         ),
                         const SizedBox(width: 3),

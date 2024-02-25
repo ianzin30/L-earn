@@ -20,7 +20,7 @@ class StreakWidget extends StatelessWidget {
         mainAxisSize: MainAxisSize.min, // To fit the content
         children: [
           Image.asset(
-            'assets/images/appIcons/Vector.png', // Use the custom image
+            'assets/images/appIcons/icon-steak.png', // Use the custom image
             color: Colors.white, // Apply a color filter if needed // Set your desired width
             height: 24, // Set your desired height
           ),
@@ -29,7 +29,9 @@ class StreakWidget extends StatelessWidget {
             'Streak de $streakDays dias', // The streak text
             style: const TextStyle(
               color: Colors.white,
-              fontSize: 14,
+              fontSize: 12,
+              fontFamily: "Fieldwork-Geo", 
+              fontWeight: FontWeight.w600,
             ),
           ),
         ],

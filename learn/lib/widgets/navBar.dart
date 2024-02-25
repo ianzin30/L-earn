@@ -45,12 +45,12 @@ class LearnNavBar extends StatelessWidget {
           currentIndex: selectedIndex,
           onTap: onItemTapped,
           backgroundColor: Colors.white, // Cor de fundo da NavBar
-          selectedItemColor: Color(0xFF3034AD), // Cor do ícone selecionado
-          unselectedItemColor: Color(0xFF49454F), // Cor do ícone não selecionado
+          selectedItemColor: const Color(0xFF3034AD), // Cor do ícone selecionado
+          unselectedItemColor: const Color(0xFF49454F), // Cor do ícone não selecionado
           showUnselectedLabels: true,
           showSelectedLabels: true,
-          selectedLabelStyle: TextStyle(color: Color(0xFF3034AD)), // Estilo do texto selecionado
-          unselectedLabelStyle: TextStyle(color: Color(0xFF49454F)), // Estilo do texto não selecionado
+          selectedLabelStyle: const TextStyle(color: Color(0xFF3034AD),fontSize: 12, fontFamily: "Fieldwork-Geo", fontWeight: FontWeight.w400), 
+          unselectedLabelStyle: const TextStyle(color: Color(0xFF49454F), fontSize: 12, fontFamily: "Fieldwork-Geo", fontWeight: FontWeight.w400), 
           type: BottomNavigationBarType.fixed,
           elevation: 0,
         ),

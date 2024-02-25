@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../widgets/boxselectorlogin.dart';
+import 'package:learn/widgets/loginEnterButton.dart';
+import 'package:learn/widgets/loginAppBar.dart';
 
 class LoginChildPage extends StatefulWidget {
   @override
@@ -56,6 +57,8 @@ class _LoginChildPageState extends State<LoginChildPage> {
 
   @override
   Widget build(BuildContext context) {
+    print(values.length);
+    print(values.join());
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(50.0),
@@ -64,23 +67,7 @@ class _LoginChildPageState extends State<LoginChildPage> {
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.02,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                Image.asset('assets/images/appImages/icon.png', height: 40),
-                const SizedBox(width: 8),
-                const Text(
-                  'Coinny',
-                  style: TextStyle(
-                    fontSize: 22,
-                    fontWeight: FontWeight.bold,
-                    color:
-                        Color.fromARGB(255, 44, 52, 199), // Adicione a cor aqui
-                  ),
-                ),
-              ],
-            ),
+            const LoginAppBar(),
             Expanded(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -155,56 +142,16 @@ class _LoginChildPageState extends State<LoginChildPage> {
                     ),
                   ),
                   const SizedBox(height: 32.0),
-                  Container(
-                      width: 210,
-                      height: 50,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30),
-                        gradient: const LinearGradient(
-                          colors: [
-                            Color.fromARGB(255, 44, 52,
-                                199), // Start color of the gradient
-                            Color.fromARGB(
-                                255, 44, 52, 150), // End color of the gradient
-                          ],
-                          begin: Alignment.centerLeft,
-                          end: Alignment.centerRight,
-                        ),
-                        boxShadow: [
-                          BoxShadow(
-                              color: Colors.grey.withOpacity(0.5),
-                              spreadRadius: 1,
-                              blurRadius: 3,
-                              offset: const Offset(0, 3)),
-                        ],
-                      ),
-                      child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors
-                                .transparent, // Background color (transparent)
-                            foregroundColor:
-                                Colors.transparent, // Splash color (transparent)
-                            shadowColor:
-                                Colors.transparent, // Shadow color (transparent)
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(30),
-                            ),
-                            elevation: 0, // No elevation
-                          ),
-                          onPressed: () {
+                  LoginEnterButton(
+                    onPressed: () {
                             if (values.join() == '0000') {
                               Navigator.pushReplacementNamed(
                                   context, '/childrenMain');
                             }
-                          },
-                          child: const Text(
-                            'Entrar',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ))),
+                          }, 
+                    title: "Entrar",
+                    colors: values[3] != '' ? const [Color(0xFF646AE3), Color(0xFF262B91)] :  [Colors.grey.shade500, Colors.grey.shade800]
+                    ),
                 ],
               ),
             ),
