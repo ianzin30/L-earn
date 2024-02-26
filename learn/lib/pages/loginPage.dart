@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../widgets/boxSelectorLogin.dart'; // Make sure this import is correct
+import 'package:learn/widgets/loginWidgets/BoxSelectorLogin.dart';
 import 'childrenPages/loginChildPage.dart';
 import 'package:learn/widgets/loginWidgets/loginEnterButton.dart';
 import 'package:learn/widgets/loginWidgets/loginAppBar.dart';
