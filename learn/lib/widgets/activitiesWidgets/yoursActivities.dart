@@ -38,12 +38,12 @@ class YoursActivities extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Text(
-            "Suas atividades",
+            "Trilhas em Andamento",
             style:  TextStyle(color: Color(0XFF3C3C3C), fontSize:14, fontFamily: "Fieldwork-Geo", fontWeight:FontWeight.w600),
             textAlign: TextAlign.start,
             ),
             const Text(
-            "Realize suas atividades a qualquer momento",
+            "Continue de onde parou",
             style:  TextStyle(color: Color(0XFF5C5C5C), fontSize:12, fontFamily: "Fieldwork-Geo", fontWeight:FontWeight.w400),
             textAlign: TextAlign.start,
             ),

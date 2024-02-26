@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:learn/widgets/global/appBar.dart';
+import 'package:learn/widgets/global/learnAppBar.dart';
 import 'package:learn/widgets/activitiesWidgets/activitieContentColumn.dart';
 
 class ParentsActivitiesPage extends StatelessWidget {
