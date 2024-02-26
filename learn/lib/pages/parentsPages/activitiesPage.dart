@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import '/widgets/appBar.dart';
-import 'package:learn/widgets/activitieCard.dart';
-import 'package:learn/utils/activitiesList.dart';
+import 'package:learn/widgets/global/learnAppBar.dart';
+import 'package:learn/widgets/activitiesWidgets/activitieContentColumn.dart';
 
 class ParentsActivitiesPage extends StatelessWidget {
   final ValueNotifier<double> pagePosition;
@@ -9,8 +8,6 @@ class ParentsActivitiesPage extends StatelessWidget {
   ParentsActivitiesPage({
     required this.pagePosition
   });
-
-  final List<ActivitieCard> atividades = activitiesList;
 
   @override
   Widget build(BuildContext context) {
@@ -25,24 +22,7 @@ class ParentsActivitiesPage extends StatelessWidget {
       body: Container(
         padding: const EdgeInsets.fromLTRB(14, 25, 14, 0),
         child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Text(
-                "Conteúdo das atividades",
-                style:  TextStyle(color: Color(0XFF3C3C3C), fontSize:14, fontFamily: "Fieldwork-Geo", fontWeight:FontWeight.w600),
-                textAlign: TextAlign.start,
-                ),
-                const Text(
-                "Conheça as atividades",
-                style:  TextStyle(color: Color(0XFF5C5C5C), fontSize:12, fontFamily: "Fieldwork-Geo", fontWeight:FontWeight.w400),
-                textAlign: TextAlign.center,
-                ),
-                Column(
-                  children: atividades,
-                )
-            ],
-          )
+          child: ActivitieContentColumn()
         )
       )
     );

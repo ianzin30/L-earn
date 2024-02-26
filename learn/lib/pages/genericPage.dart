@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '/widgets/appBar.dart';
+import '../widgets/global/learnAppBar.dart';
 
 class GenericPageTemplate extends StatelessWidget {
   final ValueNotifier<double> pagePosition;

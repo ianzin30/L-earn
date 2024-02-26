@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '/widgets/navBar.dart';
+import 'widgets/global/navBar.dart';
 import '/pages/childrenPages/homePage.dart';
 import '/pages/childrenPages/activitiesPage.dart';
 import '/pages/childrenPages/MascotPage.dart';
