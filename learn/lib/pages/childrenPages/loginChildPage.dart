@@ -63,7 +63,7 @@ class _LoginChildPageState extends State<LoginChildPage> {
         child: Column(
           children: <Widget>[
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.02,
+              height: MediaQuery.of(context).size.height * 0.04,
             ),
             const LoginAppBar(),
             Expanded(
@@ -84,6 +84,7 @@ class _LoginChildPageState extends State<LoginChildPage> {
                     'O seu código de acesso pode ser retirado com os seus responsáveis',
                     textAlign: TextAlign.center,
                     style: TextStyle(
+                      color: Color(0xFF5F5F5F),
                       fontFamily: "Fieldwork-Geo",
                       fontSize: 16,
                       fontWeight: FontWeight.w400

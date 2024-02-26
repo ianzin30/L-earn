@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../widgets/boxselectorlogin.dart'; // Make sure this import is correct
+import '../widgets/boxSelectorLogin.dart'; // Make sure this import is correct
 import 'childrenPages/loginChildPage.dart';
 import 'package:learn/widgets/loginEnterButton.dart';
 import 'package:learn/widgets/loginAppBar.dart';
@@ -26,7 +26,7 @@ class _LoginPageState extends State<LoginPage> {
         child: Column(
           children: <Widget>[
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.02,
+              height: MediaQuery.of(context).size.height * 0.04,
             ),
             const LoginAppBar(),
             Expanded(
@@ -36,18 +36,18 @@ class _LoginPageState extends State<LoginPage> {
                   const Text(
                     'Bem-vindo à Coinny',
                     style: TextStyle(
-                      fontSize: 16,
-                      color: Color(0xFF646AE3),
+                      fontSize: 24,
+                      color: Color(0xFF4349B8),
                       fontFamily: "Fieldwork-Geo",
                       fontWeight: FontWeight.w600,
                     ),
                   ),
-
+                  const SizedBox(height: 24.0,),
                   const Text(
                     'Para iniciar sua sessão, selecione o seu tipo de perfil Soldi.',
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontSize: 14,
+                      fontSize: 16,
                       color: Color(0xFF5F5F5F),
                       fontFamily: "Fieldwork-Geo",
                       fontWeight: FontWeight.w400,
