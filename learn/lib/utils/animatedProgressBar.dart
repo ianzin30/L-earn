@@ -4,12 +4,14 @@ class AnimatedProgressBar extends StatefulWidget {
   final double progress;
   final double maxProgress;
   final Color barColor;
+  final double? height;
 
   const AnimatedProgressBar({
     Key? key,
     required this.progress,
     required this.maxProgress,
     required this.barColor,
+    this.height,
   }) : super(key: key);
 
   @override
@@ -62,6 +64,8 @@ class _AnimatedProgressBarState extends State<AnimatedProgressBar> with SingleTi
       value: _animation.value / widget.maxProgress,
       backgroundColor: Colors.grey.withAlpha(50),
       valueColor: AlwaysStoppedAnimation<Color>(widget.barColor),
+      borderRadius: BorderRadius.circular(25.0),
+      minHeight: widget.height
     );
   }
 }

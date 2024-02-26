@@ -12,6 +12,7 @@ class ActivitieCard extends StatefulWidget {
   final List<Color> backgroundGradientColors;
   final List<Color> levelGradientColors;
   final VoidCallback? onPressed;
+  final double? width;
 
   ActivitieCard({
     required this.level,
@@ -23,6 +24,7 @@ class ActivitieCard extends StatefulWidget {
     this.levelGradientColors = const [Color(0xFFFFFFFF), Color(0xFFFFFFFF)],
     this.progressColor = const Color(0XFFFFFFFF),
     this.onPressed,
+    this.width,
   });
 
   @override
@@ -39,8 +41,8 @@ class _ActivitieCardState extends State<ActivitieCard> with SingleTickerProvider
     _animationController = AnimationController(
       duration: const Duration(milliseconds: 100),
       vsync: this,
-      lowerBound: 0.95,
-      upperBound: 1.05,
+      lowerBound: 0.75,
+      upperBound: 0.8,
     );
     _scaleAnimation = CurvedAnimation(parent: _animationController, curve: Curves.easeInOut);
     _animationController.addListener(() {
@@ -65,15 +67,14 @@ class _ActivitieCardState extends State<ActivitieCard> with SingleTickerProvider
 
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width - 40;
+    double widgetWidth = widget.width ?? MediaQuery.of(context).size.width -10;
     return GestureDetector(
       onTap: _onTap,
       child: ScaleTransition(
         scale: _scaleAnimation,
         child: Container(
-          width: screenWidth,
+          width: widgetWidth,
           height: 120,
-          //padding: const EdgeInsets.all(10.0),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10.0),
             gradient: LinearGradient(
@@ -92,7 +93,7 @@ class _ActivitieCardState extends State<ActivitieCard> with SingleTickerProvider
           child: Stack(
         children: [
          Container (
-          padding: EdgeInsets.all(10.0),
+          padding: EdgeInsets.all(15.0),
            child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -100,6 +101,7 @@ class _ActivitieCardState extends State<ActivitieCard> with SingleTickerProvider
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(
+                    height: 24.0,
                     padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(5.0),
@@ -117,6 +119,7 @@ class _ActivitieCardState extends State<ActivitieCard> with SingleTickerProvider
                         fontWeight: FontWeight.w600,
                         fontFamily: "Fieldwork-Geo"
                       ),
+                      textAlign: TextAlign.center,
                     ),
                   ),
                   Icon(Icons.chevron_right, color: Colors.white),
@@ -142,10 +145,10 @@ class _ActivitieCardState extends State<ActivitieCard> with SingleTickerProvider
                   color: Color(0xFFFFFFFF),
                 ),
               ),
-              SizedBox(height: 8),
+              SizedBox(height: 10),
               // Barra de progresso
               Container(
-                padding: const EdgeInsets.all(5),
+                padding: const EdgeInsets.symmetric(vertical: 1.5, horizontal: 10),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(25.0),
                   gradient: LinearGradient(
@@ -157,11 +160,12 @@ class _ActivitieCardState extends State<ActivitieCard> with SingleTickerProvider
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Container(
-                      width: 280,
+                      width: widgetWidth*0.70,
                       child: AnimatedProgressBar(
                         progress: widget.progress,
                         maxProgress: 100,
                         barColor: widget.progressColor,
+                        height: 6,
                       )
                     ),
                     const SizedBox(width: 2),
