@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import '../widgets/boxSelectorLogin.dart'; // Make sure this import is correct
 import 'childrenPages/loginChildPage.dart';
-import 'package:learn/widgets/loginEnterButton.dart';
-import 'package:learn/widgets/loginAppBar.dart';
+import 'package:learn/widgets/loginWidgets/loginEnterButton.dart';
+import 'package:learn/widgets/loginWidgets/loginAppBar.dart';
+import 'package:learn/widgets/loginWidgets/loginInfoContainter.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -33,25 +34,9 @@ class _LoginPageState extends State<LoginPage> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  const Text(
-                    'Bem-vindo à Coinny',
-                    style: TextStyle(
-                      fontSize: 24,
-                      color: Color(0xFF4349B8),
-                      fontFamily: "Fieldwork-Geo",
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                  const SizedBox(height: 24.0,),
-                  const Text(
-                    'Para iniciar sua sessão, selecione o seu tipo de perfil Soldi.',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: Color(0xFF5F5F5F),
-                      fontFamily: "Fieldwork-Geo",
-                      fontWeight: FontWeight.w400,
-                    )
+                  const LoginInfoContainer(
+                    title: "Bem-vindo à Coinny",
+                    description: "Para inicar sua sessão, selecione o seu tipo de perfil Soldi"
                   ),
                   const SizedBox(height: 32),
                   CustomRadioTile(

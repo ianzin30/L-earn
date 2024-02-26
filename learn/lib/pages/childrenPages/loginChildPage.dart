@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:learn/widgets/loginEnterButton.dart';
-import 'package:learn/widgets/loginAppBar.dart';
+import 'package:learn/widgets/loginWidgets/loginEnterButton.dart';
+import 'package:learn/widgets/loginWidgets/loginAppBar.dart';
+import 'package:learn/widgets/loginWidgets/loginInfoContainter.dart';
 
 class LoginChildPage extends StatefulWidget {
   @override
@@ -70,25 +71,9 @@ class _LoginChildPageState extends State<LoginChildPage> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  const Text(
-                    'Código de acesso',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Color(0xFF646AE3),
-                      fontSize: 24,
-                      fontFamily: "Fieldwork-Geo",
-                    ),
-                  ),
-                  const SizedBox(height: 24.0),
-                  const Text(
-                    'O seu código de acesso pode ser retirado com os seus responsáveis',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Color(0xFF5F5F5F),
-                      fontFamily: "Fieldwork-Geo",
-                      fontSize: 16,
-                      fontWeight: FontWeight.w400
-                    )
+                  const LoginInfoContainer(
+                    title: 'Código de acesso', 
+                    description: 'O seu código de acesso pode ser retirado com os seus responsáveis'
                   ),
                   const SizedBox(height: 32.0),
                   Row(

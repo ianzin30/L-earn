@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '/widgets/appBar.dart';
+import '../../widgets/global/appBar.dart';
 
 class MonitorigPage extends StatelessWidget {
   final ValueNotifier<double> pagePosition;

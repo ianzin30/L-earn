@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '/widgets/appBar.dart';
+import '../../widgets/global/appBar.dart';
 import 'package:learn/widgets/levelWidget.dart';
 import 'package:learn/widgets/StreakWidget.dart';
 

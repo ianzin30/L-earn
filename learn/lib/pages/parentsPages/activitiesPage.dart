@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '/widgets/appBar.dart';
+import '../../widgets/global/appBar.dart';
 import 'package:learn/widgets/activitieCard.dart';
 import 'package:learn/utils/activitiesList.dart';
 

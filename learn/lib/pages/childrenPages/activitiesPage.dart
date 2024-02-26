@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '/widgets/appBar.dart';
+import '../../widgets/global/appBar.dart';
 import '/widgets/achivievementWidget.dart';
 
 class ChildrenActivitiesPage extends StatelessWidget {

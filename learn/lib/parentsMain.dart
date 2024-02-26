@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:learn/pages/parentsPages/homePage.dart';
-import '/widgets/navBar.dart';
+import 'widgets/global/navBar.dart';
 
 import 'pages/parentsPages/activitiesPage.dart';
 import 'pages/parentsPages/homePage.dart';
