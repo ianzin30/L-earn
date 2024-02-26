@@ -4,11 +4,13 @@ class LoginEnterButton extends StatelessWidget {
   final Function onPressed;
   final String title;
   final List<Color> colors;
+  final Color fontColor;
 
   LoginEnterButton({
     required this.onPressed,
     required this.title,
-    required this.colors
+    required this.colors,
+    this.fontColor = const Color(0xFFFFFFFF)
   });
 
   
@@ -48,10 +50,10 @@ class LoginEnterButton extends StatelessWidget {
           onPressed: () {onPressed();},
           child: Text(
             title,
-            style: const TextStyle(
-              fontSize: 14,
+            style: TextStyle(
+              fontSize: 16,
               fontWeight: FontWeight.w400,
-              color: Colors.white,
+              color: fontColor,
               fontFamily: "Fieldwork-Geo"
             ),
           ))

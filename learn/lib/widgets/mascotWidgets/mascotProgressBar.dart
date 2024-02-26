@@ -28,15 +28,15 @@ class MascotProgressBar extends StatelessWidget {
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: collorsGradients,
-          begin: Alignment.centerLeft,
-          end: Alignment.centerRight,
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
         ),
         borderRadius: BorderRadius.circular(25), // Arredondamento das bordas
         boxShadow: [
           BoxShadow(
-            color: fontCollor,
-            spreadRadius: 2.5,
-            blurRadius: 8,
+            color: fontCollor.withOpacity(0.6),
+            spreadRadius: 0.0,
+            blurRadius: 16,
             offset: Offset(0,0),
           )
         ] 
@@ -62,7 +62,7 @@ class MascotProgressBar extends StatelessWidget {
                   ),
                   Text(
                     '$pontuation / $nextLevelPontuation XP',
-                    style: TextStyle(color: fontCollor, fontSize: 10, fontFamily: 'Fieldwork-Geo', fontWeight: FontWeight.w200),
+                    style: TextStyle(color: fontCollor, fontSize: 10, fontFamily: 'Fieldwork-Geo', fontWeight: FontWeight.w300),
                   ),
                 ],
             ),

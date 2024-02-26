@@ -11,14 +11,14 @@ class LoginAppBar extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           Image.asset('assets/images/appImages/icon.png', height: 40),
-          const SizedBox(width: 8),
+          const SizedBox(width: 11),
           const Text(
             'Coinny',
             style: TextStyle(
               fontSize: 24,
               color: Color(0xFF262B91),
               fontFamily: "Fieldwork-Geo",
-              fontWeight: FontWeight.w700
+              fontWeight: FontWeight.w800
             ),
           ),
         ],

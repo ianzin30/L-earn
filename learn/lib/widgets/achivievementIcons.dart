@@ -80,7 +80,7 @@ class AchievementIcon extends StatelessWidget {
                           ),
                           Text(
                           data.data,
-                          style: const TextStyle(color: Colors.white, fontSize: 10, fontFamily: 'Fieldwork-Geo', fontWeight: FontWeight.w200),
+                          style: const TextStyle(color: Colors.white, fontSize: 10, fontFamily: 'Fieldwork-Geo', fontWeight: FontWeight.w300),
                           ),
                           ]
                       )
