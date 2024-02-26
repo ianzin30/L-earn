@@ -57,8 +57,6 @@ class _LoginChildPageState extends State<LoginChildPage> {
 
   @override
   Widget build(BuildContext context) {
-    print(values.length);
-    print(values.join());
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(50.0),
@@ -76,14 +74,22 @@ class _LoginChildPageState extends State<LoginChildPage> {
                     'Código de acesso',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      color: Color(0xFF646AE3), // Adicione a cor aqui
+                      color: Color(0xFF646AE3),
+                      fontSize: 24,
+                      fontFamily: "Fieldwork-Geo",
                     ),
                   ),
+                  const SizedBox(height: 24.0),
                   const Text(
                     'O seu código de acesso pode ser retirado com os seus responsáveis',
                     textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontFamily: "Fieldwork-Geo",
+                      fontSize: 16,
+                      fontWeight: FontWeight.w400
+                    )
                   ),
-                  const SizedBox(height: 16.0),
+                  const SizedBox(height: 32.0),
                   Row(
                     children: List.generate(
                       4,
@@ -141,7 +147,7 @@ class _LoginChildPageState extends State<LoginChildPage> {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 32.0),
+                  const SizedBox(height: 54.0),
                   LoginEnterButton(
                     onPressed: () {
                             if (values.join() == '0000') {
@@ -150,7 +156,7 @@ class _LoginChildPageState extends State<LoginChildPage> {
                             }
                           }, 
                     title: "Entrar",
-                    colors: values[3] != '' ? const [Color(0xFF646AE3), Color(0xFF262B91)] :  [Colors.grey.shade500, Colors.grey.shade800]
+                    colors: values[3] != '' ? const [Color(0xFF646AE3), Color(0xFF262B91)] :  const [Color(0xff808080), Color(0xff808080)]
                     ),
                 ],
               ),
