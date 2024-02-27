@@ -6,13 +6,15 @@ class LearnAppBar extends StatelessWidget implements PreferredSizeWidget {
   final int pageIndex;
   final MainAxisAlignment mainAxisAlignment;
   final CrossAxisAlignment crossAxisAlignment;
+  final VoidCallback? retunrFunction;
 
   LearnAppBar({
     required this.children,
     required this.pagePosition,
     required this.pageIndex,
     this.mainAxisAlignment = MainAxisAlignment.start,
-    this.crossAxisAlignment = CrossAxisAlignment.center
+    this.crossAxisAlignment = CrossAxisAlignment.center,
+    this.retunrFunction
   });
 
   @override
@@ -39,10 +41,33 @@ class LearnAppBar extends StatelessWidget implements PreferredSizeWidget {
             : BorderRadius.zero,
       ),
       child: SafeArea(
-        child: Column(
-          mainAxisAlignment: mainAxisAlignment,
-          crossAxisAlignment: crossAxisAlignment,
-          children: children,
+        child:Stack(
+          children: [
+            if (retunrFunction != null)
+                Container(
+                  padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 16),
+                  child:
+                    Container(
+                      height: 40,
+                      width: 40,
+                      decoration: 
+                      BoxDecoration(
+                        color: const Color(0xFFFFFFFF),
+                        borderRadius: BorderRadius.circular(10)
+                      ),
+                      child: IconButton(
+                        icon:  const Icon(Icons.arrow_back, color: Colors.black),
+                        onPressed: retunrFunction,
+                        iconSize: 24,
+                      )
+                    )
+                  ),
+            Column(
+              mainAxisAlignment: mainAxisAlignment,
+              crossAxisAlignment: crossAxisAlignment,
+              children: children,
+            )
+        ],
         ),
       ),
     );
@@ -61,6 +86,7 @@ class LearnAppBarSuper extends LearnAppBar {
     required int pageIndex,
     MainAxisAlignment mainAxisAlignment = MainAxisAlignment.start,
     CrossAxisAlignment crossAxisAlignment = CrossAxisAlignment.center,
+
     required this.superWidget,
   }) : super(
             children: children,
@@ -92,6 +118,6 @@ class LearnAppBarSuper extends LearnAppBar {
     );
   }
   @override
-  Size get preferredSize => Size.fromHeight(400);
+  Size get preferredSize => Size.fromHeight(300);
   
 }
