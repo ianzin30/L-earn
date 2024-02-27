@@ -20,7 +20,7 @@ class MonitorigPage extends StatelessWidget {
         ] 
       ),
       body: Center(
-        child: YoursActivities(),
+        child: ActivitieContentColumn(),
       ),
     );
   }
