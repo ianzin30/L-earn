@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '/widgets/appBar.dart';
+import '/widgets/global/learnAppBar.dart';
+import 'package:learn/widgets/levelWidget.dart';
 
 class ProfilePage extends StatelessWidget {
   final ValueNotifier<double> pagePosition;
@@ -11,12 +12,13 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: LearnAppBar(
+      appBar: LearnAppBarSuper(
         pageIndex: 3,
         pagePosition: pagePosition.value,
+        superWidget: LevelWidget(mascotName: "Pedro", pontuation: 55,),
         children: const [
           Text('Perfil', style: TextStyle(color: Colors.white)),
-        ] 
+        ],
       ),
       body: const Center(
         child: Text('Página do Perifl dos Pais'),

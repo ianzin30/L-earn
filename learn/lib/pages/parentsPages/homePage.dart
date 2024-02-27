@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '/widgets/appBar.dart';
+import '../../widgets/global/learnAppBar.dart';
 
 class ParentsHPage extends StatelessWidget {
   final ValueNotifier<double> pagePosition;
@@ -15,6 +15,7 @@ class ParentsHPage extends StatelessWidget {
       appBar: LearnAppBar(
         pageIndex: 0,
         pagePosition: pagePosition.value,
+        retunrFunction: () {},
         children: const [
           Text('Home', style: TextStyle(color: Colors.white)),
         ] 

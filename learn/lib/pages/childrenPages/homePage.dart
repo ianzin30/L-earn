@@ -1,19 +1,24 @@
 import 'package:flutter/material.dart';
-import '/widgets/appBar.dart';
+import '../../widgets/global/learnAppBar.dart';
 import 'package:learn/widgets/levelWidget.dart';
 import 'package:learn/widgets/StreakWidget.dart';
-
+import 'package:learn/widgets/activitiesWidgets/activitieContentColumn.dart';
+import 'package:learn/widgets/loginWidgets/trilhaSoldi.dart';
+import '/widgets/achivievementWidget.dart';
 
 class ChildrenHomePage extends StatelessWidget {
   final ValueNotifier<double> pagePosition;
 
-  const ChildrenHomePage({required this.pagePosition, Key? key}) : super(key: key);
+  const ChildrenHomePage({required this.pagePosition, Key? key})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
     final screenWidth = MediaQuery.of(context).size.width;
     final statusBarHeight = MediaQuery.of(context).padding.top;
+
+    const userName = 'Ian Braga';
 
     return Scaffold(
       body: Stack(
@@ -26,13 +31,14 @@ class ChildrenHomePage extends StatelessWidget {
               pageIndex: 0,
               pagePosition: pagePosition.value,
               children: [
+                const SizedBox(height: 50),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Row(
                       // Nesting Rows to keep the image and text together
                       children: [
-                        SizedBox(width: 20), // Adjust the space as needed
+                        const SizedBox(width: 20), // Adjust the space as needed
                         ClipRRect(
                           borderRadius: BorderRadius.circular(50),
                           child: Image.asset(
@@ -40,13 +46,35 @@ class ChildrenHomePage extends StatelessWidget {
                               height: 60),
                         ),
                         const SizedBox(width: 8), // Adjust the space as needed
-                        const Text('Atividades',
-                            style: TextStyle(color: Colors.white)),
+                        RichText(
+                          text: const TextSpan(
+                            children: [
+                              TextSpan(
+                                text: 'Seja bem-vindo,\n',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 14,
+                                  fontFamily: "Fieldwork-Geo",
+                                  fontWeight: FontWeight.normal,
+                                ),
+                              ),
+                              TextSpan(
+                                text: userName,
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 18,
+                                  fontFamily: "Fieldwork-Geo",
+                                  fontWeight: FontWeight.normal,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
                       ],
                     ),
-                    const SizedBox(width: 60), // Adjust the space as needed
+                    const Spacer(),
                     const StreakWidget(streakDays: 20),
-                    // Placeholder or icon on the right
+
                     Icon(Icons.account_circle,
                         color: Colors.white
                             .withOpacity(0.0)), // Invisible icon for alignment
@@ -65,12 +93,33 @@ class ChildrenHomePage extends StatelessWidget {
             ),
           ),
           Positioned(
-            top: screenHeight / 2,
+            top: screenHeight / 2.7,
             left: 0,
             right: 0,
             child: Column(
-              children: const [
-                Text('Página da Home das Crianças'),
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Padding(
+                  padding: EdgeInsets.only(left: 14.0),
+                  child: Text('Trilhas em andamento',
+                      style: TextStyle(
+                        color: Color.fromARGB(255, 0, 0, 0),
+                        fontSize: 16,
+                        fontFamily: "Fieldwork-Geo",
+                        fontWeight: FontWeight.w600,
+                      )),
+                ),
+                const Padding(
+                  padding: EdgeInsets.only(left: 14.0),
+                  child: Text('Continue de onde parou.',
+                      style: TextStyle(
+                        color: Color.fromARGB(255, 0, 0, 0),
+                        fontSize: 12,
+                        fontFamily: "Fieldwork-Geo",
+                      )),
+                ),
+                ActivitieContentRow(),
+                AchievementsWidget(),
               ],
             ),
           ),

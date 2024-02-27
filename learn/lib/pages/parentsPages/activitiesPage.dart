@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '/widgets/appBar.dart';
+import 'package:learn/widgets/global/learnAppBar.dart';
+import 'package:learn/widgets/activitiesWidgets/activitieContentColumn.dart';
 
 class ParentsActivitiesPage extends StatelessWidget {
   final ValueNotifier<double> pagePosition;
@@ -18,9 +19,12 @@ class ParentsActivitiesPage extends StatelessWidget {
           Text('Atividades', style: TextStyle(color: Colors.white)),
         ] 
       ),
-      body: const Center(
-        child: Text('Página de Atividades dos Pais'),
-      ),
+      body: Container(
+        padding: const EdgeInsets.fromLTRB(14, 25, 14, 0),
+        child: SingleChildScrollView(
+          child: ActivitieContentColumn()
+        )
+      )
     );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '/widgets/appBar.dart';
+import '../../widgets/global/learnAppBar.dart';
+import '/widgets/achivievementWidget.dart';
 
 class ChildrenActivitiesPage extends StatelessWidget {
   final ValueNotifier<double> pagePosition;
@@ -18,8 +19,8 @@ class ChildrenActivitiesPage extends StatelessWidget {
           Text('Atividades', style: TextStyle(color: Colors.white)),
         ] 
       ),
-      body: const Center(
-        child: Text('Atividades Content'),
+      body: Center(
+        child: AchievementsWidget(),
       ),
     );
   }

@@ -29,9 +29,9 @@ class LevelWidget extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: fontCollor,
-            spreadRadius: 2.5,
-            blurRadius: 8,
+            color: fontCollor.withOpacity(0.6),
+            spreadRadius: 0,
+            blurRadius: 16,
             offset: Offset(0,0),
           )
         ]
@@ -57,7 +57,7 @@ class LevelWidget extends StatelessWidget {
                   ),
                   Text(
                     '$pontuation XP/$nextLevelPontuation XP',
-                    style: const TextStyle(color: Color(0XFF282C93), fontSize: 10, fontFamily: 'Fieldwork-Geo', fontWeight: FontWeight.w300),
+                    style: const TextStyle(color: Color(0XFF282C93), fontSize: 10, fontFamily: 'Fieldwork-Geo', fontWeight: FontWeight.w400),
                   ),
                 ],
             ),
