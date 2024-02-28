@@ -26,50 +26,55 @@ class AchievementsWidget extends StatelessWidget {
                     fontFamily: 'Fieldwork-Geo',
                     fontWeight: FontWeight.w400)),
             const SizedBox(
-              height: 16,
+              height: 12,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                AchievementIcon(
-                    data: achievementsList[0],
-                    heigth: 140,
-                    width: screenWidth / 2 - 20),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    AchievementIcon(
-                      data: achievementsList[1],
-                      heigth: 60,
-                      width: screenWidth / 2 - 40,
-                    ),
-                    const SizedBox(height: 15),
-                    Container(
+            Padding(
+              padding: const EdgeInsets.only(left: 12, right: 12),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  AchievementIcon(
+                      data: achievementsList[0],
+                      heigth: 140,
+                      width: screenWidth / 2 - 20
+                  ),
+                  const SizedBox(width: 9),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      AchievementIcon(
+                        data: achievementsList[1],
+                        heigth: 60,
                         width: screenWidth / 2 - 40,
-                        padding: EdgeInsets.all(15.0),
-                        decoration: BoxDecoration(
-                            gradient: const LinearGradient(
-                              colors: [Color(0xFFF8D24D), Color(0xFFFEC224)],
-                              begin: Alignment.topLeft,
-                              end: Alignment.bottomRight,
-                            ),
-                            borderRadius: BorderRadius.circular(12.5)),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            const Text("Ver todas as\nconquistas",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 12,
-                                    fontFamily: 'Fieldwork-Geo',
-                                    fontWeight: FontWeight.w800)),
-                            Image.asset('assets/images/appIcons/icon-award.png',
-                                height: 24),
-                          ],
-                        ))
-                  ],
-                )
-              ],
+                      ),
+                      const SizedBox(height: 12),
+                      Container(
+                          width: screenWidth / 2 - 40,
+                          padding: EdgeInsets.all(15.0),
+                          decoration: BoxDecoration(
+                              gradient: const LinearGradient(
+                                colors: [Color(0xFFF8D24D), Color(0xFFFEC224)],
+                                begin: Alignment.topLeft,
+                                end: Alignment.bottomRight,
+                              ),
+                              borderRadius: BorderRadius.circular(12.5)),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              const Text("Ver todas as\nconquistas",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 12,
+                                      fontFamily: 'Fieldwork-Geo',
+                                      fontWeight: FontWeight.w800)),
+                              Image.asset('assets/images/appIcons/icon-award.png',
+                                  height: 24),
+                            ],
+                          ))
+                    ],
+                  )
+                ],
+              ),
             )
           ],
         ));
