@@ -16,7 +16,7 @@ class ActivitieContentColumn extends StatelessWidget {
 
   final List<Widget> atividades = isStatic ? activitiesList
                                            : activitiesList.map((e) => Container(
-                                                                        padding: EdgeInsets.fromLTRB(0, 8, 0, 8),
+                                                                        padding: EdgeInsets.fromLTRB(0, 16, 0, 16),
                                                                         child: ActivitieCard(activitie: e))).toList();
 
   @override
