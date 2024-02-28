@@ -15,9 +15,7 @@ class MonitorigPage extends StatelessWidget {
       appBar: LearnAppBar(
         pageIndex: 2,
         pagePosition: pagePosition.value,
-        children: const [
-          Text('Monitoramento', style: TextStyle(color: Colors.white)),
-        ] 
+        child: const Text('Monitoramento', style: TextStyle(color: Colors.white)),
       ),
       body: Center(
         child: ActivitieContentColumn(),

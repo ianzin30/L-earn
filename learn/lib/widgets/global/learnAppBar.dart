@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 
 class LearnAppBar extends StatelessWidget implements PreferredSizeWidget {
-  final List<Widget> children;
+  final Widget child;
   final double pagePosition;
   final int pageIndex;
-  final MainAxisAlignment mainAxisAlignment;
-  final CrossAxisAlignment crossAxisAlignment;
+  final AlignmentGeometry? alignment;
+  final EdgeInsetsGeometry? padding;
   final VoidCallback? retunrFunction;
 
   LearnAppBar({
-    required this.children,
+    required this.child,
     required this.pagePosition,
     required this.pageIndex,
-    this.mainAxisAlignment = MainAxisAlignment.start,
-    this.crossAxisAlignment = CrossAxisAlignment.center,
+    this.alignment,
+    this.padding,
     this.retunrFunction
   });
 
@@ -62,10 +62,10 @@ class LearnAppBar extends StatelessWidget implements PreferredSizeWidget {
                       )
                     )
                   ),
-            Column(
-              mainAxisAlignment: mainAxisAlignment,
-              crossAxisAlignment: crossAxisAlignment,
-              children: children,
+            Container(
+              alignment: alignment,
+              padding : padding,
+              child: child
             )
         ],
         ),
@@ -81,19 +81,14 @@ class LearnAppBarSuper extends LearnAppBar {
   final Widget superWidget;
 
   LearnAppBarSuper({
-    required List<Widget> children,
+    required Widget child,
     required double pagePosition,
     required int pageIndex,
-    MainAxisAlignment mainAxisAlignment = MainAxisAlignment.start,
-    CrossAxisAlignment crossAxisAlignment = CrossAxisAlignment.center,
-
     required this.superWidget,
   }) : super(
-            children: children,
+            child: child,
             pagePosition: pagePosition,
             pageIndex: pageIndex,
-            mainAxisAlignment: mainAxisAlignment,
-            crossAxisAlignment: crossAxisAlignment,
          );
 
   @override

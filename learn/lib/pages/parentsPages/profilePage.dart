@@ -16,9 +16,7 @@ class ProfilePage extends StatelessWidget {
         pageIndex: 3,
         pagePosition: pagePosition.value,
         superWidget: LevelWidget(mascotName: "Pedro", pontuation: 55,),
-        children: const [
-          Text('Perfil', style: TextStyle(color: Colors.white)),
-        ],
+        child: const Text('Perfil', style: TextStyle(color: Colors.white)),
       ),
       body: const Center(
         child: Text('Página do Perifl dos Pais'),
