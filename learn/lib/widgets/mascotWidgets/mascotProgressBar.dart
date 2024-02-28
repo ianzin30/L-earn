@@ -72,7 +72,7 @@ class MascotProgressBar extends StatelessWidget {
               children: [
                  Center(
                    child: Image.asset(
-                     'assets/images/appIcons/progressFieldWithStars.png',
+                     'assets/images/appIcons/badge-${currentLevel['level'].toString().toLowerCase()}-default.png',
                      width: 72,
                    ),
                  ),
