@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import '../../widgets/global/learnAppBar.dart';
 
-class ParentsHPage extends StatelessWidget {
+class GenericPageTemplate extends StatelessWidget {
   final ValueNotifier<double> pagePosition;
 
-  ParentsHPage({
+  GenericPageTemplate({
     required this.pagePosition
   });
 
@@ -15,11 +15,10 @@ class ParentsHPage extends StatelessWidget {
       appBar: LearnAppBar(
         pageIndex: 0,
         pagePosition: pagePosition.value,
-        retunrFunction: () {},
-        child: const Text('Home', style: TextStyle(color: Colors.white)),   
+        child: const Text('Generic Page Template', style: TextStyle(color: Colors.white)),
       ),
       body: const Center(
-        child: Text('Home Page dos Pais'),
+        child: Text('Generic Page Template'),
       ),
     );
   }

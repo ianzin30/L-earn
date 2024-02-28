@@ -6,6 +6,7 @@ import 'pages/parentsPages/activitiesPage.dart';
 import 'pages/parentsPages/homePage.dart';
 import 'pages/parentsPages/profilePage.dart';
 import 'pages/parentsPages/monitoringPage.dart';
+import 'pages/parentsPages/addDependentPage.dart';
 
 class ParentsMain extends StatefulWidget {
   @override
@@ -53,7 +54,7 @@ class _ParentsMainState extends State<ParentsMain> {
       ParentsHPage(pagePosition: pagePosition),
       ParentsActivitiesPage(pagePosition: pagePosition),
       MonitorigPage(pagePosition: pagePosition),
-      ProfilePage(pagePosition: pagePosition)
+      ProfilePage(pagePosition: pagePosition),
     ];
 
     List<Map<String, dynamic>> navItems = [

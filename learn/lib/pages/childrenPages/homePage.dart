@@ -30,7 +30,8 @@ class ChildrenHomePage extends StatelessWidget {
             child: LearnAppBar(
               pageIndex: 0,
               pagePosition: pagePosition.value,
-              children: [
+              child :Column(
+                children: [ 
                 const SizedBox(height: 50),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -81,6 +82,7 @@ class ChildrenHomePage extends StatelessWidget {
                   ],
                 ),
               ],
+              ) ,
             ),
           ),
           Positioned(
