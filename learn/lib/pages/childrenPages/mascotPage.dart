@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import '/widgets/mascotWidgets/mascotProgressBar.dart';
 import '/widgets/mascotWidgets/mascote.dart';
 import '/widgets/mascotWidgets/mascotBar.dart';
 import '/widgets/mascotWidgets/mascotSideBar.dart';
+import 'package:learn/widgets/globalProgressWidget.dart';
 
 class MascotPage extends StatelessWidget {
 
@@ -21,7 +21,7 @@ class MascotPage extends StatelessWidget {
         children: [
           Container(
              padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 25.0),
-             child :MascotProgressBar(pontuation: 100, mascotName: "Pedro"),
+             child: GlobalProgress(pontuation: 50, name: "Coinny") 
           ),
           MascoteWidget(),
           MascotSideBar(pageController: pageController),
