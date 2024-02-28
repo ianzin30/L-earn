@@ -67,7 +67,7 @@ class LevelWidget extends StatelessWidget {
               children: [
                  Center(
                    child: Image.asset(
-                     'assets/images/appIcons/progressFieldWithStarsBlue.png',
+                     'assets/images/appIcons/badge-${currentLevel['level'].toString().toLowerCase()}-blue.png',
                      width: 72,
                    ),
                  ),
