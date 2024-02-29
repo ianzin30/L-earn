@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import '../../widgets/global/learnAppBar.dart';
 import 'package:learn/widgets/levelWidget.dart';
 import 'package:learn/widgets/StreakWidget.dart';
-import 'package:learn/widgets/activitiesWidgets/activitieContentColumn.dart';
 import 'package:learn/widgets/loginWidgets/trilhaSoldi.dart';
+import '../../widgets/user-profile.dart';
 import '/widgets/achivievementWidget.dart';
 
 class ChildrenHomePage extends StatelessWidget {
@@ -15,10 +15,9 @@ class ChildrenHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
-    final screenWidth = MediaQuery.of(context).size.width;
-    final statusBarHeight = MediaQuery.of(context).padding.top;
 
     const userName = 'Ian Braga';
+    const userPhotoPath = 'assets/images/appImages/ianzinho.jpg';
 
     return Scaffold(
       body: Stack(
@@ -35,46 +34,10 @@ class ChildrenHomePage extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Row(
-                      // Nesting Rows to keep the image and text together
-                      children: [
-                        const SizedBox(width: 20), // Adjust the space as needed
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(50),
-                          child: Image.asset(
-                              'assets/images/appImages/ianzinho.jpg',
-                              height: 60),
-                        ),
-                        const SizedBox(width: 8), // Adjust the space as needed
-                        RichText(
-                          text: const TextSpan(
-                            children: [
-                              TextSpan(
-                                text: 'Seja bem-vindo,\n',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 14,
-                                  fontFamily: "Fieldwork-Geo",
-                                  fontWeight: FontWeight.normal,
-                                ),
-                              ),
-                              TextSpan(
-                                text: userName,
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 18,
-                                  fontFamily: "Fieldwork-Geo",
-                                  fontWeight: FontWeight.normal,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
+                    const UserPhotoAndName(
+                        userName: userName, userPhotoPath: userPhotoPath),
                     const Spacer(),
                     const StreakWidget(streakDays: 20),
-
                     Icon(Icons.account_circle,
                         color: Colors.white
                             .withOpacity(0.0)), // Invisible icon for alignment

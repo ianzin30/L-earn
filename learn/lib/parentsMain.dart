@@ -3,7 +3,6 @@ import 'package:learn/pages/parentsPages/homePage.dart';
 import 'widgets/global/navBar.dart';
 
 import 'pages/parentsPages/activitiesPage.dart';
-import 'pages/parentsPages/homePage.dart';
 import 'pages/parentsPages/profilePage.dart';
 import 'pages/parentsPages/monitoringPage.dart';
 
@@ -44,7 +43,7 @@ class _ParentsMainState extends State<ParentsMain> {
       index,
       duration: const Duration(milliseconds: 500),
       curve: Curves.ease,
-    ); 
+    );
   }
 
   @override
