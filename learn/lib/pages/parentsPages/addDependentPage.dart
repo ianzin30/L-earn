@@ -5,6 +5,8 @@ import 'package:learn/widgets/global/learnAppBar.dart';
 import '/widgets/selectedGoals.dart';
 import '/widgets/childrenDataBox.dart';
 import 'package:learn/widgets/loginWidgets/loginEnterButton.dart';
+import 'package:learn/pages/parentsPages/verificationCodePage.dart';
+
 class AddDependentPage extends StatefulWidget {
   final Children? children;
 
@@ -96,6 +98,10 @@ class _AddDependentPageState extends State<AddDependentPage> {
     print('Nome: ${_nomeCriancaController.text}');
     print('Data de Nascimento: ${_dataNascimentoController.text}');
     print('Conteúdos Selecionados: $_conteudosSelecionados');
+    Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => VerificationCodePage(childrenName: _nomeCriancaController.text))
+              );
   }
 
   @override

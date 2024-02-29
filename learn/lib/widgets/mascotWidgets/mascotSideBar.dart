@@ -1,6 +1,8 @@
 
 import 'package:flutter/material.dart';
 import '/widgets/mascotWidgets/mascotSideBarIcon.dart';
+import 'package:learn/pages/parentsPages/addDependentPage.dart';
+
 
 class MascotSideBar extends StatelessWidget {
   final PageController pageController;
@@ -33,10 +35,15 @@ class MascotSideBar extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          MascotSideBarIcon(pageController: pageController, name:"Loja"),
-          MascotSideBarIcon(pageController: pageController, name:"Alimentos"),
-          MascotSideBarIcon(pageController: pageController, name:"Atividades"),
-          MascotSideBarIcon(pageController: pageController, name:"Roupas"),
+          MascotSideBarIcon(name:"Loja", onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => AddDependentPage())
+              );
+            }),
+          MascotSideBarIcon(name:"Alimentos"),
+          MascotSideBarIcon(name:"Atividades"),
+          MascotSideBarIcon(name:"Roupas"),
         ],
       ),
     )
