@@ -24,7 +24,7 @@ class ActivitieContentRow extends StatelessWidget {
                                           level: e.level, title: e.title, description: e.description,
                                           progress: e.progress, isLocked: e.isLocked, backgroundGradientColors: e.backgroundGradientColors,
                                           levelGradientColors: e.levelGradientColors, progressColor: e.progressColor,
-                                          onPressed: e.onPressed, width: 294,
+                                          pageWidget: e.pageWidget, width: 294,
                                         )))).toList();
 
   @override

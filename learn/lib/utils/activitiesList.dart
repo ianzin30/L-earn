@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:learn/widgets/activitiesWidgets/activitieCardStatic.dart';
+import 'package:learn/pages/activities/actitivitie_01/activitie01Page.dart';
+import 'package:learn/widgets/activitiesWidgets/activitieCardAnimated.dart';
+
 
 List<ActivitieCardStatic> activitiesList = [
    ActivitieCardStatic(
@@ -10,6 +13,7 @@ List<ActivitieCardStatic> activitiesList = [
     isLocked: false,
     backgroundGradientColors: const  [Color(0XFF7A7FFF),Color(0xFF040862)],
     levelGradientColors: [Colors.white.withOpacity(0.3), Colors.white.withOpacity(0.01)],
+    pageWidget: Activitie01()
   ),
    ActivitieCardStatic(
     level: 1,
@@ -30,3 +34,7 @@ List<ActivitieCardStatic> activitiesList = [
     levelGradientColors: [Colors.white.withOpacity(0.8), Colors.white.withOpacity(0.2)],
   )
 ];
+
+final  List<Widget> atividades = activitiesList.map((e) => Container(
+                                                                        padding: EdgeInsets.fromLTRB(0, 16, 0, 16),
+                                                                        child: ActivitieCard(activitie: e))).toList();

@@ -3,9 +3,11 @@ import 'package:learn/widgets/activitiesWidgets/activitieCardStatic.dart';
 
 class ActivitieCard extends StatefulWidget {
   final ActivitieCardStatic activitie;
+  final bool isActivitie;
 
   ActivitieCard({
     required this.activitie,
+    this.isActivitie = false
   });
 
   @override
@@ -41,7 +43,11 @@ class _ActivitieCardState extends State<ActivitieCard> with SingleTickerProvider
 
   void _onTap() {
     if (!widget.activitie.isLocked) {
-      widget.activitie.onPressed?.call();
+      if (widget.activitie.pageWidget != null){
+        Navigator.push(
+          context, MaterialPageRoute(builder: (context) => widget.activitie.pageWidget ?? Container())
+        );
+      }
     }
     _animationController
       .forward()
