@@ -15,9 +15,7 @@ class ChildrenActivitiesPage extends StatelessWidget {
       appBar: LearnAppBar(
         pageIndex: 1,
         pagePosition: pagePosition.value,
-        children: const [
-          Text('Atividades', style: TextStyle(color: Colors.white)),
-        ] 
+        child: const Text('Atividades', style: TextStyle(color: Colors.white)),
       ),
       body: Center(
         child: AchievementsWidget(),

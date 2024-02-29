@@ -1,20 +1,24 @@
 import 'package:flutter/material.dart';
 
 class LearnAppBar extends StatelessWidget implements PreferredSizeWidget {
-  final List<Widget> children;
+  final Widget child;
   final double pagePosition;
   final int pageIndex;
-  final MainAxisAlignment mainAxisAlignment;
-  final CrossAxisAlignment crossAxisAlignment;
-  final VoidCallback? retunrFunction;
+  final AlignmentGeometry? alignment;
+  final EdgeInsetsGeometry? padding;
+  final VoidCallback? backButtonFunction;
+  final double heigth;
+  final Gradient? gradient;
 
   LearnAppBar({
-    required this.children,
-    required this.pagePosition,
-    required this.pageIndex,
-    this.mainAxisAlignment = MainAxisAlignment.start,
-    this.crossAxisAlignment = CrossAxisAlignment.center,
-    this.retunrFunction
+    required this.child,
+    this.pageIndex =0,
+    this.pagePosition = 0,
+    this.alignment,
+    this.padding,
+    this.backButtonFunction,
+    this.heigth = 240,
+    this.gradient,
   });
 
   @override
@@ -24,18 +28,21 @@ class LearnAppBar extends StatelessWidget implements PreferredSizeWidget {
     Alignment gradientStart = Alignment(-pageOffset, -1.0);
     Alignment gradientEnd = Alignment(pageOffset, 1.0);
 
-    return AnimatedContainer(
-      duration: const Duration(milliseconds: 300),
-      height: preferredSize.height,
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
+    final Gradient finalGradient = gradient??  LinearGradient(
           begin: gradientStart,
           end: gradientEnd,
           colors: const [
             Color(0xFF7A7FFF),
             Color(0xFF040862),
           ],
-        ),
+        );
+
+
+    return AnimatedContainer(
+      duration: const Duration(milliseconds: 300),
+      height: preferredSize.height,
+      decoration: BoxDecoration(
+        gradient: finalGradient,
         borderRadius: isRounded
             ? const BorderRadius.vertical(bottom: Radius.circular(50))
             : BorderRadius.zero,
@@ -43,7 +50,7 @@ class LearnAppBar extends StatelessWidget implements PreferredSizeWidget {
       child: SafeArea(
         child:Stack(
           children: [
-            if (retunrFunction != null)
+            if (backButtonFunction != null)
                 Container(
                   padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 16),
                   child:
@@ -57,15 +64,15 @@ class LearnAppBar extends StatelessWidget implements PreferredSizeWidget {
                       ),
                       child: IconButton(
                         icon:  const Icon(Icons.arrow_back, color: Colors.black),
-                        onPressed: retunrFunction,
+                        onPressed: backButtonFunction,
                         iconSize: 24,
                       )
                     )
                   ),
-            Column(
-              mainAxisAlignment: mainAxisAlignment,
-              crossAxisAlignment: crossAxisAlignment,
-              children: children,
+            Container(
+              alignment: alignment,
+              padding : padding,
+              child: child
             )
         ],
         ),
@@ -74,32 +81,35 @@ class LearnAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => Size.fromHeight(235);
+  Size get preferredSize => Size.fromHeight(heigth);
 }
 
 class LearnAppBarSuper extends LearnAppBar {
   final Widget superWidget;
+  final VoidCallback? backButtonFunction; 
+  final double superHeigth;
+  final double globalHeigth;
 
   LearnAppBarSuper({
-    required List<Widget> children,
+    required Widget child,
     required double pagePosition,
     required int pageIndex,
-    MainAxisAlignment mainAxisAlignment = MainAxisAlignment.start,
-    CrossAxisAlignment crossAxisAlignment = CrossAxisAlignment.center,
-
     required this.superWidget,
+    this.backButtonFunction,
+    this.globalHeigth = 320,
+    this.superHeigth = 240
   }) : super(
-            children: children,
+            child: child,
             pagePosition: pagePosition,
             pageIndex: pageIndex,
-            mainAxisAlignment: mainAxisAlignment,
-            crossAxisAlignment: crossAxisAlignment,
+            backButtonFunction : backButtonFunction,
+            heigth: superHeigth
          );
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 300,
+      height: 320,
       child:Stack(
           children: [
             Container(
@@ -118,6 +128,6 @@ class LearnAppBarSuper extends LearnAppBar {
     );
   }
   @override
-  Size get preferredSize => Size.fromHeight(300);
+  Size get preferredSize => Size.fromHeight(globalHeigth);
   
 }

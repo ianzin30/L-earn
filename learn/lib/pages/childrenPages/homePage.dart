@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import '../../widgets/global/learnAppBar.dart';
-import 'package:learn/widgets/levelWidget.dart';
 import 'package:learn/widgets/StreakWidget.dart';
 import 'package:learn/widgets/activitiesWidgets/activitieContentColumn.dart';
 import 'package:learn/widgets/loginWidgets/trilhaSoldi.dart';
 import '/widgets/achivievementWidget.dart';
+import 'package:learn/widgets/globalProgressWidget.dart';
+
 
 class ChildrenHomePage extends StatelessWidget {
   final ValueNotifier<double> pagePosition;
@@ -30,7 +31,8 @@ class ChildrenHomePage extends StatelessWidget {
             child: LearnAppBar(
               pageIndex: 0,
               pagePosition: pagePosition.value,
-              children: [
+              child :Column(
+                children: [ 
                 const SizedBox(height: 50),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -81,6 +83,7 @@ class ChildrenHomePage extends StatelessWidget {
                   ],
                 ),
               ],
+              ) ,
             ),
           ),
           Positioned(
@@ -89,7 +92,7 @@ class ChildrenHomePage extends StatelessWidget {
             right: 0,
             child: Container(
               padding: const EdgeInsets.fromLTRB(20.0, 22.0, 20.0, 10.0),
-              child: LevelWidget(pontuation: 200, mascotName: "Pedro"),
+              child: GlobalProgress(pontuation: 100, isMascot: false,),
             ),
           ),
           Positioned(

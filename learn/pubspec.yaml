@@ -32,6 +32,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_native_splash: ^1.2.0
+  intl: ^0.19.0
 
 
 
@@ -84,6 +85,16 @@ flutter:
   - ./assets/images/appIcons/icon-trophie.png
   - ./assets/images/appIcons/icon-award.png
   - ./assets/images/appIcons/icon-lock-default.png
+  # Badges
+  - ./assets/images/appIcons/badge-bronze-default.png
+  - ./assets/images/appIcons/badge-bronze-blue.png
+  - ./assets/images/appIcons/badge-prata-default.png
+  - ./assets/images/appIcons/badge-prata-blue.png
+  - ./assets/images/appIcons/badge-ouro-default.png
+  - ./assets/images/appIcons/badge-ouro-blue.png
+  - ./assets/images/appIcons/badge-diamante-default.png
+  - ./assets/images/appIcons/badge-diamante-blue.png
+  
   # Person Images
   - ./assets/images/appImages/ianzinho.jpg
   # Mascot Images

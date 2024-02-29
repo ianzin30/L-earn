@@ -1,24 +1,24 @@
 import 'package:flutter/material.dart';
 import '../../widgets/global/learnAppBar.dart';
-import 'package:learn/widgets/activitiesWidgets/yoursActivities.dart';
 
-class MonitorigPage extends StatelessWidget {
+class GenericPageTemplate extends StatelessWidget {
   final ValueNotifier<double> pagePosition;
 
-  MonitorigPage({
+  GenericPageTemplate({
     required this.pagePosition
   });
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: LearnAppBar(
-        pageIndex: 2,
+        pageIndex: 0,
         pagePosition: pagePosition.value,
-        child: const Text('Monitoramento', style: TextStyle(color: Colors.white)),
+        child: const Text('Generic Page Template', style: TextStyle(color: Colors.white)),
       ),
-      body: Center(
-        child: ActivitieContentColumn(),
+      body: const Center(
+        child: Text('Generic Page Template'),
       ),
     );
   }
