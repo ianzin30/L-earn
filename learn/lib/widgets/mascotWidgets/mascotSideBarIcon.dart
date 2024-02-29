@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:learn/pages/parentsPages/addDependentPage.dart';
 
 class MascotSideBarIcon extends StatelessWidget {
     final String name;
-    final PageController pageController;
+    final VoidCallback? onPressed;
 
   MascotSideBarIcon({
     required this.name,
-    required this.pageController,
+    this.onPressed,
   });
 
   @override
@@ -27,12 +26,7 @@ class MascotSideBarIcon extends StatelessWidget {
                   )
               ],
             ),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => AddDependentPage())
-              );
-            },
+            onPressed: onPressed,
           );
     }
 }

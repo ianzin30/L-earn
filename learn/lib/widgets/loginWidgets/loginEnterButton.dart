@@ -9,7 +9,7 @@ class LoginEnterButton extends StatelessWidget {
   LoginEnterButton({
     required this.onPressed,
     required this.title,
-    required this.colors,
+    this.colors = const [Color(0xFF646AE3), Color(0xFF262B91)],
     this.fontColor = const Color(0xFFFFFFFF)
   });
 

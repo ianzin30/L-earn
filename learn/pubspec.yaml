@@ -66,6 +66,7 @@ flutter:
   assets:
   # Icons Images
   - ./assets/images/appIcons/icon-steak.png
+  - ./assets/images/appIcons/check-circle.png
   - ./assets/images/mascote/icon-loja-default.png
   - ./assets/images/mascote/icon-atividades-default.png
   - ./assets/images/mascote/icon-roupas-default.png
