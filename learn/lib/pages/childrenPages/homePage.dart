@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import '../../widgets/global/learnAppBar.dart';
 import 'package:learn/widgets/levelWidget.dart';
 import 'package:learn/widgets/StreakWidget.dart';
-import 'package:learn/widgets/activitiesWidgets/activitieContentColumn.dart';
 import 'package:learn/widgets/loginWidgets/trilhaSoldi.dart';
 import '../../widgets/user-profile.dart';
 import '/widgets/achivievementWidget.dart';
