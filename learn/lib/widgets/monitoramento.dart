@@ -59,7 +59,7 @@ class UserProfileWidget extends StatelessWidget {
                 ),
                 const Spacer(),
                 Image.asset('assets/images/appIcons/silver-badge.png',
-                    height: 48),
+                    height: 48 ),
               ],
             ),
           ),
