@@ -26,7 +26,7 @@ class AddDependentPage extends StatelessWidget {
       appBar: LearnAppBar(
         pageIndex: 0,
         pagePosition: pagePosition.value,
-        retunrFunction: () {
+        backButtonFunction: () {
           Navigator.pop(context);
         },
         child: Container(
@@ -36,7 +36,6 @@ class AddDependentPage extends StatelessWidget {
             "Adicionar dependente",
             style: TextStyle(
               fontFamily: "Fieldwork-Geo", fontWeight: FontWeight.w600, fontSize: 18, color: Color(0xFFFFFFFF)
-
             ),
           ),
         ),

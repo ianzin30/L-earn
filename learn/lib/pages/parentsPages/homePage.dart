@@ -15,7 +15,7 @@ class ParentsHPage extends StatelessWidget {
       appBar: LearnAppBar(
         pageIndex: 0,
         pagePosition: pagePosition.value,
-        retunrFunction: () {},
+        backButtonFunction: () {},
         child: const Text('Home', style: TextStyle(color: Colors.white)),   
       ),
       body: const Center(

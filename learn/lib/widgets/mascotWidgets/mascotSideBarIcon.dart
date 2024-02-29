@@ -12,7 +12,6 @@ class MascotSideBarIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ValueNotifier<double> pagePosition = ValueNotifier(0.0);
     return IconButton(
             alignment: Alignment.bottomLeft,
             icon: Column(
@@ -31,7 +30,7 @@ class MascotSideBarIcon extends StatelessWidget {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => AddDependentPage(pagePosition: pagePosition,))
+                MaterialPageRoute(builder: (context) => AddDependentPage())
               );
             },
           );

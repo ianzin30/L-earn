@@ -1,6 +1,6 @@
 class Children {
   final String name;
-  final String birthdate;
+  final DateTime birthdate;
   final int pontuation;
   final List<String> goals;
   final List<String> trails;
