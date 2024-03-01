@@ -9,6 +9,7 @@ class VerificationCodePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     final List<int> numbersList = [1, 2, 3, 4];
     return Scaffold(
       body: Center(
