@@ -3,19 +3,14 @@ import 'package:learn/widgets/global/backButton.dart';
 import 'package:learn/utils/boldSubString.dart';
 import 'package:learn/widgets/global/commonButton.dart';
 
-class Page01 extends StatelessWidget {
-  final PageController pageController;
-
-  Page01({
-    required this.pageController,
-  });
+class Page04 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
     const TextStyle textStyle = TextStyle(
         color: Color(0xFFFFFFFF),
-        fontSize: 20,
-        fontWeight: FontWeight.w500,
+        fontSize: 18,
+        fontWeight: FontWeight.w400,
         fontFamily: "Fieldwork-Geo");
 
     const TextStyle textStyleBold = TextStyle(
@@ -61,17 +56,15 @@ class Page01 extends StatelessWidget {
                 text: const TextSpan(
                     children: [
                   TextSpan(
-                    text: "Oi ",
+                    text: "Connie",style: textStyleBold,
                   ),
                   TextSpan(
-                    text: "Luciano",
-                    style: textStyleBold,
+                    text: " esá muito feliz por ir ao ",
                   ),
-                  TextSpan(text: "! Sua mascote, a "),
-                  TextSpan(text: "Connie", style: textStyleBold),
-                  TextSpan(
-                      text:
-                          ", está com um problema e só você pode resolvê-lo!"),
+                  TextSpan(text: "cinema", style: textStyleBold),
+                  TextSpan(text: " com seus amigos, e com sua ajuda para criar um "),
+                  TextSpan(text:"orçamento", style: textStyleBold),
+                  TextSpan(text: " ela agora sabe a melhor maneira de levar dinheiro ao cinema"),
                 ],
                     style: TextStyle(
                         color: Color(0xFFFFFFFF),
@@ -83,7 +76,7 @@ class Page01 extends StatelessWidget {
             ),
             Center(
               child: Image.asset(
-                "assets/images/mascote/mascot-sad.png",
+                "assets/images/mascote/mascot-happy.png",
                 height: 240,
               ),
             ),
@@ -94,7 +87,7 @@ class Page01 extends StatelessWidget {
           bottom: 120,
           child: LearnButton(
             text: const Text(
-              "Continuar",
+              "Concluir a atividade",
               style: TextStyle(
                 color: Color(0xff101573),
                 fontSize: 14,
@@ -104,11 +97,7 @@ class Page01 extends StatelessWidget {
             ),
             buttonColor: const Color(0xFFFFFFFF),
             onPressed: () {
-              pageController.nextPage(
-                duration: const Duration(milliseconds: 500),
-                curve: Curves.ease
-              );
-            },
+              Navigator.pop(context);},
           ))
     ]));
   }

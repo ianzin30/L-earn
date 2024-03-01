@@ -101,7 +101,10 @@ flutter:
   # Mascot Images
   - ./assets/images/mascote/background.png
   - ./assets/images/mascote/backgroundLarge.png
+  - ./assets/images/mascote/mascot-happy.png
+  - ./assets/images/mascote/mascot-sad.png
   - ./assets/images/mascote/mascote.png
+
   # App Images
   - ./assets/images/appImages/icon.png
 
