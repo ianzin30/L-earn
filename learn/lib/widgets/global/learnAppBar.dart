@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class LearnAppBar extends StatelessWidget implements PreferredSizeWidget {
-  final Widget child;
+  final Widget? child;
   final double pagePosition;
   final int pageIndex;
   final AlignmentGeometry? alignment;
@@ -11,7 +11,7 @@ class LearnAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Gradient? gradient;
 
   LearnAppBar({
-    required this.child,
+    this.child,
     this.pageIndex =0,
     this.pagePosition = 0,
     this.alignment,
@@ -91,12 +91,12 @@ class LearnAppBarSuper extends LearnAppBar {
   final double globalHeigth;
 
   LearnAppBarSuper({
-    required Widget child,
-    required double pagePosition,
-    required int pageIndex,
     required this.superWidget,
+    Widget? child,
+    double pagePosition = 0,
+    int pageIndex = 0,
     this.backButtonFunction,
-    this.globalHeigth = 320,
+    this.globalHeigth = 280,
     this.superHeigth = 240
   }) : super(
             child: child,
@@ -109,7 +109,7 @@ class LearnAppBarSuper extends LearnAppBar {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 320,
+      height: globalHeigth,
       child:Stack(
           children: [
             Container(

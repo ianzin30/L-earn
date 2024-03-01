@@ -5,8 +5,7 @@ import 'package:learn/widgets/achivievementIcons.dart';
 class AchievementsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    double screenHeight = MediaQuery.of(context).size.height;
-    double screenWidth = MediaQuery.of(context).size.width;
+    double screenWidth = MediaQuery.sizeOf(context).width;
 
     return Container(
         padding: const EdgeInsets.all(12),
@@ -36,8 +35,7 @@ class AchievementsWidget extends StatelessWidget {
                   AchievementIcon(
                       data: achievementsList[0],
                       heigth: 140,
-                      width: screenWidth / 2 - 20
-                  ),
+                      width: screenWidth / 2 - 20),
                   const SizedBox(width: 9),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -67,7 +65,8 @@ class AchievementsWidget extends StatelessWidget {
                                       fontSize: 12,
                                       fontFamily: 'Fieldwork-Geo',
                                       fontWeight: FontWeight.w800)),
-                              Image.asset('assets/images/appIcons/icon-award.png',
+                              Image.asset(
+                                  'assets/images/appIcons/icon-award.png',
                                   height: 24),
                             ],
                           ))

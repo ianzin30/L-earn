@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../widgets/global/learnAppBar.dart';
-import 'package:learn/widgets/activitiesWidgets/yoursActivities.dart';
+import 'package:learn/widgets/activitiesWidgets/activitieContentColumn.dart';
 
 class MonitorigPage extends StatelessWidget {
   final ValueNotifier<double> pagePosition;
@@ -17,9 +17,7 @@ class MonitorigPage extends StatelessWidget {
         pagePosition: pagePosition.value,
         child: const Text('Monitoramento', style: TextStyle(color: Colors.white)),
       ),
-      body: Center(
-        child: ActivitieContentColumn(),
-      ),
+      
     );
   }
 }

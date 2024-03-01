@@ -68,7 +68,7 @@ class _ChildrenMainState extends State<ChildrenMain> {
         },
         children: _pageOptions,
       ),
-      bottomNavigationBar: _selectedIndex != 2
+      bottomNavigationBar: (_selectedIndex != 2)
           ? LearnNavBar(
               selectedIndex: _selectedIndex,
               onItemTapped: _onItemTapped,

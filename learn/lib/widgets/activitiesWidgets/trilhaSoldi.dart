@@ -19,12 +19,12 @@ class ActivitieContentRow extends StatelessWidget {
                                  Container(
                                     padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 0),
                                     child: 
-                                      ActivitieCard(activitie: 
-                                        ActivitieCardStatic(
+                                      ActivitieCard(isActivitie: true ,activitie: 
+                                        ActivitieCardStatic(                              
                                           level: e.level, title: e.title, description: e.description,
                                           progress: e.progress, isLocked: e.isLocked, backgroundGradientColors: e.backgroundGradientColors,
                                           levelGradientColors: e.levelGradientColors, progressColor: e.progressColor,
-                                          onPressed: e.onPressed, width: 294,
+                                          pageWidget: e.pageWidget, width: 294, pageDescription: e.pageDescription, pageTitle: e.pageDescription,
                                         )))).toList();
 
   @override
