@@ -1,15 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:learn/widgets/activitiesWidgets/activitieCardStatic.dart';
 import 'package:learn/widgets/global/learnAppBar.dart';
 import 'package:learn/widgets/activitiesWidgets/activitieContentColumn.dart';
-import 'package:learn/utils/activitiesList.dart';
+import 'package:learn/pages/activities/actitivitie_01/activitie01lessions.dart';
 
-class Activitie01 extends StatelessWidget {
+class ActivitieMain extends StatelessWidget {
+  final ActivitieCardStatic content;
+
+  ActivitieMain({
+    required this.content
+  });
 
   @override
   Widget build(BuildContext context) {
+    final lista = content.lessionsList?? [];
+    print("Temos ${lista.length} lessions");
     return Scaffold(
       appBar: LearnAppBarSuper(
-        superWidget: activitiesList[0],
+        superWidget: content,
         backButtonFunction: () {Navigator.pop(context);},
         
       ),
@@ -17,8 +25,9 @@ class Activitie01 extends StatelessWidget {
         padding: const EdgeInsets.fromLTRB(14, 25, 14, 0),
         child: SingleChildScrollView(
           child:  ActivitieContentColumn(
-          title: "Conteúdos das atividades",
-          description: "Conheça as atividades"
+          title: content.pageTitle,
+          description: content.pageDescription,
+          lessions: activitie01List,
         )
         )
       )

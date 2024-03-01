@@ -17,12 +17,7 @@ class MonitorigPage extends StatelessWidget {
         pagePosition: pagePosition.value,
         child: const Text('Monitoramento', style: TextStyle(color: Colors.white)),
       ),
-      body: Center(
-        child: ActivitieContentColumn(
-          title: "Conteúdos das atividades",
-          description: "Conheça as atividades"
-        ),
-      ),
+      
     );
   }
 }

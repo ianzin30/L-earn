@@ -96,7 +96,7 @@ class LearnAppBarSuper extends LearnAppBar {
     double pagePosition = 0,
     int pageIndex = 0,
     this.backButtonFunction,
-    this.globalHeigth = 320,
+    this.globalHeigth = 280,
     this.superHeigth = 240
   }) : super(
             child: child,
@@ -109,7 +109,7 @@ class LearnAppBarSuper extends LearnAppBar {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 320,
+      height: globalHeigth,
       child:Stack(
           children: [
             Container(

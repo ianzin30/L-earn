@@ -5,27 +5,44 @@ import 'package:learn/utils/activitiesList.dart';
 
 const isStatic = false;
 
-
 class ActivitieContentColumn extends StatelessWidget {
   final String title;
   final String description;
+  final List<LessionCardStatic> lessions;
 
   ActivitieContentColumn({
     required this.title, 
-    required this.description, 
+    required this.description,
+    required this.lessions,
   });
  
 
 
   final List<Widget> atividades = isStatic ? activitiesList
                                            : activitiesList.map((e) => Container(
-                                                                        padding: EdgeInsets.fromLTRB(0, 16, 0, 16),
+                                                                        padding: const EdgeInsets.fromLTRB(4, 16, 4, 16),
                                                                         child: ActivitieCard(activitie: e))).toList();
 
-  //final List<Widget> finalActivities = activities?? atividades;
+  
 
   @override
   Widget build(BuildContext context) {
+  final List<Widget> lessionsAnimated = lessions.map((e) => Container(
+                                                                        padding: const EdgeInsets.fromLTRB(4, 8, 4, 8),
+                                                                        child: ActivitieCard(activitie: ActivitieCardStatic(
+                                                                          title: e.title, 
+                                                                          description: e.description, 
+                                                                          pageDescription: "",
+                                                                          pageTitle: "", 
+                                                                          level: e.level,
+                                                                          isLocked: e.isLocked,
+                                                                          backgroundGradientColors: e.backgroundGradientColors,
+                                                                          levelGradientColors: e.levelGradientColors,
+                                                                          pageWidget: e.pageWidget,
+                                                                          isActivitie: false,
+                                                                          )))).toList();
+    
+
     return Container(
       child: 
       Column(
@@ -43,7 +60,7 @@ class ActivitieContentColumn extends StatelessWidget {
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.center,
-              children: atividades,
+              children: lessionsAnimated,
             )
         ],
       ),

@@ -25,53 +25,79 @@ class ChildrenDataBox extends StatelessWidget {
       children: [
         const Text(
           "Dados do dependente",
-          style: TextStyle(fontFamily: "Fieldwork-Geo", fontWeight: FontWeight.w600, fontSize: 14, color: Color(0xFF3C3C3C)),
+          style: TextStyle(
+              fontFamily: "Fieldwork-Geo",
+              fontWeight: FontWeight.w600,
+              fontSize: 14,
+              color: Color(0xFF3C3C3C)),
         ),
-        const Text(
-          "Adicione o nome e a data de nascimento do\nseu dependente",
-          style: TextStyle(fontFamily: "Fieldwork-Geo", fontWeight: FontWeight.w400, fontSize: 12, color: Color(0xFF5C5C5C))
-        ),
-        SizedBox(height:16 ),
+        const Text("Adicione o nome e a data de nascimento do\nseu dependente",
+            style: TextStyle(
+                fontFamily: "Fieldwork-Geo",
+                fontWeight: FontWeight.w400,
+                fontSize: 12,
+                color: Color(0xFF5C5C5C))),
+        SizedBox(height: 16),
         Row(
           children: [
             SizedBox(
               height: 56,
-              width: (MediaQuery.of(context).size.width/2) - 24,
+              width: (MediaQuery.of(context).size.width / 2) - 24,
               child: TextField(
-                style: const TextStyle(fontFamily: "Fieldwork-Geo", fontWeight:FontWeight.w400,color: Color(0xff5A5A5A), fontSize: 12),
+                style: const TextStyle(
+                    fontFamily: "Fieldwork-Geo",
+                    fontWeight: FontWeight.w400,
+                    color: Color(0xff5A5A5A),
+                    fontSize: 12),
                 controller: nameController,
                 decoration: InputDecoration(
-                  labelStyle: const TextStyle(fontFamily: "Fieldwork-Geo", fontWeight:FontWeight.w400,color: Color(0xff9A9A9A), fontSize: 12),
+                  labelStyle: const TextStyle(
+                      fontFamily: "Fieldwork-Geo",
+                      fontWeight: FontWeight.w400,
+                      color: Color(0xff9A9A9A),
+                      fontSize: 12),
                   labelText: 'Nome da Criança',
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10)
-                  ),
+                      borderRadius: BorderRadius.circular(10)),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                     borderSide: BorderSide(
-                      color: nameController.text.isNotEmpty ? Colors.blue : Colors.grey,
+                      color: nameController.text.isEmpty
+                          ? Colors.grey
+                          : const Color(0xff7A7FFF),
                     ),
                   ),
                 ),
               ),
             ),
-            SizedBox(width: 16,),
+            const SizedBox(
+              width: 16,
+            ),
             SizedBox(
               height: 56,
-              width: (MediaQuery.of(context).size.width/2) - 24,
+              width: (MediaQuery.of(context).size.width / 2) - 24,
               child: TextField(
-                style: const TextStyle(fontFamily: "Fieldwork-Geo", fontWeight:FontWeight.w400,color: Color(0xff5A5A5A), fontSize: 12),
+                style: const TextStyle(
+                    fontFamily: "Fieldwork-Geo",
+                    fontWeight: FontWeight.w400,
+                    color: Color(0xff5A5A5A),
+                    fontSize: 12),
                 controller: dateController,
                 decoration: InputDecoration(
                   labelText: 'Data de Nascimento',
-                  labelStyle: const TextStyle(fontFamily: "Fieldwork-Geo", fontWeight:FontWeight.w400,color: Color(0xff9A9A9A), fontSize: 12),
+                  labelStyle: const TextStyle(
+                      fontFamily: "Fieldwork-Geo",
+                      fontWeight: FontWeight.w400,
+                      color: Color(0xff9A9A9A),
+                      fontSize: 12),
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10)
-                  ),
+                      borderRadius: BorderRadius.circular(10)),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                     borderSide: BorderSide(
-                      color: dateController.text.isNotEmpty ? Colors.blue : Colors.grey,
+                      color: dateController.text.isEmpty
+                          ? Colors.grey
+                          : const Color(0xff7A7FFF),
                     ),
                   ),
                 ),
@@ -83,12 +109,13 @@ class ChildrenDataBox extends StatelessWidget {
                     lastDate: DateTime.now(),
                   );
                   if (selectedDate != null) {
-                    dateController.text = DateFormat('dd/MM/yyyy').format(selectedDate);
+                    dateController.text =
+                        DateFormat('dd/MM/yyyy').format(selectedDate);
                   }
                 },
               ),
             ),
-        ],
+          ],
         )
       ],
     );

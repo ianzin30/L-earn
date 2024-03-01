@@ -1,11 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:learn/widgets/activitiesWidgets/activitieCardStatic.dart';
-import 'package:learn/pages/activities/actitivitie_01/activitie01Page.dart';
+import 'package:learn/pages/activities/actitivitie_01/activitie01lessions.dart';
 import 'package:learn/widgets/activitiesWidgets/activitieCardAnimated.dart';
+import 'package:learn/pages/activities/actitivitie_01/lession01/lession01Main.dart';
 
 
 List<ActivitieCardStatic> activitiesList = [
    ActivitieCardStatic(
+    pageTitle: "Conteúdos das atividades",
+    pageDescription: "Conheça as atividades",
+    lessionsList: [
+        LessionCardStatic(
+          level: 1, 
+          title: "Ajude Coiny no shopping", 
+          description: "Venha ajudar a Connie a ter as melhores decisões no shopping",
+          isLocked: false,
+          pageWidget: Lession01Main(),
+        ),
+        LessionCardStatic(
+          level: 1, 
+          title: "Ajude Coiny no shopping", 
+          description: "Venha ajudar a Cony a ter as melhores decisões no shopping",
+          backgroundGradientColors: const [Color(0XFFF59D4D),Color(0XFFF59D4D)],
+        ),
+        LessionCardStatic(
+          level: 1, 
+          title: "Ajude Coiny no shopping", 
+          description: "Venha ajudar a Cony a ter as melhores decisões no shopping",
+          backgroundGradientColors: const [Color(0XFF1290A2),Color(0xFF82DA59)],
+        ),
+      ],
     level: 1,
     title: "Orçamento para um passeio", 
     description:  "Continue onde parou",
@@ -13,9 +37,10 @@ List<ActivitieCardStatic> activitiesList = [
     isLocked: false,
     backgroundGradientColors: const  [Color(0XFF7A7FFF),Color(0xFF040862)],
     levelGradientColors: [Colors.white.withOpacity(0.3), Colors.white.withOpacity(0.01)],
-    pageWidget: Activitie01()
   ),
    ActivitieCardStatic(
+    pageTitle: "Titulo da Atividade 2",
+    pageDescription: "Descrição atividade 2",
     level: 1,
     title: "Orçamento para um passeio", 
     description:  "Continue onde parou",
@@ -25,6 +50,8 @@ List<ActivitieCardStatic> activitiesList = [
     levelGradientColors: [Colors.white.withOpacity(0.8), Colors.white.withOpacity(0.2)],
   ),
   ActivitieCardStatic(
+    pageTitle: "Titulo da Atividade 2",
+    pageDescription: "Descrição atividade 2",
     level: 2,
     title: "Orçamento para um passeio", 
     description:  "Continue onde parou",
@@ -34,7 +61,3 @@ List<ActivitieCardStatic> activitiesList = [
     levelGradientColors: [Colors.white.withOpacity(0.8), Colors.white.withOpacity(0.2)],
   )
 ];
-
-final  List<Widget> atividades = activitiesList.map((e) => Container(
-                                                                        padding: EdgeInsets.fromLTRB(0, 16, 0, 16),
-                                                                        child: ActivitieCard(activitie: e))).toList();
