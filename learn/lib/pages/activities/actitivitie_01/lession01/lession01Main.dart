@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import './page1.dart';
-
+import './page2.dart';
+import './page4.dart';
 
 class Lession01Main extends StatefulWidget {
   @override
@@ -28,7 +29,9 @@ class _Lession01MainState extends State<Lession01Main> {
   @override
   Widget build(BuildContext context) {
     List<Widget> _pageOptions = [
-      MascotPage(pageController: _pageController),
+      Page01(pageController: _pageController),
+      Page02(pageController: _pageController),
+      Page04(),
     ];
 
     return Scaffold(
