@@ -22,7 +22,7 @@ class ChildrenHomePage extends StatelessWidget {
         pageIndex: 1,
         pagePosition: pagePosition.value,
         child: Container(
-          padding: const  EdgeInsets.fromLTRB(14, 16, 14, 0),
+          padding: const  EdgeInsets.fromLTRB(14, 64, 14, 0),
           child: const Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
