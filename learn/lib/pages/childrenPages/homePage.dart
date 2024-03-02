@@ -6,7 +6,6 @@ import '/widgets/achivievementWidget.dart';
 import 'package:learn/widgets/user-profile.dart';
 import 'package:learn/widgets/globalProgressWidget.dart';
 
-
 class ChildrenHomePage extends StatelessWidget {
   final ValueNotifier<double> pagePosition;
 
@@ -18,34 +17,35 @@ class ChildrenHomePage extends StatelessWidget {
     return Scaffold(
       appBar: LearnAppBarSuper(
         superHeigth: 320,
-        superWidget: GlobalProgress(pontuation: 100, isMascot: false,),
+        superWidget: GlobalProgress(
+          pontuation: 100,
+          isMascot: false,
+        ),
         pageIndex: 1,
         pagePosition: pagePosition.value,
         child: Container(
-          padding: const  EdgeInsets.fromLTRB(14, 64, 14, 0),
-          child: const Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              UserPhotoAndName(
-                userName: "Ian Braga",
-                userPhotoPath: "assets/images/appImages/ianzinho.jpg",
-              ),
-              StreakWidget(streakDays: 7),
-            ]
-          )
-        ),
+            padding: const EdgeInsets.fromLTRB(14, 64, 14, 0),
+            child: const Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  UserPhotoAndName(
+                    userName: "Ian Braga",
+                    userPhotoPath: "assets/images/appImages/ianzinho.jpg",
+                  ),
+                  StreakWidget(streakDays: 7),
+                ])),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 16),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                ActivitieContentRow(),
-                const SizedBox(height: 40),
-                AchievementsWidget(),
-              ],
-            ),
-          ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            ActivitieContentRow(),
+            const SizedBox(height: 40),
+            AchievementsWidget(),
+          ],
+        ),
+      ),
     );
   }
 }
