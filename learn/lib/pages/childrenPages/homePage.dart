@@ -6,7 +6,6 @@ import '/widgets/achivievementWidget.dart';
 import 'package:learn/widgets/user-profile.dart';
 import 'package:learn/widgets/globalProgressWidget.dart';
 
-
 class ChildrenHomePage extends StatelessWidget {
   final ValueNotifier<double> pagePosition;
 
@@ -18,7 +17,10 @@ class ChildrenHomePage extends StatelessWidget {
     return Scaffold(
       appBar: LearnAppBarSuper(
         superHeigth: 320,
-        superWidget: GlobalProgress(pontuation: 100, isMascot: false,),
+        superWidget: GlobalProgress(
+          pontuation: 100,
+          isMascot: false,
+        ),
         pageIndex: 1,
         pagePosition: pagePosition.value,
         child: Container(
@@ -41,15 +43,15 @@ class ChildrenHomePage extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 16),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                ActivitieContentRow(),
-                const SizedBox(height: 40),
-                AchievementsWidget(),
-              ],
-            ),
-          ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            ActivitieContentRow(),
+            const SizedBox(height: 40),
+            AchievementsWidget(),
+          ],
+        ),
+      ),
     );
   }
 }
