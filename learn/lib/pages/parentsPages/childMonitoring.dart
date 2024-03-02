@@ -7,10 +7,19 @@ import 'package:learn/widgets/user-profile.dart';
 import 'package:learn/widgets/globalProgressWidget.dart';
 
 
-class ChildrenHomePage extends StatelessWidget {
+class ChildMonitoring extends StatelessWidget {
   final ValueNotifier<double> pagePosition;
+  final String name;
+  final int age;
+  final int level;
 
-  const ChildrenHomePage({required this.pagePosition, Key? key})
+  const ChildMonitoring({
+    required this.pagePosition, 
+    required this.name,
+    required this.age,
+    required this.level,
+    Key? key,
+    })
       : super(key: key);
 
   @override
@@ -23,18 +32,18 @@ class ChildrenHomePage extends StatelessWidget {
         pagePosition: pagePosition.value,
         child: Container(
           padding: const  EdgeInsets.fromLTRB(14, 16, 14, 0),
-          child: const Row(
+          child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               UserPhotoAndName(
-                userName: "Ian Braga",
+                userName: name,
                 userPhotoPath: "assets/images/appImages/ianzinho.jpg",
-                firstLine: "Seja bem-vindo,\n",
-                fontWeight1: FontWeight.w400,
-                secondLine: "Ian Braga",
-                fontWeight2: FontWeight.bold,
+                firstLine: "$name\n",
+                fontWeight1: FontWeight.bold,
+                secondLine: "$age anos",
+                fontWeight2: FontWeight.w400,
               ),
-              StreakWidget(streakDays: 7),
+              const StreakWidget(streakDays: 7),
             ]
           )
         ),

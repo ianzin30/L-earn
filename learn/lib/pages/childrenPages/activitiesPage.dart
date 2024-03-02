@@ -29,6 +29,10 @@ class ChildrenActivitiesPage extends StatelessWidget {
               UserPhotoAndName(
                 userName: "Ian Braga",
                 userPhotoPath: "assets/images/appImages/ianzinho.jpg",
+                firstLine: "Seja bem-vindo,\n",
+                fontWeight1: FontWeight.w400,
+                secondLine: "Ian Braga",
+                fontWeight2: FontWeight.bold,
               ),
               StreakWidget(streakDays: 7),
             ]

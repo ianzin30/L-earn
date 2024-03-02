@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learn/pages/parentsPages/childMonitoring.dart';
 import '../../widgets/global/learnAppBar.dart';
 import 'package:learn/widgets/monitoramento.dart';
 import 'package:learn/widgets/achivievementWidget.dart';
@@ -38,7 +39,10 @@ class MonitorigPage extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 16.0, bottom: 16.0), // Exclusive padding for this instance
                 child: CustomRichTextWidget(),
             ),
-            const UserProfileWidget(
+            UserProfileWidget(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder:(context) => ChildMonitoring(pagePosition: pagePosition, name: "Caio", age: 10, level: 3)));
+              } ,
               name: "Caio",
               age: 10,
               completedTrails: 14,
