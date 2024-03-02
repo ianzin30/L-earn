@@ -27,35 +27,16 @@ class MonitorigPage extends StatelessWidget {
           ),
         ),
       ),
+      
       body: SingleChildScrollView( // Adicionado para tornar a coluna rolável
         child: Container(
           padding: const EdgeInsets.fromLTRB(14, 16, 14, 16),
           child: Column(children: [
             AchievementsWidget(),
             const SizedBox(height: 24),
-            RichText(
-              text: const TextSpan(
-                children: [
-                  TextSpan(
-                    text: 'Monitoramento\n',
-                    style: TextStyle(
-                      color: Color(0xFF222222),
-                      fontSize: 14,
-                      fontFamily: "Fieldwork-Geo",
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  TextSpan(
-                    text: 'Acompanhe o progresso de seus filhos.',
-                    style: TextStyle(
-                      color: Color(0xFF5C5C5C),
-                      fontSize: 12,
-                      fontFamily: "Fieldwork-Geo",
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ]
-              )
+            Padding(
+                padding: const EdgeInsets.only(left: 16.0, bottom: 16.0), // Exclusive padding for this instance
+                child: CustomRichTextWidget(),
             ),
             const UserProfileWidget(
               name: "Caio",
