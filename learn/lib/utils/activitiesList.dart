@@ -35,7 +35,7 @@ List<ActivitieCardStatic> activitiesList = [
     description:  "Continue onde parou",
     progress: 50.0,
     isLocked: false,
-    backgroundGradientColors: const  [Color(0XFF7A7FFF),Color(0xFF040862)],
+    backgroundGradientColors: const [Color(0XFF1290A2),Color(0xFF82DA59)],
     levelGradientColors: [Colors.white.withOpacity(0.3), Colors.white.withOpacity(0.01)],
   ),
    ActivitieCardStatic(
