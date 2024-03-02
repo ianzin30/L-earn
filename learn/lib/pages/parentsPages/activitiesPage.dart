@@ -15,14 +15,12 @@ class ParentsActivitiesPage extends StatelessWidget {
       appBar: LearnAppBar(
         pageIndex: 1,
         pagePosition: pagePosition.value,
-        children: const [
-          Text('Atividades', style: TextStyle(color: Colors.white)),
-        ] 
+        child: const Text('Atividades', style: TextStyle(color: Colors.white)),
       ),
       body: Container(
         padding: const EdgeInsets.fromLTRB(14, 25, 14, 0),
         child: SingleChildScrollView(
-          child: ActivitieContentColumn()
+          
         )
       )
     );

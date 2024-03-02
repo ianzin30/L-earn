@@ -15,7 +15,6 @@ class UserPhotoAndName extends StatelessWidget {
     return Row(
       // Nesting Rows to keep the image and text together
       children: [
-        const SizedBox(width: 20), // Adjust the space as needed
         ClipRRect(
           borderRadius: BorderRadius.circular(50),
           child: Image.asset(userPhotoPath, height: 60),

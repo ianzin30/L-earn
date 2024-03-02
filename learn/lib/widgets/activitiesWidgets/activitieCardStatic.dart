@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:learn/utils/animatedProgressBar.dart';
 import 'dart:ui';
 
-class ActivitieCardStatic extends StatelessWidget {
+class LessionCardStatic extends StatelessWidget {
   final int level;
   final String title;
   final String description;
@@ -11,10 +11,11 @@ class ActivitieCardStatic extends StatelessWidget {
   final bool isLocked;
   final List<Color> backgroundGradientColors;
   final List<Color> levelGradientColors;
-  final VoidCallback? onPressed;
+  final Widget? pageWidget;
   final double? width;
+  bool isActivitie;
 
-  ActivitieCardStatic({
+  LessionCardStatic({
     required this.level,
     required this.title,
     required this.description,
@@ -23,8 +24,9 @@ class ActivitieCardStatic extends StatelessWidget {
     this.backgroundGradientColors = const [Color(0XFF7A7FFF), Color(0xFF040862)],
     this.levelGradientColors = const [Color(0xFFFFFFFF), Color(0xFFFFFFFF)],
     this.progressColor = const Color(0XFFFFFFFF),
-    this.onPressed,
+    this.pageWidget,
     this.width,
+    this.isActivitie = false
   });
 
   @override
@@ -106,40 +108,41 @@ class ActivitieCardStatic extends StatelessWidget {
                     ),
                     SizedBox(height: 10),
                     // Barra de progresso
-                    Container(
-                      padding: const EdgeInsets.symmetric(vertical: 1.5, horizontal: 10),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(25.0),
-                        gradient: LinearGradient(
-                          colors: [Colors.white.withOpacity(0.3), Colors.white.withOpacity(0.1)],
-                          begin: Alignment.topLeft,
-                        )
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Container(
-                            width: widgetWidth*0.70,
-                            child: AnimatedProgressBar(
-                              progress: progress,
-                              maxProgress: 100,
-                              barColor: progressColor,
-                              height: 6,
-                            )
-                          ),
-                          const SizedBox(width: 2),
-                          Text(
-                            "${progress.ceil()} %",
-                            style: const TextStyle(
-                              fontFamily: "Fieldwork-Geo",
-                              fontSize: 10,
-                              fontWeight: FontWeight.w400,
-                              color: Color(0xFFFFFFFF),
-                            )
+                    if (isActivitie)
+                      Container(
+                        padding: const EdgeInsets.symmetric(vertical: 1.5, horizontal: 10),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(25.0),
+                          gradient: LinearGradient(
+                            colors: [Colors.white.withOpacity(0.3), Colors.white.withOpacity(0.1)],
+                            begin: Alignment.topLeft,
                           )
-                      ],)
-
-                    ),
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(
+                              width: widgetWidth*0.70,
+                              child: AnimatedProgressBar(
+                                progress: progress,
+                                maxProgress: 100,
+                                barColor: progressColor,
+                                height: 6,
+                              )
+                            ),
+                            const SizedBox(width: 2),
+                            Text(
+                              "${progress.ceil()} %",
+                              style: const TextStyle(
+                                fontFamily: "Fieldwork-Geo",
+                                fontSize: 10,
+                                fontWeight: FontWeight.w400,
+                                color: Color(0xFFFFFFFF),
+                              )
+                            )
+                        ],)
+  
+                      ),
                   ],
                 )
               ),
@@ -165,5 +168,46 @@ class ActivitieCardStatic extends StatelessWidget {
             ],
       ),
     );
+  }
+}
+
+class ActivitieCardStatic extends LessionCardStatic {
+  List<LessionCardStatic>? lessionsList;
+  final String pageTitle;
+  final String pageDescription;
+  final bool isActivitie;
+
+  ActivitieCardStatic({
+    required this.pageTitle,
+    required this.pageDescription, 
+    this.lessionsList,
+    required int level,
+    required String title,
+    required String description,
+    double progress = 0.0,
+    bool isLocked = true,
+    List<Color> backgroundGradientColors = const [Color(0XFF7A7FFF), Color(0xFF040862)],
+    List<Color> levelGradientColors = const [Color(0xFFFFFFFF), Color(0xFFFFFFFF)],
+    Color progressColor = const Color(0XFFFFFFFF),
+    Widget? pageWidget,
+    double? width,
+    this.isActivitie = true
+  }) : super (
+    level : level,
+    title : title,
+    description : description,
+    progress : progress,
+    isLocked : isLocked,
+    backgroundGradientColors : backgroundGradientColors,
+    levelGradientColors : levelGradientColors,
+    progressColor : progressColor,
+    pageWidget : pageWidget,
+    width : width,
+    isActivitie : isActivitie
+  );
+
+  @override
+  Widget build(BuildContext context) {
+    return super.build(context);
   }
 }

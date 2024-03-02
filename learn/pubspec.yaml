@@ -32,6 +32,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_native_splash: ^1.2.0
+  intl: ^0.19.0
 
 
 
@@ -65,6 +66,7 @@ flutter:
   assets:
   # Icons Images
   - ./assets/images/appIcons/icon-steak.png
+  - ./assets/images/appIcons/check-circle.png
   - ./assets/images/mascote/icon-loja-default.png
   - ./assets/images/mascote/icon-atividades-default.png
   - ./assets/images/mascote/icon-roupas-default.png
@@ -84,12 +86,26 @@ flutter:
   - ./assets/images/appIcons/icon-trophie.png
   - ./assets/images/appIcons/icon-award.png
   - ./assets/images/appIcons/icon-lock-default.png
+  # Badges
+  - ./assets/images/appIcons/badge-bronze-default.png
+  - ./assets/images/appIcons/badge-bronze-blue.png
+  - ./assets/images/appIcons/badge-prata-default.png
+  - ./assets/images/appIcons/badge-prata-blue.png
+  - ./assets/images/appIcons/badge-ouro-default.png
+  - ./assets/images/appIcons/badge-ouro-blue.png
+  - ./assets/images/appIcons/badge-diamante-default.png
+  - ./assets/images/appIcons/badge-diamante-blue.png
+  - ./assets/images/appIcons/silver-badge.png
+  
   # Person Images
   - ./assets/images/appImages/ianzinho.jpg
   # Mascot Images
   - ./assets/images/mascote/background.png
   - ./assets/images/mascote/backgroundLarge.png
+  - ./assets/images/mascote/mascot-happy.png
+  - ./assets/images/mascote/mascot-sad.png
   - ./assets/images/mascote/mascote.png
+
   # App Images
   - ./assets/images/appImages/icon.png
 

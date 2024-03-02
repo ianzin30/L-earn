@@ -55,7 +55,7 @@ class _ChildrenMainState extends State<ChildrenMain> {
     List<Map<String, dynamic>> navItems = [
       {'icon': Icons.home, 'name': 'Home'},
       {'icon': Icons.gamepad, 'name': 'Atividades'},
-      {'icon': Icons.network_ping_outlined, 'name': 'Mascote'}
+      {'icon': Icons.network_ping_outlined, 'name': 'Mascote'},
     ];
 
     return Scaffold(
@@ -68,7 +68,7 @@ class _ChildrenMainState extends State<ChildrenMain> {
         },
         children: _pageOptions,
       ),
-      bottomNavigationBar: _selectedIndex != 2
+      bottomNavigationBar: (_selectedIndex != 2)
           ? LearnNavBar(
               selectedIndex: _selectedIndex,
               onItemTapped: _onItemTapped,

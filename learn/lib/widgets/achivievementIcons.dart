@@ -37,7 +37,7 @@ class AchievementIcon extends StatelessWidget {
         children: [
           Center(
               child: Container (
-                padding: EdgeInsets.all(20.0),
+                padding: EdgeInsets.all(16.0),
                 child: Opacity(
                   opacity: 0.5,
                   child: Image.asset(

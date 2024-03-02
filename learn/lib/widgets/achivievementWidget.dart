@@ -5,11 +5,9 @@ import 'package:learn/widgets/achivievementIcons.dart';
 class AchievementsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
 
     return Container(
-        padding: const EdgeInsets.all(12),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -29,28 +27,28 @@ class AchievementsWidget extends StatelessWidget {
               height: 12,
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 12, right: 12),
+              padding: const EdgeInsets.only(left: 8, right: 8),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   AchievementIcon(
                       data: achievementsList[0],
-                      heigth: 140,
-                      width: screenWidth / 2 - 20
-                  ),
-                  const SizedBox(width: 9),
+                      heigth: screenWidth / 2 - 32,
+                      width: screenWidth / 2 - 32),
+                  const SizedBox(width: 16),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       AchievementIcon(
                         data: achievementsList[1],
-                        heigth: 60,
-                        width: screenWidth / 2 - 40,
+                        heigth: (screenWidth / 2 - 32) /2 - 8,
+                        width: screenWidth / 2 - 32,
                       ),
-                      const SizedBox(height: 12),
+                      const SizedBox(height: 16),
                       Container(
-                          width: screenWidth / 2 - 40,
-                          padding: EdgeInsets.all(15.0),
+                          width: screenWidth / 2 - 32,
+                          height:(screenWidth / 2 - 32) /2 - 8 ,
+                          padding: EdgeInsets.all(8.0),
                           decoration: BoxDecoration(
                               gradient: const LinearGradient(
                                 colors: [Color(0xFFF8D24D), Color(0xFFFEC224)],
@@ -67,7 +65,8 @@ class AchievementsWidget extends StatelessWidget {
                                       fontSize: 12,
                                       fontFamily: 'Fieldwork-Geo',
                                       fontWeight: FontWeight.w800)),
-                              Image.asset('assets/images/appIcons/icon-award.png',
+                              Image.asset(
+                                  'assets/images/appIcons/icon-award.png',
                                   height: 24),
                             ],
                           ))
