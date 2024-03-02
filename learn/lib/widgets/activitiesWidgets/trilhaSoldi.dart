@@ -12,29 +12,37 @@ class ActivitieContentRow extends StatelessWidget {
     this.activities
   });
 
-  // Ensure that the list 'atividades' is properly populated
-  // depending on the 'isStatic' flag.
-  // This is a placeholder for your list of widgets.
+
   final List<Widget> atividades = activitiesList.map((e) =>
                                  Container(
                                     padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 0),
                                     child: 
-                                      ActivitieCard(activitie: 
-                                        ActivitieCardStatic(
+                                      ActivitieCard(isActivitie: true ,activitie: 
+                                        ActivitieCardStatic(                              
                                           level: e.level, title: e.title, description: e.description,
                                           progress: e.progress, isLocked: e.isLocked, backgroundGradientColors: e.backgroundGradientColors,
                                           levelGradientColors: e.levelGradientColors, progressColor: e.progressColor,
-                                          onPressed: e.onPressed, width: 294,
+                                          pageWidget: e.pageWidget, width: 294, pageDescription: e.pageDescription, pageTitle: e.pageDescription,
                                         )))).toList();
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 5.5, top: 16), // This adds 14px padding on all sides
-      child: Column(
+    return  Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Use a SingleChildScrollView to make the row scrollable horizontally.
+          const Text('Trilhas em andamento',
+                      style: TextStyle(
+                        color: Color.fromARGB(255, 0, 0, 0),
+                        fontSize: 16,
+                        fontFamily: "Fieldwork-Geo",
+                        fontWeight: FontWeight.w600,
+                      )),
+          const Text('Continue de onde parou.',
+                      style: TextStyle(
+                        color: Color.fromARGB(255, 0, 0, 0),
+                        fontSize: 12,
+                        fontFamily: "Fieldwork-Geo",
+                      )),
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
@@ -42,8 +50,7 @@ class ActivitieContentRow extends StatelessWidget {
             ),
           )
         ],
-      ),
-    );
+      );
   }
 
 }

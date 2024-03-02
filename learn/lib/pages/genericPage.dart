@@ -15,9 +15,7 @@ class GenericPageTemplate extends StatelessWidget {
       appBar: LearnAppBar(
         pageIndex: 0,
         pagePosition: pagePosition.value,
-        children: const [
-          Text('Generic Page Template', style: TextStyle(color: Colors.white)),
-        ] 
+        child: const Text('Generic Page Template', style: TextStyle(color: Colors.white)),
       ),
       body: const Center(
         child: Text('Generic Page Template'),

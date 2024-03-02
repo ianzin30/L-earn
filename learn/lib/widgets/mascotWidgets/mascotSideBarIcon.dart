@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 
 class MascotSideBarIcon extends StatelessWidget {
     final String name;
-    final PageController pageController;
+    final VoidCallback? onPressed;
 
   MascotSideBarIcon({
     required this.name,
-    required this.pageController
+    this.onPressed,
   });
 
   @override
@@ -26,12 +26,7 @@ class MascotSideBarIcon extends StatelessWidget {
                   )
               ],
             ),
-            onPressed: () {
-              pageController.previousPage(
-                duration: Duration(milliseconds: 500),
-                curve: Curves.easeInOut,
-              );
-            },
+            onPressed: onPressed,
           );
     }
 }
