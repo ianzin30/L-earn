@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import '../../widgets/global/learnAppBar.dart';
+import 'package:learn/widgets/StreakWidget.dart';
+import 'package:learn/widgets/user-profile.dart';
+import 'package:learn/widgets/globalProgressWidget.dart';
+
 
 class ParentsHPage extends StatelessWidget {
   final ValueNotifier<double> pagePosition;
@@ -8,15 +12,27 @@ class ParentsHPage extends StatelessWidget {
     required this.pagePosition
   });
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: LearnAppBar(
-        pageIndex: 0,
+      appBar: LearnAppBarSuper(
+        superHeigth: 320,
+        superWidget: GlobalProgress(pontuation: 100, isMascot: false,),
+        pageIndex: 1,
         pagePosition: pagePosition.value,
-        backButtonFunction: () {},
-        child: const Text('Home', style: TextStyle(color: Colors.white)),   
+        child: Container(
+          padding: const  EdgeInsets.fromLTRB(14, 16, 14, 0),
+          child: const Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              UserPhotoAndName(
+                userName: "Ian Braga",
+                userPhotoPath: "assets/images/appImages/ianzinho.jpg",
+              ),
+              StreakWidget(streakDays: 7),
+            ]
+          )
+        ),
       ),
       body: const Center(
         child: Text('Home Page dos Pais'),

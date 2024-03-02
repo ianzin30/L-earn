@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learn/pages/parentsPages/loginParenstPage.dart';
 import 'package:learn/widgets/loginWidgets/BoxSelectorLogin.dart';
 import 'childrenPages/loginChildPage.dart';
 import 'package:learn/widgets/loginWidgets/loginEnterButton.dart';
@@ -35,9 +36,9 @@ class _LoginPageState extends State<LoginPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   const LoginInfoContainer(
-                    title: "Bem-vindo à Coinny",
-                    description: "Para inicar sua sessão, selecione o seu tipo de perfil Soldi"
-                  ),
+                      title: "Bem-vindo à Coinny",
+                      description:
+                          "Para inicar sua sessão, selecione o seu tipo de perfil Soldi"),
                   const SizedBox(height: 32),
                   CustomRadioTile(
                     isSelected: userType == 'aprendiz',
@@ -52,22 +53,27 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   const SizedBox(height: 32),
                   LoginEnterButton(
-                    onPressed: () {
-                      if (userType == 'aprendiz') {
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => LoginChildPage(),
-                          ),
-                        );
-                      } else {
-                        Navigator.pushReplacementNamed(
-                            context, '/parentsMain');
-                      }
+                      onPressed: () {
+                        if (userType == 'aprendiz') {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => LoginChildPage(),
+                            ),
+                          );
+                        } else {
+                          //Navigator.pushReplacementNamed(
+                          //    context, '/parentsMain');
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => LoginParentsPage(),
+                            ),
+                          );
+                        }
                       },
-                    title: "Continuar", 
-                    colors: const [Color(0xFF646AE3), Color(0xFF262B91)]
-                  ),
+                      title: "Continuar",
+                      colors: const [Color(0xFF646AE3), Color(0xFF262B91)]),
                 ],
               ),
             ),

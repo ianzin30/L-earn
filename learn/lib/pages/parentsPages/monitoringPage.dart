@@ -18,25 +18,24 @@ class MonitorigPage extends StatelessWidget {
           alignment: Alignment.centerLeft,
           padding: const EdgeInsets.fromLTRB(14, 16, 14, 0),
           child: const Text(
-            'Monitoramento', 
+            'Monitoramento',
             style: TextStyle(
-              color: Colors.white, 
-              fontFamily: 'Fieldwork-Geo',
-              fontSize: 18
-            ),
+                color: Colors.white, fontFamily: 'Fieldwork-Geo', fontSize: 18),
           ),
         ),
       ),
-      
-      body: SingleChildScrollView( // Adicionado para tornar a coluna rolável
+      body: SingleChildScrollView(
+        // Adicionado para tornar a coluna rolável
         child: Container(
           padding: const EdgeInsets.fromLTRB(14, 16, 14, 16),
           child: Column(children: [
             AchievementsWidget(),
             const SizedBox(height: 24),
             Padding(
-                padding: const EdgeInsets.only(left: 16.0, bottom: 16.0), // Exclusive padding for this instance
-                child: CustomRichTextWidget(),
+              padding: const EdgeInsets.only(
+                  left: 16.0,
+                  bottom: 16.0), // Exclusive padding for this instance
+              child: CustomRichTextWidget(),
             ),
             const UserProfileWidget(
               name: "Caio",
