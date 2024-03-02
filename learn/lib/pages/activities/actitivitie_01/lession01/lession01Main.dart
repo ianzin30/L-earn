@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import './page1.dart';
 import './page2.dart';
+import './page3.dart';
 import './page4.dart';
 
 class Lession01Main extends StatefulWidget {
@@ -31,7 +32,8 @@ class _Lession01MainState extends State<Lession01Main> {
     List<Widget> _pageOptions = [
       Page01(pageController: _pageController),
       Page02(pageController: _pageController),
-      Page04(),
+      Page03(pageController: _pageController),
+      Page04(pageController: _pageController),
     ];
 
     return Scaffold(

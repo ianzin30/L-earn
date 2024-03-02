@@ -4,6 +4,7 @@ import 'package:learn/widgets/global/learnAppBar.dart';
 import 'package:learn/widgets/activitiesWidgets/activitieContentColumn.dart';
 import 'package:learn/pages/activities/actitivitie_01/activitie01lessions.dart';
 
+
 class ActivitieMain extends StatelessWidget {
   final ActivitieCardStatic content;
 
