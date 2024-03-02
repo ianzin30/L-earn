@@ -3,10 +3,19 @@ import 'package:flutter/material.dart';
 class UserPhotoAndName extends StatelessWidget {
   final String userName;
   final String userPhotoPath;
+  final String firstLine;
+  final FontWeight fontWeight1;
+  final String secondLine;
+  final FontWeight fontWeight2;
+
 
   const UserPhotoAndName({
     required this.userName,
     required this.userPhotoPath,
+    required this.firstLine,
+    required this.fontWeight1,
+    required this.secondLine,
+    required this.fontWeight2,
     Key? key,
   }) : super(key: key);
 
@@ -23,22 +32,22 @@ class UserPhotoAndName extends StatelessWidget {
         RichText(
           text: TextSpan(
             children: [
-              const TextSpan(
-                text: 'Seja bem-vindo,\n',
+              TextSpan(
+                text: firstLine,
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 14,
                   fontFamily: "Fieldwork-Geo",
-                  fontWeight: FontWeight.normal,
+                  fontWeight: fontWeight1,
                 ),
               ),
               TextSpan(
-                text: userName,
-                style: const TextStyle(
+                text: secondLine,
+                style: TextStyle(
                   color: Colors.white,
                   fontSize: 18,
                   fontFamily: "Fieldwork-Geo",
-                  fontWeight: FontWeight.normal,
+                  fontWeight: fontWeight2,
                 ),
               ),
             ],
