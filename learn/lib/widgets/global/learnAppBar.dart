@@ -12,7 +12,7 @@ class LearnAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   LearnAppBar({
     this.child,
-    this.pageIndex =0,
+    this.pageIndex = 0,
     this.pagePosition = 0,
     this.alignment,
     this.padding,
@@ -28,7 +28,8 @@ class LearnAppBar extends StatelessWidget implements PreferredSizeWidget {
     Alignment gradientStart = Alignment(-pageOffset, -1.0);
     Alignment gradientEnd = Alignment(pageOffset, 1.0);
 
-    final Gradient finalGradient = gradient??  LinearGradient(
+    final Gradient finalGradient = gradient ??
+        LinearGradient(
           begin: gradientStart,
           end: gradientEnd,
           colors: const [
@@ -36,7 +37,6 @@ class LearnAppBar extends StatelessWidget implements PreferredSizeWidget {
             Color(0xFF040862),
           ],
         );
-
 
     return AnimatedContainer(
       duration: const Duration(milliseconds: 300),
@@ -48,33 +48,25 @@ class LearnAppBar extends StatelessWidget implements PreferredSizeWidget {
             : BorderRadius.zero,
       ),
       child: SafeArea(
-        child:Stack(
+        child: Stack(
           children: [
             if (backButtonFunction != null)
-                Container(
-                  padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 16),
-                  child:
-                    Container(
+              Container(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 32, horizontal: 16),
+                  child: Container(
                       height: 40,
                       width: 40,
-                      decoration: 
-                      BoxDecoration(
-                        color: const Color(0xFFFFFFFF),
-                        borderRadius: BorderRadius.circular(10)
-                      ),
+                      decoration: BoxDecoration(
+                          color: const Color(0xFFFFFFFF),
+                          borderRadius: BorderRadius.circular(10)),
                       child: IconButton(
-                        icon:  const Icon(Icons.arrow_back, color: Colors.black),
+                        icon: const Icon(Icons.arrow_back, color: Colors.black),
                         onPressed: backButtonFunction,
                         iconSize: 24,
-                      )
-                    )
-                  ),
-            Container(
-              alignment: alignment,
-              padding : padding,
-              child: child
-            )
-        ],
+                      ))),
+            Container(alignment: alignment, padding: padding, child: child)
+          ],
         ),
       ),
     );
@@ -86,48 +78,47 @@ class LearnAppBar extends StatelessWidget implements PreferredSizeWidget {
 
 class LearnAppBarSuper extends LearnAppBar {
   final Widget superWidget;
-  final VoidCallback? backButtonFunction; 
+  final VoidCallback? backButtonFunction;
   final double superHeigth;
   final double globalHeigth;
 
-  LearnAppBarSuper({
-    required this.superWidget,
-    Widget? child,
-    double pagePosition = 0,
-    int pageIndex = 0,
-    this.backButtonFunction,
-    this.globalHeigth = 280,
-    this.superHeigth = 240
-  }) : super(
+  LearnAppBarSuper(
+      {required this.superWidget,
+      Widget? child,
+      double pagePosition = 0,
+      int pageIndex = 0,
+      this.backButtonFunction,
+      this.globalHeigth = 280,
+      this.superHeigth = 240})
+      : super(
             child: child,
             pagePosition: pagePosition,
             pageIndex: pageIndex,
-            backButtonFunction : backButtonFunction,
-            heigth: superHeigth
-         );
+            backButtonFunction: backButtonFunction,
+            heigth: superHeigth);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: globalHeigth,
-      child:Stack(
+      height: globalHeigth + 32 ,
+        child: Container(
+          child: Stack(
           children: [
             Container(
-              width: MediaQuery.of(context).size.width,
-              height: 235,
-              child:super.build(context)
-            ),
+                width: MediaQuery.of(context).size.width,
+                height : superHeigth - 40,
+                child: super.build(context)
+                ),
             Positioned(
-              child: superWidget, 
-              top: 150,
-              left: 14,
-              right: 14,
-              ),
+              child: superWidget,
+              top: 150 + (superHeigth - 280),
+              left: 16,
+              right: 16,
+            ),
           ],
-        )
-    );
+        )));
   }
+
   @override
-  Size get preferredSize => Size.fromHeight(globalHeigth);
-  
+  Size get preferredSize => Size.fromHeight(globalHeigth + 40);
 }
