@@ -132,7 +132,7 @@ class _Page03State extends State<Page03> {
                       children: [
                         TextSpan(
                           text:
-                              'lorem ipsum dolor sit amet, consectetur adipiscing elit. ',
+                              'Ela e seus amigos já escolheram o filme que vão assistir mas para montar o orçamento, a ',
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 16,
@@ -142,7 +142,47 @@ class _Page03State extends State<Page03> {
                         ),
                         TextSpan(
                           text:
-                              "lorems ipsum dolor sit amet, consectetur adipiscing elit. ",
+                              "Connie ",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontFamily: "Fieldwork-Geo",
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        TextSpan(
+                          text:
+                              'ainda precisa escolher o ',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontFamily: "Fieldwork-Geo",
+                            fontWeight: FontWeight.normal,
+                          ),
+                        ),
+                        TextSpan(
+                          text:
+                              "tipo do ingresso ",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontFamily: "Fieldwork-Geo",
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        TextSpan(
+                          text:
+                              'que vai comprar e ',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontFamily: "Fieldwork-Geo",
+                            fontWeight: FontWeight.normal,
+                          ),
+                        ),
+                        TextSpan(
+                          text:
+                              "qual lanche vai querer. ",
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 16,
