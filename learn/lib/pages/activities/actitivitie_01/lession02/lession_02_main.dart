@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
-import './page1.dart';
-import './page2.dart';
-import './page3.dart';
-import './page4.dart';
+import 'package:learn/pages/activities/actitivitie_01/lession02/page01.dart';
+import 'package:learn/pages/activities/actitivitie_01/lession02/page02.dart';
 
-class Lession01Main extends StatefulWidget {
+class Lession02Main extends StatefulWidget {
+  const Lession02Main({super.key});
+
   @override
-  _Lession01MainState createState() => _Lession01MainState();
+  // ignore: library_private_types_in_public_api
+  _Lession02MainState createState() => _Lession02MainState();
 }
 
-class _Lession01MainState extends State<Lession01Main> {
+class _Lession02MainState extends State<Lession02Main> {
   int _selectedIndex = 0;
   PageController _pageController = PageController();
   ValueNotifier<double> pagePosition = ValueNotifier(0.0);
@@ -31,8 +32,6 @@ class _Lession01MainState extends State<Lession01Main> {
     List<Widget> _pageOptions = [
       Page01(pageController: _pageController),
       Page02(pageController: _pageController),
-      Page03(pageController: _pageController),
-      Page04(pageController: _pageController),
     ];
 
     return Scaffold(
