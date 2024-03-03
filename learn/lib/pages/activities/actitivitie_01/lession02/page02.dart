@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:learn/widgets/global/backButton.dart';
-import '../lession02/page01.dart';
+import 'package:learn/utils/boldSubString.dart';
 import 'package:learn/widgets/global/commonButton.dart';
 
-class Page04 extends StatelessWidget {
+class Page02 extends StatelessWidget {
   final PageController pageController;
 
-  Page04({
+  Page02({
     required this.pageController,
   });
 
@@ -14,8 +14,8 @@ class Page04 extends StatelessWidget {
   Widget build(BuildContext context) {
     const TextStyle textStyle = TextStyle(
         color: Color(0xFFFFFFFF),
-        fontSize: 18,
-        fontWeight: FontWeight.w400,
+        fontSize: 20,
+        fontWeight: FontWeight.w500,
         fontFamily: "Fieldwork-Geo");
 
     const TextStyle textStyleBold = TextStyle(
@@ -59,9 +59,8 @@ class Page04 extends StatelessWidget {
                 text: const TextSpan(
                     children: [
                   TextSpan(
-                    text:
-                        "Ótima ideia Laís, Connie fez a pesquisa dos ingressos primeiro e e encontrou isso aqui:",
-                  ),
+                      text:
+                          "Perfeito! Agora vamos ver a pesquisa dos lanches que a Connie fez:"),
                 ],
                     style: TextStyle(
                         color: Color(0xFFFFFFFF),
@@ -73,7 +72,7 @@ class Page04 extends StatelessWidget {
             ),
             Center(
               child: Image.asset(
-                "assets/images/mascote/mascot-happy.png",
+                "assets/images/mascote/mascot-sad.png",
                 height: 240,
               ),
             ),
@@ -93,17 +92,7 @@ class Page04 extends StatelessWidget {
               ),
             ),
             buttonColor: const Color(0xFFFFFFFF),
-            onPressed: () {
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => Page01(
-                    pageController:
-                        pageController, // pass the pageController here
-                  ),
-                ),
-              );
-            },
+            onPressed: () {},
           ))
     ]));
   }

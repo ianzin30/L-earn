@@ -25,9 +25,7 @@ class Page01 extends StatelessWidget {
         fontFamily: "Fieldwork-Geo");
 
     return Scaffold(
-        body: Stack(
-          alignment: AlignmentDirectional.center,
-          children: [
+        body: Stack(alignment: AlignmentDirectional.center, children: [
       Container(
         padding: const EdgeInsets.all(16),
         width: double.infinity,
@@ -105,9 +103,8 @@ class Page01 extends StatelessWidget {
             buttonColor: const Color(0xFFFFFFFF),
             onPressed: () {
               pageController.nextPage(
-                duration: const Duration(milliseconds: 500),
-                curve: Curves.ease
-              );
+                  duration: const Duration(milliseconds: 500),
+                  curve: Curves.ease);
             },
           ))
     ]));

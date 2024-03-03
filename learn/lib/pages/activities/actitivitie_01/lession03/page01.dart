@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:learn/widgets/global/backButton.dart';
-import '../lession02/page01.dart';
+import 'package:learn/utils/boldSubString.dart';
 import 'package:learn/widgets/global/commonButton.dart';
 
-class Page04 extends StatelessWidget {
+class Page01 extends StatelessWidget {
   final PageController pageController;
 
-  Page04({
+  Page01({
     required this.pageController,
   });
 
@@ -60,7 +60,14 @@ class Page04 extends StatelessWidget {
                     children: [
                   TextSpan(
                     text:
-                        "Ótima ideia Laís, Connie fez a pesquisa dos ingressos primeiro e e encontrou isso aqui:",
+                        "Nessa lanchonete, existem 3 tipos de lanches, com preços diferentes: lanches de R\$20, lanches de R\$30 e lanches de R\$40. Bem, a Connie não tem como saber o que vai ter vontade de comer durante o filme, né? Mas para ",
+                  ),
+                  TextSpan(
+                    text: "garantir que ela vai ter dinheiro suficiente",
+                    style: textStyleBold,
+                  ),
+                  TextSpan(
+                    text: "para escolher qualquer um dos 3 tipos de lanches...",
                   ),
                 ],
                     style: TextStyle(
@@ -69,11 +76,11 @@ class Page04 extends StatelessWidget {
                         fontWeight: FontWeight.w400,
                         fontFamily: "Fieldwork-Geo"))),
             const SizedBox(
-              height: 128,
+              height: 120,
             ),
             Center(
               child: Image.asset(
-                "assets/images/mascote/mascot-happy.png",
+                "assets/images/mascote/mascot-sad.png",
                 height: 240,
               ),
             ),
@@ -94,15 +101,9 @@ class Page04 extends StatelessWidget {
             ),
             buttonColor: const Color(0xFFFFFFFF),
             onPressed: () {
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => Page01(
-                    pageController:
-                        pageController, // pass the pageController here
-                  ),
-                ),
-              );
+              pageController.nextPage(
+                  duration: const Duration(milliseconds: 500),
+                  curve: Curves.ease);
             },
           ))
     ]));

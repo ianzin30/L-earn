@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:learn/widgets/global/backButton.dart';
 import 'package:learn/widgets/global/commonButton.dart';
 
-class CustomOptionButton extends StatefulWidget {
+class CustomOptionButton extends StatelessWidget {
   final String text;
   final VoidCallback onPressed;
 
@@ -13,49 +13,8 @@ class CustomOptionButton extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _CustomOptionButtonState createState() => _CustomOptionButtonState();
-}
-
-class _CustomOptionButtonState extends State<CustomOptionButton>
-    with SingleTickerProviderStateMixin {
-  late AnimationController _controller;
-  late Animation<Color?> _colorAnimation;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = AnimationController(
-      duration: Duration(milliseconds: 200), // Duration of the color transition
-      vsync: this,
-    );
-
-    _colorAnimation = ColorTween(
-      begin: Colors.transparent, // Initial color
-      end: Colors.white, // Final color when pressed
-    ).animate(_controller);
-
-    _controller.addListener(() {
-      setState(() {});
-    });
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
-
-  void _onPressed() {
-    if (_controller.isCompleted) {
-      _controller.reverse();
-    } else {
-      _controller.forward();
-    }
-    widget.onPressed();
-  }
-
-  @override
   Widget build(BuildContext context) {
+    // Bold and larger font for the option text
     TextStyle optionTextStyle = TextStyle(
       color: Colors.white,
       fontWeight: FontWeight.bold,
@@ -64,10 +23,10 @@ class _CustomOptionButtonState extends State<CustomOptionButton>
 
     // Highlighting specific parts of the text if needed
     List<TextSpan> textSpans = [];
-    if (widget.text.contains('R\$50')) {
-      String firstPart = widget.text.split('R\$50')[0];
+    if (text.contains('R\$50')) {
+      String firstPart = text.split('R\$50')[0];
       String secondPart = 'R\$50';
-      String thirdPart = widget.text.split('R\$50')[1];
+      String thirdPart = text.split('R\$50')[1];
       textSpans.addAll([
         TextSpan(text: firstPart, style: optionTextStyle),
         TextSpan(
@@ -75,56 +34,51 @@ class _CustomOptionButtonState extends State<CustomOptionButton>
         TextSpan(text: thirdPart, style: optionTextStyle),
       ]);
     } else {
-      textSpans.add(TextSpan(text: widget.text, style: optionTextStyle));
+      textSpans.add(TextSpan(text: text, style: optionTextStyle));
     }
 
-    return GestureDetector(
-      onTap: _onPressed,
-      child: AnimatedBuilder(
-        animation: _colorAnimation,
-        builder: (context, child) {
-          return Container(
-            width: double.infinity,
-            height: 90,
-            margin: EdgeInsets.all(8),
-            decoration: BoxDecoration(
-              color: _colorAnimation.value ??
-                  Colors
-                      .transparent, // Fallback to transparent if _colorAnimation.value is null
-              borderRadius: BorderRadius.circular(8),
-              border: Border.all(color: Colors.white, width: 1),
+    return Container(
+      width: double.infinity,
+      height: 90, // Fixed height for the button
+      margin: EdgeInsets.all(8), // Consistent margin for all buttons
+      child: OutlinedButton(
+        onPressed: onPressed,
+        style: OutlinedButton.styleFrom(
+          backgroundColor: Colors.transparent,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8),
+          ),
+          side: BorderSide(color: Colors.white, width: 1),
+          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            Radio(
+              value: false,
+              groupValue: null,
+              onChanged: (value) {},
+              activeColor: Colors.white,
             ),
-            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-            child: Row(
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                Radio(
-                  value: false,
-                  groupValue: null,
-                  onChanged: (value) {},
-                  activeColor: Colors.white,
+            SizedBox(width: 8),
+            Expanded(
+              child: RichText(
+                text: TextSpan(
+                  children: textSpans,
                 ),
-                SizedBox(width: 8),
-                Expanded(
-                  child: RichText(
-                    text: TextSpan(
-                      children: textSpans,
-                    ),
-                  ),
-                ),
-              ],
+              ),
             ),
-          );
-        },
+          ],
+        ),
       ),
     );
   }
 }
 
-class Page03 extends StatelessWidget {
+class Page01 extends StatelessWidget {
   final PageController pageController;
 
-  Page03({
+  Page01({
     required this.pageController,
   });
 
@@ -180,22 +134,12 @@ class Page03 extends StatelessWidget {
                       children: [
                         TextSpan(
                           text:
-                              'lorem ipsum dolor sit amet, consectetur adipiscing elit. ',
+                              'Ela não faz questão de que o filme seja 3D e pode dividir o combo de ingressos com mais 2 amigos! ',
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 16,
                             fontFamily: "Fieldwork-Geo",
                             fontWeight: FontWeight.normal,
-                          ),
-                        ),
-                        TextSpan(
-                          text:
-                              "lorems ipsum dolor sit amet, consectetur adipiscing elit. ",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                            fontFamily: "Fieldwork-Geo",
-                            fontWeight: FontWeight.bold,
                           ),
                         ),
                       ],
@@ -278,7 +222,7 @@ class Page03 extends StatelessWidget {
               text: const TextSpan(
                 children: [
                   TextSpan(
-                    text: 'O que você acha que ela deveria fazer',
+                    text: 'Qual opção ',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 16,
@@ -287,12 +231,39 @@ class Page03 extends StatelessWidget {
                     ),
                   ),
                   TextSpan(
-                    text: " primeiro?",
+                    text: "você acha",
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 16,
                       fontFamily: "Fieldwork-Geo",
                       fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  TextSpan(
+                    text: " que seria a ",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
+                      fontFamily: "Fieldwork-Geo",
+                      fontWeight: FontWeight.normal,
+                    ),
+                  ),
+                  TextSpan(
+                    text: "melhor",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
+                      fontFamily: "Fieldwork-Geo",
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  TextSpan(
+                    text: "?",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
+                      fontFamily: "Fieldwork-Geo",
+                      fontWeight: FontWeight.normal,
                     ),
                   ),
                 ],
@@ -311,15 +282,13 @@ class Page03 extends StatelessWidget {
     String optionText = "";
     switch (index) {
       case 0:
-        optionText = "Levar todo o dinheiro do seu cofrinho";
+        optionText = "Ingresso normal - R\$20";
         break;
       case 1:
-        optionText =
-            "Pesquisar quais são os preços dos opções de ingresso e lanche, e quais cinemas estão disponíveis";
+        optionText = "Ingresso 3D - R\$25";
         break;
       case 2:
-        optionText =
-            "Levar R\$50 e não pesquisar os preços das atividades que vai querer fazer";
+        optionText = "Combo: 3 ingressos normais - R\$45";
         break;
       default:
         optionText =
@@ -337,9 +306,7 @@ class Page03 extends StatelessWidget {
         height: 105, // Fixed height for the option button
         child: CustomOptionButton(
           text: optionText, // Pass the option text here
-          onPressed: () {
-            // Handle selection logic
-          },
+          onPressed: () {},
         ),
       ),
     );
