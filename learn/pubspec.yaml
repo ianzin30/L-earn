@@ -86,6 +86,8 @@ flutter:
   - ./assets/images/appIcons/icon-trophie.png
   - ./assets/images/appIcons/icon-award.png
   - ./assets/images/appIcons/icon-lock-default.png
+  - ./assets/images/appIcons/notification.png
+
   # Badges
   - ./assets/images/appIcons/badge-bronze-default.png
   - ./assets/images/appIcons/badge-bronze-blue.png
@@ -99,6 +101,9 @@ flutter:
   
   # Person Images
   - ./assets/images/appImages/ianzinho.jpg
+  - ./assets/images/appImages/joana-dias.png
+  - ./assets/images/appImages/luciano.png
+
   # Mascot Images
   - ./assets/images/mascote/background.png
   - ./assets/images/mascote/backgroundLarge.png

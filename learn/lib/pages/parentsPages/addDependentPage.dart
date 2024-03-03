@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:learn/utils/childrenClass.dart';
+import 'package:learn/utils/modelsClass.dart';
 import 'package:learn/widgets/global/learnAppBar.dart';
 import '/widgets/selectedGoals.dart';
 import '/widgets/childrenDataBox.dart';
-import 'package:learn/widgets/loginWidgets/loginEnterButton.dart';
+import 'package:learn/widgets/login/loginEnterButton.dart';
 import 'package:learn/pages/parentsPages/verificationCodePage.dart';
 
 class AddDependentPage extends StatefulWidget {

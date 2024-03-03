@@ -5,19 +5,14 @@ import 'package:learn/widgets/activitiesWidgets/trilhaSoldi.dart';
 import '/widgets/achivievementWidget.dart';
 import 'package:learn/widgets/user-profile.dart';
 import 'package:learn/widgets/globalProgressWidget.dart';
+import 'package:learn/utils/modelsClass.dart';
 
 
 class ChildMonitoring extends StatelessWidget {
-  final ValueNotifier<double> pagePosition;
-  final String name;
-  final int age;
-  final int level;
+  final Children children;
 
   const ChildMonitoring({
-    required this.pagePosition, 
-    required this.name,
-    required this.age,
-    required this.level,
+    required this.children,
     Key? key,
     })
       : super(key: key);
@@ -29,21 +24,20 @@ class ChildMonitoring extends StatelessWidget {
         superHeigth: 320,
         superWidget: GlobalProgress(pontuation: 100, isMascot: false,),
         pageIndex: 1,
-        pagePosition: pagePosition.value,
         child: Container(
           padding: const  EdgeInsets.fromLTRB(14, 16, 14, 0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               UserPhotoAndName(
-                userName: name,
-                userPhotoPath: "assets/images/appImages/ianzinho.jpg",
-                firstLine: "$name\n",
+                userName: children.name,
+                userPhotoPath: children.photoPath,
+                firstLine: children.name,
                 fontWeight1: FontWeight.bold,
-                secondLine: "$age anos",
+                secondLine: "${diffYears(children.birthdate)} anos",
                 fontWeight2: FontWeight.w400,
               ),
-              const StreakWidget(streakDays: 7),
+              StreakWidget(streakDays: diffDays(children.lastAccsess?? DateTime.now())),
             ]
           )
         ),
