@@ -4,12 +4,16 @@ import '/widgets/global/learnAppBar.dart';
 import 'package:learn/pages/parentsPages/childMonitoring.dart';
 import 'package:learn/widgets/monitoramento.dart';
 import 'package:learn/widgets/achivievementWidget.dart';
+import 'package:learn/utils/modelsClass.dart';
+
 
 class ProfilePage extends StatelessWidget {
   final ValueNotifier<double> pagePosition;
+  final Parents parent;
 
   ProfilePage({
-    required this.pagePosition
+    required this.pagePosition,
+    required this.parent
   });
 
   @override
@@ -29,17 +33,7 @@ class ProfilePage extends StatelessWidget {
             const SizedBox(height: 24),
             Padding(
                 padding: const EdgeInsets.only(left: 16.0, bottom: 16.0), // Exclusive padding for this instance
-                child: CustomRichTextWidget(),
-            ),
-            UserProfileWidget(
-              onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder:(context) => ChildMonitoring(pagePosition: pagePosition, name: "Caio", age: 10, level: 3)));
-              } ,
-              name: "Caio",
-              age: 10,
-              completedTrails: 14,
-              level: 3,
-              userPhotoPath: "assets/images/appImages/ianzinho.jpg",
+                child: MonitoringWidget(parent: parent,),
             ),
           ]),
         ),
