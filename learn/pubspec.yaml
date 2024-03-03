@@ -96,7 +96,6 @@ flutter:
   - ./assets/images/appIcons/badge-diamante-default.png
   - ./assets/images/appIcons/badge-diamante-blue.png
   - ./assets/images/appIcons/silver-badge.png
-  
   # Person Images
   - ./assets/images/appImages/ianzinho.jpg
   # Mascot Images
