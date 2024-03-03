@@ -19,7 +19,7 @@ class ParentsActivitiesPage extends StatelessWidget {
       ),
       body: Container(
         padding: const EdgeInsets.fromLTRB(14, 25, 14, 0),
-        child: SingleChildScrollView(
+        child: const SingleChildScrollView(
           
         )
       )

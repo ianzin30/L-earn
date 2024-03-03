@@ -4,6 +4,10 @@ import 'package:learn/utils/boldSubString.dart';
 import 'package:learn/widgets/global/commonButton.dart';
 
 class Page04 extends StatelessWidget {
+  final PageController pageController;
+  Page04({
+    required this.pageController,
+  });
 
   @override
   Widget build(BuildContext context) {
