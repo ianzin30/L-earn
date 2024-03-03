@@ -3,10 +3,17 @@ import 'package:learn/pages/parentsPages/homePage.dart';
 import 'widgets/global/navBar.dart';
 import 'pages/parentsPages/profilePage.dart';
 import 'pages/parentsPages/monitoringPage.dart';
-import 'pages/parentsPages/addDependentPage.dart';
-import 'pages/parentsPages/childMonitoring.dart';
+
+
+// Dados mockados
+import 'package:learn/utils/modelsClass.dart';
+
 
 class ParentsMain extends StatefulWidget {
+  final Parents parent;
+  
+  ParentsMain({required this.parent});
+
   @override
   _ParentsMainState createState() => _ParentsMainState();
 }
@@ -15,6 +22,7 @@ class _ParentsMainState extends State<ParentsMain> {
   int _selectedIndex = 0;
   PageController _pageController = PageController();
   ValueNotifier<double> pagePosition = ValueNotifier(0.0);
+
 
   @override
   void initState() {
@@ -49,9 +57,9 @@ class _ParentsMainState extends State<ParentsMain> {
   @override
   Widget build(BuildContext context) {
     List<Widget> _pageOptions = [
-      ParentsHPage(pagePosition: pagePosition),
-      MonitorigPage(pagePosition: pagePosition),
-      ProfilePage(pagePosition: pagePosition)
+      ParentsHPage(pagePosition: pagePosition, parent: widget.parent,),
+      MonitorigPage(pagePosition: pagePosition, parent: widget.parent),
+      ProfilePage(pagePosition: pagePosition,  parent: widget.parent,)
     ];
 
     List<Map<String, dynamic>> navItems = [

@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import '/widgets/mascotWidgets/mascotSideBarIcon.dart';
+import 'package:learn/widgets/mascot/mascotSideBarIcon.dart';
 import 'package:learn/pages/parentsPages/addDependentPage.dart';
 
 

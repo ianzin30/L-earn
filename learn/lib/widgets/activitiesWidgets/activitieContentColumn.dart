@@ -43,20 +43,25 @@ class ActivitieContentColumn extends StatelessWidget {
                                                                           )))).toList();
     
 
-    return Container(
-      child: 
-      Column(
+    return SingleChildScrollView (
+        child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-           Text(
-            title,
-            style:  const TextStyle(color: Color(0XFF3C3C3C), fontSize:14, fontFamily: "Fieldwork-Geo", fontWeight:FontWeight.w600),
-            textAlign: TextAlign.start,
-            ),
-             Text(
-            description,
-            style: const TextStyle(color: Color(0XFF5C5C5C), fontSize:12, fontFamily: "Fieldwork-Geo", fontWeight:FontWeight.w400),
-            textAlign: TextAlign.start,
+            Container(
+              padding: const EdgeInsets.only(left: 16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    title,
+                    style:  const TextStyle(color: Color(0XFF3C3C3C), fontSize:14, fontFamily: "Fieldwork-Geo", fontWeight:FontWeight.w600),
+                  ),
+                  Text(
+                    description,
+                    style: const TextStyle(color: Color(0XFF5C5C5C), fontSize:12, fontFamily: "Fieldwork-Geo", fontWeight:FontWeight.w400),
+                  ),
+                ]
+              ),
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.center,
