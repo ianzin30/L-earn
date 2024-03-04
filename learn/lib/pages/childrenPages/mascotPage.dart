@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
-import '/widgets/mascotWidgets/mascote.dart';
-import '/widgets/mascotWidgets/mascotBar.dart';
-import '/widgets/mascotWidgets/mascotSideBar.dart';
+import 'package:learn/utils/modelsClass.dart';
+import 'package:learn/widgets/mascot/mascote.dart';
+import 'package:learn/widgets/mascot/mascotBar.dart';
+import 'package:learn/widgets/mascot/mascotSideBar.dart';
 import 'package:learn/widgets/globalProgressWidget.dart';
+
 
 class MascotPage extends StatelessWidget {
 
   final PageController pageController;
+  final Children child;
 
 
   MascotPage({
     required this.pageController,
+    required this.child
   });
 
   @override
@@ -21,7 +25,7 @@ class MascotPage extends StatelessWidget {
         children: [
           Container(
              padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 25.0),
-             child: GlobalProgress(pontuation: 50, name: "Coinny") 
+             child: GlobalProgress(pontuation: child.pontuation, name: "Coinny") 
           ),
           MascoteWidget(),
           MascotSideBar(pageController: pageController),

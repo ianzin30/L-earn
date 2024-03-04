@@ -34,7 +34,7 @@ class LessionCardStatic extends StatelessWidget {
     double widgetWidth = width ?? MediaQuery.of(context).size.width -10;
     return Container(
           width: widgetWidth,
-          height: 120,
+          height: 130,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10.0),
             gradient: LinearGradient(

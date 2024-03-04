@@ -1,46 +1,149 @@
 import 'package:flutter/material.dart';
 import 'package:learn/widgets/globalProgressWidget.dart';
+import 'package:learn/widgets/user-profile.dart';
 import '/widgets/global/learnAppBar.dart';
 import 'package:learn/pages/parentsPages/childMonitoring.dart';
 import 'package:learn/widgets/monitoramento.dart';
 import 'package:learn/widgets/achivievementWidget.dart';
+import 'package:learn/utils/modelsClass.dart';
+import 'package:learn/pages/parentsPages/addDependentPage.dart';
 
 class ProfilePage extends StatelessWidget {
   final ValueNotifier<double> pagePosition;
+  final Parents parent;
+  final PageController pageController;
 
-  ProfilePage({
-    required this.pagePosition
-  });
+  ProfilePage(
+      {required this.pagePosition,
+      required this.parent,
+      required this.pageController});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: LearnAppBarSuper(
-        pageIndex: 3,
-        superWidget: GlobalProgress(pontuation: 100, isMascot: false,),
-        pagePosition: pagePosition.value,
-        child: const Text('Perfil', style: TextStyle(color: Colors.white)),
-      ),
-      body: SingleChildScrollView( // Adicionado para tornar a coluna rolável
+      appBar: LearnAppBar(
+          pageIndex: 2,
+          pagePosition: pagePosition.value,
+          backButtonFunction: () {
+            pageController.animateToPage(
+              0,
+              duration: const Duration(milliseconds: 500),
+              curve: Curves.ease,
+            );
+          },
+          child: Container(
+            width: MediaQuery.sizeOf(context).width,
+            padding: const EdgeInsets.fromLTRB(16, 40, 16, 32),
+            child: Column(children: [
+              const Text(
+                'Meu perfil',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontFamily: "Fieldwork-Geo",
+                    fontWeight: FontWeight.w600,
+                    fontSize: 16),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 32),
+              UserPhotoAndName(
+                userName: parent.name,
+                userPhotoPath: parent.photoPath,
+                firstLine: "Seja bem-vindo,\n",
+                fontWeight1: FontWeight.w400,
+                secondLine: parent.name,
+                fontWeight2: FontWeight.bold,
+              ),
+            ]),
+          )),
+      body: SingleChildScrollView(
         child: Container(
-          padding: const EdgeInsets.fromLTRB(14, 16, 14, 16),
+          padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 16),
           child: Column(children: [
-            AchievementsWidget(),
-            const SizedBox(height: 24),
-            Padding(
-                padding: const EdgeInsets.only(left: 16.0, bottom: 16.0), // Exclusive padding for this instance
-                child: CustomRichTextWidget(),
+            Row(
+              children: [
+                SizedBox(
+                    width: (MediaQuery.sizeOf(context).width / 2) - 16,
+                    child: RichText(
+                      text: const TextSpan(
+                        children: [
+                          TextSpan(
+                            text: 'Dependentes\n',
+                            style: TextStyle(
+                              color: Color(0xFF222222),
+                              fontSize: 14,
+                              fontFamily: "Fieldwork-Geo",
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                          WidgetSpan(
+                            child: SizedBox(height: 16.0),
+                          ),
+                          TextSpan(
+                            text:
+                                'Altere as informações de seus dependentes sempre que precisar',
+                            style: TextStyle(
+                              color: Color(0xFF5C5C5C),
+                              fontSize: 12,
+                              fontFamily: "Fieldwork-Geo",
+                              fontWeight: FontWeight.w300,
+                            ),
+                          ),
+                        ],
+                      ),
+                    )),
+                Spacer(),
+                InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => AddDependentPage()));
+                    },
+                    child: Container(
+                        padding: const EdgeInsets.fromLTRB(8, 2, 8, 0),
+                        height: 30,
+                        width: 80,
+                        decoration: BoxDecoration(
+                            color: const Color(0xFFfffbfe),
+                            borderRadius: BorderRadius.circular(5),
+                            boxShadow:  [
+                              BoxShadow(
+                                color: Color(0xFF5C5C5C).withOpacity(0.50),
+                                blurRadius: 5,
+                                spreadRadius: 0.01,
+                                offset: const Offset(0, 3),
+                              )
+                            ]),
+                        child: const Row(
+                          children: [
+                            Icon(
+                              Icons.add,
+                              size: 16,
+                              color: Color(0xFF282C93),
+                            ),
+                            Text(
+                              "Adicionar",
+                              style: TextStyle(
+                                  fontSize: 10,
+                                  color: Color(0xFF282C93),
+                                  fontFamily: "Fieldwork-Geo",
+                                  fontWeight: FontWeight.w400),
+                              textAlign: TextAlign.center,
+                            ),
+                          ],
+                        )))
+              ],
             ),
-            UserProfileWidget(
-              onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder:(context) => ChildMonitoring(pagePosition: pagePosition, name: "Caio", age: 10, level: 3)));
-              } ,
-              name: "Caio",
-              age: 10,
-              completedTrails: 14,
-              level: 3,
-              userPhotoPath: "assets/images/appImages/ianzinho.jpg",
+            const SizedBox(
+              height: 16,
             ),
+            Column(
+              children: parent.dependents
+                  .map((child) => ChildMonitoringBox(
+                        child: child,
+                      ))
+                  .toList(),
+            )
           ]),
         ),
       ),

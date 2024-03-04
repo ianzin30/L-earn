@@ -126,68 +126,18 @@ class _Page03State extends State<Page03> {
                   height: 48,
                 ),
                 Align(
-                  alignment: Alignment.center,
+                  alignment: Alignment.centerLeft,
                   child: RichText(
                     text: const TextSpan(
                       children: [
                         TextSpan(
                           text:
-                              'Ela e seus amigos já escolheram o filme que vão assistir mas para montar o orçamento, a ',
+                              'Ela não faz questão de que o filme seja 3D e pode dividir o combo de ingressos com mais 2 amigos! ',
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 16,
                             fontFamily: "Fieldwork-Geo",
                             fontWeight: FontWeight.normal,
-                          ),
-                        ),
-                        TextSpan(
-                          text:
-                              "Connie ",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                            fontFamily: "Fieldwork-Geo",
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        TextSpan(
-                          text:
-                              'ainda precisa escolher o ',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                            fontFamily: "Fieldwork-Geo",
-                            fontWeight: FontWeight.normal,
-                          ),
-                        ),
-                        TextSpan(
-                          text:
-                              "tipo do ingresso ",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                            fontFamily: "Fieldwork-Geo",
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        TextSpan(
-                          text:
-                              'que vai comprar e ',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                            fontFamily: "Fieldwork-Geo",
-                            fontWeight: FontWeight.normal,
-                          ),
-                        ),
-                        TextSpan(
-                          text:
-                              "qual lanche vai querer. ",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                            fontFamily: "Fieldwork-Geo",
-                            fontWeight: FontWeight.bold,
                           ),
                         ),
                       ],
@@ -270,7 +220,7 @@ class _Page03State extends State<Page03> {
               text: const TextSpan(
                 children: [
                   TextSpan(
-                    text: 'O que você acha que ela deveria fazer',
+                    text: 'Qual opção ',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 16,
@@ -279,12 +229,39 @@ class _Page03State extends State<Page03> {
                     ),
                   ),
                   TextSpan(
-                    text: " primeiro?",
+                    text: "você acha",
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 16,
                       fontFamily: "Fieldwork-Geo",
                       fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  TextSpan(
+                    text: " que seria a ",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
+                      fontFamily: "Fieldwork-Geo",
+                      fontWeight: FontWeight.normal,
+                    ),
+                  ),
+                  TextSpan(
+                    text: "melhor",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
+                      fontFamily: "Fieldwork-Geo",
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  TextSpan(
+                    text: "?",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
+                      fontFamily: "Fieldwork-Geo",
+                      fontWeight: FontWeight.normal,
                     ),
                   ),
                 ],
@@ -303,15 +280,13 @@ class _Page03State extends State<Page03> {
     String optionText = "";
     switch (index) {
       case 0:
-        optionText = "Levar todo o dinheiro do seu cofrinho";
+        optionText = "Ingresso normal - R\$20";
         break;
       case 1:
-        optionText =
-            "Pesquisar quais são os preços dos opções de ingresso e lanche, e quais cinemas estão disponíveis";
+        optionText = "Ingresso 3D - R\$25";
         break;
       case 2:
-        optionText =
-            "Levar R\$50 e não pesquisar os preços das atividades que vai querer fazer";
+        optionText = "Combo: 3 ingressos normais - R\$45";
         break;
       default:
         optionText =

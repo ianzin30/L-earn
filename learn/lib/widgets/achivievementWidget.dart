@@ -13,16 +13,16 @@ class AchievementsWidget extends StatelessWidget {
           children: [
             const Text("Conquistas alcançadas",
                 style: TextStyle(
-                    color: Color(0xFF000000),
+                    color: Color(0xFF222222),
                     fontSize: 14,
                     fontFamily: 'Fieldwork-Geo',
                     fontWeight: FontWeight.w600)),
             const Text("Reconheça os seus filhos pelas suas vitórias!",
                 style: TextStyle(
-                    color: Color(0xFF383838),
+                    color: Color(0xFF5C5C5C),
                     fontSize: 12,
                     fontFamily: 'Fieldwork-Geo',
-                    fontWeight: FontWeight.w400)),
+                    fontWeight: FontWeight.w300)),
             const SizedBox(
               height: 12,
             ),

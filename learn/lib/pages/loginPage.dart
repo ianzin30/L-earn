@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:learn/pages/parentsPages/loginParenstPage.dart';
-import 'package:learn/widgets/loginWidgets/BoxSelectorLogin.dart';
+import 'package:learn/widgets/login/BoxSelectorLogin.dart';
 import 'childrenPages/loginChildPage.dart';
-import 'package:learn/widgets/loginWidgets/loginEnterButton.dart';
-import 'package:learn/widgets/loginWidgets/loginAppBar.dart';
-import 'package:learn/widgets/loginWidgets/loginInfoContainter.dart';
+import 'package:learn/widgets/login/loginEnterButton.dart';
+import 'package:learn/widgets/login/loginAppBar.dart';
+import 'package:learn/widgets/login/loginInfoContainter.dart';
 
 class LoginPage extends StatefulWidget {
   @override
