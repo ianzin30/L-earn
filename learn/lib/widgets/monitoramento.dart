@@ -106,7 +106,7 @@ class ChildMonitoringBox extends StatelessWidget {
                       style: const TextStyle(
                           fontSize: 10, fontFamily: 'Fieldwork-Geo')),
                   const Row(children: [
-                    LevelBox(text: "Prata II"),
+                    LevelBox(text: "Prata I"),
                     LevelBox(text: "12 trilhas concluídas"),
                   ])
                 ],
