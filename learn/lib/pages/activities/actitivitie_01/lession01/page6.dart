@@ -3,10 +3,10 @@ import 'package:learn/widgets/global/backButton.dart';
 import '../lession02/page01.dart';
 import 'package:learn/widgets/global/commonButton.dart';
 
-class Page04 extends StatelessWidget {
+class Page06 extends StatelessWidget {
   final PageController pageController;
 
-  Page04({
+  Page06({
     required this.pageController,
   });
 
@@ -60,7 +60,7 @@ class Page04 extends StatelessWidget {
                     children: [
                   TextSpan(
                     text:
-                        "Ótima ideia Laís, Connie fez a pesquisa dos ingressos primeiro e e encontrou isso aqui:",
+                        "Perfeito! Agora vamos ver a pesquisa dos lanches que a Connie fez:",
                   ),
                 ],
                     style: TextStyle(

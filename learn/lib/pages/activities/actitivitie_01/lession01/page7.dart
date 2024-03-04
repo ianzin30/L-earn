@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:learn/widgets/global/backButton.dart';
 import 'package:learn/widgets/global/commonButton.dart';
 
-int certa = 1;
+int certa = 2;
 
 class CustomRadioTile extends StatelessWidget {
   final String title;
@@ -30,7 +30,8 @@ class CustomRadioTile extends StatelessWidget {
           ? Colors.green
           : const Color(0xFFFFA200); // Green for correct, orange for incorrect.
       backgroundColor = Colors.transparent; // No border when selected.
-      checkIconColor = isCorrect ? Colors.green
+      checkIconColor = isCorrect
+          ? Colors.green
           : const Color(0xFFFFA200); // White checkmark when selected.
     }
 
@@ -68,16 +69,16 @@ class CustomRadioTile extends StatelessWidget {
   }
 }
 
-class Page03 extends StatefulWidget {
+class Page07 extends StatefulWidget {
   final PageController pageController;
 
-  Page03({required this.pageController});
+  Page07({required this.pageController});
 
   @override
-  _Page03State createState() => _Page03State();
+  _Page05State createState() => _Page05State();
 }
 
-class _Page03State extends State<Page03> {
+class _Page05State extends State<Page07> {
   int selecionada = -1; // This variable is now part of the state
 
   @override
@@ -132,7 +133,7 @@ class _Page03State extends State<Page03> {
                       children: [
                         TextSpan(
                           text:
-                              'Ela e seus amigos já escolheram o filme que vão assistir mas para montar o orçamento, a ',
+                              'A Connie não tem certeza do que vai estar com vontade de comer durante o filme, mas quer um lanche delicioso e quer também ',
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 16,
@@ -141,48 +142,7 @@ class _Page03State extends State<Page03> {
                           ),
                         ),
                         TextSpan(
-                          text:
-                              "Connie ",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                            fontFamily: "Fieldwork-Geo",
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        TextSpan(
-                          text:
-                              'ainda precisa escolher o ',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                            fontFamily: "Fieldwork-Geo",
-                            fontWeight: FontWeight.normal,
-                          ),
-                        ),
-                        TextSpan(
-                          text:
-                              "tipo do ingresso ",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                            fontFamily: "Fieldwork-Geo",
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        TextSpan(
-                          text:
-                              'que vai comprar e ',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                            fontFamily: "Fieldwork-Geo",
-                            fontWeight: FontWeight.normal,
-                          ),
-                        ),
-                        TextSpan(
-                          text:
-                              "qual lanche vai querer. ",
+                          text: "economizar no passeio.",
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 16,
@@ -270,21 +230,12 @@ class _Page03State extends State<Page03> {
               text: const TextSpan(
                 children: [
                   TextSpan(
-                    text: 'O que você acha que ela deveria fazer',
+                    text: 'Qual opção de lanchonete ela deveria escolher?',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 16,
                       fontFamily: "Fieldwork-Geo",
                       fontWeight: FontWeight.normal,
-                    ),
-                  ),
-                  TextSpan(
-                    text: " primeiro?",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
-                      fontFamily: "Fieldwork-Geo",
-                      fontWeight: FontWeight.bold,
                     ),
                   ),
                 ],
@@ -303,15 +254,16 @@ class _Page03State extends State<Page03> {
     String optionText = "";
     switch (index) {
       case 0:
-        optionText = "Levar todo o dinheiro do seu cofrinho";
+        optionText =
+            "Lanchonete 1 (\$\$\$): Vende comidinhas artesanais e deliciosas que custam entre R\$40 e R\$60";
         break;
       case 1:
         optionText =
-            "Pesquisar quais são os preços dos opções de ingresso e lanche, e quais cinemas estão disponíveis";
+            "Lanchonete 2 (\$): Vende comidinhas que às vezes não estão tão boas, mas que custam R\$10 e R\$20";
         break;
       case 2:
         optionText =
-            "Levar R\$50 e não pesquisar os preços das atividades que vai querer fazer";
+            "Lanchonete 3(\$\$): Vende comidinhas bonitas e deliciosas que custam entre R\$20 e R\$40";
         break;
       default:
         optionText =
@@ -324,7 +276,7 @@ class _Page03State extends State<Page03> {
     );
 
     bool isCorrect =
-        index == 1; // This checks if the option is the correct one.
+        index == certa; // This checks if the option is the correct one.
 
     return Padding(
       padding: const EdgeInsets.all(3.0),

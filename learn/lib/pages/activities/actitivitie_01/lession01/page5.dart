@@ -30,7 +30,8 @@ class CustomRadioTile extends StatelessWidget {
           ? Colors.green
           : const Color(0xFFFFA200); // Green for correct, orange for incorrect.
       backgroundColor = Colors.transparent; // No border when selected.
-      checkIconColor = isCorrect ? Colors.green
+      checkIconColor = isCorrect
+          ? Colors.green
           : const Color(0xFFFFA200); // White checkmark when selected.
     }
 
@@ -68,16 +69,16 @@ class CustomRadioTile extends StatelessWidget {
   }
 }
 
-class Page03 extends StatefulWidget {
+class Page05 extends StatefulWidget {
   final PageController pageController;
 
-  Page03({required this.pageController});
+  Page05({required this.pageController});
 
   @override
-  _Page03State createState() => _Page03State();
+  _Page05State createState() => _Page05State();
 }
 
-class _Page03State extends State<Page03> {
+class _Page05State extends State<Page05> {
   int selecionada = -1; // This variable is now part of the state
 
   @override
@@ -126,18 +127,63 @@ class _Page03State extends State<Page03> {
                   height: 48,
                 ),
                 Align(
-                  alignment: Alignment.centerLeft,
+                  alignment: Alignment.center,
                   child: RichText(
                     text: const TextSpan(
                       children: [
                         TextSpan(
                           text:
-                              'Ela não faz questão de que o filme seja 3D e pode dividir o combo de ingressos com mais 2 amigos! ',
+                              'Ela e seus amigos já escolheram o filme que vão assistir mas para montar o orçamento, a ',
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 16,
                             fontFamily: "Fieldwork-Geo",
                             fontWeight: FontWeight.normal,
+                          ),
+                        ),
+                        TextSpan(
+                          text: "Connie ",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontFamily: "Fieldwork-Geo",
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        TextSpan(
+                          text: 'ainda precisa escolher o ',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontFamily: "Fieldwork-Geo",
+                            fontWeight: FontWeight.normal,
+                          ),
+                        ),
+                        TextSpan(
+                          text: "tipo do ingresso ",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontFamily: "Fieldwork-Geo",
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        TextSpan(
+                          text: 'que vai comprar e ',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontFamily: "Fieldwork-Geo",
+                            fontWeight: FontWeight.normal,
+                          ),
+                        ),
+                        TextSpan(
+                          text: "qual lanche vai querer. ",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontFamily: "Fieldwork-Geo",
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
                       ],
@@ -220,7 +266,7 @@ class _Page03State extends State<Page03> {
               text: const TextSpan(
                 children: [
                   TextSpan(
-                    text: 'Qual opção ',
+                    text: 'O que você acha que ela deveria fazer',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 16,
@@ -229,39 +275,12 @@ class _Page03State extends State<Page03> {
                     ),
                   ),
                   TextSpan(
-                    text: "você acha",
+                    text: " primeiro?",
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 16,
                       fontFamily: "Fieldwork-Geo",
                       fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  TextSpan(
-                    text: " que seria a ",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
-                      fontFamily: "Fieldwork-Geo",
-                      fontWeight: FontWeight.normal,
-                    ),
-                  ),
-                  TextSpan(
-                    text: "melhor",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
-                      fontFamily: "Fieldwork-Geo",
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  TextSpan(
-                    text: "?",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
-                      fontFamily: "Fieldwork-Geo",
-                      fontWeight: FontWeight.normal,
                     ),
                   ),
                 ],
@@ -283,10 +302,12 @@ class _Page03State extends State<Page03> {
         optionText = "Ingresso normal - R\$20";
         break;
       case 1:
-        optionText = "Ingresso 3D - R\$25";
+        optionText =
+            "Ingresso 3D - R\$25";
         break;
       case 2:
-        optionText = "Combo: 3 ingressos normais - R\$45";
+        optionText =
+            "Combo: 3 ingressos normais - R\$45";
         break;
       default:
         optionText =
