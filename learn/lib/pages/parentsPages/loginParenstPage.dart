@@ -17,23 +17,62 @@ class LoginInputFields extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        TextFormField(
-          controller: emailController,
-          decoration: const InputDecoration(
-            labelText: 'E-mail',
-            border: OutlineInputBorder(),
-          ),
-          keyboardType: TextInputType.emailAddress,
-        ),
+        SizedBox(
+            height: 48,
+            child: TextField(
+              controller: emailController,
+              style: const TextStyle(
+                  fontFamily: "Fieldwork-Geo",
+                  fontWeight: FontWeight.w400,
+                  color: Color(0xff5A5A5A),
+                  fontSize: 12),
+              decoration: InputDecoration(
+                labelStyle: const TextStyle(
+                    fontFamily: "Fieldwork-Geo",
+                    fontWeight: FontWeight.w400,
+                    color: Color(0xff9A9A9A),
+                    fontSize: 12),
+                labelText: 'Email',
+                border:
+                    OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                  borderSide: const BorderSide(
+                    color: Color(0xff7A7FFF),
+                  ),
+                ),
+              ),
+              keyboardType: TextInputType.emailAddress,
+            )),
         const SizedBox(height: 16),
-        TextFormField(
-          controller: passwordController,
-          decoration: const InputDecoration(
-            labelText: 'Senha',
-            border: OutlineInputBorder(),
+        SizedBox(
+          height: 48,
+          child: TextField(
+            controller: passwordController,
+            style: const TextStyle(
+                fontFamily: "Fieldwork-Geo",
+                fontWeight: FontWeight.w400,
+                color: Color(0xff5A5A5A),
+                fontSize: 12),
+            decoration: InputDecoration(
+              labelStyle: const TextStyle(
+                  fontFamily: "Fieldwork-Geo",
+                  fontWeight: FontWeight.w400,
+                  color: Color(0xff9A9A9A),
+                  fontSize: 12),
+              labelText: 'Senha',
+              border:
+                  OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+                borderSide: const BorderSide(
+                  color: Color(0xff7A7FFF),
+                ),
+              ),
+            ),
+            obscureText: true,
           ),
-          obscureText: true,
-        ),
+        )
       ],
     );
   }
