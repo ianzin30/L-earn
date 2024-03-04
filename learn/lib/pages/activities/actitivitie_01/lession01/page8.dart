@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:learn/widgets/global/backButton.dart';
-import 'package:learn/utils/boldSubString.dart';
+import '../lession02/page01.dart';
 import 'package:learn/widgets/global/commonButton.dart';
 
-class Page01 extends StatelessWidget {
+class Page08 extends StatelessWidget {
   final PageController pageController;
 
-  Page01({
+  Page08({
     required this.pageController,
   });
 
@@ -14,8 +14,8 @@ class Page01 extends StatelessWidget {
   Widget build(BuildContext context) {
     const TextStyle textStyle = TextStyle(
         color: Color(0xFFFFFFFF),
-        fontSize: 20,
-        fontWeight: FontWeight.w500,
+        fontSize: 18,
+        fontWeight: FontWeight.w400,
         fontFamily: "Fieldwork-Geo");
 
     const TextStyle textStyleBold = TextStyle(
@@ -58,34 +58,40 @@ class Page01 extends StatelessWidget {
             RichText(
                 text: const TextSpan(
                     children: [
-                  TextSpan(
-                    text: "Oi ",
-                  ),
-                  TextSpan(
-                    text: "Luciano",
-                    style: textStyleBold,
-                  ),
-                  TextSpan(text: "! Sua mascote, a "),
-                  TextSpan(text: "Connie", style: textStyleBold),
-                  TextSpan(
-                      text:
-                          ", está com um problema e só você pode resolvê-lo!"),
-                ],
+                      TextSpan(
+                        text:
+                            "Nessa lanchonete, existem 3 tipos de lanches com preços diferentes: lanches de R\$20, lanches de R\$30 e lanches de R\$40. Bem, a Connie não tem como saber o que vai ter vontade de comer durante o filme, né? Mas ",
+                      ),
+                      TextSpan(
+                              text:
+                                  "para garantir que ela vai ter dinheiro suficiente ",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16,
+                                fontFamily: "Fieldwork-Geo",
+                                fontWeight: FontWeight.bold,
+                              ),
+                      ),
+                      TextSpan(
+                        text:
+                            "para escolher qualquer um dos 3 tipos de lanches... ",
+                      ),
+                    ],
                     style: TextStyle(
                         color: Color(0xFFFFFFFF),
-                        fontSize: 20,
+                        fontSize: 16,
                         fontWeight: FontWeight.w400,
                         fontFamily: "Fieldwork-Geo")),
 
-                    textAlign: TextAlign.center,
+                        textAlign: TextAlign.center,
                         
-                ),
+                        ),
             const SizedBox(
               height: 128,
             ),
             Center(
               child: Image.asset(
-                "assets/images/mascote/mascot-sad.png",
+                "assets/images/mascote/mascot-happy.png",
                 height: 240,
               ),
             ),
@@ -107,8 +113,9 @@ class Page01 extends StatelessWidget {
             buttonColor: const Color(0xFFFFFFFF),
             onPressed: () {
               pageController.nextPage(
-                  duration: const Duration(milliseconds: 500),
-                  curve: Curves.ease);
+                duration: const Duration(milliseconds: 500),
+                curve: Curves.ease
+              );
             },
           ))
     ]));

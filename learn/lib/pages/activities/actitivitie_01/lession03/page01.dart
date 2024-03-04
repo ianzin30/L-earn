@@ -14,8 +14,8 @@ class Page01 extends StatelessWidget {
   Widget build(BuildContext context) {
     const TextStyle textStyle = TextStyle(
         color: Color(0xFFFFFFFF),
-        fontSize: 20,
-        fontWeight: FontWeight.w500,
+        fontSize: 18,
+        fontWeight: FontWeight.w400,
         fontFamily: "Fieldwork-Geo");
 
     const TextStyle textStyleBold = TextStyle(
@@ -59,29 +59,24 @@ class Page01 extends StatelessWidget {
                 text: const TextSpan(
                     children: [
                   TextSpan(
-                    text: "Oi ",
+                    text:
+                        "Nessa lanchonete, existem 3 tipos de lanches, com preços diferentes: lanches de R\$20, lanches de R\$30 e lanches de R\$40. Bem, a Connie não tem como saber o que vai ter vontade de comer durante o filme, né? Mas para ",
                   ),
                   TextSpan(
-                    text: "Luciano",
+                    text: "garantir que ela vai ter dinheiro suficiente",
                     style: textStyleBold,
                   ),
-                  TextSpan(text: "! Sua mascote, a "),
-                  TextSpan(text: "Connie", style: textStyleBold),
                   TextSpan(
-                      text:
-                          ", está com um problema e só você pode resolvê-lo!"),
+                    text: "para escolher qualquer um dos 3 tipos de lanches...",
+                  ),
                 ],
                     style: TextStyle(
                         color: Color(0xFFFFFFFF),
                         fontSize: 20,
                         fontWeight: FontWeight.w400,
-                        fontFamily: "Fieldwork-Geo")),
-
-                    textAlign: TextAlign.center,
-                        
-                ),
+                        fontFamily: "Fieldwork-Geo"))),
             const SizedBox(
-              height: 128,
+              height: 120,
             ),
             Center(
               child: Image.asset(

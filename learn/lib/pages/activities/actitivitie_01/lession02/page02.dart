@@ -3,10 +3,10 @@ import 'package:learn/widgets/global/backButton.dart';
 import 'package:learn/utils/boldSubString.dart';
 import 'package:learn/widgets/global/commonButton.dart';
 
-class Page01 extends StatelessWidget {
+class Page02 extends StatelessWidget {
   final PageController pageController;
 
-  Page01({
+  Page02({
     required this.pageController,
   });
 
@@ -59,27 +59,14 @@ class Page01 extends StatelessWidget {
                 text: const TextSpan(
                     children: [
                   TextSpan(
-                    text: "Oi ",
-                  ),
-                  TextSpan(
-                    text: "Luciano",
-                    style: textStyleBold,
-                  ),
-                  TextSpan(text: "! Sua mascote, a "),
-                  TextSpan(text: "Connie", style: textStyleBold),
-                  TextSpan(
                       text:
-                          ", está com um problema e só você pode resolvê-lo!"),
+                          "Perfeito! Agora vamos ver a pesquisa dos lanches que a Connie fez:"),
                 ],
                     style: TextStyle(
                         color: Color(0xFFFFFFFF),
                         fontSize: 20,
                         fontWeight: FontWeight.w400,
-                        fontFamily: "Fieldwork-Geo")),
-
-                    textAlign: TextAlign.center,
-                        
-                ),
+                        fontFamily: "Fieldwork-Geo"))),
             const SizedBox(
               height: 128,
             ),
@@ -105,11 +92,7 @@ class Page01 extends StatelessWidget {
               ),
             ),
             buttonColor: const Color(0xFFFFFFFF),
-            onPressed: () {
-              pageController.nextPage(
-                  duration: const Duration(milliseconds: 500),
-                  curve: Curves.ease);
-            },
+            onPressed: () {},
           ))
     ]));
   }

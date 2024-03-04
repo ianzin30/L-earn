@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:learn/widgets/global/backButton.dart';
-import 'package:learn/utils/boldSubString.dart';
+import '../lession02/page01.dart';
 import 'package:learn/widgets/global/commonButton.dart';
 
 class Page04 extends StatelessWidget {
   final PageController pageController;
+
   Page04({
     required this.pageController,
   });
@@ -24,9 +25,7 @@ class Page04 extends StatelessWidget {
         fontFamily: "Fieldwork-Geo");
 
     return Scaffold(
-        body: Stack(
-          alignment: AlignmentDirectional.center,
-          children: [
+        body: Stack(alignment: AlignmentDirectional.center, children: [
       Container(
         padding: const EdgeInsets.all(16),
         width: double.infinity,
@@ -60,21 +59,18 @@ class Page04 extends StatelessWidget {
                 text: const TextSpan(
                     children: [
                   TextSpan(
-                    text: "Connie",style: textStyleBold,
+                    text:
+                        "Ótima ideia Luciano, Connie fez a pesquisa dos ingressos primeiro e e encontrou isso aqui:",
                   ),
-                  TextSpan(
-                    text: " esá muito feliz por ir ao ",
-                  ),
-                  TextSpan(text: "cinema", style: textStyleBold),
-                  TextSpan(text: " com seus amigos, e com sua ajuda para criar um "),
-                  TextSpan(text:"orçamento", style: textStyleBold),
-                  TextSpan(text: " ela agora sabe a melhor maneira de levar dinheiro ao cinema"),
                 ],
                     style: TextStyle(
                         color: Color(0xFFFFFFFF),
                         fontSize: 20,
                         fontWeight: FontWeight.w400,
-                        fontFamily: "Fieldwork-Geo"))),
+                        fontFamily: "Fieldwork-Geo")),
+                        
+                textAlign: TextAlign.center,
+            ),
             const SizedBox(
               height: 128,
             ),
@@ -91,7 +87,7 @@ class Page04 extends StatelessWidget {
           bottom: 120,
           child: LearnButton(
             text: const Text(
-              "Concluir a atividade",
+              "Continuar",
               style: TextStyle(
                 color: Color(0xff101573),
                 fontSize: 14,
@@ -101,7 +97,11 @@ class Page04 extends StatelessWidget {
             ),
             buttonColor: const Color(0xFFFFFFFF),
             onPressed: () {
-              Navigator.pop(context);},
+              pageController.nextPage(
+                duration: const Duration(milliseconds: 500),
+                curve: Curves.ease
+              );
+            },
           ))
     ]));
   }

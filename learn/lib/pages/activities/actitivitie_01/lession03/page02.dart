@@ -1,64 +1,70 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:learn/widgets/global/backButton.dart';
 import 'package:learn/widgets/global/commonButton.dart';
 
-int certa = 1;
+class CustomOptionButton extends StatelessWidget {
+  final String text;
+  final VoidCallback onPressed;
 
-class CustomRadioTile extends StatelessWidget {
-  final String title;
-  final bool isSelected;
-  final bool isCorrect;
-  final VoidCallback onTap;
-
-  const CustomRadioTile({
+  const CustomOptionButton({
     Key? key,
-    required this.title,
-    required this.isSelected,
-    required this.isCorrect,
-    required this.onTap,
+    required this.text,
+    required this.onPressed,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    // Determine the background and border color based on the selection and correctness.
-    Color backgroundColor = Colors.transparent;
-    Color borderColor = const Color(0xFFB6B6B6);
-    Color checkIconColor = const Color(0xFFB6B6B6);
+    // Bold and larger font for the option text
+    TextStyle optionTextStyle = TextStyle(
+      color: Colors.white,
+      fontWeight: FontWeight.bold,
+      fontSize: 16,
+    );
 
-    if (isSelected) {
-      borderColor = isCorrect
-          ? Colors.green
-          : const Color(0xFFFFA200); // Green for correct, orange for incorrect.
-      backgroundColor = Colors.transparent; // No border when selected.
-      checkIconColor = isCorrect ? Colors.green
-          : const Color(0xFFFFA200); // White checkmark when selected.
+    // Highlighting specific parts of the text if needed
+    List<TextSpan> textSpans = [];
+    if (text.contains('R\$50')) {
+      String firstPart = text.split('R\$50')[0];
+      String secondPart = 'R\$50';
+      String thirdPart = text.split('R\$50')[1];
+      textSpans.addAll([
+        TextSpan(text: firstPart, style: optionTextStyle),
+        TextSpan(
+            text: secondPart, style: optionTextStyle.copyWith(fontSize: 18)),
+        TextSpan(text: thirdPart, style: optionTextStyle),
+      ]);
+    } else {
+      textSpans.add(TextSpan(text: text, style: optionTextStyle));
     }
 
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 16.91, vertical: 12),
-        decoration: BoxDecoration(
-          color: backgroundColor,
-          borderRadius: BorderRadius.circular(5),
-          border: Border.all(color: borderColor, width: 0.75),
+    return Container(
+      width: double.infinity,
+      height: 90, // Fixed height for the button
+      margin: EdgeInsets.all(8), // Consistent margin for all buttons
+      child: OutlinedButton(
+        onPressed: onPressed,
+        style: OutlinedButton.styleFrom(
+          backgroundColor: Colors.transparent,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8),
+          ),
+          side: BorderSide(color: Colors.white, width: 1),
+          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
         ),
         child: Row(
+          mainAxisSize: MainAxisSize.max,
           children: [
-            isSelected
-                ? Icon(Icons.check_circle, color: checkIconColor)
-                : const Icon(Icons.radio_button_unchecked,
-                    color: Color(0xFFB6B6B6)),
-            const SizedBox(width: 18.2),
+            Radio(
+              value: false,
+              groupValue: null,
+              onChanged: (value) {},
+              activeColor: Colors.white,
+            ),
+            SizedBox(width: 8),
             Expanded(
-              child: Text(
-                title,
-                style: TextStyle(
-                  fontSize: 14,
-                  fontFamily: "Fieldwork-Geo",
-                  fontWeight: FontWeight.w400,
-                  color: isSelected ? Colors.white : const Color(0xFFB6B6B6),
+              child: RichText(
+                text: TextSpan(
+                  children: textSpans,
                 ),
               ),
             ),
@@ -69,22 +75,17 @@ class CustomRadioTile extends StatelessWidget {
   }
 }
 
-class Page03 extends StatefulWidget {
+class Page02 extends StatelessWidget {
   final PageController pageController;
 
-  Page03({required this.pageController});
-
-  @override
-  _Page03State createState() => _Page03State();
-}
-
-class _Page03State extends State<Page03> {
-  int selecionada = -1; // This variable is now part of the state
+  Page02({
+    required this.pageController,
+  });
 
   @override
   Widget build(BuildContext context) {
     const TextStyle textStyle = TextStyle(
-        color: Color.fromARGB(255, 255, 255, 255),
+        color: Color(0xFFFFFFFF),
         fontSize: 14,
         fontWeight: FontWeight.w500,
         fontFamily: "Fieldwork-Geo");
@@ -126,14 +127,14 @@ class _Page03State extends State<Page03> {
                 const SizedBox(
                   height: 48,
                 ),
-                Container(
-                  padding: const EdgeInsets.only(left: 16),
+                Align(
+                  alignment: Alignment.centerLeft,
                   child: RichText(
                     text: const TextSpan(
                       children: [
                         TextSpan(
                           text:
-                              'Ela e seus amigos já escolheram o filme que vão assistir mas para montar o orçamento, a ',
+                              'lorem ipsum dolor sit amet, consectetur adipiscing elit. ',
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 16,
@@ -143,47 +144,7 @@ class _Page03State extends State<Page03> {
                         ),
                         TextSpan(
                           text:
-                              "Connie ",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                            fontFamily: "Fieldwork-Geo",
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        TextSpan(
-                          text:
-                              'ainda precisa escolher o ',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                            fontFamily: "Fieldwork-Geo",
-                            fontWeight: FontWeight.normal,
-                          ),
-                        ),
-                        TextSpan(
-                          text:
-                              "tipo do ingresso ",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                            fontFamily: "Fieldwork-Geo",
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        TextSpan(
-                          text:
-                              'que vai comprar e ',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                            fontFamily: "Fieldwork-Geo",
-                            fontWeight: FontWeight.normal,
-                          ),
-                        ),
-                        TextSpan(
-                          text:
-                              "qual lanche vai querer. ",
+                              "lorems ipsum dolor sit amet, consectetur adipiscing elit. ",
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 16,
@@ -193,7 +154,6 @@ class _Page03State extends State<Page03> {
                         ),
                       ],
                     ),
-                    textAlign: TextAlign.center,
                   ),
                 ),
                 const SizedBox(
@@ -230,9 +190,8 @@ class _Page03State extends State<Page03> {
                     ),
                     buttonColor: Color.fromARGB(0, 255, 255, 255),
                     onPressed: () {
-                      widget.pageController.previousPage(
-                          duration: const Duration(milliseconds: 500),
-                          curve: Curves.ease);
+                      // Handle the logic for when a user selects an option
+                      // For example, save the user's choice and navigate to the next page
                     },
                   ),
                   const Spacer(),
@@ -248,7 +207,7 @@ class _Page03State extends State<Page03> {
                     ),
                     buttonColor: const Color(0xFFFFFFFF),
                     onPressed: () {
-                      widget.pageController.nextPage(
+                      pageController.nextPage(
                           duration: const Duration(milliseconds: 500),
                           curve: Curves.ease);
                     },
@@ -268,21 +227,12 @@ class _Page03State extends State<Page03> {
       child: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.only(bottom: 16.0, left: 16.0),
+            padding: const EdgeInsets.only(bottom: 16.0),
             child: RichText(
               text: const TextSpan(
                 children: [
                   TextSpan(
-                    text: 'O que você acha que ela deveria fazer',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
-                      fontFamily: "Fieldwork-Geo",
-                      fontWeight: FontWeight.normal,
-                    ),
-                  ),
-                  TextSpan(
-                    text: " primeiro?",
+                    text: 'Quanto em dinheiro ela deveria levar para lanchar?',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 16,
@@ -306,15 +256,13 @@ class _Page03State extends State<Page03> {
     String optionText = "";
     switch (index) {
       case 0:
-        optionText = "Levar todo o dinheiro do seu cofrinho";
+        optionText = "R\$20";
         break;
       case 1:
-        optionText =
-            "Pesquisar quais são os preços dos opções de ingresso e lanche, e quais cinemas estão disponíveis";
+        optionText = "R\$30";
         break;
       case 2:
-        optionText =
-            "Levar R\$50 e não pesquisar os preços das atividades que vai querer fazer";
+        optionText = "R\$40";
         break;
       default:
         optionText =
@@ -322,25 +270,18 @@ class _Page03State extends State<Page03> {
     }
 
     TextStyle optionTextStyle = TextStyle(
-      color: const Color.fromARGB(0, 255, 255, 255),
+      color: Colors.white,
       fontSize: 18,
     );
-
-    bool isCorrect =
-        index == 1; // This checks if the option is the correct one.
 
     return Padding(
       padding: const EdgeInsets.all(3.0),
       child: SizedBox(
-        height: 105,
-        child: CustomRadioTile(
-          title: optionText,
-          isSelected: selecionada == index,
-          isCorrect: isCorrect, // Pass the correctness condition.
-          onTap: () {
-            setState(() {
-              selecionada = index;
-            });
+        height: 105, // Fixed height for the option button
+        child: CustomOptionButton(
+          text: optionText, // Pass the option text here
+          onPressed: () {
+            // Handle selection logic
           },
         ),
       ),

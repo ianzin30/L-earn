@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:learn/widgets/global/backButton.dart';
-import 'package:learn/utils/boldSubString.dart';
+import '../lession02/page01.dart';
 import 'package:learn/widgets/global/commonButton.dart';
 
-class Page01 extends StatelessWidget {
+class FinalPage extends StatelessWidget {
   final PageController pageController;
 
-  Page01({
+  FinalPage({
     required this.pageController,
   });
 
@@ -14,8 +14,8 @@ class Page01 extends StatelessWidget {
   Widget build(BuildContext context) {
     const TextStyle textStyle = TextStyle(
         color: Color(0xFFFFFFFF),
-        fontSize: 20,
-        fontWeight: FontWeight.w500,
+        fontSize: 18,
+        fontWeight: FontWeight.w400,
         fontFamily: "Fieldwork-Geo");
 
     const TextStyle textStyleBold = TextStyle(
@@ -53,41 +53,45 @@ class Page01 extends StatelessWidget {
               },
             ),
             const SizedBox(
-              height: 64,
-            ),
-            RichText(
-                text: const TextSpan(
-                    children: [
-                  TextSpan(
-                    text: "Oi ",
-                  ),
-                  TextSpan(
-                    text: "Luciano",
-                    style: textStyleBold,
-                  ),
-                  TextSpan(text: "! Sua mascote, a "),
-                  TextSpan(text: "Connie", style: textStyleBold),
-                  TextSpan(
-                      text:
-                          ", está com um problema e só você pode resolvê-lo!"),
-                ],
-                    style: TextStyle(
-                        color: Color(0xFFFFFFFF),
-                        fontSize: 20,
-                        fontWeight: FontWeight.w400,
-                        fontFamily: "Fieldwork-Geo")),
-
-                    textAlign: TextAlign.center,
-                        
-                ),
-            const SizedBox(
-              height: 128,
+              height: 80,
             ),
             Center(
               child: Image.asset(
-                "assets/images/mascote/mascot-sad.png",
+                "assets/images/mascote/mascot-happy.png",
                 height: 240,
               ),
+            ),
+            const SizedBox(height: 64,),
+            
+            Center(
+              child: Image.asset(
+                "assets/images/appImages/activitiesBar.png",
+                height: 30,
+              ),
+            ),
+            
+            const SizedBox(height: 36,),
+
+            RichText(
+                text: const TextSpan(
+                    children: [
+                      TextSpan(
+                              text : "Atividade Completa!\n\n",
+                              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                      ),
+                      TextSpan(text : "Parabéns por conseguir ajudar a Connie mais uma vez! Você fez excelentes escolhas, continue assim!",)
+                    ],
+                    style: TextStyle(
+                        color: Color(0xFFFFFFFF),
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400,
+                        fontFamily: "Fieldwork-Geo"),
+                    
+                    ),
+                    textAlign: TextAlign.center,
+                    ),
+            const SizedBox(
+              height: 100,
             ),
           ],
         ),
@@ -106,9 +110,7 @@ class Page01 extends StatelessWidget {
             ),
             buttonColor: const Color(0xFFFFFFFF),
             onPressed: () {
-              pageController.nextPage(
-                  duration: const Duration(milliseconds: 500),
-                  curve: Curves.ease);
+              Navigator.pop(context);
             },
           ))
     ]));

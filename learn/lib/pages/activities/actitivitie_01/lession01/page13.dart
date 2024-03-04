@@ -69,16 +69,16 @@ class CustomRadioTile extends StatelessWidget {
   }
 }
 
-class Page03 extends StatefulWidget {
+class Page13 extends StatefulWidget {
   final PageController pageController;
 
-  Page03({required this.pageController});
+  Page13({required this.pageController});
 
   @override
-  _Page03State createState() => _Page03State();
+  _Page13State createState() => _Page13State();
 }
 
-class _Page03State extends State<Page03> {
+class _Page13State extends State<Page13> {
   int selecionada = -1; // This variable is now part of the state
 
   @override
@@ -130,70 +130,7 @@ class _Page03State extends State<Page03> {
                   padding: const EdgeInsets.only(left: 16),
                   child: RichText(
                     text: const TextSpan(
-                      children: [
-                        TextSpan(
-                          text:
-                              'Ela e seus amigos já escolheram o filme que vão assistir mas para montar o orçamento, a ',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                            fontFamily: "Fieldwork-Geo",
-                            fontWeight: FontWeight.normal,
-                          ),
-                        ),
-                        TextSpan(
-                          text:
-                              "Connie ",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                            fontFamily: "Fieldwork-Geo",
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        TextSpan(
-                          text:
-                              'ainda precisa escolher o ',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                            fontFamily: "Fieldwork-Geo",
-                            fontWeight: FontWeight.normal,
-                          ),
-                        ),
-                        TextSpan(
-                          text:
-                              "tipo do ingresso ",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                            fontFamily: "Fieldwork-Geo",
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        TextSpan(
-                          text:
-                              'que vai comprar e ',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                            fontFamily: "Fieldwork-Geo",
-                            fontWeight: FontWeight.normal,
-                          ),
-                        ),
-                        TextSpan(
-                          text:
-                              "qual lanche vai querer. ",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                            fontFamily: "Fieldwork-Geo",
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
                     ),
-                    textAlign: TextAlign.center,
                   ),
                 ),
                 const SizedBox(
@@ -273,7 +210,7 @@ class _Page03State extends State<Page03> {
               text: const TextSpan(
                 children: [
                   TextSpan(
-                    text: 'O que você acha que ela deveria fazer',
+                    text: 'E ',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 16,
@@ -282,7 +219,7 @@ class _Page03State extends State<Page03> {
                     ),
                   ),
                   TextSpan(
-                    text: " primeiro?",
+                    text: "quanto de dinheiro extra ",
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 16,
@@ -290,8 +227,19 @@ class _Page03State extends State<Page03> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                ],
+                  TextSpan(
+                    text: 'você aconselha a Connie a levar?',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
+                      fontFamily: "Fieldwork-Geo",
+                      fontWeight: FontWeight.normal,
+                    ),
+                  ),
+                  
+                  ],
               ),
+              textAlign: TextAlign.center,
             ),
           ),
           // Placeholder for options, you should replace this with your own custom widget
@@ -306,15 +254,15 @@ class _Page03State extends State<Page03> {
     String optionText = "";
     switch (index) {
       case 0:
-        optionText = "Levar todo o dinheiro do seu cofrinho";
+        optionText = "R\$5";
         break;
       case 1:
         optionText =
-            "Pesquisar quais são os preços dos opções de ingresso e lanche, e quais cinemas estão disponíveis";
+            "R\$20";
         break;
       case 2:
         optionText =
-            "Levar R\$50 e não pesquisar os preços das atividades que vai querer fazer";
+            "R\$200";
         break;
       default:
         optionText =

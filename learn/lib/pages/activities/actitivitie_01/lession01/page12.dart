@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:learn/widgets/global/backButton.dart';
-import 'package:learn/utils/boldSubString.dart';
+import '../lession02/page01.dart';
 import 'package:learn/widgets/global/commonButton.dart';
 
-class Page01 extends StatelessWidget {
+class Page12 extends StatelessWidget {
   final PageController pageController;
 
-  Page01({
+  Page12({
     required this.pageController,
   });
 
@@ -14,8 +14,8 @@ class Page01 extends StatelessWidget {
   Widget build(BuildContext context) {
     const TextStyle textStyle = TextStyle(
         color: Color(0xFFFFFFFF),
-        fontSize: 20,
-        fontWeight: FontWeight.w500,
+        fontSize: 18,
+        fontWeight: FontWeight.w400,
         fontFamily: "Fieldwork-Geo");
 
     const TextStyle textStyleBold = TextStyle(
@@ -55,37 +55,27 @@ class Page01 extends StatelessWidget {
             const SizedBox(
               height: 64,
             ),
-            RichText(
-                text: const TextSpan(
-                    children: [
-                  TextSpan(
-                    text: "Oi ",
-                  ),
-                  TextSpan(
-                    text: "Luciano",
-                    style: textStyleBold,
-                  ),
-                  TextSpan(text: "! Sua mascote, a "),
-                  TextSpan(text: "Connie", style: textStyleBold),
-                  TextSpan(
-                      text:
-                          ", está com um problema e só você pode resolvê-lo!"),
-                ],
-                    style: TextStyle(
-                        color: Color(0xFFFFFFFF),
-                        fontSize: 20,
-                        fontWeight: FontWeight.w400,
-                        fontFamily: "Fieldwork-Geo")),
-
-                    textAlign: TextAlign.center,
-                        
-                ),
+            Center(
+              child: RichText(
+                  text: const TextSpan(
+                      children: [
+                        TextSpan(
+                          text: "Excelente, Luciano!",
+                        ),
+                      ],
+                      style: TextStyle(
+                          color: Color(0xFFFFFFFF),
+                          fontSize: 20,
+                          fontWeight: FontWeight.w700,
+                          fontFamily: "Fieldwork-Geo")),
+              ),
+            ),
             const SizedBox(
               height: 128,
             ),
             Center(
               child: Image.asset(
-                "assets/images/mascote/mascot-sad.png",
+                "assets/images/mascote/mascot-happy.png",
                 height: 240,
               ),
             ),

@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:learn/widgets/global/backButton.dart';
 import 'package:learn/widgets/global/commonButton.dart';
 
-int certa = 1;
+int certa = 2;
 
 class CustomRadioTile extends StatelessWidget {
   final String title;
@@ -31,7 +30,8 @@ class CustomRadioTile extends StatelessWidget {
           ? Colors.green
           : const Color(0xFFFFA200); // Green for correct, orange for incorrect.
       backgroundColor = Colors.transparent; // No border when selected.
-      checkIconColor = isCorrect ? Colors.green
+      checkIconColor = isCorrect
+          ? Colors.green
           : const Color(0xFFFFA200); // White checkmark when selected.
     }
 
@@ -69,16 +69,16 @@ class CustomRadioTile extends StatelessWidget {
   }
 }
 
-class Page03 extends StatefulWidget {
+class Page09 extends StatefulWidget {
   final PageController pageController;
 
-  Page03({required this.pageController});
+  Page09({required this.pageController});
 
   @override
-  _Page03State createState() => _Page03State();
+  _Page07State createState() => _Page07State();
 }
 
-class _Page03State extends State<Page03> {
+class _Page07State extends State<Page09> {
   int selecionada = -1; // This variable is now part of the state
 
   @override
@@ -126,75 +126,8 @@ class _Page03State extends State<Page03> {
                 const SizedBox(
                   height: 48,
                 ),
-                Container(
-                  padding: const EdgeInsets.only(left: 16),
-                  child: RichText(
-                    text: const TextSpan(
-                      children: [
-                        TextSpan(
-                          text:
-                              'Ela e seus amigos já escolheram o filme que vão assistir mas para montar o orçamento, a ',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                            fontFamily: "Fieldwork-Geo",
-                            fontWeight: FontWeight.normal,
-                          ),
-                        ),
-                        TextSpan(
-                          text:
-                              "Connie ",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                            fontFamily: "Fieldwork-Geo",
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        TextSpan(
-                          text:
-                              'ainda precisa escolher o ',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                            fontFamily: "Fieldwork-Geo",
-                            fontWeight: FontWeight.normal,
-                          ),
-                        ),
-                        TextSpan(
-                          text:
-                              "tipo do ingresso ",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                            fontFamily: "Fieldwork-Geo",
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        TextSpan(
-                          text:
-                              'que vai comprar e ',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                            fontFamily: "Fieldwork-Geo",
-                            fontWeight: FontWeight.normal,
-                          ),
-                        ),
-                        TextSpan(
-                          text:
-                              "qual lanche vai querer. ",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                            fontFamily: "Fieldwork-Geo",
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
+                const Align(
+                  alignment: Alignment.center,
                 ),
                 const SizedBox(
                   height: 32,
@@ -268,21 +201,12 @@ class _Page03State extends State<Page03> {
       child: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.only(bottom: 16.0, left: 16.0),
+            padding: const EdgeInsets.only(bottom: 16.0),
             child: RichText(
               text: const TextSpan(
                 children: [
                   TextSpan(
-                    text: 'O que você acha que ela deveria fazer',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
-                      fontFamily: "Fieldwork-Geo",
-                      fontWeight: FontWeight.normal,
-                    ),
-                  ),
-                  TextSpan(
-                    text: " primeiro?",
+                    text: 'Quanto em dinheiro ela deveria levar para lanchar?',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 16,
@@ -306,15 +230,16 @@ class _Page03State extends State<Page03> {
     String optionText = "";
     switch (index) {
       case 0:
-        optionText = "Levar todo o dinheiro do seu cofrinho";
+        optionText =
+            "R\$20";
         break;
       case 1:
         optionText =
-            "Pesquisar quais são os preços dos opções de ingresso e lanche, e quais cinemas estão disponíveis";
+            "R\$30";
         break;
       case 2:
         optionText =
-            "Levar R\$50 e não pesquisar os preços das atividades que vai querer fazer";
+            "R\$40";
         break;
       default:
         optionText =
@@ -327,7 +252,7 @@ class _Page03State extends State<Page03> {
     );
 
     bool isCorrect =
-        index == 1; // This checks if the option is the correct one.
+        index == certa; // This checks if the option is the correct one.
 
     return Padding(
       padding: const EdgeInsets.all(3.0),
