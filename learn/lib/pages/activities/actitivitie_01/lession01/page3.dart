@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:learn/widgets/global/backButton.dart';
 import 'package:learn/widgets/global/commonButton.dart';
 
@@ -125,8 +126,8 @@ class _Page03State extends State<Page03> {
                 const SizedBox(
                   height: 48,
                 ),
-                Align(
-                  alignment: Alignment.center,
+                Container(
+                  padding: const EdgeInsets.only(left: 16),
                   child: RichText(
                     text: const TextSpan(
                       children: [
@@ -192,6 +193,7 @@ class _Page03State extends State<Page03> {
                         ),
                       ],
                     ),
+                    textAlign: TextAlign.center,
                   ),
                 ),
                 const SizedBox(
@@ -228,8 +230,9 @@ class _Page03State extends State<Page03> {
                     ),
                     buttonColor: Color.fromARGB(0, 255, 255, 255),
                     onPressed: () {
-                      // Handle the logic for when a user selects an option
-                      // For example, save the user's choice and navigate to the next page
+                      widget.pageController.previousPage(
+                          duration: const Duration(milliseconds: 500),
+                          curve: Curves.ease);
                     },
                   ),
                   const Spacer(),
@@ -265,7 +268,7 @@ class _Page03State extends State<Page03> {
       child: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.only(bottom: 16.0),
+            padding: const EdgeInsets.only(bottom: 16.0, left: 16.0),
             child: RichText(
               text: const TextSpan(
                 children: [

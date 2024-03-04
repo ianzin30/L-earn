@@ -7,6 +7,13 @@ import './page5.dart';
 import './page6.dart';
 import './page7.dart';
 import './page8.dart';
+import './page9.dart';
+import './page10.dart';
+import './page11.dart';
+import './page12.dart';
+import './page13.dart';
+import './page14.dart';
+import './completedActivityPage.dart';
 
 class Lession01Main extends StatefulWidget {
   @override
@@ -40,6 +47,14 @@ class _Lession01MainState extends State<Lession01Main> {
       Page05(pageController: _pageController),
       Page06(pageController: _pageController),
       Page07(pageController: _pageController),
+      Page08(pageController: _pageController),
+      Page09(pageController: _pageController),
+      Page10(pageController: _pageController),
+      Page11(pageController: _pageController),
+      Page12(pageController: _pageController),
+      Page13(pageController: _pageController),
+      Page14(pageController: _pageController),
+      FinalPage(pageController: _pageController)
     ];
 
     return Scaffold(

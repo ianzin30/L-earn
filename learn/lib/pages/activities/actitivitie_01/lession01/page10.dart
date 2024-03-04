@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:learn/widgets/global/backButton.dart';
-import 'package:learn/utils/boldSubString.dart';
+import '../lession02/page01.dart';
 import 'package:learn/widgets/global/commonButton.dart';
 
-class Page01 extends StatelessWidget {
+class Page10 extends StatelessWidget {
   final PageController pageController;
 
-  Page01({
+  Page10({
     required this.pageController,
   });
 
@@ -14,8 +14,8 @@ class Page01 extends StatelessWidget {
   Widget build(BuildContext context) {
     const TextStyle textStyle = TextStyle(
         color: Color(0xFFFFFFFF),
-        fontSize: 20,
-        fontWeight: FontWeight.w500,
+        fontSize: 18,
+        fontWeight: FontWeight.w400,
         fontFamily: "Fieldwork-Geo");
 
     const TextStyle textStyleBold = TextStyle(
@@ -58,34 +58,30 @@ class Page01 extends StatelessWidget {
             RichText(
                 text: const TextSpan(
                     children: [
-                  TextSpan(
-                    text: "Oi ",
-                  ),
-                  TextSpan(
-                    text: "Luciano",
-                    style: textStyleBold,
-                  ),
-                  TextSpan(text: "! Sua mascote, a "),
-                  TextSpan(text: "Connie", style: textStyleBold),
-                  TextSpan(
-                      text:
-                          ", está com um problema e só você pode resolvê-lo!"),
+                  TextSpan(text:"Legal! Mas imagina se quando a Connie chegasse no cinema, o ",),
+                  TextSpan(text:"preço",style: TextStyle(fontWeight: FontWeight.w700)),
+                  TextSpan(text: " de todos os ",),
+                  TextSpan(text: "ingressos",style: TextStyle(fontWeight: FontWeight.w700)),
+                  TextSpan(text:" tivessem ",),
+                  TextSpan(text:"aumentado",style: TextStyle(fontWeight: FontWeight.w700)),
+                  TextSpan(text:"? É importante ela se planejar para ",),
+                  TextSpan(text:"imprevistos",style: TextStyle(fontWeight: FontWeight.w700)),
+                  TextSpan(text:" também!",),
                 ],
                     style: TextStyle(
                         color: Color(0xFFFFFFFF),
                         fontSize: 20,
                         fontWeight: FontWeight.w400,
                         fontFamily: "Fieldwork-Geo")),
-
-                    textAlign: TextAlign.center,
                         
-                ),
+                      textAlign: TextAlign.center, 
+                        ),
             const SizedBox(
               height: 128,
             ),
             Center(
               child: Image.asset(
-                "assets/images/mascote/mascot-sad.png",
+                "assets/images/mascote/mascot-happy.png",
                 height: 240,
               ),
             ),
@@ -107,8 +103,9 @@ class Page01 extends StatelessWidget {
             buttonColor: const Color(0xFFFFFFFF),
             onPressed: () {
               pageController.nextPage(
-                  duration: const Duration(milliseconds: 500),
-                  curve: Curves.ease);
+                duration: const Duration(milliseconds: 500),
+                curve: Curves.ease
+              );
             },
           ))
     ]));

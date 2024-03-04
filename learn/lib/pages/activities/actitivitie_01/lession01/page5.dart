@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:learn/widgets/global/backButton.dart';
 import 'package:learn/widgets/global/commonButton.dart';
 
@@ -126,14 +127,14 @@ class _Page05State extends State<Page05> {
                 const SizedBox(
                   height: 48,
                 ),
-                Align(
-                  alignment: Alignment.center,
+                Container(
+                  padding: const EdgeInsets.only(left:16),
                   child: RichText(
                     text: const TextSpan(
                       children: [
                         TextSpan(
                           text:
-                              'Ela e seus amigos já escolheram o filme que vão assistir mas para montar o orçamento, a ',
+                              'Ela ',
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 16,
@@ -142,7 +143,7 @@ class _Page05State extends State<Page05> {
                           ),
                         ),
                         TextSpan(
-                          text: "Connie ",
+                          text: "não faz questão ",
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 16,
@@ -151,43 +152,17 @@ class _Page05State extends State<Page05> {
                           ),
                         ),
                         TextSpan(
-                          text: 'ainda precisa escolher o ',
+                          text: 'de que o filme seja 3D, e pode dividir os ingressos com mais 2 amigos!',
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 16,
                             fontFamily: "Fieldwork-Geo",
                             fontWeight: FontWeight.normal,
-                          ),
-                        ),
-                        TextSpan(
-                          text: "tipo do ingresso ",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                            fontFamily: "Fieldwork-Geo",
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        TextSpan(
-                          text: 'que vai comprar e ',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                            fontFamily: "Fieldwork-Geo",
-                            fontWeight: FontWeight.normal,
-                          ),
-                        ),
-                        TextSpan(
-                          text: "qual lanche vai querer. ",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                            fontFamily: "Fieldwork-Geo",
-                            fontWeight: FontWeight.bold,
                           ),
                         ),
                       ],
                     ),
+                    textAlign: TextAlign.center,
                   ),
                 ),
                 const SizedBox(
@@ -224,8 +199,9 @@ class _Page05State extends State<Page05> {
                     ),
                     buttonColor: Color.fromARGB(0, 255, 255, 255),
                     onPressed: () {
-                      // Handle the logic for when a user selects an option
-                      // For example, save the user's choice and navigate to the next page
+                      widget.pageController.previousPage(
+                          duration: const Duration(milliseconds: 500),
+                          curve: Curves.ease);
                     },
                   ),
                   const Spacer(),
@@ -261,12 +237,12 @@ class _Page05State extends State<Page05> {
       child: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.only(bottom: 16.0),
+            padding: const EdgeInsets.only(bottom: 16.0, left: 8.0),
             child: RichText(
               text: const TextSpan(
                 children: [
                   TextSpan(
-                    text: 'O que você acha que ela deveria fazer',
+                    text: 'Qual opção ',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 16,
@@ -275,7 +251,25 @@ class _Page05State extends State<Page05> {
                     ),
                   ),
                   TextSpan(
-                    text: " primeiro?",
+                    text: "você acha ",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
+                      fontFamily: "Fieldwork-Geo",
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  TextSpan(
+                    text: 'que seria o ',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
+                      fontFamily: "Fieldwork-Geo",
+                      fontWeight: FontWeight.normal,
+                    ),
+                  ),
+                  TextSpan(
+                    text: 'melhor?',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 16,

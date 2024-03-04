@@ -60,14 +60,17 @@ class Page04 extends StatelessWidget {
                     children: [
                   TextSpan(
                     text:
-                        "Ótima ideia Laís, Connie fez a pesquisa dos ingressos primeiro e e encontrou isso aqui:",
+                        "Ótima ideia Luciano, Connie fez a pesquisa dos ingressos primeiro e e encontrou isso aqui:",
                   ),
                 ],
                     style: TextStyle(
                         color: Color(0xFFFFFFFF),
                         fontSize: 20,
                         fontWeight: FontWeight.w400,
-                        fontFamily: "Fieldwork-Geo"))),
+                        fontFamily: "Fieldwork-Geo")),
+                        
+                textAlign: TextAlign.center,
+            ),
             const SizedBox(
               height: 128,
             ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learn/pages/parentsPages/activitiesSugestionPage.dart';
 import 'package:learn/widgets/global/learnAppBar.dart';
 import 'package:learn/widgets/user-profile.dart';
 import 'package:learn/widgets/globalProgressWidget.dart';
@@ -46,6 +47,12 @@ class ParentsHPage extends StatelessWidget {
         child: Column(
           children: [
             ShowSugestion(
+              onPressed: (){
+                Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ActivitiesSugestionPage(children: parent.dependents[0])));
+              },
               heigth: 120, 
               width: MediaQuery.sizeOf(context).width-32, 
               childName: parent.dependents[0].name, 

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:learn/widgets/global/backButton.dart';
-import 'package:learn/utils/boldSubString.dart';
+import '../lession02/page01.dart';
 import 'package:learn/widgets/global/commonButton.dart';
 
-class Page01 extends StatelessWidget {
+class Page14 extends StatelessWidget {
   final PageController pageController;
 
-  Page01({
+  Page14({
     required this.pageController,
   });
 
@@ -14,8 +14,8 @@ class Page01 extends StatelessWidget {
   Widget build(BuildContext context) {
     const TextStyle textStyle = TextStyle(
         color: Color(0xFFFFFFFF),
-        fontSize: 20,
-        fontWeight: FontWeight.w500,
+        fontSize: 18,
+        fontWeight: FontWeight.w400,
         fontFamily: "Fieldwork-Geo");
 
     const TextStyle textStyleBold = TextStyle(
@@ -58,34 +58,50 @@ class Page01 extends StatelessWidget {
             RichText(
                 text: const TextSpan(
                     children: [
-                  TextSpan(
-                    text: "Oi ",
-                  ),
-                  TextSpan(
-                    text: "Luciano",
-                    style: textStyleBold,
-                  ),
-                  TextSpan(text: "! Sua mascote, a "),
-                  TextSpan(text: "Connie", style: textStyleBold),
-                  TextSpan(
-                      text:
-                          ", está com um problema e só você pode resolvê-lo!"),
-                ],
+                      TextSpan(
+                        text:
+                            "Boa, Laís! Agora, vamos só conferir quanto a Connie deveria levar para o passeio, no total? Aqui a lista dela:\n\n",
+                      ),
+                      TextSpan(
+                              text : "Ingresso - R\$15\n",
+                              style: TextStyle(fontWeight: FontWeight.bold,),
+                      ),
+                      TextSpan(
+                              text : "Lanche - R\$40\n",
+                              style: TextStyle(fontWeight: FontWeight.bold,),
+                      ),
+                      TextSpan(
+                              text : "Dinheiro extra para imprevistos - R\$20\n\n",
+                              style: TextStyle(fontWeight: FontWeight.bold,),
+                      ),
+                      TextSpan(
+                              text : "Ou seja, no total ela vai levar ",
+                              style: TextStyle(fontWeight: FontWeight.bold,),
+                      ),
+                      TextSpan(
+                              text : "R\$75",
+                              style: TextStyle(fontWeight: FontWeight.bold,),
+                      ),
+                      TextSpan(
+                              text : " para o passeio!",
+                              style: TextStyle(fontWeight: FontWeight.bold,),
+                      )
+                    ],
                     style: TextStyle(
                         color: Color(0xFFFFFFFF),
-                        fontSize: 20,
+                        fontSize: 16,
                         fontWeight: FontWeight.w400,
-                        fontFamily: "Fieldwork-Geo")),
-
+                        fontFamily: "Fieldwork-Geo"),
+                    
+                    ),
                     textAlign: TextAlign.center,
-                        
-                ),
+                    ),
             const SizedBox(
-              height: 128,
+              height: 100,
             ),
             Center(
               child: Image.asset(
-                "assets/images/mascote/mascot-sad.png",
+                "assets/images/mascote/mascot-happy.png",
                 height: 240,
               ),
             ),
@@ -107,8 +123,9 @@ class Page01 extends StatelessWidget {
             buttonColor: const Color(0xFFFFFFFF),
             onPressed: () {
               pageController.nextPage(
-                  duration: const Duration(milliseconds: 500),
-                  curve: Curves.ease);
+                duration: const Duration(milliseconds: 500),
+                curve: Curves.ease
+              );
             },
           ))
     ]));

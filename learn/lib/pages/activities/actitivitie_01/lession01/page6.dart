@@ -67,7 +67,10 @@ class Page06 extends StatelessWidget {
                         color: Color(0xFFFFFFFF),
                         fontSize: 20,
                         fontWeight: FontWeight.w400,
-                        fontFamily: "Fieldwork-Geo"))),
+                        fontFamily: "Fieldwork-Geo")),
+
+                    textAlign: TextAlign.center,
+                        ),
             const SizedBox(
               height: 128,
             ),

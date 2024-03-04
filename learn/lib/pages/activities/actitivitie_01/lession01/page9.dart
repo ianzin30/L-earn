@@ -69,16 +69,16 @@ class CustomRadioTile extends StatelessWidget {
   }
 }
 
-class Page07 extends StatefulWidget {
+class Page09 extends StatefulWidget {
   final PageController pageController;
 
-  Page07({required this.pageController});
+  Page09({required this.pageController});
 
   @override
-  _Page05State createState() => _Page05State();
+  _Page07State createState() => _Page07State();
 }
 
-class _Page05State extends State<Page07> {
+class _Page07State extends State<Page09> {
   int selecionada = -1; // This variable is now part of the state
 
   @override
@@ -126,34 +126,8 @@ class _Page05State extends State<Page07> {
                 const SizedBox(
                   height: 48,
                 ),
-                Container(
-                  padding: const EdgeInsets.only(left: 16),
-                  child: RichText(
-                    text: const TextSpan(
-                      children: [
-                        TextSpan(
-                          text:
-                              'A Connie não tem certeza do que vai estar com vontade de comer durante o filme, mas quer um lanche delicioso e quer também ',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                            fontFamily: "Fieldwork-Geo",
-                            fontWeight: FontWeight.normal,
-                          ),
-                        ),
-                        TextSpan(
-                          text: "economizar no passeio.",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                            fontFamily: "Fieldwork-Geo",
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
+                const Align(
+                  alignment: Alignment.center,
                 ),
                 const SizedBox(
                   height: 32,
@@ -227,17 +201,17 @@ class _Page05State extends State<Page07> {
       child: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.only(bottom: 16.0, left: 16.0),
+            padding: const EdgeInsets.only(bottom: 16.0),
             child: RichText(
               text: const TextSpan(
                 children: [
                   TextSpan(
-                    text: 'Qual opção de lanchonete ela deveria escolher?',
+                    text: 'Quanto em dinheiro ela deveria levar para lanchar?',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 16,
                       fontFamily: "Fieldwork-Geo",
-                      fontWeight: FontWeight.normal,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
                 ],
@@ -257,15 +231,15 @@ class _Page05State extends State<Page07> {
     switch (index) {
       case 0:
         optionText =
-            "Lanchonete 1 (\$\$\$): Vende comidinhas artesanais e deliciosas que custam entre R\$40 e R\$60";
+            "R\$20";
         break;
       case 1:
         optionText =
-            "Lanchonete 2 (\$): Vende comidinhas que às vezes não estão tão boas, mas que custam R\$10 e R\$20";
+            "R\$30";
         break;
       case 2:
         optionText =
-            "Lanchonete 3(\$\$): Vende comidinhas bonitas e deliciosas que custam entre R\$20 e R\$40";
+            "R\$40";
         break;
       default:
         optionText =

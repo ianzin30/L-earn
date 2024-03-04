@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:learn/widgets/global/backButton.dart';
 import 'package:learn/widgets/global/commonButton.dart';
 
-int certa = 2;
+int certa = 1;
 
 class CustomRadioTile extends StatelessWidget {
   final String title;
@@ -30,8 +30,7 @@ class CustomRadioTile extends StatelessWidget {
           ? Colors.green
           : const Color(0xFFFFA200); // Green for correct, orange for incorrect.
       backgroundColor = Colors.transparent; // No border when selected.
-      checkIconColor = isCorrect
-          ? Colors.green
+      checkIconColor = isCorrect ? Colors.green
           : const Color(0xFFFFA200); // White checkmark when selected.
     }
 
@@ -69,16 +68,16 @@ class CustomRadioTile extends StatelessWidget {
   }
 }
 
-class Page07 extends StatefulWidget {
+class Page11 extends StatefulWidget {
   final PageController pageController;
 
-  Page07({required this.pageController});
+  Page11({required this.pageController});
 
   @override
-  _Page05State createState() => _Page05State();
+  _Page11State createState() => _Page11State();
 }
 
-class _Page05State extends State<Page07> {
+class _Page11State extends State<Page11> {
   int selecionada = -1; // This variable is now part of the state
 
   @override
@@ -126,14 +125,14 @@ class _Page05State extends State<Page07> {
                 const SizedBox(
                   height: 48,
                 ),
-                Container(
-                  padding: const EdgeInsets.only(left: 16),
+                Align(
+                  alignment: Alignment.center,
                   child: RichText(
                     text: const TextSpan(
                       children: [
                         TextSpan(
                           text:
-                              'A Connie não tem certeza do que vai estar com vontade de comer durante o filme, mas quer um lanche delicioso e quer também ',
+                              ' ',
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 16,
@@ -141,18 +140,8 @@ class _Page05State extends State<Page07> {
                             fontWeight: FontWeight.normal,
                           ),
                         ),
-                        TextSpan(
-                          text: "economizar no passeio.",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                            fontFamily: "Fieldwork-Geo",
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
                       ],
                     ),
-                    textAlign: TextAlign.center,
                   ),
                 ),
                 const SizedBox(
@@ -227,17 +216,17 @@ class _Page05State extends State<Page07> {
       child: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.only(bottom: 16.0, left: 16.0),
+            padding: const EdgeInsets.only(bottom: 16.0),
             child: RichText(
               text: const TextSpan(
                 children: [
                   TextSpan(
-                    text: 'Qual opção de lanchonete ela deveria escolher?',
+                    text: 'O que você aconselha a ela?',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 16,
                       fontFamily: "Fieldwork-Geo",
-                      fontWeight: FontWeight.normal,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
                 ],
@@ -256,16 +245,15 @@ class _Page05State extends State<Page07> {
     String optionText = "";
     switch (index) {
       case 0:
-        optionText =
-            "Lanchonete 1 (\$\$\$): Vende comidinhas artesanais e deliciosas que custam entre R\$40 e R\$60";
+        optionText = "Levar uma quantia dinheiro a mais, caso ela precise em uma emergência";
         break;
       case 1:
         optionText =
-            "Lanchonete 2 (\$): Vende comidinhas que às vezes não estão tão boas, mas que custam R\$10 e R\$20";
+            "Levar somente o valor do ingresso e do lanche que ela pesquisou antes de sair de casa";
         break;
       case 2:
         optionText =
-            "Lanchonete 3(\$\$): Vende comidinhas bonitas e deliciosas que custam entre R\$20 e R\$40";
+            "Não vão acontecer imprevistos, vamos apostar!";
         break;
       default:
         optionText =
@@ -278,7 +266,7 @@ class _Page05State extends State<Page07> {
     );
 
     bool isCorrect =
-        index == certa; // This checks if the option is the correct one.
+        index == 0; // This checks if the option is the correct one.
 
     return Padding(
       padding: const EdgeInsets.all(3.0),
