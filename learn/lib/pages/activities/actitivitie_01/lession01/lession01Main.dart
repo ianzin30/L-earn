@@ -3,6 +3,10 @@ import './page1.dart';
 import './page2.dart';
 import './page3.dart';
 import './page4.dart';
+import './page5.dart';
+import './page6.dart';
+import './page7.dart';
+import './page8.dart';
 
 class Lession01Main extends StatefulWidget {
   @override
@@ -33,6 +37,9 @@ class _Lession01MainState extends State<Lession01Main> {
       Page02(pageController: _pageController),
       Page03(pageController: _pageController),
       Page04(pageController: _pageController),
+      Page05(pageController: _pageController),
+      Page06(pageController: _pageController),
+      Page07(pageController: _pageController),
     ];
 
     return Scaffold(
