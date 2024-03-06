@@ -1,29 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:learn/widgets/global/backButton.dart';
-import 'package:learn/utils/boldSubString.dart';
 import 'package:learn/widgets/global/commonButton.dart';
+import 'package:learn/widgets/lessionProgressBar.dart';
 
-class Page01 extends StatelessWidget {
+class FinalPage extends StatelessWidget {
   final PageController pageController;
 
-  Page01({
+  FinalPage({
     required this.pageController,
   });
 
   @override
   Widget build(BuildContext context) {
-    const TextStyle textStyle = TextStyle(
-        color: Color(0xFFFFFFFF),
-        fontSize: 18,
-        fontWeight: FontWeight.w400,
-        fontFamily: "Fieldwork-Geo");
-
-    const TextStyle textStyleBold = TextStyle(
-        color: Color(0xFFFFFFFF),
-        fontSize: 20,
-        fontWeight: FontWeight.w700,
-        fontFamily: "Fieldwork-Geo");
-
     return Scaffold(
         body: Stack(alignment: AlignmentDirectional.center, children: [
       Container(
@@ -53,36 +41,41 @@ class Page01 extends StatelessWidget {
               },
             ),
             const SizedBox(
-              height: 64,
-            ),
-            RichText(
-                text: const TextSpan(
-                    children: [
-                  TextSpan(
-                    text:
-                        "Nessa lanchonete, existem 3 tipos de lanches, com preços diferentes: lanches de R\$20, lanches de R\$30 e lanches de R\$40. Bem, a Connie não tem como saber o que vai ter vontade de comer durante o filme, né? Mas para ",
-                  ),
-                  TextSpan(
-                    text: "garantir que ela vai ter dinheiro suficiente",
-                    style: textStyleBold,
-                  ),
-                  TextSpan(
-                    text: "para escolher qualquer um dos 3 tipos de lanches...",
-                  ),
-                ],
-                    style: TextStyle(
-                        color: Color(0xFFFFFFFF),
-                        fontSize: 20,
-                        fontWeight: FontWeight.w400,
-                        fontFamily: "Fieldwork-Geo"))),
-            const SizedBox(
-              height: 120,
+              height: 80,
             ),
             Center(
               child: Image.asset(
-                "assets/images/mascote/mascot-sad.png",
+                "assets/images/mascote/mascot-happy.png",
                 height: 240,
               ),
+            ),
+            const SizedBox(height: 64,),
+            
+            Center(
+              child: LessionProgressBar(percentage: 80.0,)
+            ),
+            
+            const SizedBox(height: 36,),
+
+            RichText(
+                text: const TextSpan(
+                    children: [
+                      TextSpan(
+                              text : "Atividade Completa!\n\n",
+                              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                      ),
+                      TextSpan(text : "Parabéns por conseguir ajudar a Connie mais uma vez! Você fez excelentes escolhas, continue assim!",)
+                    ],
+                    style: TextStyle(
+                        color: Color(0xFFFFFFFF),
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400,
+                        fontFamily: "Fieldwork-Geo"),
+                    ),
+                    textAlign: TextAlign.center,
+                    ),
+            const SizedBox(
+              height: 100,
             ),
           ],
         ),
@@ -101,9 +94,7 @@ class Page01 extends StatelessWidget {
             ),
             buttonColor: const Color(0xFFFFFFFF),
             onPressed: () {
-              pageController.nextPage(
-                  duration: const Duration(milliseconds: 500),
-                  curve: Curves.ease);
+              Navigator.pop(context);
             },
           ))
     ]));

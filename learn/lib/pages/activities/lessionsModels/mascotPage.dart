@@ -1,29 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:learn/widgets/global/backButton.dart';
-import 'package:learn/utils/boldSubString.dart';
 import 'package:learn/widgets/global/commonButton.dart';
 
-class Page01 extends StatelessWidget {
+class MascotPage extends StatelessWidget {
   final PageController pageController;
+  final String nextText;
+  final bool isHappy;
+  final RichText text;
 
-  Page01({
+  MascotPage({
     required this.pageController,
+    required this.text,
+    this.isHappy = true,
+    this.nextText = "Continuar"
   });
 
   @override
   Widget build(BuildContext context) {
-    const TextStyle textStyle = TextStyle(
-        color: Color(0xFFFFFFFF),
-        fontSize: 20,
-        fontWeight: FontWeight.w500,
-        fontFamily: "Fieldwork-Geo");
-
-    const TextStyle textStyleBold = TextStyle(
-        color: Color(0xFFFFFFFF),
-        fontSize: 20,
-        fontWeight: FontWeight.w700,
-        fontFamily: "Fieldwork-Geo");
-
     return Scaffold(
         body: Stack(alignment: AlignmentDirectional.center, children: [
       Container(
@@ -55,37 +48,13 @@ class Page01 extends StatelessWidget {
             const SizedBox(
               height: 64,
             ),
-            RichText(
-                text: const TextSpan(
-                    children: [
-                  TextSpan(
-                    text: "Oi ",
-                  ),
-                  TextSpan(
-                    text: "Luciano",
-                    style: textStyleBold,
-                  ),
-                  TextSpan(text: "! Sua mascote, a "),
-                  TextSpan(text: "Connie", style: textStyleBold),
-                  TextSpan(
-                      text:
-                          ", está com um problema e só você pode resolvê-lo!"),
-                ],
-                    style: TextStyle(
-                        color: Color(0xFFFFFFFF),
-                        fontSize: 20,
-                        fontWeight: FontWeight.w400,
-                        fontFamily: "Fieldwork-Geo")),
-
-                    textAlign: TextAlign.center,
-                        
-                ),
+            Center(child: text),
             const SizedBox(
               height: 128,
             ),
             Center(
               child: Image.asset(
-                "assets/images/mascote/mascot-sad.png",
+                "assets/images/mascote/mascot-${isHappy ? 'happy' : 'sad'}.png",
                 height: 240,
               ),
             ),
@@ -95,9 +64,9 @@ class Page01 extends StatelessWidget {
       Positioned(
           bottom: 120,
           child: LearnButton(
-            text: const Text(
-              "Continuar",
-              style: TextStyle(
+            text:  Text(
+              nextText,
+              style: const TextStyle(
                 color: Color(0xff101573),
                 fontSize: 14,
                 fontWeight: FontWeight.w400,
