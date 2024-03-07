@@ -94,11 +94,14 @@ class _LoginParentsPageState extends State<LoginParentsPage> {
         email: _emailController.text,
         password: _passwordController.text,
       );
+      Navigator.pushReplacementNamed(context, '/parentsMain');
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         print('No user found for that email.');
       } else if (e.code == 'wrong-password') {
         print('Wrong password provided for that user.');
+      } else {
+        print('the error is $e');
       }
     }
   }
@@ -138,8 +141,6 @@ class _LoginParentsPageState extends State<LoginParentsPage> {
                   LoginEnterButton(
                       onPressed: () {
                         signInWithFirebase();
-                        // Navigator.pushReplacementNamed(context, '/parentsMain');
-                        // Aqui você implementará a lógica de login.
                       },
                       title: "Entrar",
                       colors: const [Color(0xFF646AE3), Color(0xFF262B91)]),
