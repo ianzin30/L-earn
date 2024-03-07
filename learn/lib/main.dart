@@ -4,6 +4,7 @@ import 'package:learn/firebase_options.dart';
 import 'pages/loginPage.dart';
 import 'parentsMain.dart';
 import 'childrenMain.dart';
+import 'pages/parentsPages/SignUpParentsPage.dart';
 import 'package:learn/utils/modelsClass.dart';
 
 Future<void> main() async {
@@ -31,6 +32,8 @@ class MyApp extends StatelessWidget {
             ), // Rota para a home dos pais
         '/childrenMain': (context) =>
             ChildrenMain(child: luciano), // Rota para a home das crianças
+        '/signUpParents': (context) =>
+            SignParentsPage(), // Rota para a página de cadastro dos pais
       },
     );
   }
