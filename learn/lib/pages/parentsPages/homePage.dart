@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
-import '../../widgets/global/learnAppBar.dart';
-import 'package:learn/widgets/StreakWidget.dart';
+import 'package:learn/pages/parentsPages/activitiesSugestionPage.dart';
+import 'package:learn/widgets/global/learnAppBar.dart';
 import 'package:learn/widgets/user-profile.dart';
 import 'package:learn/widgets/globalProgressWidget.dart';
-
+import 'package:learn/utils/modelsClass.dart';
+import 'package:learn/widgets/notifications/showSugestion.dart';
+import 'package:learn/widgets/monitoramento.dart';
 
 class ParentsHPage extends StatelessWidget {
   final ValueNotifier<double> pagePosition;
+  final Parents parent;
 
   ParentsHPage({
-    required this.pagePosition
+    required this.pagePosition,
+    required this.parent
   });
 
   @override
@@ -21,26 +25,44 @@ class ParentsHPage extends StatelessWidget {
         pageIndex: 1,
         pagePosition: pagePosition.value,
         child: Container(
-          padding: const  EdgeInsets.fromLTRB(14, 16, 14, 0),
-          child: const Row(
+          padding: const  EdgeInsets.fromLTRB(14, 64, 14, 0),
+          child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               UserPhotoAndName(
-                userName: "Ian Braga",
-                userPhotoPath: "assets/images/appImages/ianzinho.jpg",
+                userName: parent.name,
+                userPhotoPath: parent.photoPath,
                 firstLine: "Seja bem-vindo,\n",
                 fontWeight1: FontWeight.w400,
-                secondLine: "Ian Braga",
+                secondLine: parent.name,
                 fontWeight2: FontWeight.bold,
               ),
-              StreakWidget(streakDays: 7),
             ]
           )
         ),
       ),
-      body: const Center(
-        child: Text('Home Page dos Pais'),
+      body:Container (
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
+        child: SingleChildScrollView(
+        child: Column(
+          children: [
+            ShowSugestion(
+              onPressed: (){
+                Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ActivitiesSugestionPage(children: parent.dependents[0])));
+              },
+              heigth: 120, 
+              width: MediaQuery.sizeOf(context).width-32, 
+              childName: parent.dependents[0].name, 
+              activitieName: "Orçamento de um passeio no Shopping"
+            ),
+            const SizedBox(height: 32,),
+            MonitoringWidget(parent: parent)
+          ],
+        ),
       ),
-    );
+    ));
   }
 }

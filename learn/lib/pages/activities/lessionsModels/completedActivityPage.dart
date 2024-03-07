@@ -1,32 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:learn/widgets/global/backButton.dart';
-import 'package:learn/utils/boldSubString.dart';
 import 'package:learn/widgets/global/commonButton.dart';
+import 'package:learn/widgets/lessionProgressBar.dart';
 
-class Page04 extends StatelessWidget {
+class FinalPage extends StatelessWidget {
   final PageController pageController;
-  Page04({
+
+  FinalPage({
     required this.pageController,
   });
 
   @override
   Widget build(BuildContext context) {
-    const TextStyle textStyle = TextStyle(
-        color: Color(0xFFFFFFFF),
-        fontSize: 18,
-        fontWeight: FontWeight.w400,
-        fontFamily: "Fieldwork-Geo");
-
-    const TextStyle textStyleBold = TextStyle(
-        color: Color(0xFFFFFFFF),
-        fontSize: 20,
-        fontWeight: FontWeight.w700,
-        fontFamily: "Fieldwork-Geo");
-
     return Scaffold(
-        body: Stack(
-          alignment: AlignmentDirectional.center,
-          children: [
+        body: Stack(alignment: AlignmentDirectional.center, children: [
       Container(
         padding: const EdgeInsets.all(16),
         width: double.infinity,
@@ -54,35 +41,41 @@ class Page04 extends StatelessWidget {
               },
             ),
             const SizedBox(
-              height: 64,
-            ),
-            RichText(
-                text: const TextSpan(
-                    children: [
-                  TextSpan(
-                    text: "Connie",style: textStyleBold,
-                  ),
-                  TextSpan(
-                    text: " esá muito feliz por ir ao ",
-                  ),
-                  TextSpan(text: "cinema", style: textStyleBold),
-                  TextSpan(text: " com seus amigos, e com sua ajuda para criar um "),
-                  TextSpan(text:"orçamento", style: textStyleBold),
-                  TextSpan(text: " ela agora sabe a melhor maneira de levar dinheiro ao cinema"),
-                ],
-                    style: TextStyle(
-                        color: Color(0xFFFFFFFF),
-                        fontSize: 20,
-                        fontWeight: FontWeight.w400,
-                        fontFamily: "Fieldwork-Geo"))),
-            const SizedBox(
-              height: 128,
+              height: 80,
             ),
             Center(
               child: Image.asset(
                 "assets/images/mascote/mascot-happy.png",
                 height: 240,
               ),
+            ),
+            const SizedBox(height: 64,),
+            
+            Center(
+              child: LessionProgressBar(percentage: 80.0,)
+            ),
+            
+            const SizedBox(height: 36,),
+
+            RichText(
+                text: const TextSpan(
+                    children: [
+                      TextSpan(
+                              text : "Atividade Completa!\n\n",
+                              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                      ),
+                      TextSpan(text : "Parabéns por conseguir ajudar a Connie mais uma vez! Você fez excelentes escolhas, continue assim!",)
+                    ],
+                    style: TextStyle(
+                        color: Color(0xFFFFFFFF),
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400,
+                        fontFamily: "Fieldwork-Geo"),
+                    ),
+                    textAlign: TextAlign.center,
+                    ),
+            const SizedBox(
+              height: 100,
             ),
           ],
         ),
@@ -91,7 +84,7 @@ class Page04 extends StatelessWidget {
           bottom: 120,
           child: LearnButton(
             text: const Text(
-              "Concluir a atividade",
+              "Continuar",
               style: TextStyle(
                 color: Color(0xff101573),
                 fontSize: 14,
@@ -101,7 +94,8 @@ class Page04 extends StatelessWidget {
             ),
             buttonColor: const Color(0xFFFFFFFF),
             onPressed: () {
-              Navigator.pop(context);},
+              Navigator.pop(context);
+            },
           ))
     ]));
   }

@@ -5,19 +5,15 @@ import 'package:learn/widgets/activitiesWidgets/trilhaSoldi.dart';
 import '/widgets/achivievementWidget.dart';
 import 'package:learn/widgets/user-profile.dart';
 import 'package:learn/widgets/globalProgressWidget.dart';
+import 'package:learn/utils/modelsClass.dart';
+import 'package:learn/widgets/activitiesWidgets/activitieCardStatic.dart';
 
 
 class ChildMonitoring extends StatelessWidget {
-  final ValueNotifier<double> pagePosition;
-  final String name;
-  final int age;
-  final int level;
+  final Children children;
 
   const ChildMonitoring({
-    required this.pagePosition, 
-    required this.name,
-    required this.age,
-    required this.level,
+    required this.children,
     Key? key,
     })
       : super(key: key);
@@ -26,39 +22,88 @@ class ChildMonitoring extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: LearnAppBarSuper(
-        superHeigth: 320,
+        superHeigth: 400  - 24,
+        globalHeigth: 360 - 24,
         superWidget: GlobalProgress(pontuation: 100, isMascot: false,),
         pageIndex: 1,
-        pagePosition: pagePosition.value,
+        backButtonFunction: () {
+          Navigator.pop(context);
+        },
         child: Container(
-          padding: const  EdgeInsets.fromLTRB(14, 16, 14, 0),
-          child: Row(
+          padding: const  EdgeInsets.fromLTRB(14, 32, 14, 0),
+          child: 
+          Column (children: [
+          const Text("Monitoramento",
+          style: TextStyle(
+            fontSize: 18,
+            fontFamily: "Fieldwork-Geo",
+            fontWeight: FontWeight.w700,
+            color: Color(0xFFFFFFFF)
+          ),),
+          const SizedBox(height: 54,),
+          Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               UserPhotoAndName(
-                userName: name,
-                userPhotoPath: "assets/images/appImages/ianzinho.jpg",
-                firstLine: "$name\n",
+                userName: children.name,
+                userPhotoPath: children.photoPath,
+                firstLine: '${children.name}\n',
                 fontWeight1: FontWeight.bold,
-                secondLine: "$age anos",
+                secondLine: "${diffYears(children.birthdate)} anos",
                 fontWeight2: FontWeight.w400,
               ),
-              const StreakWidget(streakDays: 7),
+              StreakWidget(streakDays: diffDays(children.lastAccsess?? DateTime.now())),
             ]
           )
+          ],)
         ),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 16),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                ActivitieContentRow(),
-                const SizedBox(height: 40),
-                AchievementsWidget(),
-              ],
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            RichText(
+              text: const TextSpan(
+                children: [
+                  TextSpan(
+                    text: 'Atividades em andamento\n',
+                    style: TextStyle(
+                      color: Color(0xFF222222),
+                      fontFamily: "Fieldwork-Geo",
+                      fontSize: 14,
+                      fontWeight: FontWeight.w600
+                    ),
+                  ),
+                  WidgetSpan(child: SizedBox(height: 16)),
+                  TextSpan(
+                    text: 'Veja a útima atividade de onde seu filho parou!',
+                    style: TextStyle(
+                      color: Color(0xFF5C5C5C),
+                      fontFamily:"Fieldwork-Geo",
+                      fontSize: 12,
+                      fontWeight: FontWeight.w300
+                    )
+                  )
+                ],
+              ),
             ),
-          ),
+            const SizedBox(height:16),
+            ActivitieCardStatic(
+              pageTitle: 'Home',
+              pageDescription: 'Principal',
+              level: 1,
+              title: 'Passeando no Shopping',
+              description: 'Você está saindo com seus amigos para o Shopping com pouco dinheiro. Aprenda como curtir da melhor forma!',
+              backgroundGradientColors: const [Color(0XFFDA59AE), Color(0XFF4912A2)],
+              isLocked: false,
+              progress: 15.0,
+            ),
+            const SizedBox(height: 40),
+            AchievementsWidget(),
+          ],
+        ),
+      ),
     );
   }
 }

@@ -1,7 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:learn/widgets/loginWidgets/loginEnterButton.dart';
-import 'package:learn/widgets/loginWidgets/loginAppBar.dart';
-import 'package:learn/widgets/loginWidgets/loginInfoContainter.dart';
+import 'package:learn/widgets/login/loginEnterButton.dart';
+import 'package:learn/widgets/login/loginAppBar.dart';
+import 'package:learn/widgets/login/loginInfoContainter.dart';
 
 class LoginInputFields extends StatelessWidget {
   final TextEditingController emailController;
@@ -17,23 +18,62 @@ class LoginInputFields extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        TextFormField(
-          controller: emailController,
-          decoration: const InputDecoration(
-            labelText: 'E-mail',
-            border: OutlineInputBorder(),
-          ),
-          keyboardType: TextInputType.emailAddress,
-        ),
+        SizedBox(
+            height: 48,
+            child: TextField(
+              controller: emailController,
+              style: const TextStyle(
+                  fontFamily: "Fieldwork-Geo",
+                  fontWeight: FontWeight.w400,
+                  color: Color(0xff5A5A5A),
+                  fontSize: 12),
+              decoration: InputDecoration(
+                labelStyle: const TextStyle(
+                    fontFamily: "Fieldwork-Geo",
+                    fontWeight: FontWeight.w400,
+                    color: Color(0xff9A9A9A),
+                    fontSize: 12),
+                labelText: 'Email',
+                border:
+                    OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                  borderSide: const BorderSide(
+                    color: Color(0xff7A7FFF),
+                  ),
+                ),
+              ),
+              keyboardType: TextInputType.emailAddress,
+            )),
         const SizedBox(height: 16),
-        TextFormField(
-          controller: passwordController,
-          decoration: const InputDecoration(
-            labelText: 'Senha',
-            border: OutlineInputBorder(),
+        SizedBox(
+          height: 48,
+          child: TextField(
+            controller: passwordController,
+            style: const TextStyle(
+                fontFamily: "Fieldwork-Geo",
+                fontWeight: FontWeight.w400,
+                color: Color(0xff5A5A5A),
+                fontSize: 12),
+            decoration: InputDecoration(
+              labelStyle: const TextStyle(
+                  fontFamily: "Fieldwork-Geo",
+                  fontWeight: FontWeight.w400,
+                  color: Color(0xff9A9A9A),
+                  fontSize: 12),
+              labelText: 'Senha',
+              border:
+                  OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+                borderSide: const BorderSide(
+                  color: Color(0xff7A7FFF),
+                ),
+              ),
+            ),
+            obscureText: true,
           ),
-          obscureText: true,
-        ),
+        )
       ],
     );
   }
@@ -47,6 +87,21 @@ class LoginParentsPage extends StatefulWidget {
 class _LoginParentsPageState extends State<LoginParentsPage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+
+  Future<void> signInWithFirebase() async {
+    try {
+      final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: _emailController.text,
+        password: _passwordController.text,
+      );
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        print('No user found for that email.');
+      } else if (e.code == 'wrong-password') {
+        print('Wrong password provided for that user.');
+      }
+    }
+  }
 
   @override
   void dispose() {
@@ -82,7 +137,8 @@ class _LoginParentsPageState extends State<LoginParentsPage> {
                   const SizedBox(height: 32),
                   LoginEnterButton(
                       onPressed: () {
-                        Navigator.pushReplacementNamed(context, '/parentsMain');
+                        signInWithFirebase();
+                        // Navigator.pushReplacementNamed(context, '/parentsMain');
                         // Aqui você implementará a lógica de login.
                       },
                       title: "Entrar",

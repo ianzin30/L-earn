@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:learn/widgets/loginWidgets/loginEnterButton.dart';
+import 'package:learn/widgets/login/loginEnterButton.dart';
 import 'package:learn/widgets/boxedNumber.dart';
 
 class VerificationCodePage extends StatelessWidget {
