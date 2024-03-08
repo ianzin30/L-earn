@@ -100,7 +100,7 @@ class ChildMonitoring extends StatelessWidget {
               progress: 15.0,
             ),
             const SizedBox(height: 40),
-            AchievementsWidget(),
+            AchievementsWidget(childAcheivments: children.acheivments,),
           ],
         ),
       ),

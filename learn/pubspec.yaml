@@ -114,6 +114,14 @@ flutter:
   # App Images
   - ./assets/images/appImages/icon.png
 
+  # Conquistas
+  - ./assets/images/conquistas/conquista-1.png
+  - ./assets/images/conquistas/conquista-2.png
+  - ./assets/images/conquistas/conquista-3.png
+  - ./assets/images/conquistas/conquista-4.png
+  - ./assets/images/conquistas/conquista-5.png
+  - ./assets/images/conquistas/conquista-6.png
+
 
   fonts:
   - family: Fieldwork-Geo
