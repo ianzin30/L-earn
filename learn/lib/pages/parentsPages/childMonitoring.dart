@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import '../../widgets/global/learnAppBar.dart';
 import 'package:learn/widgets/StreakWidget.dart';
-import 'package:learn/widgets/activitiesWidgets/trilhaSoldi.dart';
 import '/widgets/achivievementWidget.dart';
 import 'package:learn/widgets/user-profile.dart';
 import 'package:learn/widgets/globalProgressWidget.dart';
+import 'package:learn/utils/activitiesList.dart';
 import 'package:learn/utils/modelsClass.dart';
 import 'package:learn/widgets/activitiesWidgets/activitieCardStatic.dart';
 
@@ -90,14 +90,9 @@ class ChildMonitoring extends StatelessWidget {
             ),
             const SizedBox(height:16),
             ActivitieCardStatic(
-              pageTitle: 'Home',
-              pageDescription: 'Principal',
-              level: 1,
-              title: 'Passeando no Shopping',
-              description: 'Você está saindo com seus amigos para o Shopping com pouco dinheiro. Aprenda como curtir da melhor forma!',
-              backgroundGradientColors: const [Color(0XFFDA59AE), Color(0XFF4912A2)],
+              activitie: activitiesList[children.lastActivitie],
               isLocked: false,
-              progress: 15.0,
+              progress: getProgress(children.lastActivitie, children.activities[children.lastActivitie]),
             ),
             const SizedBox(height: 40),
             AchievementsWidget(childAcheivments: children.acheivments,),

@@ -44,18 +44,9 @@ class _ActivitieCardState extends State<ActivitieCard> with SingleTickerProvider
 
   void _onTap() {
     if (!widget.activitie.isLocked) {
-      if (widget.activitie.isActivitie){
-          print("Teste2");
-          Navigator.push(
+      Navigator.push(
             context, MaterialPageRoute(builder: (context) => ActivitieMain(content: widget.activitie)?? Container())
           );
-        }
-      else if (widget.activitie.pageWidget != null){
-        print("Teste1");
-        Navigator.push(
-          context, MaterialPageRoute(builder: (context) => widget.activitie.pageWidget ?? Container())
-        );
-      }
     }
     _animationController
       .forward()
@@ -64,7 +55,6 @@ class _ActivitieCardState extends State<ActivitieCard> with SingleTickerProvider
 
   @override
   Widget build(BuildContext context) {
-    widget.activitie.isActivitie = widget.isActivitie;
     return GestureDetector(
       onTap: _onTap,
       child: AnimatedBuilder(

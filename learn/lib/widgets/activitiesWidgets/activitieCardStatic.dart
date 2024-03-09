@@ -1,51 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:learn/utils/animatedProgressBar.dart';
+import 'package:learn/utils/modelsClass.dart';
 import 'dart:ui';
 
-class LessionCardStatic extends StatelessWidget {
-  final int level;
-  final String title;
-  final String description;
+class ActivitieCardStatic extends StatelessWidget {
+  final Activitie activitie;
   final double progress;
-  final Color progressColor;
-  final bool isLocked;
-  final List<Color> backgroundGradientColors;
-  final List<Color> levelGradientColors;
-  final Widget? pageWidget;
-  final double? width;
-  bool isActivitie;
+  bool isLocked;
 
-  LessionCardStatic({
-    required this.level,
-    required this.title,
-    required this.description,
-    this.progress = 0.0,
+
+  ActivitieCardStatic({
+    required this.activitie,
     this.isLocked = true,
-    this.backgroundGradientColors = const [Color(0XFF7A7FFF), Color(0xFF040862)],
-    this.levelGradientColors = const [Color(0xFFFFFFFF), Color(0xFFFFFFFF)],
-    this.progressColor = const Color(0XFFFFFFFF),
-    this.pageWidget,
-    this.width,
-    this.isActivitie = false
+    this.progress = 0
   });
 
   @override
   Widget build(BuildContext context) {
-    double widgetWidth = width ?? MediaQuery.of(context).size.width -10;
+    double widgetWidth = MediaQuery.of(context).size.width -32;
     return Container(
           width: widgetWidth,
           height: 130,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10.0),
             gradient: LinearGradient(
-              colors: backgroundGradientColors,
+              colors: isLocked ? const [Color(0xFFC3C3C3), Color(0xFFC3C3C3)] : activitie.backgroundColors,
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
             ),
             boxShadow: [
               BoxShadow(
                 color: Colors.black.withOpacity(0.25),
-                offset: Offset(0, 4),
+                offset: const Offset(0, 4),
                 blurRadius: 10,
               ),
             ],
@@ -73,7 +59,7 @@ class LessionCardStatic extends StatelessWidget {
                             ),
                           ),
                           child: Text(
-                            "Nível ${level}",
+                            "Nível ${activitie.level}",
                             style: const TextStyle(
                               color: Colors.white,
                               fontSize: 9,
@@ -88,7 +74,7 @@ class LessionCardStatic extends StatelessWidget {
                     ),
                     SizedBox(height: 4),
                     Text(
-                      title,
+                      activitie.title,
                       style: const TextStyle(
                         fontFamily: "Fieldwork-Geo",
                         fontSize: 12,
@@ -98,7 +84,7 @@ class LessionCardStatic extends StatelessWidget {
                     ),
                     SizedBox(height: 2),
                     Text(
-                      description,
+                      activitie.description,
                       style: const TextStyle(
                         fontFamily: "Fieldwork-Geo",
                         fontSize: 9,
@@ -107,8 +93,6 @@ class LessionCardStatic extends StatelessWidget {
                       ),
                     ),
                     SizedBox(height: 10),
-                    // Barra de progresso
-                    if (isActivitie)
                       Container(
                         padding: const EdgeInsets.symmetric(vertical: 1.5, horizontal: 10),
                         decoration: BoxDecoration(
@@ -126,7 +110,7 @@ class LessionCardStatic extends StatelessWidget {
                               child: AnimatedProgressBar(
                                 progress: progress,
                                 maxProgress: 100,
-                                barColor: progressColor,
+                                barColor: Colors.white,
                                 height: 6,
                               )
                             ),
@@ -151,10 +135,10 @@ class LessionCardStatic extends StatelessWidget {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(10.0),
                     child: BackdropFilter(
-                      filter: ImageFilter.blur(sigmaX: 2, sigmaY: 5),
+                      filter: ImageFilter.blur(sigmaX: 2, sigmaY: 2),
                       child: Container(
                         alignment: Alignment.center,
-                        color: Colors.white.withOpacity(0.1),
+                        color: Colors.grey.withOpacity(0.6),
                         child: Image.asset(
                           'assets/images/appIcons/icon-lock-default.png',
                           color: Colors.white,
@@ -168,46 +152,5 @@ class LessionCardStatic extends StatelessWidget {
             ],
       ),
     );
-  }
-}
-
-class ActivitieCardStatic extends LessionCardStatic {
-  List<LessionCardStatic>? lessionsList;
-  final String pageTitle;
-  final String pageDescription;
-  final bool isActivitie;
-
-  ActivitieCardStatic({
-    required this.pageTitle,
-    required this.pageDescription, 
-    this.lessionsList,
-    required int level,
-    required String title,
-    required String description,
-    double progress = 0.0,
-    bool isLocked = true,
-    List<Color> backgroundGradientColors = const [Color(0XFF7A7FFF), Color(0xFF040862)],
-    List<Color> levelGradientColors = const [Color(0xFFFFFFFF), Color(0xFFFFFFFF)],
-    Color progressColor = const Color(0XFFFFFFFF),
-    Widget? pageWidget,
-    double? width,
-    this.isActivitie = true
-  }) : super (
-    level : level,
-    title : title,
-    description : description,
-    progress : progress,
-    isLocked : isLocked,
-    backgroundGradientColors : backgroundGradientColors,
-    levelGradientColors : levelGradientColors,
-    progressColor : progressColor,
-    pageWidget : pageWidget,
-    width : width,
-    isActivitie : isActivitie
-  );
-
-  @override
-  Widget build(BuildContext context) {
-    return super.build(context);
   }
 }

@@ -1,63 +1,124 @@
 import 'package:flutter/material.dart';
-import 'package:learn/widgets/activitiesWidgets/activitieCardStatic.dart';
-import 'package:learn/pages/activities/actitivitie_01/activitie01lessions.dart';
-import 'package:learn/widgets/activitiesWidgets/activitieCardAnimated.dart';
 import 'package:learn/pages/activities/actitivitie_01/lession01/lession01Main.dart';
+import './modelsClass.dart';
 
 
-List<ActivitieCardStatic> activitiesList = [
-   ActivitieCardStatic(
-    pageTitle: "Conteúdos das atividades",
-    pageDescription: "Conheça as atividades",
+List<Activitie> activitiesList = [
+  Activitie(
+    id: 0,
+    level: 1,
+    title: "Passeando no Shopping",
+    pageTitle: "Conteúdo das atividades",
+    description: "Você está saindo com seus amigos para o Shopping com puco dinheiro.\nAprenda a curtir da melhor forma",
+    backgroundColors: const [Color(0xFFDA59AE), Color(0xFF4912A2)],
     lessionsList: [
-        LessionCardStatic(
-          level: 1, 
-          title: "Ajude Coiny no shopping", 
-          description: "Venha ajudar a Connie a ter as melhores decisões no shopping",
-          isLocked: false,
-          pageWidget: Lession01Main(),
-        ),
-        LessionCardStatic(
-          level: 1, 
-          title: "Ajude Coiny no shopping", 
-          description: "Venha ajudar a Cony a ter as melhores decisões no shopping",
-          backgroundGradientColors: const [Color(0XFFF59D4D),Color(0XFFF59D4D)],
-        ),
-        LessionCardStatic(
-          level: 1, 
-          title: "Ajude Coiny no shopping", 
-          description: "Venha ajudar a Cony a ter as melhores decisões no shopping",
-          backgroundGradientColors: const [Color(0XFF1290A2),Color(0xFF82DA59)],
-        ),
-      ],
-    level: 1,
-    title: "Orçamento para um passeio", 
-    description:  "Continue onde parou",
-    progress: 50.0,
-    isLocked: false,
-    backgroundGradientColors: const [Color(0XFF1290A2),Color(0xFF82DA59)],
-    levelGradientColors: [Colors.white.withOpacity(0.3), Colors.white.withOpacity(0.01)],
+      Lession(
+        id: 0, 
+        title: "Montando o orçamento para o passeio", 
+        description: "Antes de ir para o passeio, precisamos nos planejar com o dinheiro disponível que temos, esse é o primeiro passo para um passeio de qualidade!",
+        page: Lession01Main()
+      ),
+      Lession(
+        id: 0, 
+        title: "Passeando no Shopping antes do cinema!", 
+        description: "Estar no Shopping e não passear com os amigos antes do Cinema é o mesmo que não ter ido no Shopping né? Mas é preciso ter muito cuidado com os gastos!",
+        page: Lession01Main()
+      ),
+      Lession(
+        id: 0, 
+        title: "Depois do passeio... Fazerndo as contas", 
+        description: "Agora que o passeio passou, precisamos anotar tudo que gastamos para evitar prejuízos no futuro, vamos nessa?!",
+        page: Lession01Main()
+      ),
+    ]
   ),
-   ActivitieCardStatic(
-    pageTitle: "Titulo da Atividade 2",
-    pageDescription: "Descrição atividade 2",
-    level: 1,
-    title: "Orçamento para um passeio", 
-    description:  "Continue onde parou",
-    progress: 0.0,
-    isLocked: true,
-    backgroundGradientColors: const  [Color(0XFF1290A2),Color(0xFF82DA59)],
-    levelGradientColors: [Colors.white.withOpacity(0.8), Colors.white.withOpacity(0.2)],
-  ),
-  ActivitieCardStatic(
-    pageTitle: "Titulo da Atividade 2",
-    pageDescription: "Descrição atividade 2",
+  Activitie(
+    id: 1,
     level: 2,
-    title: "Orçamento para um passeio", 
-    description:  "Continue onde parou",
-    progress: 0.0,
-    isLocked: true,
-    backgroundGradientColors: const  [Color(0XFFF59D4D),Color(0XFFF59D4D)],
-    levelGradientColors: [Colors.white.withOpacity(0.8), Colors.white.withOpacity(0.2)],
+    title: "Comprando novos jogos",
+    pageTitle: "Conteúdo das atividades",
+    description: "Você está saindo com seus amigos para o Shopping com puco dinheiro.\nAprenda a curtir da melhor forma",
+    backgroundColors: const [Color(0xFF59D2DA), Color(0xFF1232A2)],
+    lessionsList: [
+      Lession(
+        id: 0, 
+        title: "Montando o orçamento para o passeio", 
+        description: "Antes de ir para o passeio, precisamos nos planejar com o dinheiro disponível que temos, esse é o primeiro passo para um passeio de qualidade!",
+        page: Lession01Main()
+      ),
+      Lession(
+        id: 0, 
+        title: "Passeando no Shopping antes do cinema!", 
+        description: "Estar no Shopping e não passear com os amigos antes do Cinema é o mesmo que não ter ido no Shopping né? Mas é preciso ter muito cuidado com os gastos!",
+        page: Lession01Main()
+      ),
+      Lession(
+        id: 0, 
+        title: "Depois do passeio... Fazerndo as contas", 
+        description: "Agora que o passeio passou, precisamos anotar tudo que gastamos para evitar prejuízos no futuro, vamos nessa?!",
+        page: Lession01Main()
+      ),
+    ]
+  ),
+  Activitie(
+    id: 2,
+    level: 2,
+    title: "Comprando novos jogos",
+    pageTitle: "Conteúdo das atividades",
+    description: "Você está saindo com seus amigos para o Shopping com puco dinheiro.\nAprenda a curtir da melhor forma",
+    backgroundColors: const [Color(0xFF59D2DA), Color(0xFF1232A2)],
+    lessionsList: [
+      Lession(
+        id: 0, 
+        title: "Montando o orçamento para o passeio", 
+        description: "Antes de ir para o passeio, precisamos nos planejar com o dinheiro disponível que temos, esse é o primeiro passo para um passeio de qualidade!",
+        page: Lession01Main()
+      ),
+      Lession(
+        id: 0, 
+        title: "Passeando no Shopping antes do cinema!", 
+        description: "Estar no Shopping e não passear com os amigos antes do Cinema é o mesmo que não ter ido no Shopping né? Mas é preciso ter muito cuidado com os gastos!",
+        page: Lession01Main()
+      ),
+      Lession(
+        id: 0, 
+        title: "Depois do passeio... Fazerndo as contas", 
+        description: "Agora que o passeio passou, precisamos anotar tudo que gastamos para evitar prejuízos no futuro, vamos nessa?!",
+        page: Lession01Main()
+      ),
+    ]
+  ),
+  Activitie(
+    id: 3,
+    level: 2,
+    title: "Comprando novos jogos",
+    pageTitle: "Conteúdo das atividades",
+    description: "Você está saindo com seus amigos para o Shopping com puco dinheiro.\nAprenda a curtir da melhor forma",
+    backgroundColors: const [Color(0xFF59D2DA), Color(0xFF1232A2)],
+    lessionsList: [
+      Lession(
+        id: 0, 
+        title: "Montando o orçamento para o passeio", 
+        description: "Antes de ir para o passeio, precisamos nos planejar com o dinheiro disponível que temos, esse é o primeiro passo para um passeio de qualidade!",
+        page: Lession01Main()
+      ),
+      Lession(
+        id: 0, 
+        title: "Passeando no Shopping antes do cinema!", 
+        description: "Estar no Shopping e não passear com os amigos antes do Cinema é o mesmo que não ter ido no Shopping né? Mas é preciso ter muito cuidado com os gastos!",
+        page: Lession01Main()
+      ),
+      Lession(
+        id: 0, 
+        title: "Depois do passeio... Fazerndo as contas", 
+        description: "Agora que o passeio passou, precisamos anotar tudo que gastamos para evitar prejuízos no futuro, vamos nessa?!",
+        page: Lession01Main()
+      ),
+    ]
   )
 ];
+
+double getProgress(int activitieId, List<int> progress){
+  if (activitieId > activitiesList.length){return 0;}
+  return 100 * progress.length/(activitiesList[activitieId].lessionsList.length);
+}
