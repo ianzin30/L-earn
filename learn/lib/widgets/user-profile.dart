@@ -7,6 +7,7 @@ class UserPhotoAndName extends StatelessWidget {
   final FontWeight fontWeight1;
   final String secondLine;
   final FontWeight fontWeight2;
+  final bool isSugestion;
 
 
   const UserPhotoAndName({
@@ -16,6 +17,7 @@ class UserPhotoAndName extends StatelessWidget {
     required this.fontWeight1,
     required this.secondLine,
     required this.fontWeight2,
+    this.isSugestion = false,
     Key? key,
   }) : super(key: key);
 
@@ -35,8 +37,8 @@ class UserPhotoAndName extends StatelessWidget {
               TextSpan(
                 text: firstLine,
                 style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 14,
+                  color: isSugestion? const Color(0xFF0D116E): Colors.white,
+                  fontSize: isSugestion? 18:14,
                   fontFamily: "Fieldwork-Geo",
                   fontWeight: fontWeight1,
                 ),
@@ -44,8 +46,8 @@ class UserPhotoAndName extends StatelessWidget {
               TextSpan(
                 text: secondLine,
                 style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 18,
+                  color: isSugestion? const Color(0xFF0D116E): Colors.white,
+                  fontSize: isSugestion? 14:18,
                   fontFamily: "Fieldwork-Geo",
                   fontWeight: fontWeight2,
                 ),

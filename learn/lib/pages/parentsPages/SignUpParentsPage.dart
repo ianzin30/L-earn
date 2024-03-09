@@ -79,30 +79,36 @@ class LoginInputFields extends StatelessWidget {
   }
 }
 
-class LoginParentsPage extends StatefulWidget {
+class SignParentsPage extends StatefulWidget {
   @override
-  _LoginParentsPageState createState() => _LoginParentsPageState();
+  _SignParentsPageState createState() => _SignParentsPageState();
 }
 
-class _LoginParentsPageState extends State<LoginParentsPage> {
+class _SignParentsPageState extends State<SignParentsPage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
   Future<void> signInWithFirebase() async {
+    // Your existing signInWithFirebase function remains unchanged.
+  }
+
+  // New signup function
+  Future<void> signUpWithFirebase() async {
     try {
-      final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+      final credential =
+          await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: _emailController.text,
         password: _passwordController.text,
       );
+      // Navigate to a different screen if signup is successful, or show success message
       Navigator.pushReplacementNamed(context, '/parentsMain');
-      //Navigator.pushReplacementNamed(context, '/signUpParents');
     } on FirebaseAuthException catch (e) {
-      if (e.code == 'user-not-found') {
-        print('No user found for that email.');
-      } else if (e.code == 'wrong-password') {
-        print('Wrong password provided for that user.');
+      if (e.code == 'weak-password') {
+        print('The password provided is too weak.');
+      } else if (e.code == 'email-already-in-use') {
+        print('An account already exists for that email.');
       } else {
-        print('the error is $e');
+        print('The error is $e');
       }
     }
   }
@@ -117,40 +123,39 @@ class _LoginParentsPageState extends State<LoginParentsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(50.0),
-        child: Column(
-          children: <Widget>[
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.04,
-            ),
-            const LoginAppBar(),
-            Expanded(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  const LoginInfoContainer(
-                      title: "Bem-vindo à Coinny",
-                      description:
-                          "Para iniciar sua sessão, insira suas credenciais de login."),
-                  const SizedBox(height: 32),
-                  LoginInputFields(
-                    emailController: _emailController,
-                    passwordController: _passwordController,
-                  ),
-                  const SizedBox(height: 32),
-                  LoginEnterButton(
-                      onPressed: () {
-                        signInWithFirebase();
-                      },
-                      title: "Entrar",
-                      colors: const [Color(0xFF646AE3), Color(0xFF262B91)]),
-                ],
-              ),
-            ),
-          ],
+        body: Padding(
+      padding: const EdgeInsets.all(50.0),
+      child: Column(children: <Widget>[
+        SizedBox(
+          height: MediaQuery.of(context).size.height * 0.04,
         ),
-      ),
-    );
+        const LoginAppBar(),
+        Expanded(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              const LoginInfoContainer(
+                  title: "Bem-vindo à Coinny",
+                  description:
+                      "Para iniciar sua sessão, insira suas credenciais de login."),
+              const SizedBox(height: 32),
+              LoginInputFields(
+                emailController: _emailController,
+                passwordController: _passwordController,
+              ),
+              const SizedBox(height: 32),
+              LoginEnterButton(
+                onPressed: () {
+                  signUpWithFirebase();
+                },
+                title: "Cadastrar",
+                colors: const [Color(0xFF646AE3), Color(0xFF262B91)],
+              ),
+              // Add a button for signing up, calling signUpWithFirebase
+            ],
+          ),
+        ),
+      ]),
+    ));
   }
 }
