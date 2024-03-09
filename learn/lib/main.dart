@@ -1,10 +1,18 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:learn/firebase_options.dart';
 import 'pages/loginPage.dart';
 import 'parentsMain.dart';
 import 'childrenMain.dart';
+import 'pages/parentsPages/SignUpParentsPage.dart';
 import 'package:learn/utils/modelsClass.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
   runApp(MyApp());
 }
 
@@ -19,8 +27,13 @@ class MyApp extends StatelessWidget {
       ),
       home: LoginPage(), // Começa com a página de login
       routes: {
-        '/parentsMain': (context) => ParentsMain(parent: joana,), // Rota para a home dos pais
-        '/childrenMain': (context) => ChildrenMain(child: luciano), // Rota para a home das crianças
+        '/parentsMain': (context) => ParentsMain(
+              parent: joana,
+            ), // Rota para a home dos pais
+        '/childrenMain': (context) =>
+            ChildrenMain(child: luciano), // Rota para a home das crianças
+        '/signUpParents': (context) =>
+            SignParentsPage(), // Rota para a página de cadastro dos pais
       },
     );
   }

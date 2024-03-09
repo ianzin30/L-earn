@@ -59,7 +59,7 @@ class _ParentsMainState extends State<ParentsMain> {
     List<Widget> _pageOptions = [
       ParentsHPage(pagePosition: pagePosition, parent: widget.parent,),
       MonitorigPage(pagePosition: pagePosition, parent: widget.parent),
-      ProfilePage(pagePosition: pagePosition,  parent: widget.parent,)
+      ProfilePage(pagePosition: pagePosition,  parent: widget.parent,pageController: _pageController,)
     ];
 
     List<Map<String, dynamic>> navItems = [
