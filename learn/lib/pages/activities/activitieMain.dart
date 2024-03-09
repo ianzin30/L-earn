@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:learn/widgets/activitiesWidgets/activitieCardStatic.dart';
 import 'package:learn/widgets/global/learnAppBar.dart';
 import 'package:learn/widgets/activitiesWidgets/activitieContentColumn.dart';
-import 'package:learn/pages/activities/actitivitie_01/activitie01lessions.dart';
 
 class ActivitieMain extends StatelessWidget {
   final ActivitieCardStatic content;
@@ -18,15 +17,17 @@ class ActivitieMain extends StatelessWidget {
           superWidget: content,
           child: Container(
               //width: MediaQuery.sizeOf(context).width,
-              padding:  EdgeInsets.fromLTRB((MediaQuery.sizeOf(context).width/2) - 48, 40, 16, 0),
-              child: const Text("Atividades",
-                  style: TextStyle(
+              padding: EdgeInsets.fromLTRB(
+                  (MediaQuery.sizeOf(context).width / 2) - 48, 40, 16, 0),
+              child: const Text(
+                "Atividades",
+                style: TextStyle(
                     color: Color(0xFFFFFFFF),
                     fontFamily: "Fieldwork-Geo",
                     fontSize: 18,
-                    fontWeight: FontWeight.w700
-                    ),
-                  textAlign: TextAlign.center,)),
+                    fontWeight: FontWeight.w700),
+                textAlign: TextAlign.center,
+              )),
           backButtonFunction: () {
             Navigator.pop(context);
           },
@@ -37,7 +38,8 @@ class ActivitieMain extends StatelessWidget {
                 child: ActivitieContentColumn(
               title: "Conteúdo das atividades",
               description: "Selecione a atividade",
-              lessions: activitie01List,
+              lessions: content.activitie.lessionsList,
+              finishedLessions: 0,
             ))));
   }
 }

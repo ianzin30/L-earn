@@ -62,55 +62,64 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    # Icons Images
-    - ./assets/images/appIcons/icon-steak.png
-    - ./assets/images/appIcons/check-circle.png
-    - ./assets/images/mascote/icon-loja-default.png
-    - ./assets/images/mascote/icon-atividades-default.png
-    - ./assets/images/mascote/icon-roupas-default.png
-    - ./assets/images/mascote/icon-alimentos-default.png
-    - ./assets/images/appIcons/icon-atividades-default.png
-    - ./assets/images/appIcons/icon-atividades-select.png
-    - ./assets/images/appIcons/icon-home-default.png
-    - ./assets/images/appIcons/icon-home-select.png
-    - ./assets/images/appIcons/icon-mascote-default.png
-    - ./assets/images/appIcons/icon-mascote-select.png
-    - ./assets/images/appIcons/icon-monitorar-default.png
-    - ./assets/images/appIcons/icon-monitorar-select.png
-    - ./assets/images/appIcons/icon-perfil-default.png
-    - ./assets/images/appIcons/icon-perfil-select.png
-    - ./assets/images/appIcons/progressFieldWithStars.png
-    - ./assets/images/appIcons/progressFieldWithStarsBlue.png
-    - ./assets/images/appIcons/icon-trophie.png
-    - ./assets/images/appIcons/icon-award.png
-    - ./assets/images/appIcons/icon-lock-default.png
-    - ./assets/images/appIcons/notification.png
+  # Icons Images
+  - ./assets/images/appIcons/icon-steak.png
+  - ./assets/images/appIcons/check-circle.png
+  - ./assets/images/mascote/icon-loja-default.png
+  - ./assets/images/mascote/icon-atividades-default.png
+  - ./assets/images/mascote/icon-roupas-default.png
+  - ./assets/images/mascote/icon-alimentos-default.png
+  - ./assets/images/appIcons/icon-atividades-default.png
+  - ./assets/images/appIcons/icon-atividades-select.png
+  - ./assets/images/appIcons/icon-home-default.png
+  - ./assets/images/appIcons/icon-home-select.png
+  - ./assets/images/appIcons/icon-mascote-default.png
+  - ./assets/images/appIcons/icon-mascote-select.png
+  - ./assets/images/appIcons/icon-monitorar-default.png
+  - ./assets/images/appIcons/icon-monitorar-select.png
+  - ./assets/images/appIcons/icon-perfil-default.png
+  - ./assets/images/appIcons/icon-perfil-select.png
+  - ./assets/images/appIcons/progressFieldWithStars.png
+  - ./assets/images/appIcons/progressFieldWithStarsBlue.png
+  - ./assets/images/appIcons/icon-trophie.png
+  - ./assets/images/appIcons/icon-award.png
+  - ./assets/images/appIcons/icon-lock-default.png
+  - ./assets/images/appIcons/notification.png
 
-    # Badges
-    - ./assets/images/appIcons/badge-bronze-default.png
-    - ./assets/images/appIcons/badge-bronze-blue.png
-    - ./assets/images/appIcons/badge-prata-default.png
-    - ./assets/images/appIcons/badge-prata-blue.png
-    - ./assets/images/appIcons/badge-ouro-default.png
-    - ./assets/images/appIcons/badge-ouro-blue.png
-    - ./assets/images/appIcons/badge-diamante-default.png
-    - ./assets/images/appIcons/badge-diamante-blue.png
-    - ./assets/images/appIcons/silver-badge.png
-    # Person Images
-    - ./assets/images/appImages/ianzinho.jpg
-    - ./assets/images/appImages/joana-dias.png
-    - ./assets/images/appImages/luciano.png
-    - ./assets/images/appImages/activitiesBar.png
-    - ./assets/images/appImages/AppIconBalloon.png
-    # Mascot Images
-    - ./assets/images/mascote/background.png
-    - ./assets/images/mascote/backgroundLarge.png
-    - ./assets/images/mascote/mascot-happy.png
-    - ./assets/images/mascote/mascot-sad.png
-    - ./assets/images/mascote/mascote.png
+  # Badges
+  - ./assets/images/appIcons/badge-bronze-default.png
+  - ./assets/images/appIcons/badge-bronze-blue.png
+  - ./assets/images/appIcons/badge-prata-default.png
+  - ./assets/images/appIcons/badge-prata-blue.png
+  - ./assets/images/appIcons/badge-ouro-default.png
+  - ./assets/images/appIcons/badge-ouro-blue.png
+  - ./assets/images/appIcons/badge-diamante-default.png
+  - ./assets/images/appIcons/badge-diamante-blue.png
+  - ./assets/images/appIcons/silver-badge.png
+  # Person Images
+  - ./assets/images/appImages/ianzinho.jpg
+  - ./assets/images/appImages/joana-dias.png
+  - ./assets/images/appImages/luciano.png
+  - ./assets/images/appImages/activitiesBar.png
+  - ./assets/images/appImages/AppIconBalloon.png
+  # Mascot Images
+  - ./assets/images/mascote/background.png
+  - ./assets/images/mascote/backgroundLarge.png
+  - ./assets/images/mascote/mascot-happy.png
+  - ./assets/images/mascote/mascot-sad.png
+  - ./assets/images/mascote/mascote.png
 
-    # App Images
-    - ./assets/images/appImages/icon.png
+  # App Images
+  - ./assets/images/appImages/icon.png
+
+  # Conquistas
+  - ./assets/images/conquistas/conquista-1.png
+  - ./assets/images/conquistas/conquista-2.png
+  - ./assets/images/conquistas/conquista-3.png
+  - ./assets/images/conquistas/conquista-4.png
+  - ./assets/images/conquistas/conquista-5.png
+  - ./assets/images/conquistas/conquista-6.png
+
 
   fonts:
     - family: Fieldwork-Geo
