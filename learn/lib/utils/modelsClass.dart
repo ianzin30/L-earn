@@ -31,7 +31,7 @@ class Parents {
 }
 
 Children luciano  = Children(
-  name : "Luciano",
+  name : "Luciano Dias",
   birthdate : DateTime(2012, 11, 4),
   pontuation: 1200,
   photoPath: "assets/images/appImages/luciano.png",
