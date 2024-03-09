@@ -102,10 +102,9 @@ class ActivitiesSugestionPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              height: 168,
-              width: 362,
+              width: MediaQuery.sizeOf(context).width -32,
               alignment: Alignment.centerLeft,
-              padding: const EdgeInsets.fromLTRB(16, 16, 32, 0),
+              padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
                 color: const Color(0xFF4B50C0),
                 borderRadius: BorderRadius.circular(10)
@@ -181,9 +180,8 @@ class ActivitiesSugestionPage extends StatelessWidget {
             
             Container(
               alignment: Alignment.centerLeft,
-              height: 70,
-              width: 362,
-              padding: const EdgeInsets.all(10),
+              width: MediaQuery.sizeOf(context).width -32,
+              padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
                 color: const Color(0xFF4B50C0),
                 borderRadius: BorderRadius.circular(10)
@@ -193,7 +191,7 @@ class ActivitiesSugestionPage extends StatelessWidget {
                 children: [
                   TextSpan(text: "Sugestão de Atividade\n", style: TextStyle(color: Color(0xFFFFFFFF), fontWeight: FontWeight.w400, fontSize: 12, fontFamily: "Fieldwork-Geo")),
                   WidgetSpan(child: SizedBox(height: 24)),
-                  TextSpan(text: "Orçamento de um passeio em família", style: TextStyle(color: Color(0xFFFFFFFF), fontWeight: FontWeight.bold, fontSize: 12, fontFamily: "Fieldwork-Geo")),
+                  TextSpan(text: "Orçamento de um passeio em família", style: TextStyle(color: Color(0xFFFFFFFF), fontWeight: FontWeight.w600, fontSize: 14, fontFamily: "Fieldwork-Geo")),
                 ]),
                 //textAlign: TextAlign.start,
               ),
@@ -214,7 +212,7 @@ class ActivitiesSugestionPage extends StatelessWidget {
               text:  [
                 TextSpan(text: "Escolher o destino:\n ", style: TextStyle(color: Color(0xFF282C93), fontWeight: FontWeight.bold)),
                 TextSpan(text: "Vocês vão a um restaurante - mas qual restaurante? E aí vem a etapa de pesquisa! Procure um espaço legal, com uma boa comida e que esteja em uma faixa de preço que cabe no bolso da família\n\n"),
-                TextSpan(text: 'Dica: Quando a gente pesquisa o nome de um restaurante no Google ele indica a faixa de preço do estabelecimento', style: TextStyle(color: Color(0xFF3034AD)))
+                TextSpan(text: 'Dica: Quando a gente pesquisa o nome de um restaurante no Google ele indica a faixa de preço do estabelecimento', style: TextStyle(color: Color(0xFF3034AD), fontSize: 11))
               ]
             ),
             const SizedBox(height: 24),

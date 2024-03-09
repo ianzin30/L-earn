@@ -28,7 +28,7 @@ class CustomRadioTile extends StatelessWidget {
           ),
           boxShadow: [
             BoxShadow(
-              color:  Colors.grey.withOpacity(isSelected ? 0.5 : 0.01),
+              color:  Colors.grey.withOpacity(isSelected ? 0.3 : 0.01),
               spreadRadius: 1,
               blurRadius: 3,
               offset: Offset(0, 3), // changes position of shadow

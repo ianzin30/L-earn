@@ -16,7 +16,7 @@ class ActivitiesList extends StatelessWidget {
     final List<Widget> atividades = [];
     for (var i = 0; i < activitiesList.length; i++) {
       atividades.add(Container(
-        padding: const EdgeInsets.fromLTRB(0, 8, 0, 8),
+        padding: const EdgeInsets.fromLTRB(0, 4, 0, 4),
         child: ActivitieCard(
           activitie: ActivitieCardStatic(
             activitie:activitiesList[i],

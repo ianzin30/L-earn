@@ -101,17 +101,17 @@ class ProfilePage extends StatelessWidget {
                     },
                     child: Container(
                         padding: const EdgeInsets.fromLTRB(8, 2, 8, 0),
-                        height: 30,
-                        width: 80,
+                        height: 32,
+                        width: 88,
                         decoration: BoxDecoration(
                             color: const Color(0xFFfffbfe),
                             borderRadius: BorderRadius.circular(5),
                             boxShadow:  [
                               BoxShadow(
-                                color: Color(0xFF5C5C5C).withOpacity(0.50),
-                                blurRadius: 5,
-                                spreadRadius: 0.01,
-                                offset: const Offset(0, 3),
+                                color: Color(0xFF5C5C5C).withOpacity(0.2),
+                                blurRadius: 10,
+                                spreadRadius: 0.5,
+                                offset: const Offset(-1, 5),
                               )
                             ]),
                         child: const Row(
@@ -124,7 +124,7 @@ class ProfilePage extends StatelessWidget {
                             Text(
                               "Adicionar",
                               style: TextStyle(
-                                  fontSize: 10,
+                                  fontSize: 12,
                                   color: Color(0xFF282C93),
                                   fontFamily: "Fieldwork-Geo",
                                   fontWeight: FontWeight.w400),

@@ -39,7 +39,7 @@ class ActivitieMain extends StatelessWidget {
               title: "Conteúdo das atividades",
               description: "Selecione a atividade",
               lessions: content.activitie.lessionsList,
-              finishedLessions: 0,
+              finishedLessions: 1,
             ))));
   }
 }

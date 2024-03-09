@@ -25,21 +25,22 @@ class LearnNavBar extends StatelessWidget {
     }).toList();
 
     return Container(
+      width: MediaQuery.sizeOf(context).width*0.6,
       decoration: const BoxDecoration(
         color: Colors.white, // Define a cor do fundo da NavBar
-        borderRadius: BorderRadius.all(Radius.circular(14)), // Bordas arredondadas
+        borderRadius: BorderRadius.all(Radius.circular(16)), // Bordas arredondadas
         boxShadow: [
           BoxShadow(
             color: Colors.black12,
             spreadRadius: 0.0,
             blurRadius: 10.0,
-            offset: Offset(0, -1), // Posição da sombra
+            offset: Offset(0, 5),
           ),
         ],
       ),
-      margin: const EdgeInsets.all(10), // Margem ao redor da NavBar
+      margin: const EdgeInsets.all(16), // Margem ao redor da NavBar
       child: ClipRRect(
-        borderRadius: const BorderRadius.all(Radius.circular(14)), // Bordas arredondadas
+        borderRadius: const BorderRadius.all(Radius.circular(16)), // Bordas arredondadas
         child: BottomNavigationBar(
           items: bottomNavBarItems,
           currentIndex: selectedIndex,

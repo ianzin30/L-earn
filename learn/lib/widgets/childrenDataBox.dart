@@ -48,14 +48,14 @@ class ChildrenDataBox extends StatelessWidget {
                     fontFamily: "Fieldwork-Geo",
                     fontWeight: FontWeight.w400,
                     color: Color(0xff5A5A5A),
-                    fontSize: 12),
+                    fontSize: 14),
                 controller: nameController,
                 decoration: InputDecoration(
                   labelStyle: const TextStyle(
                       fontFamily: "Fieldwork-Geo",
                       fontWeight: FontWeight.w400,
                       color: Color(0xff9A9A9A),
-                      fontSize: 12),
+                      fontSize: 14),
                   labelText: 'Nome da Criança',
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10)),
@@ -81,7 +81,7 @@ class ChildrenDataBox extends StatelessWidget {
                     fontFamily: "Fieldwork-Geo",
                     fontWeight: FontWeight.w400,
                     color: Color(0xff5A5A5A),
-                    fontSize: 12),
+                    fontSize: 14),
                 controller: dateController,
                 decoration: InputDecoration(
                   labelText: 'Data de Nascimento',
@@ -89,7 +89,7 @@ class ChildrenDataBox extends StatelessWidget {
                       fontFamily: "Fieldwork-Geo",
                       fontWeight: FontWeight.w400,
                       color: Color(0xff9A9A9A),
-                      fontSize: 12),
+                      fontSize: 14),
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10)),
                   focusedBorder: OutlineInputBorder(

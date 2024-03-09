@@ -22,7 +22,7 @@ class ActivitieContentColumn extends StatelessWidget {
 
     for (var i = 0; i < lessions.length; i++) {
       atividades.add(Container(
-        padding: const EdgeInsets.symmetric(vertical: 8),
+        padding: const EdgeInsets.symmetric(vertical: 4),
         child: LessionCardStatic(
           lession: lessions[i],
           isLocked: !(i <= finishedLessions),
@@ -35,14 +35,11 @@ class ActivitieContentColumn extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
-            padding: const EdgeInsets.only(left: 16),
-            child:
-                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               Text(
                 title,
                 style: const TextStyle(
-                    color: Color(0XFF3C3C3C),
+                    color: Color(0XFF000000),
                     fontSize: 14,
                     fontFamily: "Fieldwork-Geo",
                     fontWeight: FontWeight.w600),
@@ -56,7 +53,7 @@ class ActivitieContentColumn extends StatelessWidget {
                     fontWeight: FontWeight.w400),
               ),
             ]),
-          ),
+            SizedBox(height: 8,),
           Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: atividades,
