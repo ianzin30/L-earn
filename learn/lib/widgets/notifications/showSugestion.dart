@@ -1,15 +1,14 @@
 import "package:flutter/material.dart";
 
 class ShowSugestion extends StatelessWidget {
-  final double heigth;
+  //final double heigth;
   final double width;
   final String childName;
   final String activitieName;
   final VoidCallback? onPressed;
 
   ShowSugestion(
-      {required this.heigth,
-      required this.width,
+      {required this.width,
       required this.childName,
       required this.activitieName,
       this.onPressed,
@@ -18,9 +17,7 @@ class ShowSugestion extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      //margin: const EdgeInsets.all(16),
-      padding: const EdgeInsets.all(16),
-      height: heigth,
+      padding: const EdgeInsets.fromLTRB(16,16,16,24),
       width: width,
       decoration: BoxDecoration(
           color: const Color(0xFF4B50C0),

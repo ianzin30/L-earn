@@ -13,22 +13,13 @@ class LearnNavBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<BottomNavigationBarItem> bottomNavBarItems = navItems.map((item) {
-      String iconName = item['name'].toString().toLowerCase();
-      return BottomNavigationBarItem(
-        icon: Image.asset(
-          'assets/images/appIcons/icon-$iconName-${selectedIndex == navItems.indexOf(item) ? 'select' : 'default'}.png',
-          height: 24,
-        ),
-        label: item['name'] as String,
-      );
-    }).toList();
-
     return Container(
-      width: MediaQuery.sizeOf(context).width*0.6,
+      padding: const EdgeInsets.only(bottom: 16), // Ajuste para evitar overflow
+      width: MediaQuery.of(context).size.width * 0.6,
+      height: kToolbarHeight + 16, // Adicionei 16 para dar mais espaço e evitar overflow
       decoration: const BoxDecoration(
-        color: Colors.white, // Define a cor do fundo da NavBar
-        borderRadius: BorderRadius.all(Radius.circular(16)), // Bordas arredondadas
+        color: Colors.white,
+        borderRadius: BorderRadius.all(Radius.circular(16)),
         boxShadow: [
           BoxShadow(
             color: Colors.black12,
@@ -38,22 +29,38 @@ class LearnNavBar extends StatelessWidget {
           ),
         ],
       ),
-      margin: const EdgeInsets.all(16), // Margem ao redor da NavBar
       child: ClipRRect(
-        borderRadius: const BorderRadius.all(Radius.circular(16)), // Bordas arredondadas
-        child: BottomNavigationBar(
-          items: bottomNavBarItems,
-          currentIndex: selectedIndex,
-          onTap: onItemTapped,
-          backgroundColor: Colors.white, // Cor de fundo da NavBar
-          selectedItemColor: const Color(0xFF3034AD), // Cor do ícone selecionado
-          unselectedItemColor: const Color(0xFF49454F), // Cor do ícone não selecionado
-          showUnselectedLabels: true,
-          showSelectedLabels: true,
-          selectedLabelStyle: const TextStyle(color: Color(0xFF3034AD),fontSize: 12, fontFamily: "Fieldwork-Geo", fontWeight: FontWeight.w400), 
-          unselectedLabelStyle: const TextStyle(color: Color(0xFF49454F), fontSize: 12, fontFamily: "Fieldwork-Geo", fontWeight: FontWeight.w400), 
-          type: BottomNavigationBarType.fixed,
-          elevation: 0,
+        borderRadius: const BorderRadius.all(Radius.circular(16)),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround, // Espaçamento igual entre os itens
+          children: List.generate(navItems.length, (index) {
+            String iconName = navItems[index]['name'].toString().toLowerCase();
+            bool isSelected = selectedIndex == index;
+            return InkWell(
+              onTap: () => onItemTapped(index),
+              splashColor: Colors.transparent, // Remover splash ao clicar
+              highlightColor: Colors.transparent, // Remover highlight ao clicar
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: <Widget>[
+                  Image.asset(
+                    'assets/images/appIcons/icon-$iconName-${isSelected ? 'select' : 'default'}.png',
+                    height: 24,
+                  ),
+                  Text(
+                    navItems[index]['name'],
+                    style: TextStyle(
+                      fontFamily: "Fieldwork-Geo",
+                      fontSize: 12,
+                      color: isSelected ? Color(0xFF3034AD) : Color(0xFF49454F),
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                ],
+              ),
+            );
+          }),
         ),
       ),
     );
