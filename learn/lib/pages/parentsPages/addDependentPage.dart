@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -64,11 +66,15 @@ class _AddDependentPageState extends State<AddDependentPage> {
               })
           .toList();
 
+      var rng = Random();
+      List<int> childrenCode = List<int>.generate(4, (_) => rng.nextInt(10));
+
       Map<String, dynamic> novoDependente = {
         'nome': nome,
         'aniversario': aniversario,
         'responsavel': responsavel,
         'metas': metas,
+        'childrenCode': childrenCode,
       };
 
       try {
@@ -83,7 +89,10 @@ class _AddDependentPageState extends State<AddDependentPage> {
       Navigator.push(
           context,
           MaterialPageRoute(
-              builder: (context) => VerificationCodePage(childrenName: nome)));
+              builder: (context) => VerificationCodePage(
+                    childrenName: nome,
+                    childrenCode: childrenCode,
+                  )));
     }
 
     return Scaffold(
