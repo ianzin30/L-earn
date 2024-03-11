@@ -3,18 +3,8 @@ import 'package:learn/utils/modelsClass.dart';
 import 'package:learn/widgets/activitiesWidgets/activitieCardStatic.dart';
 import 'package:learn/widgets/global/learnAppBar.dart';
 import 'package:learn/widgets/activitiesWidgets/activitieCardAnimated.dart';
-
-final ActivitieCard ac = ActivitieCard(
-    activitie: ActivitieCardStatic(
-  pageTitle: 'Home',
-  pageDescription: 'Principal',
-  level: 1,
-  title: 'Passeando no Shopping',
-  description:
-      'Você está saindo com seus amigos para o Shopping com pouco dinheiro. Aprenda como curtir da melhor forma!',
-  backgroundGradientColors: const [Color(0XFF787878), Color(0XFF787878)],
-  isLocked: true,
-));
+import 'package:learn/utils/activitiesList.dart';
+import 'package:learn/widgets/activitiesWidgets/activitiesList.dart';
 
 class ChildrenActivitiesPage extends StatelessWidget {
   final ValueNotifier<double> pagePosition;
@@ -24,6 +14,8 @@ class ChildrenActivitiesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+
     return Scaffold(
       appBar: LearnAppBarSuper(
         superHeigth: 320,
@@ -72,40 +64,7 @@ class ChildrenActivitiesPage extends StatelessWidget {
                       fontWeight: FontWeight.w300),
                 ),
                 const SizedBox(height: 16),
-                Column(children: [
-                  ActivitieCard(
-                      activitie: ActivitieCardStatic(
-                    pageTitle: 'Home',
-                    pageDescription: 'Principal',
-                    level: 1,
-                    title: 'Passeando no Shopping',
-                    description:
-                        'Você está saindo com seus amigos para o Shopping com pouco dinheiro. Aprenda como curtir da melhor forma!',
-                    backgroundGradientColors: const [
-                      Color(0XFFDA59AE),
-                      Color(0XFF4912A2)
-                    ],
-                    isLocked: false,
-                    progress: 15.0,
-                  )),
-                  const SizedBox(height: 8),
-                  ActivitieCard(
-                      activitie: ActivitieCardStatic(
-                    pageTitle: 'Home',
-                    pageDescription: 'Principal',
-                    level: 2,
-                    title: 'Comprando novos jogos',
-                    description:
-                        'Você está saindo com seus amigos para o Shopping com pouco dinheiro. Aprenda como curtir da melhor forma!',
-                    backgroundGradientColors: const [Color(0XFF59D2DA), Color(0XFF1232A2)],
-                    isLocked: false,
-                    progress: 0.0,
-                  )),
-                  const SizedBox(height: 8),
-                  ac,
-                  const SizedBox(height: 8),
-                  ac
-                ])
+                ActivitiesList(child: child)
               ]))),
     );
   }

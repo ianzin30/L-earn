@@ -44,7 +44,7 @@ class MonitorigPage extends StatelessWidget {
         child: Container(
           padding: const EdgeInsets.fromLTRB(14, 16, 14, 16),
           child: Column(children: [
-            AchievementsWidget(),
+            AchievementsWidget(childAcheivments: parent.dependents[0].acheivments,),
             const SizedBox(height: 24),
             MonitoringWidget(
               parent: parent,
