@@ -23,6 +23,7 @@ class ActivitiesList extends StatelessWidget {
             isLocked: i +1 > child.activities.length,
             progress: child.activities.length > i ? getProgress(i, child.activities[i]) : 0,
             ),
+            child: child,
         ),
       ));
     }

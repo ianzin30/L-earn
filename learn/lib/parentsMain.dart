@@ -58,7 +58,7 @@ class _ParentsMainState extends State<ParentsMain> {
         pagePosition: pagePosition,
         parent: widget.parent,
       ),
-      MonitorigPage(pagePosition: pagePosition, parent: widget.parent),
+      MonitoringPage(parent: widget.parent, pagePosition: pagePosition),
       ProfilePage(
         pagePosition: pagePosition,
         parent: widget.parent,

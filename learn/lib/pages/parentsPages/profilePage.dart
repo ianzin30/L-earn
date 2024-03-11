@@ -22,6 +22,7 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: LearnAppBar(
+        heigth: 248,
           pageIndex: 2,
           pagePosition: pagePosition.value,
           backButtonFunction: () {

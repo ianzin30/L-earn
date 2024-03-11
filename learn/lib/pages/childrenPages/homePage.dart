@@ -81,6 +81,7 @@ class ChildrenHomePage extends StatelessWidget {
                 progress: getProgress(
                     child.lastActivitie, child.activities[child.lastActivitie]),
               ),
+              child: child,
             ),
             const SizedBox(height: 40),
             AchievementsWidget(

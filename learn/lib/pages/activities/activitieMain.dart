@@ -2,14 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:learn/widgets/activitiesWidgets/activitieCardStatic.dart';
 import 'package:learn/widgets/global/learnAppBar.dart';
 import 'package:learn/widgets/activitiesWidgets/activitieContentColumn.dart';
+import 'package:learn/utils/modelsClass.dart';
 
 class ActivitieMain extends StatelessWidget {
   final ActivitieCardStatic content;
+  final Children? child;
 
-  ActivitieMain({required this.content});
+  ActivitieMain({required this.content, this.child});
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
         appBar: LearnAppBarSuper(
           superHeigth: 280,
@@ -39,7 +42,7 @@ class ActivitieMain extends StatelessWidget {
               title: "Conteúdo das atividades",
               description: "Selecione a atividade",
               lessions: content.activitie.lessionsList,
-              finishedLessions: 1,
+              finishedLessions: child?.activities[content.activitie.id].length ?? 0,
             ))));
   }
 }
