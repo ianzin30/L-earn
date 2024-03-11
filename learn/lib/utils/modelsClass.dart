@@ -62,7 +62,7 @@ Parents currentUser = Parents(
   name: FirebaseAuth.instance.currentUser?.email ?? "No name",
   photoPath: FirebaseAuth.instance.currentUser?.photoURL ??
       "assets/images/appImages/ianzinho.jpg",
-  dependents: [], // Add the children of the current user here
+  dependents: [luciano], // Add the children of the current user here
 );
 
 Parents joana = Parents(
