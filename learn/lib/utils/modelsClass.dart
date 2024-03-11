@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class AcheivmentsDate {
@@ -17,17 +18,16 @@ class Children {
   final List<AcheivmentsDate> acheivments;
   int lastActivitie;
 
-  Children({
-    required this.name,
-    required this.birthdate,
-    this.photoPath = "assets/images/appImages/ianzinho.jpg",
-    this.pontuation = 0,
-    this.activities = const [],
-    this.goals = const [],
-    this.acheivments = const [],
-    this.lastAccsess,
-    this.lastActivitie = 0
-  });
+  Children(
+      {required this.name,
+      required this.birthdate,
+      this.photoPath = "assets/images/appImages/ianzinho.jpg",
+      this.pontuation = 0,
+      this.activities = const [],
+      this.goals = const [],
+      this.acheivments = const [],
+      this.lastAccsess,
+      this.lastActivitie = 0});
 }
 
 class Parents {
@@ -54,10 +54,16 @@ Children luciano = Children(
       AcheivmentsDate(date: DateTime(2024, 01, 12), id: 3)
     ],
     activities: [
-        [],
-        []
-      ]
-    );
+      [],
+      []
+    ]);
+
+Parents currentUser = Parents(
+  name: FirebaseAuth.instance.currentUser?.email ?? "No name",
+  photoPath: FirebaseAuth.instance.currentUser?.photoURL ??
+      "assets/images/appImages/ianzinho.jpg",
+  dependents: [], // Add the children of the current user here
+);
 
 Parents joana = Parents(
     name: "Joana Dias",
@@ -79,7 +85,7 @@ int diffDays(DateTime date) {
   return now.difference(date).inDays;
 }
 
-class Lession{
+class Lession {
   final int id;
   final String title;
   final String description;
@@ -93,7 +99,7 @@ class Lession{
   });
 }
 
-class Activitie{
+class Activitie {
   final int id;
   final String title;
   final String description;
@@ -111,6 +117,6 @@ class Activitie{
     this.pageDescription = "",
     this.lessionsList = const [],
     this.level = 1,
-    this.backgroundColors = const [Color(0XFF1290A2),Color(0xFF82DA59)],
+    this.backgroundColors = const [Color(0XFF1290A2), Color(0xFF82DA59)],
   });
 }
