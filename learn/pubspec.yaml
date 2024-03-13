@@ -38,6 +38,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   firebase_core: ^2.20.0
   firebase_auth: 4.17.7
+  syncfusion_flutter_charts: ^24.2.9
 
 dev_dependencies:
   flutter_test:
@@ -102,6 +103,7 @@ flutter:
   - ./assets/images/appImages/luciano.png
   - ./assets/images/appImages/activitiesBar.png
   - ./assets/images/appImages/AppIconBalloon.png
+  - ./assets/images/appImages/carlos-dias.png
   # Mascot Images
   - ./assets/images/mascote/background.png
   - ./assets/images/mascote/backgroundLarge.png

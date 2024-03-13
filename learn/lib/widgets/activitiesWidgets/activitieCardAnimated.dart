@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:learn/widgets/activitiesWidgets/activitieCardStatic.dart';
 import 'package:learn/pages/activities/activitieMain.dart';
+import 'package:learn/utils/modelsClass.dart';
 
 class ActivitieCard extends StatefulWidget {
   final ActivitieCardStatic activitie;
   final bool isActivitie;
+  final Children? child;
 
   ActivitieCard({
     required this.activitie,
-    this.isActivitie = false
+    this.isActivitie = false,
+    this.child,
   });
 
   @override
@@ -45,7 +48,7 @@ class _ActivitieCardState extends State<ActivitieCard> with SingleTickerProvider
   void _onTap() {
     if (!widget.activitie.isLocked) {
       Navigator.push(
-            context, MaterialPageRoute(builder: (context) => ActivitieMain(content: widget.activitie)?? Container())
+            context, MaterialPageRoute(builder: (context) => ActivitieMain(content: widget.activitie, child: widget.child,)?? Container())
           );
     }
     _animationController

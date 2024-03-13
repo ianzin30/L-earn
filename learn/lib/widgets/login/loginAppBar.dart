@@ -16,7 +16,7 @@ class LoginAppBar extends StatelessWidget {
             'Coinny',
             style: TextStyle(
               fontSize: 24,
-              color: Color(0xFF262B91),
+              color: Color(0xFF7176F3),
               fontFamily: "Fieldwork-Geo",
               fontWeight: FontWeight.w800
             ),

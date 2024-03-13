@@ -12,10 +12,10 @@ class BoxedNumber extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white, //
         borderRadius: BorderRadius.circular(8), 
-        border: Border.all(color: Color(0xFF5B61D7), width: 2), 
+        border: Border.all(color: Color(0xFF5B61D7), width: 1), 
         boxShadow: [
           BoxShadow(
-            color: Colors.blueAccent.withOpacity(0.5), 
+            color: Color(0xff5B61D7).withOpacity(0.3), 
             spreadRadius: 1,
             blurRadius: 3, 
             offset: const Offset(0, 1),

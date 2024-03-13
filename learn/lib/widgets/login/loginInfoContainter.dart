@@ -17,7 +17,7 @@ class LoginInfoContainer extends StatelessWidget {
         Text(
           title,
           style: const TextStyle(
-            fontSize: 24,
+            fontSize: 22,
             color: Color(0xFF4349B8),
             fontFamily: "Fieldwork-Geo",
             fontWeight: FontWeight.w600,
@@ -28,7 +28,7 @@ class LoginInfoContainer extends StatelessWidget {
           description,
           textAlign: TextAlign.center,
           style: const TextStyle(
-            fontSize: 16,
+            fontSize: 15,
             color: Color(0xFF5F5F5F),
             fontFamily: "Fieldwork-Geo",
             fontWeight: FontWeight.w400,

@@ -16,13 +16,14 @@ class ActivitiesList extends StatelessWidget {
     final List<Widget> atividades = [];
     for (var i = 0; i < activitiesList.length; i++) {
       atividades.add(Container(
-        padding: const EdgeInsets.fromLTRB(0, 8, 0, 8),
+        padding: const EdgeInsets.fromLTRB(0, 4, 0, 4),
         child: ActivitieCard(
           activitie: ActivitieCardStatic(
             activitie:activitiesList[i],
             isLocked: i +1 > child.activities.length,
             progress: child.activities.length > i ? getProgress(i, child.activities[i]) : 0,
             ),
+            child: child,
         ),
       ));
     }

@@ -64,7 +64,9 @@ class _ChildrenMainState extends State<ChildrenMain> {
     ];
 
     return Scaffold(
-      body: PageView(
+      body: Stack(
+        children: [
+      PageView(
         controller: _pageController,
         onPageChanged: (index) {
           setState(() {
@@ -73,13 +75,18 @@ class _ChildrenMainState extends State<ChildrenMain> {
         },
         children: _pageOptions,
       ),
-      bottomNavigationBar: (_selectedIndex != 2)
-          ? LearnNavBar(
+      if (_selectedIndex != 2)
+      Positioned(
+        left: 32,
+        right: 32,
+        bottom: 32,
+        child: LearnNavBar(
               selectedIndex: _selectedIndex,
               onItemTapped: _onItemTapped,
               navItems: navItems,
             )
-          : null,
+      )
+      ]),
     );
   }
 }

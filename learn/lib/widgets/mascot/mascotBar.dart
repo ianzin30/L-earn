@@ -14,14 +14,18 @@ class MascotBar extends StatelessWidget implements PreferredSizeWidget {
           alignment: Alignment.center,
           children: [
             Container(
-              height: 40,
-              width: 40,
+              height: 48,
+              width: 48,
               decoration: BoxDecoration(
-                  color: const Color(0xff101573),
+                  gradient: const LinearGradient(
+                    colors:  [Color(0xff646AE3), Color(0XFF262B91)],
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight
+                  ),
                   borderRadius: BorderRadius.circular(10)),
               child: IconButton(
                 icon: const Icon(Icons.arrow_back, color: Colors.white),
-                iconSize: 18,
+                iconSize: 22,
                 onPressed: () {
                   pageController.animateToPage(
                     0,

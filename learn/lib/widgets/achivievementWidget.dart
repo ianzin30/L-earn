@@ -31,16 +31,14 @@ class AchievementsWidget extends StatelessWidget {
         const SizedBox(
           height: 12,
         ),
-        Padding(
-          padding: const EdgeInsets.only(left: 8, right: 8),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
+        Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               AchievementIcon(
                   achievmentId: childAcheivments[0].id,
                   conclusionDate: childAcheivments[0].date,
-                  heigth: screenWidth / 2 - 32,
-                  width: screenWidth / 2 - 32),
+                  heigth: (screenWidth / 2 - 24)*1.1,
+                  width: screenWidth / 2 - 24),
               const SizedBox(width: 16),
               Column(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -48,14 +46,14 @@ class AchievementsWidget extends StatelessWidget {
                   AchievementIcon(
                     achievmentId: childAcheivments[1].id,
                     conclusionDate: childAcheivments[1].date,
-                    heigth: (screenWidth / 2 - 32) / 2 - 8,
-                    width: screenWidth / 2 - 32,
+                    heigth: (((screenWidth / 2 - 24)*1.1)*2/3)-8,
+                    width: screenWidth / 2 - 24,
                   ),
                   const SizedBox(height: 16),
                   InkWell(
                     child: Container(
-                        width: screenWidth / 2 - 32,
-                        height: (screenWidth / 2 - 32) / 2 - 8,
+                        width: screenWidth / 2 - 24,
+                        height: (((screenWidth / 2 - 24)*1.1)*1/3)-8,
                         padding: const EdgeInsets.all(8.0),
                         decoration: BoxDecoration(
                             gradient: const LinearGradient(
@@ -89,7 +87,6 @@ class AchievementsWidget extends StatelessWidget {
               )
             ],
           ),
-        )
       ],
     ));
   }

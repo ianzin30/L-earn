@@ -1,24 +1,40 @@
 import 'package:flutter/material.dart';
-import 'package:learn/pages/parentsPages/childMonitoring.dart';
-import '../../widgets/global/learnAppBar.dart';
-import 'package:learn/widgets/monitoramento.dart';
-import 'package:learn/widgets/achivievementWidget.dart';
+import 'package:flutter/widgets.dart';
+import 'package:learn/widgets/global/learnAppBar.dart';
 import 'package:learn/utils/modelsClass.dart';
+import 'package:syncfusion_flutter_charts/charts.dart';
+import 'package:learn/widgets/childrenMonitoringGraph.dart';
+import 'package:learn/widgets/childrenMonitoringSelector.dart';
 
-class MonitorigPage extends StatelessWidget {
+class MonitoringPage extends StatefulWidget {
   final ValueNotifier<double> pagePosition;
   final Parents parent;
 
-  const MonitorigPage(
-      {required this.pagePosition, required this.parent, Key? key})
-      : super(key: key);
+  MonitoringPage({
+    required this.pagePosition, 
+    required this.parent, Key? key
+    }) : super(key: key);
+
+
+  @override
+  _MonitoringPageState createState() => _MonitoringPageState();
+}
+
+class _MonitoringPageState extends State<MonitoringPage> {
+  Children? selectedChild;
+
+  void _onChildTap(Children? child) {
+    setState(() {
+      selectedChild = child;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: LearnAppBar(
         pageIndex: 2,
-        pagePosition: pagePosition.value,
+        pagePosition: widget.pagePosition.value,
         child: Container(
             alignment: Alignment.centerLeft,
             padding: const EdgeInsets.fromLTRB(14, 48, 14, 0),
@@ -33,7 +49,7 @@ class MonitorigPage extends StatelessWidget {
                       text:
                           "Acompanhe o desempenho dos seus filhos em tempo real, visualize suas conquistas e comemorem juntos!",
                       style:
-                          TextStyle(fontWeight: FontWeight.w300, fontSize: 12))
+                          TextStyle(fontWeight: FontWeight.w400, fontSize: 13))
                 ],
                     style: TextStyle(
                       color: Colors.white,
@@ -41,17 +57,57 @@ class MonitorigPage extends StatelessWidget {
                     )))),
       ),
       body: SingleChildScrollView(
-        child: Container(
-          padding: const EdgeInsets.fromLTRB(14, 16, 14, 16),
-          child: Column(children: [
-            AchievementsWidget(childAcheivments: parent.dependents[0].acheivments,),
-            const SizedBox(height: 24),
-            MonitoringWidget(
-              parent: parent,
-            ), //ChildrenMonitoringBox(child: ,),
-          ]),
-        ),
+        
+        child:Container(
+          alignment: Alignment.centerLeft,
+          padding: const EdgeInsets.fromLTRB(16, 32, 16, 0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+            children: [
+              ChildSelect(
+                isSelected: selectedChild == null,
+                onTap: () => _onChildTap(null),
+                child: null,
+              ),
+              ...widget.parent.dependents
+                  .map((child) => ChildSelect(
+                        isSelected: selectedChild == child,
+                        onTap: () => _onChildTap(child),
+                        child: child,
+                      ))
+                  .toList(),
+            ],
+          ),),
+          const SizedBox(height: 8,),
+          const Text("XP da semana", style: TextStyle(fontFamily: "Fieldwork-Geo", color: Color(0xFF000000), fontWeight: FontWeight.bold,fontSize: 14),),
+          const Text("Veja a quantidade de XP coletada ao longo da\nsemana pelos seus filhos.", style: TextStyle(fontFamily: "Fieldwork-Geo", color: Color(0xFF5c5c5c),fontSize: 12),),
+          const SizedBox(height: 8,),
+          Container(
+            height: 280,
+            padding: const EdgeInsets.all(16),
+            decoration: BoxDecoration(
+              color:  const Color(0xFFfffbfe),
+              borderRadius: BorderRadius.circular(20),
+              boxShadow:  [BoxShadow(
+                color: Color(0xFF5C5C5C).withOpacity(0.3),
+                spreadRadius: 1,
+                blurRadius: 3,
+                offset:  Offset(1, 1),
+              )]
+            ) ,
+            child:ChildrenMonitoringGraph(
+            children: widget.parent.dependents,
+            selectedChild: selectedChild,
+          ),
+          )
+        ],
       ),
+      ),)
+
     );
   }
 }

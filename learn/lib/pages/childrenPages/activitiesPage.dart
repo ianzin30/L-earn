@@ -17,9 +17,13 @@ class ChildrenActivitiesPage extends StatelessWidget {
 
 
     return Scaffold(
-      appBar: LearnAppBarSuper(
-        superHeigth: 320,
-        superWidget: RichText(
+      appBar: LearnAppBar(
+        pageIndex: 1,
+        pagePosition: pagePosition.value,
+        heigth: 210,
+        child: Container(
+          padding: const EdgeInsets.fromLTRB(16, 64, 16, 0),
+          child:RichText(
           text: const TextSpan(children: [
             TextSpan(
                 text: 'Atividades\n',
@@ -30,19 +34,17 @@ class ChildrenActivitiesPage extends StatelessWidget {
                     fontWeight: FontWeight.w600)),
             TextSpan(
                 text:
-                    'Aprenda com o Connie sobre educação financeira,\nde forma lúdica e rápida.Vamos lá?!',
+                    '\nAprenda com o Connie sobre educação financeira,\nde forma lúdica e rápida.Vamos lá?!',
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 12,
                     fontFamily: "Fieldwork-Geo",
                     fontWeight: FontWeight.w300))
           ]),
-        ),
-        pageIndex: 1,
-        pagePosition: pagePosition.value,
+        ),)
       ),
       body: Container(
-          padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
+          padding: const EdgeInsets.fromLTRB(16, 32, 16, 0),
           child: SingleChildScrollView(
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -63,7 +65,7 @@ class ChildrenActivitiesPage extends StatelessWidget {
                       fontSize: 12,
                       fontWeight: FontWeight.w300),
                 ),
-                const SizedBox(height: 16),
+                const SizedBox(height: 8),
                 ActivitiesList(child: child)
               ]))),
     );

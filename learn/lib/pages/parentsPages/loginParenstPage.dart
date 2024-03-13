@@ -26,18 +26,18 @@ class LoginInputFields extends StatelessWidget {
                   fontFamily: "Fieldwork-Geo",
                   fontWeight: FontWeight.w400,
                   color: Color(0xff5A5A5A),
-                  fontSize: 12),
+                  fontSize: 13),
               decoration: InputDecoration(
                 labelStyle: const TextStyle(
                     fontFamily: "Fieldwork-Geo",
                     fontWeight: FontWeight.w400,
                     color: Color(0xff9A9A9A),
-                    fontSize: 12),
+                    fontSize: 13),
                 labelText: 'Email',
                 border:
                     OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
                 focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(8),
                   borderSide: const BorderSide(
                     color: Color(0xff7A7FFF),
                   ),
@@ -54,18 +54,18 @@ class LoginInputFields extends StatelessWidget {
                 fontFamily: "Fieldwork-Geo",
                 fontWeight: FontWeight.w400,
                 color: Color(0xff5A5A5A),
-                fontSize: 12),
+                fontSize: 13),
             decoration: InputDecoration(
               labelStyle: const TextStyle(
                   fontFamily: "Fieldwork-Geo",
                   fontWeight: FontWeight.w400,
                   color: Color(0xff9A9A9A),
-                  fontSize: 12),
+                  fontSize: 13),
               labelText: 'Senha',
               border:
                   OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
               focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(8),
                 borderSide: const BorderSide(
                   color: Color(0xff7A7FFF),
                 ),

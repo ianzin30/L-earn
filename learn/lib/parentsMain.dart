@@ -4,14 +4,12 @@ import 'widgets/global/navBar.dart';
 import 'pages/parentsPages/profilePage.dart';
 import 'pages/parentsPages/monitoringPage.dart';
 
-
 // Dados mockados
 import 'package:learn/utils/modelsClass.dart';
 
-
 class ParentsMain extends StatefulWidget {
   final Parents parent;
-  
+
   ParentsMain({required this.parent});
 
   @override
@@ -22,7 +20,6 @@ class _ParentsMainState extends State<ParentsMain> {
   int _selectedIndex = 0;
   PageController _pageController = PageController();
   ValueNotifier<double> pagePosition = ValueNotifier(0.0);
-
 
   @override
   void initState() {
@@ -57,9 +54,16 @@ class _ParentsMainState extends State<ParentsMain> {
   @override
   Widget build(BuildContext context) {
     List<Widget> _pageOptions = [
-      ParentsHPage(pagePosition: pagePosition, parent: widget.parent,),
-      MonitorigPage(pagePosition: pagePosition, parent: widget.parent),
-      ProfilePage(pagePosition: pagePosition,  parent: widget.parent,pageController: _pageController,)
+      ParentsHPage(
+        pagePosition: pagePosition,
+        parent: widget.parent,
+      ),
+      MonitoringPage(parent: widget.parent, pagePosition: pagePosition),
+      ProfilePage(
+        pagePosition: pagePosition,
+        parent: widget.parent,
+        pageController: _pageController,
+      )
     ];
 
     List<Map<String, dynamic>> navItems = [
@@ -69,20 +73,27 @@ class _ParentsMainState extends State<ParentsMain> {
     ];
 
     return Scaffold(
-      body: PageView(
-        controller: _pageController,
-        onPageChanged: (index) {
-          setState(() {
-            _selectedIndex = index;
-          });
-        },
-        children: _pageOptions,
-      ),
-      bottomNavigationBar: LearnNavBar(
-        selectedIndex: _selectedIndex,
-        onItemTapped: _onItemTapped,
-        navItems: navItems,
-      ),
-    );
+        body: Stack(
+      children: [
+        PageView(
+          controller: _pageController,
+          onPageChanged: (index) {
+            setState(() {
+              _selectedIndex = index;
+            });
+          },
+          children: _pageOptions,
+        ),
+        Positioned(
+            left: 32,
+            right: 32,
+            bottom: 32,
+            child: LearnNavBar(
+              selectedIndex: _selectedIndex,
+              onItemTapped: _onItemTapped,
+              navItems: navItems,
+            ))
+      ],
+    ));
   }
 }
