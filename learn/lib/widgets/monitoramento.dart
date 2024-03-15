@@ -91,7 +91,7 @@ class ChildMonitoringBox extends StatelessWidget {
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.circular(50),
-                child: Image.asset(child.photoPath, height: 48),
+                child: Image.asset(child.photoPath, height: 54),
               ),
               const SizedBox(width: 16.0),
               Column(
@@ -99,22 +99,22 @@ class ChildMonitoringBox extends StatelessWidget {
                 children: [
                   Text(child.name,
                       style: const TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold,
+                          fontSize: 15,
+                          fontWeight: FontWeight.w400,
                           fontFamily: 'Fieldwork-Geo')),
                   Text('${diffYears(child.birthdate)} anos',
                       style: const TextStyle(
-                          fontSize: 10, fontFamily: 'Fieldwork-Geo')),
-                  const Row(children: [
+                          fontSize: 11, fontFamily: 'Fieldwork-Geo')),
+                   Row(children: [
                     LevelBox(text: "Prata I"),
-                    LevelBox(text: "12 trilhas concluídas"),
+                    LevelBox(text: "${child.activities.length} trilhas concluídas"),
                   ])
                 ],
               ),
               const Spacer(),
               Image.asset(
                 "assets/images/appIcons/silver-badge.png",
-                width: 60,
+                width: 54,
               )
             ],
           ),
@@ -130,25 +130,24 @@ class LevelBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(right: 4),
+      margin: const EdgeInsets.only(right: 8),
       padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
       decoration: BoxDecoration(
-        color: const Color(0xFFFEFEFE),
+        color: const Color(0xFFfffbfe),
         borderRadius: BorderRadius.circular(3.75),
-        //border: Border.all(color: const Color(0xFFA9A9A9), width: 1),
-        boxShadow: const [
+        boxShadow:  [
           BoxShadow(
-            color: Color(0xFFA9A9A9),
+            color: const Color(0xFFA9A9A9).withOpacity(0.3),
             spreadRadius: 0.01,
-            blurRadius: 0.75,
-            offset: Offset(0, 3),
+            blurRadius: 5,
+            offset: const Offset(1, 3),
           )
         ],
       ),
       child: Text(text,
           style: const TextStyle(
               fontSize: 8,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w400,
               fontFamily: 'Fieldwork-Geo')),
     );
   }

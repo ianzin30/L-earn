@@ -57,7 +57,7 @@ class _SelectedGoalsState extends State<SelectedGoals> {
                     style: TextStyle(
                       color:
                           isSelected ? Colors.white : const Color(0xFF4C4C4C),
-                      fontSize: 12,
+                      fontSize: 13,
                       fontFamily: "Fieldwork-Geo",
                       fontWeight: FontWeight.w300,
                     ),

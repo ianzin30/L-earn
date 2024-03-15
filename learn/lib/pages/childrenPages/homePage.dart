@@ -39,7 +39,7 @@ class ChildrenHomePage extends StatelessWidget {
                     firstLine: "Seja bem-vindo,\n",
                     fontWeight1: FontWeight.w400,
                     secondLine: child.name,
-                    fontWeight2: FontWeight.bold,
+                    fontWeight2: FontWeight.w500,
                   ),
                   StreakWidget(
                       streakDays:
@@ -81,6 +81,7 @@ class ChildrenHomePage extends StatelessWidget {
                 progress: getProgress(
                     child.lastActivitie, child.activities[child.lastActivitie]),
               ),
+              child: child,
             ),
             const SizedBox(height: 40),
             AchievementsWidget(

@@ -53,9 +53,10 @@ class LoginChildPageState extends State<LoginChildPage> {
 
   @override
   Widget build(BuildContext context) {
+  
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.all(50.0),
+        padding: const EdgeInsets.all(54.0),
         child: Column(
           children: <Widget>[
             SizedBox(
@@ -65,22 +66,44 @@ class LoginChildPageState extends State<LoginChildPage> {
             Expanded(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  const LoginInfoContainer(
-                      title: 'Código de acesso',
-                      description:
-                          'O seu código de acesso pode ser retirado com os seus responsáveis'),
+                children: <Widget> [
+                  const Column(
+                    children: [
+                      Text(
+                        "Código de acesso",
+                        style:  TextStyle(
+                          fontSize: 22,
+                          color: Color(0xFF4349B8),
+                          fontFamily: "Fieldwork-Geo",
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                       SizedBox(
+                        height: 24.0,
+                      ),
+                      Text(
+                          "O seu código de acesso pode ser retirado com os seus responsáveis",
+                          textAlign: TextAlign.center,
+                          style:  TextStyle(
+                            fontSize: 16,
+                            color: Color(0xFF5F5F5F),
+                            fontFamily: "Fieldwork-Geo",
+                            fontWeight: FontWeight.w500,
+                          )),
+                    ],
+                  ),
+
                   const SizedBox(height: 32.0),
                   Row(
                     children: List.generate(
                       4,
                       (index) => Expanded(
                         child: AspectRatio(
-                          aspectRatio: 1 / 1,
+                          aspectRatio: 4 / 5,
                           child: Container(
                             margin: const EdgeInsets.all(4.0),
                             width: MediaQuery.of(context).size.width * 0.2,
-                            height: MediaQuery.of(context).size.height * 0.1,
+                            height: MediaQuery.of(context).size.height * 0.2,
                             decoration: BoxDecoration(
                               color: Colors.white,
                               borderRadius: BorderRadius.circular(8.0),
@@ -95,17 +118,19 @@ class LoginChildPageState extends State<LoginChildPage> {
                                 maxLength: 1,
                                 style: const TextStyle(
                                   color: Colors.black,
-                                  fontSize: 32.0,
+                                  fontSize: 24.0,
                                   fontWeight: FontWeight.bold,
                                 ),
                                 cursorColor: Colors.black,
-                                decoration: const InputDecoration(
+                                // Estilo da borda
+                                decoration:const InputDecoration(
+
                                   border: InputBorder.none,
                                   counterText: '',
                                   hintText: '0',
                                   hintStyle: TextStyle(
                                     color: Colors.grey,
-                                    fontSize: 32.0,
+                                    fontSize: 24.0,
                                   ),
                                 ),
                                 controller: controllers[index],
@@ -120,6 +145,7 @@ class LoginChildPageState extends State<LoginChildPage> {
                   ),
                   const SizedBox(height: 54.0),
                   LoginEnterButton(
+
                       onPressed: () async {
                         String enteredCode = values.join();
                         QuerySnapshot snapshot = await FirebaseFirestore

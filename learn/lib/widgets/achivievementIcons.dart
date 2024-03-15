@@ -38,16 +38,7 @@ class AchievementIcon extends StatelessWidget {
                 ),
                 borderRadius:
                     BorderRadius.circular(12.5), // Arredondamento das bordas
-                boxShadow: !isLocked
-                    ? [
-                        const BoxShadow(
-                          color: Color(0xFFA1A1A1),
-                          spreadRadius: 1,
-                          blurRadius: 10,
-                          offset: Offset(0, 0),
-                        )
-                      ]
-                    : null),
+                ),
             child: Stack(
               children: [
                 Center(

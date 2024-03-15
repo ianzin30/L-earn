@@ -11,13 +11,10 @@ class StreakWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
       decoration: BoxDecoration(
-        gradient: const LinearGradient(colors: [
-          Color.fromRGBO(84, 88, 177, 1.0),
-          Color.fromRGBO(49, 53, 142, 1.0)
-        ], begin: Alignment.centerLeft, end: Alignment.centerRight),
         borderRadius: BorderRadius.circular(6.63),
+        border: Border.all(color: Colors.white, width: 1.0)
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min, // To fit the content

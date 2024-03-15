@@ -17,18 +17,21 @@ class Children {
   final List<List<int>> activities;
   final List<AcheivmentsDate> acheivments;
   int lastActivitie;
+  final List<int> xpPerDay;
 
-  Children(
-      {required this.name,
-      required this.birthdate,
-      this.photoPath = "assets/images/appImages/ianzinho.jpg",
-      this.pontuation = 0,
-      this.activities = const [],
-      this.goals = const [],
-      this.acheivments = const [],
-      this.lastAccsess,
-      this.lastActivitie = 0});
-}
+  Children({
+    required this.name,
+    required this.birthdate,
+    this.photoPath = "assets/images/appImages/ianzinho.jpg",
+    this.pontuation = 0,
+    this.activities = const [],
+    this.goals = const [],
+    this.acheivments = const [],
+    this.lastAccsess,
+    this.lastActivitie = 0,
+    this.xpPerDay = const [],
+  });
+
 
 class Parents {
   String name;
@@ -43,7 +46,7 @@ class Parents {
 }
 
 Children luciano = Children(
-    name: "Luciano",
+    name: "Luciano Dias",
     birthdate: DateTime(2012, 11, 4),
     pontuation: 1200,
     photoPath: "assets/images/appImages/luciano.png",
@@ -54,20 +57,22 @@ Children luciano = Children(
       AcheivmentsDate(date: DateTime(2024, 01, 12), id: 3)
     ],
     activities: [
-      [],
-      []
-    ]);
+        [],
+        []
+      ],
+    xpPerDay: [200, 500, 200, 700, 400, 50, 200]
+);
 
 Parents currentUser = Parents(
   name: FirebaseAuth.instance.currentUser?.email ?? "No name",
   photoPath: FirebaseAuth.instance.currentUser?.photoURL ??
       "assets/images/appImages/ianzinho.jpg",
   dependents: [luciano], // Add the children of the current user here
-);
+  );
 
 Parents joana = Parents(
     name: "Joana Dias",
-    dependents: [luciano],
+    dependents: [luciano, carlos],
     photoPath: "assets/images/appImages/joana-dias.png");
 
 int diffYears(DateTime birthDate) {

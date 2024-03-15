@@ -16,7 +16,7 @@ class LessionCardStatic extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final color = isLocked
-        ? const Color(0xFF3C3C3C)
+        ? const Color(0xFF3C3C3C).withOpacity(0.5)
         : isFinished
             ? const Color(0xFF179A53)
             : const Color(0xFF4349B8);
@@ -27,7 +27,7 @@ class LessionCardStatic extends StatelessWidget {
         padding: const EdgeInsets.all(16),
         width: width - 32,
         decoration: BoxDecoration(
-            color: color.withOpacity(isFinished ? 0.3 : 0.0),
+            color: color.withOpacity(isFinished ? 0.05 : 0.0),
             border: Border.all(color: color, width: 1),
             borderRadius: BorderRadius.circular(10)
             ),
@@ -37,19 +37,19 @@ class LessionCardStatic extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
-                width: width * 0.6,
+                width: width * 0.75,
                 child: RichText(
                   text: TextSpan(
                       children: [
                         TextSpan(
                           text: "${lession.title}\n\n",
                           style: const TextStyle(
-                              fontSize: 12, fontWeight: FontWeight.w700),
+                              fontSize: 13, fontWeight: FontWeight.w700),
                         ),
                         TextSpan(
                           text: lession.description,
                           style: const TextStyle(
-                              fontSize: 10, fontWeight: FontWeight.w300),
+                              fontSize: 11, fontWeight: FontWeight.w400),
                         ),
                       ],
                       style: TextStyle(
