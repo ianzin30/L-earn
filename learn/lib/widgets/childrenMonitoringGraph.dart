@@ -54,21 +54,25 @@ class ChildrenMonitoringGraph extends StatelessWidget {
     return SfCartesianChart(
       legend: Legend(isVisible: true, overflowMode: LegendItemOverflowMode.wrap),
       primaryXAxis: CategoryAxis(),
-      primaryYAxis: NumericAxis(minimum: 0, maximum: 1000),
+      primaryYAxis: NumericAxis(minimum: 0, maximum: 1000, interval: 200),
       series: List.generate(
         chartData.length,
         (index) => AreaSeries<_ChartData, String>(
           dataSource: chartData[index],
-          color: colors[index % colors.length].withOpacity(0.3),
+          color: colors[index % colors.length].withOpacity(0.7),
           name: names[index],
+          borderDrawMode: BorderDrawMode.top,
+          borderColor: colors[index % colors.length].withOpacity(0.5),
+          borderWidth: 1,
           xValueMapper: (_ChartData data, _) => data.x,
           yValueMapper: (_ChartData data, _) => data.y,
           gradient: LinearGradient(
-            colors: [colors[index % colors.length], colors[index % colors.length].withOpacity(0)],
+            colors: [colors[index % colors.length].withOpacity(0), colors[index % colors.length].withOpacity(0.8)],
             begin: Alignment.bottomCenter,
             end: Alignment.topCenter,
           ),
         ),
+        
       ),
     );
   }
