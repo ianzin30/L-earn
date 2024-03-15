@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class AcheivmentsDate {
@@ -30,7 +31,7 @@ class Children {
     this.lastActivitie = 0,
     this.xpPerDay = const [],
   });
-}
+
 
 class Parents {
   String name;
@@ -62,23 +63,12 @@ Children luciano = Children(
     xpPerDay: [200, 500, 200, 700, 400, 50, 200]
 );
 
-Children carlos = Children(
-    name: "Carlos Dias",
-    birthdate: DateTime(2012, 11, 4),
-    pontuation: 1200,
-    photoPath: "assets/images/appImages/carlos-dias.png",
-    lastAccsess: DateTime(2024, 02, 28),
-    acheivments: [
-      AcheivmentsDate(date: DateTime(2024, 01, 12), id: 1),
-      AcheivmentsDate(date: DateTime(2024, 01, 12), id: 2),
-      AcheivmentsDate(date: DateTime(2024, 01, 12), id: 3)
-    ],
-    activities: [
-        [0],
-        []
-      ],
-    xpPerDay: [100, 200, 400, 100, 500, 200, 200]
-);
+Parents currentUser = Parents(
+  name: FirebaseAuth.instance.currentUser?.email ?? "No name",
+  photoPath: FirebaseAuth.instance.currentUser?.photoURL ??
+      "assets/images/appImages/ianzinho.jpg",
+  dependents: [luciano], // Add the children of the current user here
+  );
 
 Parents joana = Parents(
     name: "Joana Dias",
@@ -100,7 +90,7 @@ int diffDays(DateTime date) {
   return now.difference(date).inDays;
 }
 
-class Lession{
+class Lession {
   final int id;
   final String title;
   final String description;
@@ -114,7 +104,7 @@ class Lession{
   });
 }
 
-class Activitie{
+class Activitie {
   final int id;
   final String title;
   final String description;
@@ -132,6 +122,6 @@ class Activitie{
     this.pageDescription = "",
     this.lessionsList = const [],
     this.level = 1,
-    this.backgroundColors = const [Color(0XFF1290A2),Color(0xFF82DA59)],
+    this.backgroundColors = const [Color(0XFF1290A2), Color(0xFF82DA59)],
   });
 }
