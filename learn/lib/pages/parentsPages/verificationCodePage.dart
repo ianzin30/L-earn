@@ -4,13 +4,12 @@ import 'package:learn/widgets/boxedNumber.dart';
 
 class VerificationCodePage extends StatelessWidget {
   final String childrenName;
-
-  VerificationCodePage({required this.childrenName});
+  final List<int> childrenCode; // Change this line
+  const VerificationCodePage(
+      {required this.childrenName, required this.childrenCode});
 
   @override
   Widget build(BuildContext context) {
-
-    final List<int> numbersList = [1, 2, 3, 4];
     return Scaffold(
       body: Center(
           child: Column(
@@ -47,7 +46,7 @@ class VerificationCodePage extends StatelessWidget {
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: numbersList.map((e) => BoxedNumber(e)).toList(),
+            children: childrenCode.map((e) => BoxedNumber(e)).toList(),
           ),
           const SizedBox(height: 64),
           LoginEnterButton(

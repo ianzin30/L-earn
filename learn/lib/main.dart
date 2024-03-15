@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
       home: LoginPage(), // Começa com a página de login
       routes: {
         '/parentsMain': (context) => ParentsMain(
-              parent: joana,
+              parent: currentUser,
             ), // Rota para a home dos pais
         '/childrenMain': (context) =>
             ChildrenMain(child: luciano), // Rota para a home das crianças
