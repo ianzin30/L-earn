@@ -27,7 +27,7 @@ class MascotPage extends StatelessWidget {
              padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 25.0),
              child: GlobalProgress(pontuation: child.pontuation, name: "Coinny") 
           ),
-          MascoteWidget(),
+          MascoteWidget(child: child),
           MascotSideBar(pageController: pageController),
         ],
       ),
