@@ -31,6 +31,7 @@ class Children {
     this.lastActivitie = 0,
     this.xpPerDay = const [],
   });
+}
 
 
 class Parents {
@@ -50,6 +51,24 @@ Children luciano = Children(
     birthdate: DateTime(2012, 11, 4),
     pontuation: 1200,
     photoPath: "assets/images/appImages/luciano.png",
+    lastAccsess: DateTime(2024, 02, 28),
+    acheivments: [
+      AcheivmentsDate(date: DateTime(2024, 01, 12), id: 1),
+      AcheivmentsDate(date: DateTime(2024, 01, 12), id: 2),
+      AcheivmentsDate(date: DateTime(2024, 01, 12), id: 3)
+    ],
+    activities: [
+        [],
+        []
+      ],
+    xpPerDay: [200, 500, 200, 700, 400, 50, 200]
+);
+
+Children carlos = Children(
+    name: "Carlos Dias",
+    birthdate: DateTime(2012, 11, 4),
+    pontuation: 1200,
+    photoPath: "assets/images/appImages/carlos-dias.png",
     lastAccsess: DateTime(2024, 02, 28),
     acheivments: [
       AcheivmentsDate(date: DateTime(2024, 01, 12), id: 1),
