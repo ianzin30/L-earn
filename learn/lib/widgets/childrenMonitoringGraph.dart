@@ -35,8 +35,8 @@ class ChildrenMonitoringGraph extends StatelessWidget {
     }
     
     List<String> names = selectedChild == null
-      ? ['Todos'] + children.map((child) => child.name).toList()
-      : [selectedChild!.name];
+      ? ['Todos'] + children.map((child) => child.name.split(' ')[0]).toList()
+      : [selectedChild!.name.split(' ')[0]];
 
     List<List<_ChartData>> chartData = [];
     if (selectedChild == null) {
@@ -52,7 +52,10 @@ class ChildrenMonitoringGraph extends StatelessWidget {
     //double maxYValue = chartData.expand((x) => x).map((data) => data.y).reduce(max) + 100;
 
     return SfCartesianChart(
-      legend: Legend(isVisible: true, overflowMode: LegendItemOverflowMode.wrap),
+      legend: Legend(
+        isVisible: true, overflowMode: LegendItemOverflowMode.scroll,alignment: ChartAlignment.near, textStyle:TextStyle(
+          color: Colors.black, fontWeight: FontWeight.bold
+        ) ),
       primaryXAxis: CategoryAxis(),
       primaryYAxis: NumericAxis(minimum: 0, maximum: 1000, interval: 200),
       series: List.generate(
@@ -64,6 +67,7 @@ class ChildrenMonitoringGraph extends StatelessWidget {
           borderDrawMode: BorderDrawMode.top,
           borderColor: colors[index % colors.length].withOpacity(0.5),
           borderWidth: 1,
+          legendIconType: LegendIconType.circle,
           xValueMapper: (_ChartData data, _) => data.x,
           yValueMapper: (_ChartData data, _) => data.y,
           gradient: LinearGradient(

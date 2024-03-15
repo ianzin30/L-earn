@@ -127,7 +127,7 @@ class _MonitoringPageState extends State<MonitoringPage> {
                 height: 119 * 0.25)
             )
           ),
-          const SizedBox(height: 8,)
+          const SizedBox(height: 110,)
         ],
       ),
       ),)
