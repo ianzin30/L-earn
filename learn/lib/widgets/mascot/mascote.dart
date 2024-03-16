@@ -28,10 +28,10 @@ class MascoteWidget extends StatelessWidget {
           Center(
             child:(streakDays > 2)? Image.asset(
               'assets/images/mascote/mascote.png',
-              width: MediaQuery.of(context).size.width * 0.6, // ajuste conforme necessário
+              width: MediaQuery.of(context).size.width * 0.6,
             ): Image.asset(
               'assets/images/mascote/mascot-sad.png',
-              width: MediaQuery.of(context).size.width * 0.6, // ajuste conforme necessário
+              width: MediaQuery.of(context).size.width * 0.6,
             )
           ),
       ],

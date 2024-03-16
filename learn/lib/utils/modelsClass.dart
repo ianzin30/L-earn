@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 final DateTime now = DateTime.now();
+final today = DateTime(now.year, now.month, now.day);
 
 class AcheivmentsDate {
   DateTime date;
@@ -37,15 +38,24 @@ class Children{
   });
 }
 
-class VolatileChildren extends ValueNotifier{
+class VolatileChildren extends ValueNotifier<Children>{
   Children children;
 
   VolatileChildren({required this.children}) : super(children);
 
-  void addPontuation(int value){
-    children.pontuation += value;
+  void setChildren(Children children){
+    this.children = children;
     notifyListeners();
   }
+
+  void addPontuation(int value){
+    children.pontuation += value;
+    print(children.pontuation);
+    children.xpPerDay.update(today, (existingValue) => existingValue + value, ifAbsent: () => value);
+    notifyListeners();
+  }
+
+  void updateDB(){}
 }
 
 class Parents {
@@ -77,16 +87,18 @@ Children luciano = Children(
         [],
       ],
     xpPerDay: {
-      DateTime(now.year, now.month, now.day).subtract(const Duration(days: 7)) : 100,
-      DateTime(now.year, now.month, now.day).subtract(const Duration(days: 6)) : 200,
-      DateTime(now.year, now.month, now.day).subtract(const Duration(days: 5)) : 400,
-      DateTime(now.year, now.month, now.day).subtract(const Duration(days: 4)) : 100,
-      DateTime(now.year, now.month, now.day).subtract(const Duration(days: 3)) : 20,
-      DateTime(now.year, now.month, now.day).subtract(const Duration(days: 2)) : 100,
-      DateTime(now.year, now.month, now.day).subtract(const Duration(days: 1)) : 160,
-      DateTime(now.year, now.month, now.day).subtract(const Duration(days: 0)) : 100,
+      today.subtract(const Duration(days: 7)) : 100,
+      today.subtract(const Duration(days: 6)) : 200,
+      today.subtract(const Duration(days: 5)) : 400,
+      today.subtract(const Duration(days: 4)) : 100,
+      today.subtract(const Duration(days: 3)) : 20,
+      today.subtract(const Duration(days: 2)) : 100,
+      today.subtract(const Duration(days: 1)) : 160,
+      today.subtract(const Duration(days: 0)) : 100,
     }
 );
+
+//VolatileChildren childUser = VolatileChildren(children: luciano);
 
 Children carlos = Children(
   childrenCode: [0 ,0 , 0, 0],
@@ -105,14 +117,14 @@ Children carlos = Children(
         [],
       ],
     xpPerDay:{
-      DateTime(now.year, now.month, now.day).subtract(const Duration(days: 7)) : 50,
-      DateTime(now.year, now.month, now.day).subtract(const Duration(days: 6)) : 100,
-      DateTime(now.year, now.month, now.day).subtract(const Duration(days: 5)) : 200,
-      DateTime(now.year, now.month, now.day).subtract(const Duration(days: 4)) : 100,
-      DateTime(now.year, now.month, now.day).subtract(const Duration(days: 3)) : 300,
-      DateTime(now.year, now.month, now.day).subtract(const Duration(days: 2)) : 120,
-      DateTime(now.year, now.month, now.day).subtract(const Duration(days: 1)) : 120,
-      DateTime(now.year, now.month, now.day).subtract(const Duration(days: 0)) : 80,
+      today.subtract(const Duration(days: 7)) : 50,
+      today.subtract(const Duration(days: 6)) : 100,
+      today.subtract(const Duration(days: 5)) : 200,
+      today.subtract(const Duration(days: 4)) : 100,
+      today.subtract(const Duration(days: 3)) : 300,
+      today.subtract(const Duration(days: 2)) : 120,
+      today.subtract(const Duration(days: 1)) : 120,
+      today.subtract(const Duration(days: 0)) : 80,
     }
 );
 

@@ -4,6 +4,7 @@ import 'package:learn/widgets/mascot/mascote.dart';
 import 'package:learn/widgets/mascot/mascotBar.dart';
 import 'package:learn/widgets/mascot/mascotSideBar.dart';
 import 'package:learn/widgets/globalProgressWidget.dart';
+import 'package:provider/provider.dart';
 
 
 class MascotPage extends StatelessWidget {
@@ -19,13 +20,14 @@ class MascotPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    VolatileChildren children = Provider.of<VolatileChildren>(context);
     return Scaffold(
       appBar: MascotBar(pageController: pageController),
       body: Stack(
         children: [
           Container(
              padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 25.0),
-             child: GlobalProgress(pontuation: child.pontuation, name: "Coinny") 
+             child: GlobalProgress(pontuation: children.value.pontuation, name: "Coinny") 
           ),
           MascoteWidget(child: child),
           MascotSideBar(pageController: pageController),
