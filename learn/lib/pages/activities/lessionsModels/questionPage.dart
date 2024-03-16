@@ -26,6 +26,7 @@ class QuestionPage extends StatefulWidget {
 
 class _QuestionPageState extends State<QuestionPage> {
   int selecionada = -1;
+  bool marked = false;
 
   @override
   Widget build(BuildContext context) {
@@ -114,11 +115,11 @@ class _QuestionPageState extends State<QuestionPage> {
                   ),
                   buttonColor: const Color(0xFFFFFFFF),
                   width: 120,
-                  onPressed: () {
+                  onPressed: marked? () {
                     widget.pageController.nextPage(
                         duration: const Duration(milliseconds: 500),
                         curve: Curves.ease);
-                  },
+                  }: null,
                 ),
               ],
             ),
@@ -140,6 +141,9 @@ class _QuestionPageState extends State<QuestionPage> {
           children: widget.options.asMap().entries.map((entry) {
             int idx = entry.key;
             String text = entry.value;
+            if (selecionada == idx){
+              marked = true;
+            }
             return _buildOption(idx, text, context);
           }).toList(),
         )
