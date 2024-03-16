@@ -2,6 +2,9 @@
 import 'package:flutter/material.dart';
 import 'package:learn/widgets/mascot/mascotSideBarIcon.dart';
 import 'package:learn/pages/parentsPages/addDependentPage.dart';
+import 'package:learn/utils/modelsClass.dart';
+import 'package:provider/provider.dart';
+
 
 
 class MascotSideBar extends StatelessWidget {
@@ -11,6 +14,7 @@ class MascotSideBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+  VolatileChildren children = Provider.of<VolatileChildren>(context);
   return Positioned(
     left: 10,
     bottom: 50,
@@ -41,9 +45,12 @@ class MascotSideBar extends StatelessWidget {
                 MaterialPageRoute(builder: (context) => AddDependentPage())
               );
             }),
-          MascotSideBarIcon(name:"Alimentos"),
-          MascotSideBarIcon(name:"Atividades"),
-          MascotSideBarIcon(name:"Roupas"),
+          MascotSideBarIcon(name:"Alimentos", onPressed: () {children.addPontuation(200);}),
+          MascotSideBarIcon(name:"Atividades", onPressed: (){children.value.update();},),
+          MascotSideBarIcon(name:"Roupas", onPressed: (){
+              try{loadChildren(children.value.childrenCode);
+              }catch(e) {print(e);}
+          },),
         ],
       ),
     )

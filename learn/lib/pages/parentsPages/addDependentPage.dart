@@ -12,9 +12,6 @@ import 'package:learn/pages/parentsPages/verificationCodePage.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-// ... rest of your code ...
-
-// ... rest of your code ...
 
 class AddDependentPage extends StatefulWidget {
   final Children? children;
@@ -32,7 +29,7 @@ class _AddDependentPageState extends State<AddDependentPage> {
   final TextEditingController _dataNascimentoController =
       TextEditingController();
   List<String> _conteudosSelecionados = [];
-  List<String> _conteudosDisponiveis = [
+  final List<String> _conteudosDisponiveis = [
     "Conteúdos básicos",
     "Finanças",
     "Investimentos",
@@ -70,11 +67,14 @@ class _AddDependentPageState extends State<AddDependentPage> {
       List<int> childrenCode = List<int>.generate(4, (_) => rng.nextInt(10));
 
       Map<String, dynamic> novoDependente = {
-        'nome': nome,
-        'aniversario': aniversario,
+        'name': nome,
+        'birthdate': aniversario,
         'responsavel': responsavel,
         'metas': metas,
         'childrenCode': childrenCode,
+        'acheivments' : [],
+        'activities' : const ["", ""],
+        'xpPerDay' : []
       };
 
       try {
@@ -151,17 +151,6 @@ class _AddDependentPageState extends State<AddDependentPage> {
     );
   }
 
-  // void _saveDependent() {
-  //   print('Dependente salvo:');
-  //   print('Nome: ${_nomeCriancaController.text}');
-  //   print('Data de Nascimento: ${_dataNascimentoController.text}');
-  //   print('Conteúdos Selecionados: $_conteudosSelecionados');
-  //   Navigator.push(
-  //       context,
-  //       MaterialPageRoute(
-  //           builder: (context) => VerificationCodePage(
-  //               childrenName: _nomeCriancaController.text)));
-  // }
 
   @override
   void dispose() {

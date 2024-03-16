@@ -1,5 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+
+final DateTime now = DateTime.now();
+final today = DateTime(now.year, now.month, now.day);
 
 class AcheivmentsDate {
   DateTime date;
@@ -8,6 +12,7 @@ class AcheivmentsDate {
 }
 
 class Children {
+  String childrenCode;
   String name;
   String photoPath;
   DateTime birthdate;
@@ -17,9 +22,10 @@ class Children {
   final List<List<int>> activities;
   final List<AcheivmentsDate> acheivments;
   int lastActivitie;
-  final List<int> xpPerDay;
+  final Map<DateTime, int> xpPerDay;
 
   Children({
+    required this.childrenCode,
     required this.name,
     required this.birthdate,
     this.photoPath = "assets/images/appImages/ianzinho.jpg",
@@ -29,10 +35,130 @@ class Children {
     this.acheivments = const [],
     this.lastAccsess,
     this.lastActivitie = 0,
-    this.xpPerDay = const [],
+    this.xpPerDay = const {},
   });
+
+  Map<String, dynamic> getJson() {
+    return {
+      'name': name,
+      'birthdate': Timestamp.fromDate(birthdate),
+      'photoPath': photoPath,
+      'pontuation': pontuation,
+      'activities': activities.map((e) => e.join(',')).toList(),
+      'goals': goals,
+      'acheivments': acheivments.map((e) {
+        return {
+          'date': Timestamp.fromDate(e.date),
+          'id': e.id,
+        };
+      }).toList(),
+      'lastAccsess': Timestamp.fromDate(lastAccsess ?? today),
+      'lastActivitie': lastActivitie,
+      'xpPerDay': xpPerDay.entries.map(
+        (entry) {
+          return {
+            'date': Timestamp.fromDate(entry.key),
+            'xp': entry.value,
+          };
+        },
+      )
+    };
+  }
+
+  Future<void> update() async {
+    await FirebaseFirestore.instance
+        .collection('children')
+        .doc(childrenCode)
+        .set(getJson())
+        .catchError((error) => print('Erro ao adicionar documento: $error'));
+  }
 }
 
+Future<Children> loadChildren(String childrenCode) async {
+  DocumentSnapshot childData = await FirebaseFirestore.instance
+      .collection('children')
+      .doc(childrenCode)
+      .get();
+
+  if (childData.exists) {
+    String name = childData.get("name");
+    String photoPath = childData.get("photoPath");
+    Timestamp birthdate = childData.get("birthdate");
+    int pontuation = childData.get("pontuation");
+    Timestamp lastAccsess = childData.get("lastAccsess");
+    List<dynamic> getList = childData.get("goals");
+    List<String> goals = getList.map((item) => item.toString()).toList();
+    getList = childData.get("activities");
+    List<String> activitiesStr =
+        getList.map((item) => item.toString()).toList();
+    List<List<int>> activities = [];
+    for (var act in activitiesStr) {
+      try {
+        activities.add(act.split(',').map((e) => int.parse(e)).toList());
+      } catch (e) {
+        activities.add(const []);
+      }
+    }
+    int lastActivitie = childData.get("lastActivitie");
+    getList = childData.get("acheivments");
+
+    List<Map<String, dynamic>> achv = getList.map((item) {
+      if (item is Map) {
+        return Map<String, dynamic>.from(item);
+      } else {
+        return <String, dynamic>{};
+      }
+    }).toList();
+
+    List<AcheivmentsDate> acheivments = achv.map((e) {
+      Timestamp tdate =  e['date'];
+      int id = e['id'];
+      return AcheivmentsDate(
+        date: tdate.toDate(),
+        id: id,
+      );
+    }).toList();
+
+    getList = childData.get("xpPerDay");
+    List<Map<String, dynamic>> xpList = getList.map<Map<String, dynamic>>((item) {return Map<String, dynamic>.from(item);}).toList();
+    Map<DateTime, int> xpPerDay = {};
+    xpList.forEach((e) {
+      xpPerDay[e['date'].toDate()] = e['xp'];
+    });
+    return Children(
+        childrenCode: childrenCode,
+        name: name,
+        birthdate: birthdate.toDate(),
+        photoPath: photoPath,
+        pontuation: pontuation,
+        activities: activities,
+        goals: goals,
+        acheivments: acheivments,
+        lastAccsess: lastAccsess.toDate(),
+        lastActivitie: lastActivitie,
+        xpPerDay: xpPerDay);
+  }
+  throw Exception("Não existe essa criaça no banco de dados");
+}
+
+class VolatileChildren extends ValueNotifier<Children> {
+  Children children;
+
+  VolatileChildren({required this.children}) : super(children);
+
+  void setChildren(Children children) {
+    this.children = children;
+    notifyListeners();
+  }
+
+  void addPontuation(int value) {
+    children.pontuation += value;
+    children.xpPerDay.update(today, (existingValue) => existingValue + value,
+        ifAbsent: () => value);
+    children.update();
+    notifyListeners();
+  }
+}
 
 class Parents {
   String name;
@@ -47,8 +173,9 @@ class Parents {
 }
 
 Children luciano = Children(
+    childrenCode: "1111",
     name: "Luciano Dias",
-    birthdate: DateTime(2012, 11, 4),
+    birthdate: DateTime(2010, 11, 4),
     pontuation: 1200,
     photoPath: "assets/images/appImages/luciano.png",
     lastAccsess: DateTime(2024, 02, 28),
@@ -58,16 +185,25 @@ Children luciano = Children(
       AcheivmentsDate(date: DateTime(2024, 01, 12), id: 3)
     ],
     activities: [
-        [],
-        []
-      ],
-    xpPerDay: [200, 500, 200, 700, 400, 50, 200]
-);
+      [0],
+      [],
+    ],
+    xpPerDay: {
+      today.subtract(const Duration(days: 7)): 100,
+      today.subtract(const Duration(days: 6)): 200,
+      today.subtract(const Duration(days: 5)): 400,
+      today.subtract(const Duration(days: 4)): 100,
+      today.subtract(const Duration(days: 3)): 20,
+      today.subtract(const Duration(days: 2)): 100,
+      today.subtract(const Duration(days: 1)): 160,
+      today.subtract(const Duration(days: 0)): 100,
+    });
 
 Children carlos = Children(
+    childrenCode: "2222",
     name: "Carlos Dias",
     birthdate: DateTime(2012, 11, 4),
-    pontuation: 1200,
+    pontuation: 1600,
     photoPath: "assets/images/appImages/carlos-dias.png",
     lastAccsess: DateTime(2024, 02, 28),
     acheivments: [
@@ -76,18 +212,26 @@ Children carlos = Children(
       AcheivmentsDate(date: DateTime(2024, 01, 12), id: 3)
     ],
     activities: [
-        [],
-        []
-      ],
-    xpPerDay: [200, 500, 200, 700, 400, 50, 200]
-);
+      [0],
+      [],
+    ],
+    xpPerDay: {
+      today.subtract(const Duration(days: 7)): 50,
+      today.subtract(const Duration(days: 6)): 100,
+      today.subtract(const Duration(days: 5)): 200,
+      today.subtract(const Duration(days: 4)): 100,
+      today.subtract(const Duration(days: 3)): 300,
+      today.subtract(const Duration(days: 2)): 120,
+      today.subtract(const Duration(days: 1)): 120,
+      today.subtract(const Duration(days: 0)): 80,
+    });
 
 Parents currentUser = Parents(
   name: FirebaseAuth.instance.currentUser?.email ?? "No name",
   photoPath: FirebaseAuth.instance.currentUser?.photoURL ??
       "assets/images/appImages/ianzinho.jpg",
   dependents: [luciano], // Add the children of the current user here
-  );
+);
 
 Parents joana = Parents(
     name: "Joana Dias",
