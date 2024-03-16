@@ -95,7 +95,6 @@ class _LoginParentsPageState extends State<LoginParentsPage> {
         password: _passwordController.text,
       );
       Navigator.pushReplacementNamed(context, '/parentsMain');
-      //Navigator.pushReplacementNamed(context, '/signUpParents');
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         print('No user found for that email.');

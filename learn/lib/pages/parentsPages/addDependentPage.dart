@@ -70,11 +70,14 @@ class _AddDependentPageState extends State<AddDependentPage> {
       List<int> childrenCode = List<int>.generate(4, (_) => rng.nextInt(10));
 
       Map<String, dynamic> novoDependente = {
-        'nome': nome,
-        'aniversario': aniversario,
+        'name': nome,
+        'birthdate': aniversario,
         'responsavel': responsavel,
         'metas': metas,
         'childrenCode': childrenCode,
+        'acheivments' : [],
+        'activities' : [[], []],
+        'xpPerDay' : []
       };
 
       try {
@@ -151,17 +154,6 @@ class _AddDependentPageState extends State<AddDependentPage> {
     );
   }
 
-  // void _saveDependent() {
-  //   print('Dependente salvo:');
-  //   print('Nome: ${_nomeCriancaController.text}');
-  //   print('Data de Nascimento: ${_dataNascimentoController.text}');
-  //   print('Conteúdos Selecionados: $_conteudosSelecionados');
-  //   Navigator.push(
-  //       context,
-  //       MaterialPageRoute(
-  //           builder: (context) => VerificationCodePage(
-  //               childrenName: _nomeCriancaController.text)));
-  // }
 
   @override
   void dispose() {

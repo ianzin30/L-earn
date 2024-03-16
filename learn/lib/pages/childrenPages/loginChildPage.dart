@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:learn/utils/modelsClass.dart';
 import 'package:learn/widgets/login/loginAppBar.dart';
 import 'package:learn/widgets/login/loginEnterButton.dart';
 import 'package:learn/widgets/login/loginInfoContainter.dart';
@@ -153,10 +154,13 @@ class LoginChildPageState extends State<LoginChildPage> {
                             .collection('dependentes')
                             .get();
                         for (var doc in snapshot.docs) {
-                          Map<String, dynamic> data =
-                              doc.data() as Map<String, dynamic>;
-                          List<int> childrenCode =
-                              List<int>.from(data['childrenCode'] ?? []);
+                          Map<String, dynamic> data = doc.data() as Map<String, dynamic>;
+                          Children(
+                            childrenCode: List<int>.from(data['childrenCode'] ?? []),
+                             name: (data['name'] ?? "No name"),
+                             birthdate: data['birthdate'] ?? DateTime.now(),
+                          );
+                          List<int> childrenCode = List<int>.from(data['childrenCode'] ?? []);
                           String code = childrenCode.join();
                           if (enteredCode == code) {
                             Navigator.pushReplacementNamed(

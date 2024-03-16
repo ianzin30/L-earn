@@ -8,6 +8,7 @@ class AcheivmentsDate {
 }
 
 class Children {
+  List<int> childrenCode;
   String name;
   String photoPath;
   DateTime birthdate;
@@ -20,6 +21,7 @@ class Children {
   final List<int> xpPerDay;
 
   Children({
+    required this.childrenCode,
     required this.name,
     required this.birthdate,
     this.photoPath = "assets/images/appImages/ianzinho.jpg",
@@ -47,6 +49,7 @@ class Parents {
 }
 
 Children luciano = Children(
+  childrenCode: [8,5,5,1],
     name: "Luciano Dias",
     birthdate: DateTime(2012, 11, 4),
     pontuation: 1200,
@@ -58,13 +61,14 @@ Children luciano = Children(
       AcheivmentsDate(date: DateTime(2024, 01, 12), id: 3)
     ],
     activities: [
+        [0],
         [],
-        []
       ],
     xpPerDay: [200, 500, 200, 700, 400, 50, 200]
 );
 
 Children carlos = Children(
+  childrenCode: [0 ,0 , 0, 0],
     name: "Carlos Dias",
     birthdate: DateTime(2012, 11, 4),
     pontuation: 1200,
@@ -76,8 +80,8 @@ Children carlos = Children(
       AcheivmentsDate(date: DateTime(2024, 01, 12), id: 3)
     ],
     activities: [
+        [0],
         [],
-        []
       ],
     xpPerDay: [200, 500, 200, 700, 400, 50, 200]
 );
