@@ -1,13 +1,15 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
+final DateTime now = DateTime.now();
+
 class AcheivmentsDate {
   DateTime date;
   int id;
   AcheivmentsDate({required this.date, required this.id});
 }
 
-class Children {
+class Children{
   List<int> childrenCode;
   String name;
   String photoPath;
@@ -18,7 +20,7 @@ class Children {
   final List<List<int>> activities;
   final List<AcheivmentsDate> acheivments;
   int lastActivitie;
-  final List<int> xpPerDay;
+  final Map<DateTime, int> xpPerDay;
 
   Children({
     required this.childrenCode,
@@ -31,10 +33,20 @@ class Children {
     this.acheivments = const [],
     this.lastAccsess,
     this.lastActivitie = 0,
-    this.xpPerDay = const [],
+    this.xpPerDay = const {},
   });
 }
 
+class VolatileChildren extends ValueNotifier{
+  Children children;
+
+  VolatileChildren({required this.children}) : super(children);
+
+  void addPontuation(int value){
+    children.pontuation += value;
+    notifyListeners();
+  }
+}
 
 class Parents {
   String name;
@@ -51,7 +63,7 @@ class Parents {
 Children luciano = Children(
   childrenCode: [8,5,5,1],
     name: "Luciano Dias",
-    birthdate: DateTime(2012, 11, 4),
+    birthdate: DateTime(2010, 11, 4),
     pontuation: 1200,
     photoPath: "assets/images/appImages/luciano.png",
     lastAccsess: DateTime(2024, 02, 28),
@@ -64,14 +76,23 @@ Children luciano = Children(
         [0],
         [],
       ],
-    xpPerDay: [200, 500, 200, 700, 400, 50, 200]
+    xpPerDay: {
+      DateTime(now.year, now.month, now.day).subtract(const Duration(days: 7)) : 100,
+      DateTime(now.year, now.month, now.day).subtract(const Duration(days: 6)) : 200,
+      DateTime(now.year, now.month, now.day).subtract(const Duration(days: 5)) : 400,
+      DateTime(now.year, now.month, now.day).subtract(const Duration(days: 4)) : 100,
+      DateTime(now.year, now.month, now.day).subtract(const Duration(days: 3)) : 20,
+      DateTime(now.year, now.month, now.day).subtract(const Duration(days: 2)) : 100,
+      DateTime(now.year, now.month, now.day).subtract(const Duration(days: 1)) : 160,
+      DateTime(now.year, now.month, now.day).subtract(const Duration(days: 0)) : 100,
+    }
 );
 
 Children carlos = Children(
   childrenCode: [0 ,0 , 0, 0],
     name: "Carlos Dias",
     birthdate: DateTime(2012, 11, 4),
-    pontuation: 1200,
+    pontuation: 1600,
     photoPath: "assets/images/appImages/carlos-dias.png",
     lastAccsess: DateTime(2024, 02, 28),
     acheivments: [
@@ -83,7 +104,16 @@ Children carlos = Children(
         [0],
         [],
       ],
-    xpPerDay: [200, 500, 200, 700, 400, 50, 200]
+    xpPerDay:{
+      DateTime(now.year, now.month, now.day).subtract(const Duration(days: 7)) : 50,
+      DateTime(now.year, now.month, now.day).subtract(const Duration(days: 6)) : 100,
+      DateTime(now.year, now.month, now.day).subtract(const Duration(days: 5)) : 200,
+      DateTime(now.year, now.month, now.day).subtract(const Duration(days: 4)) : 100,
+      DateTime(now.year, now.month, now.day).subtract(const Duration(days: 3)) : 300,
+      DateTime(now.year, now.month, now.day).subtract(const Duration(days: 2)) : 120,
+      DateTime(now.year, now.month, now.day).subtract(const Duration(days: 1)) : 120,
+      DateTime(now.year, now.month, now.day).subtract(const Duration(days: 0)) : 80,
+    }
 );
 
 Parents currentUser = Parents(

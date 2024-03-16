@@ -12,9 +12,6 @@ import 'package:learn/pages/parentsPages/verificationCodePage.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-// ... rest of your code ...
-
-// ... rest of your code ...
 
 class AddDependentPage extends StatefulWidget {
   final Children? children;
@@ -32,7 +29,7 @@ class _AddDependentPageState extends State<AddDependentPage> {
   final TextEditingController _dataNascimentoController =
       TextEditingController();
   List<String> _conteudosSelecionados = [];
-  List<String> _conteudosDisponiveis = [
+  final List<String> _conteudosDisponiveis = [
     "Conteúdos básicos",
     "Finanças",
     "Investimentos",
@@ -76,7 +73,7 @@ class _AddDependentPageState extends State<AddDependentPage> {
         'metas': metas,
         'childrenCode': childrenCode,
         'acheivments' : [],
-        'activities' : [[], []],
+        'activities' : const ["", ""],
         'xpPerDay' : []
       };
 

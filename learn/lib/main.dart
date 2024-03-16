@@ -25,15 +25,15 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: LoginPage(), // Começa com a página de login
+      home: LoginPage(),
       routes: {
         '/parentsMain': (context) => ParentsMain(
-              parent: currentUser,
-            ), // Rota para a home dos pais
+              parent: joana,
+            ), 
         '/childrenMain': (context) =>
-            ChildrenMain(child: luciano), // Rota para a home das crianças
+            ChildrenMain(child: luciano),
         '/signUpParents': (context) =>
-            SignParentsPage(), // Rota para a página de cadastro dos pais
+            SignParentsPage(),
       },
     );
   }

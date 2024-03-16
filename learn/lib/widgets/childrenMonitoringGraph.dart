@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:learn/utils/modelsClass.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
+import 'package:intl/intl.dart';
+
 
 class ChildrenMonitoringGraph extends StatelessWidget {
   final List<Children> children;
@@ -14,7 +16,6 @@ class ChildrenMonitoringGraph extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Lista de cores predefinidas.
     List<Color> predefinedColors = [
   Colors.green as Color,
   Colors.blue as Color,
@@ -25,7 +26,6 @@ class ChildrenMonitoringGraph extends StatelessWidget {
 ];
 
 
-    // Determina as cores com base no número de crianças.
     List<Color> colors;
     if (selectedChild == null) {
       colors = [Colors.grey, ...predefinedColors.take(children.length)];
@@ -40,21 +40,17 @@ class ChildrenMonitoringGraph extends StatelessWidget {
 
     List<List<_ChartData>> chartData = [];
     if (selectedChild == null) {
-      // Dados de "Todos" + dados individuais de cada criança.
       chartData.add(_createChartDataForAll(children));
       chartData.addAll(children.map((child) => _createChartData(child.xpPerDay)));
     } else {
-      // Apenas dados da criança selecionada.
       chartData.add(_createChartData(selectedChild!.xpPerDay));
     }
 
-    // O maior valor de XP para escalar o eixo Y.
-    //double maxYValue = chartData.expand((x) => x).map((data) => data.y).reduce(max) + 100;
 
     return SfCartesianChart(
-      legend: Legend(isVisible: true, overflowMode: LegendItemOverflowMode.wrap),
-      primaryXAxis: CategoryAxis(),
-      primaryYAxis: NumericAxis(minimum: 0, maximum: 1000, interval: 200),
+      legend: const Legend(isVisible: true, overflowMode: LegendItemOverflowMode.wrap),
+      primaryXAxis: const CategoryAxis(),
+      primaryYAxis: const NumericAxis(minimum: 0, maximum: 1000, interval: 200),
       series: List.generate(
         chartData.length,
         (index) => AreaSeries<_ChartData, String>(
@@ -78,25 +74,31 @@ class ChildrenMonitoringGraph extends StatelessWidget {
   }
 
     List<_ChartData> _createChartDataForAll(List<Children> children) {
-    List<int> totals = List.filled(7, 0);
-    for (var child in children) {
-      for (int i = 0; i < child.xpPerDay.length; i++) {
-        totals[i] += child.xpPerDay[i];
+    final DateTime now = DateTime.now();
+    final DateTime normalizedDateTime = DateTime(now.year, now.month, now.day);
+    return List.generate(7, (i){
+      DateTime day = normalizedDateTime.subtract(Duration(days: 6 - i));
+      String label = DateFormat('dd/MM').format(day);
+      int xp = 0;
+      for (var child in children){
+        xp += child.xpPerDay[day] ?? 0;
       }
-    }
-    return List.generate(totals.length, (i) => _ChartData(_getDayLabel(i), totals[i].toDouble()));
+      return _ChartData(label, xp.toDouble());
+    });
   }
 
-  List<_ChartData> _createChartData(List<int> xpPerDay) {
-    return List.generate(xpPerDay.length, (i) => _ChartData(_getDayLabel(i), xpPerDay[i].toDouble()));
-  }
-
-  String _getDayLabel(int index) {
-    List<String> days = ['seg', 'ter', 'qua', 'qui', 'sex', 'sáb', 'dom'];
-    return days[index];
+  List<_ChartData> _createChartData(Map<DateTime, int> xpPerDay) {
+    final DateTime now = DateTime.now();
+    final DateTime normalizedDateTime = DateTime(now.year, now.month, now.day);
+    return List.generate(7, (i) {
+        
+        DateTime day = normalizedDateTime.subtract(Duration(days: 6 - i));
+        String label = DateFormat('dd/MM').format(day);
+        int xp = xpPerDay[day] ?? 0;
+        return _ChartData(label, xp.toDouble());
+    });
   }
 }
-
 
 class _ChartData {
   _ChartData(this.x, this.y);
