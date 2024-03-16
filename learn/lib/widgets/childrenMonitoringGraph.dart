@@ -56,8 +56,8 @@ class ChildrenMonitoringGraph extends StatelessWidget {
         isVisible: true, overflowMode: LegendItemOverflowMode.scroll,alignment: ChartAlignment.near, textStyle:TextStyle(
           color: Colors.black, fontWeight: FontWeight.bold
         ) ),
-      primaryXAxis: CategoryAxis(),
-      primaryYAxis: NumericAxis(minimum: 0, maximum: 1000, interval: 200),
+      primaryXAxis: CategoryAxis(majorGridLines: MajorGridLines(color: Colors.black.withOpacity(0.1)),),
+      primaryYAxis: NumericAxis(minimum: 0, maximum: 1000, interval: 200, majorGridLines: MajorGridLines(color: Colors.black.withOpacity(0.1)),),
       series: List.generate(
         chartData.length,
         (index) => AreaSeries<_ChartData, String>(
