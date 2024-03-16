@@ -8,22 +8,24 @@ import 'package:learn/widgets/user-profile.dart';
 import 'package:learn/widgets/globalProgressWidget.dart';
 import 'package:learn/utils/modelsClass.dart';
 import 'package:learn/utils/activitiesList.dart';
+import 'package:provider/provider.dart';
+
 
 class ChildrenHomePage extends StatelessWidget {
   final ValueNotifier<double> pagePosition;
-  final Children child;
 
   const ChildrenHomePage(
-      {required this.pagePosition, required this.child, Key? key})
+      {required this.pagePosition, Key? key})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    VolatileChildren child = Provider.of<VolatileChildren>(context);
     return Scaffold(
       appBar: LearnAppBarSuper(
         superHeigth: 320,
         superWidget: GlobalProgress(
-          pontuation: child.pontuation,
+          pontuation: child.value.pontuation,
           isMascot: false,
         ),
         pageIndex: 1,
@@ -34,16 +36,16 @@ class ChildrenHomePage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   UserPhotoAndName(
-                    userName: child.name,
-                    userPhotoPath: child.photoPath,
+                    userName: child.value.name,
+                    userPhotoPath: child.value.photoPath,
                     firstLine: "Seja bem-vindo,\n",
                     fontWeight1: FontWeight.w400,
-                    secondLine: child.name,
+                    secondLine: child.value.name,
                     fontWeight2: FontWeight.w500,
                   ),
                   StreakWidget(
                       streakDays:
-                          diffDays(child.lastAccsess ?? DateTime.now())),
+                          diffDays(child.value.lastAccsess ?? DateTime.now())),
                 ])),
       ),
       body: SingleChildScrollView(
@@ -76,16 +78,16 @@ class ChildrenHomePage extends StatelessWidget {
             const SizedBox(height: 16),
             ActivitieCard(
               activitie: ActivitieCardStatic(
-                activitie: activitiesList[child.lastActivitie],
+                activitie: activitiesList[child.value.lastActivitie],
                 isLocked: false,
                 progress: getProgress(
-                    child.lastActivitie, child.activities[child.lastActivitie]),
+                    child.value.lastActivitie, child.value.activities[child.value.lastActivitie]),
               ),
-              child: child,
+              child: child.value,
             ),
             const SizedBox(height: 40),
             AchievementsWidget(
-              childAcheivments: child.acheivments,
+              childAcheivments: child.value.acheivments,
             ),
             const SizedBox(height: 80,)
           ],

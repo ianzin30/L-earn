@@ -1,20 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:learn/utils/modelsClass.dart';
-import 'package:learn/widgets/activitiesWidgets/activitieCardStatic.dart';
 import 'package:learn/widgets/global/learnAppBar.dart';
-import 'package:learn/widgets/activitiesWidgets/activitieCardAnimated.dart';
-import 'package:learn/utils/activitiesList.dart';
 import 'package:learn/widgets/activitiesWidgets/activitiesList.dart';
+import 'package:provider/provider.dart';
 
 class ChildrenActivitiesPage extends StatelessWidget {
   final ValueNotifier<double> pagePosition;
-  final Children child;
 
-  ChildrenActivitiesPage({required this.pagePosition, required this.child});
+  ChildrenActivitiesPage({required this.pagePosition});
 
   @override
   Widget build(BuildContext context) {
-
+    VolatileChildren child = Provider.of<VolatileChildren>(context);
 
     return Scaffold(
       appBar: LearnAppBar(
@@ -66,7 +63,7 @@ class ChildrenActivitiesPage extends StatelessWidget {
                       fontWeight: FontWeight.w300),
                 ),
                 const SizedBox(height: 8),
-                ActivitiesList(child: child),
+                ActivitiesList(child: child.value),
                 const SizedBox(height: 120,)
               ]))),
     

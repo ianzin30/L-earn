@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
             '/parentsMain': (context) => ParentsMain(
                   parent: joana,
                 ),
-            '/childrenMain': (context) => ChildrenMain(child: luciano),
+            '/childrenMain': (context) => ChildrenMain(),
             '/signUpParents': (context) => SignParentsPage(),
           },
         ));

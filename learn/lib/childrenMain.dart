@@ -6,10 +6,6 @@ import '/pages/childrenPages/MascotPage.dart';
 import 'package:learn/utils/modelsClass.dart';
 
 class ChildrenMain extends StatefulWidget {
-  final Children child;
-
-  ChildrenMain({required this.child});
-
   @override
   _ChildrenMainState createState() => _ChildrenMainState();
 }
@@ -44,7 +40,7 @@ class _ChildrenMainState extends State<ChildrenMain> {
     });
     _pageController.animateToPage(
       index,
-      duration: Duration(milliseconds: 500),
+      duration: const Duration(milliseconds: 500),
       curve: Curves.ease,
     );
   }
@@ -52,9 +48,9 @@ class _ChildrenMainState extends State<ChildrenMain> {
   @override
   Widget build(BuildContext context) {
     List<Widget> _pageOptions = [
-      ChildrenHomePage(pagePosition: pagePosition, child: widget.child),
-      ChildrenActivitiesPage(pagePosition: pagePosition, child: widget.child),
-      MascotPage(pageController: _pageController, child: widget.child),
+      ChildrenHomePage(pagePosition: pagePosition),
+      ChildrenActivitiesPage(pagePosition: pagePosition),
+      MascotPage(pageController: _pageController),
     ];
 
     List<Map<String, dynamic>> navItems = [

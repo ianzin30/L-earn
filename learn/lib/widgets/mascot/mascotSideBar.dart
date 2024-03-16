@@ -6,6 +6,7 @@ import 'package:learn/utils/modelsClass.dart';
 import 'package:provider/provider.dart';
 
 
+
 class MascotSideBar extends StatelessWidget {
   final PageController pageController;
 
@@ -44,8 +45,8 @@ class MascotSideBar extends StatelessWidget {
                 MaterialPageRoute(builder: (context) => AddDependentPage())
               );
             }),
-          MascotSideBarIcon(name:"Alimentos", onPressed: () {children.addPontuation(1000);}),
-          MascotSideBarIcon(name:"Atividades"),
+          MascotSideBarIcon(name:"Alimentos", onPressed: () {children.addPontuation(200);}),
+          MascotSideBarIcon(name:"Atividades", onPressed: (){children.value.update();},),
           MascotSideBarIcon(name:"Roupas"),
         ],
       ),

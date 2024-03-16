@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 final DateTime now = DateTime.now();
 final today = DateTime(now.year, now.month, now.day);
@@ -11,7 +12,7 @@ class AcheivmentsDate {
 }
 
 class Children{
-  List<int> childrenCode;
+  String childrenCode;
   String name;
   String photoPath;
   DateTime birthdate;
@@ -36,6 +37,42 @@ class Children{
     this.lastActivitie = 0,
     this.xpPerDay = const {},
   });
+
+  Map<String, dynamic> getJson(){
+
+    return {
+      'name' : name,
+      'birthdate' : Timestamp.fromDate(birthdate),
+      'photoPath' : photoPath,
+      'pontuation' : pontuation,
+      'activities' : activities.map((e) => e.join()).toList(),
+      'goals' : goals,
+      'acheivments' :acheivments.map((e){
+        return {
+          'date' : Timestamp.fromDate(e.date),
+          'id' : e.id,
+        };
+      }).toList(),
+      'lastAccsess' : Timestamp.fromDate(lastAccsess?? today),
+      'lastActivitie' : lastActivitie,
+      'xpPerDay' : xpPerDay.entries.map((entry) {
+       return {
+         'date' : Timestamp.fromDate(entry.key),
+         'xp' : entry.value,
+       };
+      },)
+    };
+  }
+
+  Future<void> update() async {
+  print("Funcao acionada");
+  await FirebaseFirestore.instance
+      .collection('children')
+      .doc(childrenCode)
+      .set(getJson())
+      .catchError((error) => print('Erro ao adicionar documento: $error')); 
+}
+
 }
 
 class VolatileChildren extends ValueNotifier<Children>{
@@ -52,6 +89,7 @@ class VolatileChildren extends ValueNotifier<Children>{
     children.pontuation += value;
     print(children.pontuation);
     children.xpPerDay.update(today, (existingValue) => existingValue + value, ifAbsent: () => value);
+    children.update();
     notifyListeners();
   }
 
@@ -71,7 +109,7 @@ class Parents {
 }
 
 Children luciano = Children(
-  childrenCode: [8,5,5,1],
+  childrenCode: "1111",
     name: "Luciano Dias",
     birthdate: DateTime(2010, 11, 4),
     pontuation: 1200,
@@ -101,7 +139,7 @@ Children luciano = Children(
 //VolatileChildren childUser = VolatileChildren(children: luciano);
 
 Children carlos = Children(
-  childrenCode: [0 ,0 , 0, 0],
+  childrenCode: "2222",
     name: "Carlos Dias",
     birthdate: DateTime(2012, 11, 4),
     pontuation: 1600,
