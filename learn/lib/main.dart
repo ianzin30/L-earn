@@ -6,7 +6,6 @@ import 'parentsMain.dart';
 import 'childrenMain.dart';
 import 'pages/parentsPages/SignUpParentsPage.dart';
 import 'package:learn/utils/modelsClass.dart';
-import 'package:provider/provider.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,12 +17,9 @@ Future<void> main() async {
 }
 
 class MyApp extends StatelessWidget {
-  final VolatileChildren childUser = VolatileChildren(children: luciano);
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<VolatileChildren>(
-        create: (context) => VolatileChildren(children: luciano),
-        child: MaterialApp(
+    return MaterialApp(
           title: 'Coinny',
           theme: ThemeData(
             primarySwatch: Colors.blue,
@@ -37,6 +33,6 @@ class MyApp extends StatelessWidget {
             '/childrenMain': (context) => ChildrenMain(),
             '/signUpParents': (context) => SignParentsPage(),
           },
-        ));
+        );
   }
 }

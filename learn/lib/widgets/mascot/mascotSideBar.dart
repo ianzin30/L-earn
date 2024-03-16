@@ -47,7 +47,10 @@ class MascotSideBar extends StatelessWidget {
             }),
           MascotSideBarIcon(name:"Alimentos", onPressed: () {children.addPontuation(200);}),
           MascotSideBarIcon(name:"Atividades", onPressed: (){children.value.update();},),
-          MascotSideBarIcon(name:"Roupas"),
+          MascotSideBarIcon(name:"Roupas", onPressed: (){
+              try{loadChildren(children.value.childrenCode);
+              }catch(e) {print(e);}
+          },),
         ],
       ),
     )

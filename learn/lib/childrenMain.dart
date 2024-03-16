@@ -4,6 +4,7 @@ import '/pages/childrenPages/homePage.dart';
 import '/pages/childrenPages/activitiesPage.dart';
 import '/pages/childrenPages/MascotPage.dart';
 import 'package:learn/utils/modelsClass.dart';
+import 'package:provider/provider.dart';
 
 class ChildrenMain extends StatefulWidget {
   @override
@@ -59,30 +60,31 @@ class _ChildrenMainState extends State<ChildrenMain> {
       {'icon': Icons.network_ping_outlined, 'name': 'Mascote'},
     ];
 
-    return Scaffold(
-      body: Stack(
-        children: [
-      PageView(
-        controller: _pageController,
-        onPageChanged: (index) {
-          setState(() {
-            _selectedIndex = index;
-          });
-        },
-        children: _pageOptions,
-      ),
-      if (_selectedIndex != 2)
-      Positioned(
-        left: 32,
-        right: 32,
-        bottom: 32,
-        child: LearnNavBar(
-              selectedIndex: _selectedIndex,
-              onItemTapped: _onItemTapped,
-              navItems: navItems,
-            )
-      )
-      ]),
-    );
+    final children = ModalRoute.of(context)?.settings.arguments as Children;
+    return ChangeNotifierProvider<VolatileChildren>(
+        create: (context) => VolatileChildren(children: children),
+        child: Scaffold(
+          body: Stack(children: [
+            PageView(
+              controller: _pageController,
+              onPageChanged: (index) {
+                setState(() {
+                  _selectedIndex = index;
+                });
+              },
+              children: _pageOptions,
+            ),
+            if (_selectedIndex != 2)
+              Positioned(
+                  left: 32,
+                  right: 32,
+                  bottom: 32,
+                  child: LearnNavBar(
+                    selectedIndex: _selectedIndex,
+                    onItemTapped: _onItemTapped,
+                    navItems: navItems,
+                  ))
+          ]),
+        ));
   }
 }
