@@ -197,11 +197,11 @@ class _QuestionPageState extends State<QuestionPage> {
     _overlayEntry = OverlayEntry(
       builder: (context) {
         return Positioned(
-          width: MediaQuery.of(context).size.width,
+          width: 0.9*MediaQuery.of(context).size.width,
           child: CompositedTransformFollower(
             link: links[index],
             showWhenUnlinked: false,
-            offset: Offset(28, -90), // Offset ajusta a posição Y do balão
+            offset: Offset(44, -90), // Offset ajusta a posição Y do balão
             child: Material(
               color: Colors.transparent,
               child: Container(
