@@ -89,13 +89,19 @@ class ChildMonitoringSpecific extends StatelessWidget {
             Column(
             children: activitiesList[children.lastActivitie]
                 .lessionsList
-                .take(1) 
+                .where((e) =>
+                    children.activities[children.lastActivitie].length >
+                    e.id) // Filter for not finished lessons
                 .map((e) {
-              bool isFinished =
-                  children.activities[children.lastActivitie].length >= e.id;
-              return LessionCardStatic(lession: e, isFinished: isFinished, isLocked: false);
+              // No need to check for isFinished since we already filtered the list.
+              return Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8),
+                child: LessionCardStatic(
+                    lession: e, isFinished: true, isLocked: false),
+              );
             }).toList(),
           ),
+
           const SizedBox(height: 16),
           RichText(
             text: const TextSpan(
@@ -123,19 +129,18 @@ class ChildMonitoringSpecific extends StatelessWidget {
           Column(
             children: activitiesList[children.lastActivitie]
                 .lessionsList
-                .skip(
-                    activitiesList[children.lastActivitie].lessionsList.length -
-                        2) // Skip all elements except the last two
+                .where((e) =>
+                    children.activities[children.lastActivitie].length <
+                    e.id) 
                 .map((e) {
-              bool isFinished =
-                  children.activities[children.lastActivitie].length >= e.id;
               return Padding(
                 padding: const EdgeInsets.symmetric(vertical: 8),
                 child: LessionCardStatic(
-                    lession: e, isFinished: !isFinished, isLocked: false),
+                    lession: e, isFinished: false, isLocked: false),
               );
             }).toList(),
           ),
+
 
        ]),
       ),
