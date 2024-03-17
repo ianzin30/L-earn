@@ -39,12 +39,12 @@ class MascotBar extends StatelessWidget implements PreferredSizeWidget {
         ),
         title: const Text('Mascote',
             style: TextStyle(
-                color: Colors.white,
+                color: Color(0xFF000000),
                 fontSize: 18,
                 fontFamily: 'Fieldwork-Geo',
                 fontWeight: FontWeight.w600)),
         centerTitle: true,
-        backgroundColor: Colors.blue,
+        backgroundColor: const Color(0xFFBBD1E4),
         elevation: 0,
       ),
     );

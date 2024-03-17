@@ -8,6 +8,7 @@ class QuestionPage extends StatefulWidget {
   final RichText questionText;
   final RichText preOptionsText;
   final List<String> options;
+  final List<String> responsePath;
   final int correctIndex;
   final ValueChanged<String> onSelectedOptionChange;
 
@@ -16,6 +17,7 @@ class QuestionPage extends StatefulWidget {
     required this.questionText,
     required this.preOptionsText,
     required this.options,
+    required this.responsePath,
     required this.correctIndex,
     required this.onSelectedOptionChange,
   });
@@ -43,7 +45,6 @@ class _QuestionPageState extends State<QuestionPage> {
     _overlayEntry?.remove();
     super.dispose();
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -170,7 +171,7 @@ class _QuestionPageState extends State<QuestionPage> {
 
   Widget _buildOption(int index, String text, BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(3.0),
+      padding: const EdgeInsets.all(4.0),
       child: QuestionRadioTile(
         title: text,
         isSelected: selecionada == index,
@@ -181,8 +182,9 @@ class _QuestionPageState extends State<QuestionPage> {
             selecionada = index;
             widget.onSelectedOptionChange(text);
           });
-          (widget.correctIndex == index)? _showBalloon(context, "assets/images/appImages/correctBalloon.png", index): 
-          _showBalloon(context, "assets/images/appImages/wrongBalloon.png", index);
+          _showBalloon(context, widget.responsePath[index], index);
+          //(widget.correctIndex == index)? _showBalloon(context, "assets/images/appImages/correctBalloon.png", index): 
+          //_showBalloon(context, "assets/images/appImages/wrongBalloon.png", index);
         },
       ),
     );

@@ -32,29 +32,22 @@ class ActivitieCardStatic extends StatelessWidget {
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
               ),
-              /*boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withOpacity(0.25),
-                  offset: const Offset(0, 4),
-                  blurRadius: 10,
-                ),
-              ],*/
             ),
             child: Container(
-              padding: const EdgeInsets.fromLTRB(16, 16, 16, 16),
+              padding: const EdgeInsets.all(16),
               child: Column(
                 children: [
                   Row(
                     children: [
-                      Image.asset(
+                       Image.asset(
                         activitie.iconPath?? 'assets/images/appIcons/activityIcon1.png',
-                        width: 76,
-                        height: 88,
+                        height: MediaQuery.sizeOf(context).height*0.10,
                       ),
+                      const SizedBox(width: 16,),
                       Column(
                         children: [
                           Container (
-                            width: widgetWidth - 190,
+                            width:  widgetWidth*( withProgress ? 0.6 : 0.45),
                              child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
@@ -63,18 +56,17 @@ class ActivitieCardStatic extends StatelessWidget {
                                   activitie.title,
                                   style: const TextStyle(
                                     fontFamily: "Fieldwork-Geo",
-                                    fontSize: 12,
+                                    fontSize: 14,
                                     fontWeight: FontWeight.w600,
                                     color: Color(0xFFFFFFFF),
                                   ),
                                 ),
-                                SizedBox(height: 2),
                                 Text(
                                   activitie.description,
                                   style: const TextStyle(
                                     fontFamily: "Fieldwork-Geo",
-                                    fontSize: 9,
-                                    fontWeight: FontWeight.w200,
+                                    fontSize: 10,
+                                    fontWeight: FontWeight.w400,
                                     color: Color(0xFFFFFFFF),
                                   ),
                                 ),

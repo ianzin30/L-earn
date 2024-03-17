@@ -36,7 +36,7 @@ class ActivitieMain extends StatelessWidget {
           },
         ),
         body: Container(
-            padding: const EdgeInsets.fromLTRB(16, 24, 16, 0),
+            padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
             child: SingleChildScrollView(
                 child: ActivitieContentColumn(
               title: "Conteúdo das atividades",

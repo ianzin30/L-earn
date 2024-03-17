@@ -130,6 +130,26 @@ flutter:
   - ./assets/images/conquistas/conquista-5.png
   - ./assets/images/conquistas/conquista-6.png
 
+  # Ballons
+  - ./assets/images/ballons/pg3-a1.png
+  - ./assets/images/ballons/pg3-a2.png
+  - ./assets/images/ballons/pg3-a3.png
+  - ./assets/images/ballons/pg5-a1.png
+  - ./assets/images/ballons/pg5-a2.png
+  - ./assets/images/ballons/pg5-a3.png
+  - ./assets/images/ballons/pg7-a1.png
+  - ./assets/images/ballons/pg7-a2.png
+  - ./assets/images/ballons/pg7-a3.png
+  - ./assets/images/ballons/pg9-a1.png
+  - ./assets/images/ballons/pg9-a2.png
+  - ./assets/images/ballons/pg9-a3.png
+  - ./assets/images/ballons/pg11-a1.png
+  - ./assets/images/ballons/pg11-a2.png
+  - ./assets/images/ballons/pg11-a3.png
+  - ./assets/images/ballons/pg13-a1.png
+  - ./assets/images/ballons/pg13-a2.png
+  - ./assets/images/ballons/pg13-a3.png
+
 
 
   fonts:

@@ -9,7 +9,7 @@ List<Activitie> activitiesList = [
     level: 1,
     title: "Passeando\nno Shopping",
     pageTitle: "Conteúdo das atividades",
-    description: "Você está saindo com seus amigos para o Shopping com puco dinheiro.\nAprenda a curtir da melhor forma",
+    description: "Você está saindo com seus amigos para o Shopping com puco dinheiro.",
     backgroundColors: const [Color(0xFFDA59AE), Color(0xFF4912A2)],
     iconPath: "assets/images/appIcons/activityIcon1.png",
     lessionsList: [
@@ -38,7 +38,7 @@ List<Activitie> activitiesList = [
     level: 2,
     title: "Comprando\nnovos jogos",
     pageTitle: "Conteúdo das atividades",
-    description: "Você está saindo com seus amigos para o Shopping com puco dinheiro.\nAprenda a curtir da melhor forma",
+    description: "Seus amigos estão comprando jogos que estão entrando na moda e você quer participar",
     backgroundColors: const [Color(0xFF59D2DA), Color(0xFF1232A2)],
     iconPath: "assets/images/appIcons/activityIcon2.png",
     lessionsList: [
@@ -67,7 +67,7 @@ List<Activitie> activitiesList = [
     level: 2,
     title: "Comprando\nnovos jogos",
     pageTitle: "Conteúdo das atividades",
-    description: "Você está saindo com seus amigos para o Shopping com puco dinheiro.\nAprenda a curtir da melhor forma",
+    description: "Seus amigos estão comprando jogos que estão entrando na moda e você quer participar",
     backgroundColors: const [Color(0xFF59D2DA), Color(0xFF1232A2)],
     iconPath: "assets/images/appIcons/activityIcon4.png",
     lessionsList: [
@@ -96,7 +96,7 @@ List<Activitie> activitiesList = [
     level: 2,
     title: "Comprando\nnovos jogos",
     pageTitle: "Conteúdo das atividades",
-    description: "Você está saindo com seus amigos para o Shopping com puco dinheiro.\nAprenda a curtir da melhor forma",
+    description: "Seus amigos estão comprando jogos que estão entrando na moda e você quer participar",
     backgroundColors: const [Color(0xFF59D2DA), Color(0xFF1232A2)],
     iconPath: "assets/images/appIcons/activityIcon3.png",
     lessionsList: [

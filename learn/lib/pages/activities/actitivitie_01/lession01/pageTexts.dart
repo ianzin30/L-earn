@@ -14,12 +14,14 @@ class PageType2 {
   RichText text;
   RichText preOptions;
   List<String> options;
+  List<String> ballonPath;
   int correct;
 
   PageType2(
       {required this.text,
       required this.preOptions,
       required this.options,
+      required this.ballonPath,
       required this.correct});
 }
 
@@ -138,7 +140,9 @@ PageType2 pg3 = PageType2(
       "Pesquisar quais são os preços dos opções de ingresso e lanche, e quais cinemas estão disponíveis",
       "Levar R\$50 e não pesquisar os preços das atividades que vai querer fazer"
     ],
-    correct: 1);
+    correct: 1,
+    ballonPath: [1,2,3].map((e) => "assets/images/ballons/pg3-a$e.png").toList()
+    );
 
 PageType1 pg4 = PageType1(
   text: RichText(
@@ -207,7 +211,9 @@ PageType2 pg5 = PageType2(
       "Ingresso 3D - R\$25",
       "Combo: 3 ingressos normais - R\$45"
     ],
-    correct: 2);
+    correct: 2,
+    ballonPath: [1,2,3].map((e) => "assets/images/ballons/pg5-a$e.png").toList()
+    );
 
 PageType1 pg6 = PageType1(
   text: RichText(
@@ -255,6 +261,7 @@ PageType2 pg7 = PageType2(
       "Lanchonete 2 (\$): Vende comidinhas que às vezes não estão tão boas, mas que custam R\$10 e R\$20",
       "Lanchonete 3(\$\$): Vende comidinhas bonitas e deliciosas que custam entre R\$20 e R\$40"
     ],
+    ballonPath: [1,2,3].map((e) => "assets/images/ballons/pg7-a$e.png").toList()
 );
 
 PageType1 pg8 = PageType1(
@@ -287,7 +294,8 @@ PageType2 pg9 = PageType2(
               ),
             ), 
   options: ["R\$20", "R\$30", "R\$40"], 
-  correct: 2
+  correct: 2,
+  ballonPath: [1,2,3].map((e) => "assets/images/ballons/pg9-a$e.png").toList()
 );
 
 PageType1 pg10 = PageType1(
@@ -333,7 +341,8 @@ PageType2 pg11 = PageType2(
             options: ["Levar uma quantia dinheiro a mais, caso ela precise em uma emergência",
         "Levar somente o valor do ingresso e do lanche que ela pesquisou antes de sair de casa",
         "Não vão acontecer imprevistos, vamos apostar!"],
-  correct: 1
+  correct: 1,
+  ballonPath: [1,2,3].map((e) => "assets/images/ballons/pg11-a$e.png").toList()
 );
 
 PageType1 pg12 = PageType1(
@@ -372,5 +381,6 @@ PageType2 pg13 = PageType2(
               textAlign: TextAlign.center,
             ),
   options: ["R\$5", "R\$20", "R\$200"],
-  correct: 1
+  correct: 1,
+  ballonPath: [1,2,3].map((e) => "assets/images/ballons/pg11-a$e.png").toList()
 );
