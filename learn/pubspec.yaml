@@ -114,6 +114,8 @@ flutter:
 
   # App Images
   - ./assets/images/appImages/icon.png
+  - ./assets/images/appImages/correctBalloon.png
+  - ./assets/images/appImages/wrongBalloon.png
 
   # Conquistas
   - ./assets/images/conquistas/conquista-1.png

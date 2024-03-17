@@ -27,6 +27,23 @@ class QuestionPage extends StatefulWidget {
 class _QuestionPageState extends State<QuestionPage> {
   int selecionada = -1;
   bool marked = false;
+  OverlayEntry? _overlayEntry;
+  List<LayerLink> links = [];
+
+  @override
+  void initState() {
+    super.initState();
+    // Inicialize um LayerLink para cada opção
+    links = List.generate(widget.options.length, (_) => LayerLink());
+  }
+
+  @override
+  void dispose() {
+    // Certifique-se de remover o OverlayEntry ao descartar o widget
+    _overlayEntry?.remove();
+    super.dispose();
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -158,13 +175,51 @@ class _QuestionPageState extends State<QuestionPage> {
         title: text,
         isSelected: selecionada == index,
         isCorrect: widget.correctIndex == index,
+        link: links[index],
         onTap: () {
           setState(() {
             selecionada = index;
             widget.onSelectedOptionChange(text);
           });
+          (widget.correctIndex == index)? _showBalloon(context, "assets/images/appImages/correctBalloon.png", index): 
+          _showBalloon(context, "assets/images/appImages/wrongBalloon.png", index);
         },
       ),
     );
+  }
+
+  void _showBalloon(BuildContext context, String photoPath, int index) {
+    if (_overlayEntry != null) {
+      _overlayEntry!.remove();
+      _overlayEntry = null;
+    }
+
+    _overlayEntry = OverlayEntry(
+      builder: (context) {
+        return Positioned(
+          width: MediaQuery.of(context).size.width,
+          child: CompositedTransformFollower(
+            link: links[index],
+            showWhenUnlinked: false,
+            offset: Offset(28, -90), // Offset ajusta a posição Y do balão
+            child: Material(
+              color: Colors.transparent,
+              child: Container(
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                margin: const EdgeInsets.symmetric(horizontal: 20),
+                decoration: BoxDecoration(
+                  color: Colors.transparent,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Image.asset(photoPath), // Usa a imagem para o balão
+              ),
+            ),
+          ),
+        );
+      },
+    );
+
+    Overlay.of(context)!.insert(_overlayEntry!); // Insere a sobreposição na árvore de widgets
+
   }
 }
