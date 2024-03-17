@@ -5,8 +5,9 @@ import 'package:learn/pages/childrenPages/acheivementsPage.dart';
 
 class AchievementsWidget extends StatelessWidget {
   final List<AcheivmentsDate> childAcheivments;
+  final bool withText;
 
-  AchievementsWidget({required this.childAcheivments});
+  AchievementsWidget({required this.childAcheivments, this.withText = true});
 
   @override
   Widget build(BuildContext context) {
@@ -16,19 +17,19 @@ class AchievementsWidget extends StatelessWidget {
         child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text("Conquistas alcançadas",
+        if(withText) const Text("Conquistas alcançadas",
             style: TextStyle(
                 color: Color(0xFF222222),
                 fontSize: 14,
                 fontFamily: 'Fieldwork-Geo',
                 fontWeight: FontWeight.w600)),
-        const Text("Reconheça os seus filhos pelas suas vitórias!",
+        if(withText) const Text("Reconheça os seus filhos pelas suas vitórias!",
             style: TextStyle(
                 color: Color(0xFF5C5C5C),
                 fontSize: 12,
                 fontFamily: 'Fieldwork-Geo',
                 fontWeight: FontWeight.w300)),
-        const SizedBox(
+        if(withText) const SizedBox(
           height: 12,
         ),
         Row(
