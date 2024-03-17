@@ -111,7 +111,7 @@ Future<Children> loadChildren(String childrenCode) async {
     }).toList();
 
     List<AcheivmentsDate> acheivments = achv.map((e) {
-      Timestamp tdate =  e['date'];
+      Timestamp tdate = e['date'];
       int id = e['id'];
       return AcheivmentsDate(
         date: tdate.toDate(),
@@ -120,7 +120,10 @@ Future<Children> loadChildren(String childrenCode) async {
     }).toList();
 
     getList = childData.get("xpPerDay");
-    List<Map<String, dynamic>> xpList = getList.map<Map<String, dynamic>>((item) {return Map<String, dynamic>.from(item);}).toList();
+    List<Map<String, dynamic>> xpList =
+        getList.map<Map<String, dynamic>>((item) {
+      return Map<String, dynamic>.from(item);
+    }).toList();
     Map<DateTime, int> xpPerDay = {};
     xpList.forEach((e) {
       xpPerDay[e['date'].toDate()] = e['xp'];
@@ -158,8 +161,14 @@ class VolatileChildren extends ValueNotifier<Children> {
     children.update();
     notifyListeners();
   }
-}
 
+  void addActivity(int activitieId) {
+    children.activities[activitieId]
+        .add(children.activities[activitieId].last + 1);
+    children.update();
+    notifyListeners();
+  }
+}
 
 class Parents {
   String name;
@@ -181,10 +190,10 @@ class Parents {
   }
 }
 
-class VolatileParents extends ValueNotifier<Parents>{
+class VolatileParents extends ValueNotifier<Parents> {
   Parents parents;
   VolatileParents({required this.parents}) : super(parents);
-  
+
   void setParents(Parents parents) {
     this.parents = parents;
     notifyListeners();
@@ -194,10 +203,7 @@ class VolatileParents extends ValueNotifier<Parents>{
     parents.dependents.add(children);
     notifyListeners();
   }
-
-  
 }
-
 
 Children luciano = Children(
     childrenCode: "1111",
@@ -212,7 +218,7 @@ Children luciano = Children(
       AcheivmentsDate(date: DateTime(2024, 01, 12), id: 3)
     ],
     activities: [
-      [0],
+      [0, 1],
       [],
     ],
     xpPerDay: {
@@ -239,7 +245,7 @@ Children carlos = Children(
       AcheivmentsDate(date: DateTime(2024, 01, 12), id: 3)
     ],
     activities: [
-      [0],
+      [],
       [],
     ],
     xpPerDay: {
@@ -266,22 +272,18 @@ Parents joana = Parents(
     photoPath: "assets/images/appImages/joana-dias.png");
 
 Future<Parents> loadParent(String email) async {
-  DocumentSnapshot parentData = await FirebaseFirestore.instance
-      .collection('parent')
-      .doc(email)
-      .get();
+  DocumentSnapshot parentData =
+      await FirebaseFirestore.instance.collection('parent').doc(email).get();
 
   if (parentData.exists) {
     String name = parentData.get("name");
     String photoPath = parentData.get("photoPath");
     List<dynamic> getList = parentData.get("dependents");
     List<String> dependents = getList.map((item) => item.toString()).toList();
-    List<Future<Children>> futureChildrenList = dependents.map((e) => loadChildren(e)).toList();
+    List<Future<Children>> futureChildrenList =
+        dependents.map((e) => loadChildren(e)).toList();
     List<Children> childrenList = await Future.wait(futureChildrenList);
-    return Parents(
-        name: name,
-        photoPath: photoPath,
-        dependents: childrenList);
+    return Parents(name: name, photoPath: photoPath, dependents: childrenList);
   }
   throw Exception();
 }
@@ -324,6 +326,7 @@ class Activitie {
   final int level;
   final List<Color> backgroundColors;
   final List<Lession> lessionsList;
+  final String? iconPath;
 
   Activitie({
     required this.id,
@@ -334,5 +337,6 @@ class Activitie {
     this.lessionsList = const [],
     this.level = 1,
     this.backgroundColors = const [Color(0XFF1290A2), Color(0xFF82DA59)],
+    this.iconPath,  
   });
 }

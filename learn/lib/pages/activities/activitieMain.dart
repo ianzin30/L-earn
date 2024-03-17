@@ -16,7 +16,7 @@ class ActivitieMain extends StatelessWidget {
     return Scaffold(
         appBar: LearnAppBarSuper(
           superHeigth: 280,
-          globalHeigth: 250,
+          globalHeigth: 280,
           superWidget: content,
           child: Container(
               //width: MediaQuery.sizeOf(context).width,
@@ -36,7 +36,7 @@ class ActivitieMain extends StatelessWidget {
           },
         ),
         body: Container(
-            padding: const EdgeInsets.fromLTRB(16, 24, 16, 0),
+            padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
             child: SingleChildScrollView(
                 child: ActivitieContentColumn(
               title: "Conteúdo das atividades",

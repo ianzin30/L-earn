@@ -26,7 +26,7 @@ class GlobalProgress extends StatelessWidget {
     final textColor = isMascot ? const Color(0xFFFFFFFF) : const Color(0xFF040862);
 
     final finalBoxShadow = boxShadow ?? BoxShadow(
-            color: textColor.withOpacity(0.6),
+            color: textColor.withOpacity(0.2),
             spreadRadius: 0,
             blurRadius: 16,
             offset: const Offset(0,0),
@@ -43,7 +43,11 @@ class GlobalProgress extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
         boxShadow: [finalBoxShadow],
-        gradient: LinearGradient(colors: barColors)
+        gradient: LinearGradient(
+          colors: barColors,
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight
+          )
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -108,8 +112,9 @@ class GlobalProgress extends StatelessWidget {
           ),
           
           const SizedBox(height: 8),
+            if (!isMascot) // This will only display the AnimatedProgressBar if isMascot is true.
             AnimatedProgressBar(
-              progress: progressPercentage.floorToDouble(), 
+              progress: progressPercentage.floorToDouble(),
               maxProgress: 100,
               barColor: textColor,
             ),

@@ -41,8 +41,9 @@ class ChildrenActivitiesPage extends StatelessWidget {
         ),)
       ),
       body: Container(
-          padding: const EdgeInsets.fromLTRB(16, 32, 16, 0),
+          padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
           child: SingleChildScrollView(
+              padding: const EdgeInsets.only(top: 16),
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [

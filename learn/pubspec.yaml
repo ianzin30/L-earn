@@ -87,6 +87,11 @@ flutter:
   - ./assets/images/appIcons/icon-award.png
   - ./assets/images/appIcons/icon-lock-default.png
   - ./assets/images/appIcons/notification.png
+  - ./assets/images/appIcons/icon-show-conquist.png
+  - ./assets/images/appIcons/activityIcon1.png
+  - ./assets/images/appIcons/activityIcon2.png
+  - ./assets/images/appIcons/activityIcon3.png
+  - ./assets/images/appIcons/activityIcon4.png
 
   # Badges
   - ./assets/images/appIcons/badge-bronze-default.png
@@ -124,6 +129,26 @@ flutter:
   - ./assets/images/conquistas/conquista-4.png
   - ./assets/images/conquistas/conquista-5.png
   - ./assets/images/conquistas/conquista-6.png
+
+  # Ballons
+  - ./assets/images/ballons/pg3-a1.png
+  - ./assets/images/ballons/pg3-a2.png
+  - ./assets/images/ballons/pg3-a3.png
+  - ./assets/images/ballons/pg5-a1.png
+  - ./assets/images/ballons/pg5-a2.png
+  - ./assets/images/ballons/pg5-a3.png
+  - ./assets/images/ballons/pg7-a1.png
+  - ./assets/images/ballons/pg7-a2.png
+  - ./assets/images/ballons/pg7-a3.png
+  - ./assets/images/ballons/pg9-a1.png
+  - ./assets/images/ballons/pg9-a2.png
+  - ./assets/images/ballons/pg9-a3.png
+  - ./assets/images/ballons/pg11-a1.png
+  - ./assets/images/ballons/pg11-a2.png
+  - ./assets/images/ballons/pg11-a3.png
+  - ./assets/images/ballons/pg13-a1.png
+  - ./assets/images/ballons/pg13-a2.png
+  - ./assets/images/ballons/pg13-a3.png
 
 
 

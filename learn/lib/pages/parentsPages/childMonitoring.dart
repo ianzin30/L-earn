@@ -11,9 +11,11 @@ import 'package:learn/widgets/activitiesWidgets/activitieCardStatic.dart';
 
 class ChildMonitoring extends StatelessWidget {
   final Children children;
+  final bool withText;
 
   const ChildMonitoring({
     required this.children,
+    this.withText = true,
     Key? key,
     })
       : super(key: key);
@@ -63,7 +65,7 @@ class ChildMonitoring extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            RichText(
+            if(withText) RichText(
               text: const TextSpan(
                 children: [
                   TextSpan(

@@ -17,9 +17,9 @@ const Map<int, Map<String, dynamic>> levelsPontuations = {
 };
 
 const  Map<String, List<Color>> boxesCollors = {
-  'Bronze' : [Color(0xFFE3834F), Color(0xFF75250C) ],
-  'Prata'  : [Color(0xFFB0B0B0), Color(0xFF4C4C4C)],
-  'Ouro'   : [Color(0xFFE6BB4B), Color(0xFFAF500B)],
+  'Bronze' : [Color(0xFF75250C), Color(0xFFE3834F),  ],
+  'Prata'  : [Color(0xFF4C4C4C), Color(0xFFB0B0B0), ],
+  'Ouro'   : [Color(0xFFAF500B), Color(0xFFE6BB4B), ],
   "Diamante" : [Color(0xFF4B9CE6) , Color(0xFF0E0C82)]
 };
 

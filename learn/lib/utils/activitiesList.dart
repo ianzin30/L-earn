@@ -7,10 +7,11 @@ List<Activitie> activitiesList = [
   Activitie(
     id: 0,
     level: 1,
-    title: "Passeando no Shopping",
+    title: "Passeando\nno Shopping",
     pageTitle: "Conteúdo das atividades",
-    description: "Você está saindo com seus amigos para o Shopping com puco dinheiro.\nAprenda a curtir da melhor forma",
+    description: "Você está saindo com seus amigos para o Shopping com puco dinheiro.",
     backgroundColors: const [Color(0xFFDA59AE), Color(0xFF4912A2)],
+    iconPath: "assets/images/appIcons/activityIcon1.png",
     lessionsList: [
       Lession(
         id: 0, 
@@ -19,13 +20,13 @@ List<Activitie> activitiesList = [
         page: Lession01Main()
       ),
       Lession(
-        id: 0, 
+        id: 1, 
         title: "Passeando no Shopping antes do cinema!", 
         description: "Estar no Shopping e não passear com os amigos antes do Cinema é o mesmo que não ter ido no Shopping né? Mas é preciso ter muito cuidado com os gastos!",
         page: Lession01Main()
       ),
       Lession(
-        id: 0, 
+        id: 2, 
         title: "Depois do passeio... Fazerndo as contas", 
         description: "Agora que o passeio passou, precisamos anotar tudo que gastamos para evitar prejuízos no futuro, vamos nessa?!",
         page: Lession01Main()
@@ -35,10 +36,11 @@ List<Activitie> activitiesList = [
   Activitie(
     id: 1,
     level: 2,
-    title: "Comprando novos jogos",
+    title: "Comprando\nnovos jogos",
     pageTitle: "Conteúdo das atividades",
-    description: "Você está saindo com seus amigos para o Shopping com puco dinheiro.\nAprenda a curtir da melhor forma",
+    description: "Seus amigos estão comprando jogos que estão entrando na moda e você quer participar",
     backgroundColors: const [Color(0xFF59D2DA), Color(0xFF1232A2)],
+    iconPath: "assets/images/appIcons/activityIcon2.png",
     lessionsList: [
       Lession(
         id: 0, 
@@ -47,13 +49,13 @@ List<Activitie> activitiesList = [
         page: Lession01Main()
       ),
       Lession(
-        id: 0, 
+        id: 1, 
         title: "Passeando no Shopping antes do cinema!", 
         description: "Estar no Shopping e não passear com os amigos antes do Cinema é o mesmo que não ter ido no Shopping né? Mas é preciso ter muito cuidado com os gastos!",
         page: Lession01Main()
       ),
       Lession(
-        id: 0, 
+        id: 2, 
         title: "Depois do passeio... Fazerndo as contas", 
         description: "Agora que o passeio passou, precisamos anotar tudo que gastamos para evitar prejuízos no futuro, vamos nessa?!",
         page: Lession01Main()
@@ -63,10 +65,11 @@ List<Activitie> activitiesList = [
   Activitie(
     id: 2,
     level: 2,
-    title: "Comprando novos jogos",
+    title: "Comprando\nnovos jogos",
     pageTitle: "Conteúdo das atividades",
-    description: "Você está saindo com seus amigos para o Shopping com puco dinheiro.\nAprenda a curtir da melhor forma",
+    description: "Seus amigos estão comprando jogos que estão entrando na moda e você quer participar",
     backgroundColors: const [Color(0xFF59D2DA), Color(0xFF1232A2)],
+    iconPath: "assets/images/appIcons/activityIcon4.png",
     lessionsList: [
       Lession(
         id: 0, 
@@ -91,10 +94,11 @@ List<Activitie> activitiesList = [
   Activitie(
     id: 3,
     level: 2,
-    title: "Comprando novos jogos",
+    title: "Comprando\nnovos jogos",
     pageTitle: "Conteúdo das atividades",
-    description: "Você está saindo com seus amigos para o Shopping com puco dinheiro.\nAprenda a curtir da melhor forma",
+    description: "Seus amigos estão comprando jogos que estão entrando na moda e você quer participar",
     backgroundColors: const [Color(0xFF59D2DA), Color(0xFF1232A2)],
+    iconPath: "assets/images/appIcons/activityIcon3.png",
     lessionsList: [
       Lession(
         id: 0, 

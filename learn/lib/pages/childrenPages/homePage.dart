@@ -80,12 +80,13 @@ class ChildrenHomePage extends StatelessWidget {
               activitie: ActivitieCardStatic(
                 activitie: activitiesList[child.value.lastActivitie],
                 isLocked: false,
+                withProgress: true,
                 progress: getProgress(
                     child.value.lastActivitie, child.value.activities[child.value.lastActivitie]),
               ),
               child: child.value,
             ),
-            const SizedBox(height: 40),
+            const SizedBox(height: 16),
             AchievementsWidget(
               childAcheivments: child.value.acheivments,
             ),

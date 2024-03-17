@@ -69,6 +69,7 @@ class _Lession01MainState extends State<Lession01Main> {
           preOptionsText: pg3.preOptions,
           options: pg3.options,
           correctIndex: pg3.correct,
+          responsePath: pg3.ballonPath,
           onSelectedOptionChange: (str) {
             respostas[0] = str;
           }
@@ -87,7 +88,8 @@ class _Lession01MainState extends State<Lession01Main> {
         questionText: pg5.text, 
         preOptionsText: pg5.preOptions, 
         options: pg5.options, 
-        correctIndex: pg5.correct, 
+        correctIndex: pg5.correct,
+        responsePath: pg5.ballonPath,
         onSelectedOptionChange: (str) {
             respostas[1] = str;
             escolhas["ingresso"] = stringRealToDouble(str);
@@ -108,7 +110,8 @@ class _Lession01MainState extends State<Lession01Main> {
         questionText: pg7.text, 
         preOptionsText: pg7.preOptions, 
         options: pg7.options, 
-        correctIndex: pg7.correct, 
+        correctIndex: pg7.correct,
+        responsePath: pg7.ballonPath,
         onSelectedOptionChange: (str) {
             respostas[2] = str;
         },
@@ -127,7 +130,8 @@ class _Lession01MainState extends State<Lession01Main> {
         questionText: pg9.text, 
         preOptionsText: pg9.preOptions, 
         options: pg9.options, 
-        correctIndex: pg9.correct, 
+        correctIndex: pg9.correct,
+        responsePath: pg9.ballonPath,
         onSelectedOptionChange: (str) {
             respostas[3] = str; // Dinheiro do lanche
             escolhas["lanche"] = stringRealToDouble(str);
@@ -148,7 +152,8 @@ class _Lession01MainState extends State<Lession01Main> {
         questionText: pg11.text, 
         preOptionsText: pg11.preOptions, 
         options: pg11.options, 
-        correctIndex: pg11.correct, 
+        correctIndex: pg11.correct,
+        responsePath: pg11.ballonPath,
         onSelectedOptionChange: (str) {
             respostas[4] = str;
         },
@@ -166,7 +171,8 @@ class _Lession01MainState extends State<Lession01Main> {
         questionText: pg13.text, 
         preOptionsText: pg13.preOptions, 
         options: pg13.options, 
-        correctIndex: pg13.correct, 
+        correctIndex: pg13.correct,
+        responsePath: pg13.ballonPath,
         onSelectedOptionChange: (str) {
             respostas[5] = str; // Dineiro extra
             escolhas["extra"] = stringRealToDouble(str);
@@ -225,6 +231,7 @@ class _Lession01MainState extends State<Lession01Main> {
 
     return Scaffold(
       body: PageView(
+        physics: const NeverScrollableScrollPhysics(),
         controller: _pageController,
         onPageChanged: (index) {
           setState(() {
