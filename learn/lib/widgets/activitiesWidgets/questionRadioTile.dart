@@ -35,7 +35,7 @@ class QuestionRadioTile extends StatelessWidget {
       onTap: onTap,
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-        //height: title.length/ 1 + 20,
+        height: 100,
         decoration: BoxDecoration(
           color: backgroundColor,
           borderRadius: BorderRadius.circular(5),

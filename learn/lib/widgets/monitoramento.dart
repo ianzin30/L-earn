@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:learn/pages/parentsPages/childMonitoring.dart';
+import 'package:learn/pages/parentsPages/childMonitoringSpecific.dart';
 import 'package:learn/utils/modelsClass.dart';
 
 class MonitoringWidget extends StatelessWidget {
@@ -76,7 +77,7 @@ class ChildMonitoringBox extends StatelessWidget {
           Navigator.push(
               context,
               MaterialPageRoute(
-                  builder: (context) => ChildMonitoring(
+                  builder: (context) => ChildMonitoringSpecific(
                         children: child,
                       )));
         },

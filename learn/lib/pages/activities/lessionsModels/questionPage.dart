@@ -26,127 +26,128 @@ class QuestionPage extends StatefulWidget {
 
 class _QuestionPageState extends State<QuestionPage> {
   int selecionada = -1;
+  bool marked = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        alignment: AlignmentDirectional.center,
-        children: [
-          Center(
-              child: Container(
-                alignment: Alignment.center,
-
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                colors: [
-                  Color(0XFF7A7FFF),
-                  Color(0XFF040862),
-                ],
-                begin: Alignment.topLeft,
-                end: Alignment.centerRight,
-              ),
-            ),
-            child: Container(
-              padding: const EdgeInsets.all(16),
-              alignment: Alignment.center,
-              child: Align(
-                alignment: Alignment.center,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(8),
-                      child: widget.questionText,
-                    ),
-
-                    _buildQuestion(context),
-                  ],
-                ),
-              ),
-            ),
-          )),
-          Positioned(
-              top: 64,
-              left: 16,
-              child: LearnBackButton(
-                buttonColor: const Color(0xFFFFFFFF),
-                iconColor: const Color(0xff101573),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-              )),
-          Positioned(
-            bottom: 64,
-            left: 0,
-            right: 0,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 32.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  LearnButton(
-                    text: const Text(
-                      "Voltar",
-                      style: TextStyle(
-                        color: Color.fromARGB(255, 255, 255, 255),
-                        fontSize: 14,
-                        fontWeight: FontWeight.w400,
-                        fontFamily: "Fieldwork-Geo",
-                      ),
-                    ),
-                    buttonColor: Color.fromARGB(0, 255, 255, 255),
-                    width: 160,
-                    onPressed: () {
-                      widget.pageController.previousPage(
-                          duration: const Duration(milliseconds: 500),
-                          curve: Curves.ease);
-                    },
-                  ),
-                  const Spacer(),
-                  LearnButton(
-                    text: const Text(
-                      "Continuar",
-                      style: TextStyle(
-                        color: Color(0xff101573),
-                        fontSize: 14,
-                        fontWeight: FontWeight.w400,
-                        fontFamily: "Fieldwork-Geo",
-                      ),
-                    ),
-                    buttonColor: const Color(0xFFFFFFFF),
-                    width: 160,
-                    onPressed: () {
-                      widget.pageController.nextPage(
-                          duration: const Duration(milliseconds: 500),
-                          curve: Curves.ease);
-                    },
-                  ),
-                ],
-              ),
+        body: Stack(
+      children: [
+        Container(
+          padding: const EdgeInsets.all(16),
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                Color(0XFF646AE3),
+                Color(0XFF262B91),
+              ],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
             ),
           ),
-        ],
-      ),
-    );
+          child:
+              Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
+            const SizedBox(
+              height: 120,
+            ),
+            SizedBox(
+              height: MediaQuery.sizeOf(context).height - 360,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  widget.questionText,
+                  const SizedBox(height: 32,),
+                  _buildQuestion(context),
+                ],
+              ),
+            )
+          ]),
+        ),
+        Positioned(
+            top: 88,
+            left: 16,
+            child: LearnBackButton(
+              buttonColor: const Color(0xFFFFFFFF),
+              iconColor: const Color(0xff101573),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+            )),
+        Positioned(
+          bottom: 120,
+          left: 0,
+          right: 0,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 32.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                LearnButton(
+                  text: const Text(
+                    "Voltar",
+                    style: TextStyle(
+                      color: Color(0XFFFFFFFF),
+                      fontSize: 14,
+                      fontWeight: FontWeight.w400,
+                      fontFamily: "Fieldwork-Geo",
+                    ),
+                  ),
+                  buttonColor: const Color(0x00000000),
+                  width: 120,
+                  onPressed: () {
+                    widget.pageController.previousPage(
+                        duration: const Duration(milliseconds: 500),
+                        curve: Curves.ease);
+                  },
+                ),
+                const Spacer(),
+                LearnButton(
+                  borderRadius: 25,
+                  text: const Text(
+                    "Continuar",
+                    style: TextStyle(
+                      color: Color(0xff101573),
+                      fontSize: 14,
+                      fontWeight: FontWeight.w400,
+                      fontFamily: "Fieldwork-Geo",
+                    ),
+                  ),
+                  buttonColor: const Color(0xFFFFFFFF),
+                  width: 120,
+                  onPressed: marked? () {
+                    widget.pageController.nextPage(
+                        duration: const Duration(milliseconds: 500),
+                        curve: Curves.ease);
+                  }: null,
+                ),
+              ],
+            ),
+          ),
+        ),
+      ],
+    ));
   }
 
   Widget _buildQuestion(BuildContext context) {
-    return Center(
-      child: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(bottom: 16.0),
-            child: widget.preOptionsText,
-          ),
-          ...widget.options.asMap().entries.map((entry) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(bottom: 16.0),
+          child: widget.preOptionsText,
+        ),
+        Column(
+          children: widget.options.asMap().entries.map((entry) {
             int idx = entry.key;
             String text = entry.value;
+            if (selecionada == idx){
+              marked = true;
+            }
             return _buildOption(idx, text, context);
           }).toList(),
-        ],
-      ),
+        )
+      ],
     );
   }
 
