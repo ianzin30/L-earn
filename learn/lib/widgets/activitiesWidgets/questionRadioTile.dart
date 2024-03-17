@@ -6,6 +6,7 @@ class QuestionRadioTile extends StatelessWidget {
   final bool isSelected;
   final bool isCorrect;
   final VoidCallback onTap;
+  final LayerLink link;
 
   const QuestionRadioTile({
     Key? key,
@@ -13,6 +14,7 @@ class QuestionRadioTile extends StatelessWidget {
     required this.isSelected,
     required this.isCorrect,
     required this.onTap,
+    required this.link,
   }) : super(key: key);
 
   @override
@@ -31,35 +33,38 @@ class QuestionRadioTile extends StatelessWidget {
           : const Color(0xFFFFA200); // White checkmark when selected.
     }
 
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-        height: 100,
-        decoration: BoxDecoration(
-          color: backgroundColor,
-          borderRadius: BorderRadius.circular(5),
-          border: Border.all(color: borderColor, width: 0.75),
-        ),
-        child: Row(
-          children: [
-            isSelected
-                ? Icon(Icons.check_circle, color: checkIconColor)
-                : const Icon(Icons.radio_button_unchecked,
-                    color: Color(0xFFB6B6B6)),
-            const SizedBox(width: 18.2),
-            Expanded(
-              child: Text(
-                title,
-                style: TextStyle(
-                  fontSize: 14,
-                  fontFamily: "Fieldwork-Geo",
-                  fontWeight: FontWeight.w400,
-                  color: isSelected ? Colors.white : const Color(0xFFB6B6B6),
+    return CompositedTransformTarget(
+      link: link,
+      child: GestureDetector(
+        onTap: onTap,
+        child: Container(
+          padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+          height: 100,
+          decoration: BoxDecoration(
+            color: backgroundColor,
+            borderRadius: BorderRadius.circular(5),
+            border: Border.all(color: borderColor, width: 0.75),
+          ),
+          child: Row(
+            children: [
+              isSelected
+                  ? Icon(Icons.check_circle, color: checkIconColor)
+                  : const Icon(Icons.radio_button_unchecked,
+                      color: Color(0xFFB6B6B6)),
+              const SizedBox(width: 18.2),
+              Expanded(
+                child: Text(
+                  title,
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontFamily: "Fieldwork-Geo",
+                    fontWeight: FontWeight.w400,
+                    color: isSelected ? Colors.white : const Color(0xFFB6B6B6),
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
