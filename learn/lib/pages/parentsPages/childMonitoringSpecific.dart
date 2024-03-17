@@ -85,12 +85,58 @@ class ChildMonitoringSpecific extends StatelessWidget {
                 ],
               ),
             ),
+            const SizedBox(height: 16),
             Column(
-              children: activitiesList[children.lastActivitie].lessionsList.map((e) {
-                bool isFinished = children.activities[children.lastActivitie].length >= e.id;
-                return LessionCardStatic(lession: e, isFinished: isFinished,);
-                }).toList(),
-            )
+            children: activitiesList[children.lastActivitie]
+                .lessionsList
+                .take(1) 
+                .map((e) {
+              bool isFinished =
+                  children.activities[children.lastActivitie].length >= e.id;
+              return LessionCardStatic(lession: e, isFinished: isFinished, isLocked: false);
+            }).toList(),
+          ),
+          const SizedBox(height: 16),
+          RichText(
+            text: const TextSpan(
+              children: [
+                TextSpan(
+                  text: 'Próximos passos\n',
+                  style: TextStyle(
+                      color: Color(0xFF222222),
+                      fontFamily: "Fieldwork-Geo",
+                      fontSize: 14,
+                      fontWeight: FontWeight.w800),
+                ),
+                WidgetSpan(child: SizedBox(height: 18)),
+                TextSpan(
+                    text:
+                        'Essas são as próximas atividades a serem cobertas pela crança!',
+                    style: TextStyle(
+                        color: Color(0xFF5C5C5C),
+                        fontFamily: "Fieldwork-Geo",
+                        fontSize: 12,
+                        fontWeight: FontWeight.w300))
+              ],
+            ),
+          ),
+          Column(
+            children: activitiesList[children.lastActivitie]
+                .lessionsList
+                .skip(
+                    activitiesList[children.lastActivitie].lessionsList.length -
+                        2) // Skip all elements except the last two
+                .map((e) {
+              bool isFinished =
+                  children.activities[children.lastActivitie].length >= e.id;
+              return Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8),
+                child: LessionCardStatic(
+                    lession: e, isFinished: !isFinished, isLocked: false),
+              );
+            }).toList(),
+          ),
+
        ]),
       ),
     );
