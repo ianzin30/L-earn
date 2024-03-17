@@ -20,6 +20,7 @@ class MascotPage extends StatelessWidget {
   Widget build(BuildContext context) {
     VolatileChildren child = Provider.of<VolatileChildren>(context);
     return Scaffold(
+      backgroundColor: Colors.blue,
       appBar: MascotBar(pageController: pageController),
       body: Stack(
         children: [

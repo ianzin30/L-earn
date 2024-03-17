@@ -130,7 +130,7 @@ class _QuestionPageState extends State<QuestionPage> {
                       fontFamily: "Fieldwork-Geo",
                     ),
                   ),
-                  buttonColor: const Color(0xFFFFFFFF),
+                  buttonColor:  const Color(0xFFFFFFFF).withOpacity(selecionada == -1 ? 0.3 : 1),
                   width: 120,
                   onPressed: marked? () {
                     widget.pageController.nextPage(

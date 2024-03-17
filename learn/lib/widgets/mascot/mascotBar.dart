@@ -7,8 +7,8 @@ class MascotBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 14),
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
       child: AppBar(
         leading: Stack(
           alignment: Alignment.center,
@@ -18,13 +18,13 @@ class MascotBar extends StatelessWidget implements PreferredSizeWidget {
               width: 48,
               decoration: BoxDecoration(
                   gradient: const LinearGradient(
-                    colors:  [Color(0xff646AE3), Color(0XFF262B91)],
+                    colors:  [Color(0XFFFFFFFF), Color(0XFFFFFFFF),],
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight
                   ),
                   borderRadius: BorderRadius.circular(10)),
               child: IconButton(
-                icon: const Icon(Icons.arrow_back, color: Colors.white),
+                icon: const Icon(Icons.arrow_back, color: Color(0xff101573)),
                 iconSize: 22,
                 onPressed: () {
                   pageController.animateToPage(
@@ -39,12 +39,12 @@ class MascotBar extends StatelessWidget implements PreferredSizeWidget {
         ),
         title: const Text('Mascote',
             style: TextStyle(
-                color: Colors.black,
+                color: Colors.white,
                 fontSize: 18,
                 fontFamily: 'Fieldwork-Geo',
-                fontWeight: FontWeight.w400)),
+                fontWeight: FontWeight.w600)),
         centerTitle: true,
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.blue,
         elevation: 0,
       ),
     );

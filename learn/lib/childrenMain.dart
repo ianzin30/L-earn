@@ -39,11 +39,8 @@ class _ChildrenMainState extends State<ChildrenMain> {
     setState(() {
       _selectedIndex = index;
     });
-    _pageController.animateToPage(
-      index,
-      duration: const Duration(milliseconds: 500),
-      curve: Curves.ease,
-    );
+    _pageController.animateToPage(index,duration: const Duration(milliseconds: 500),curve: Curves.easeInOut,);
+    //_pageController.jumpToPage(index);
   }
 
   @override

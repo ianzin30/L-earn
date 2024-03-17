@@ -43,7 +43,11 @@ class GlobalProgress extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
         boxShadow: [finalBoxShadow],
-        gradient: LinearGradient(colors: barColors)
+        gradient: LinearGradient(
+          colors: barColors,
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight
+          )
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
