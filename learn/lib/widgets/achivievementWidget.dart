@@ -39,7 +39,7 @@ class AchievementsWidget extends StatelessWidget {
                   conclusionDate: childAcheivments[0].date,
                   heigth: (screenWidth / 2 - 24)*1.1,
                   width: screenWidth / 2 - 24),
-              const SizedBox(width: 16),
+              const SizedBox(width: 10),
               Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
@@ -49,30 +49,34 @@ class AchievementsWidget extends StatelessWidget {
                     heigth: (((screenWidth / 2 - 24)*1.1)*2/3)-8,
                     width: screenWidth / 2 - 24,
                   ),
-                  const SizedBox(height: 16),
+                  const SizedBox(height: 10),
                   InkWell(
                     child: Container(
                         width: screenWidth / 2 - 24,
-                        height: (((screenWidth / 2 - 24)*1.1)*1/3)-8,
-                        padding: const EdgeInsets.all(8.0),
+                        height: (((screenWidth / 2 - 24)*1.1)*1/3)-2,
+                        padding: const EdgeInsets.all(4.0),
                         decoration: BoxDecoration(
                             gradient: const LinearGradient(
-                              colors: [Color(0xFFF8D24D), Color(0xFFFEC224)],
-                              begin: Alignment.topLeft,
-                              end: Alignment.bottomRight,
+                              colors: [Color(0xFF2F2F2F), Color(0xFF959595)],
+                              begin: Alignment.bottomCenter,
+                              end: Alignment.topCenter,
                             ),
                             borderRadius: BorderRadius.circular(12.5)),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            const Text("Ver todas as\nconquistas",
+                            Container(
+                              padding: const EdgeInsets.only(left: 8),
+                              child: const Text("Ver todas as\nconquistas",
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 12,
                                     fontFamily: 'Fieldwork-Geo',
                                     fontWeight: FontWeight.w800)),
-                            Image.asset('assets/images/appIcons/icon-award.png',
-                                height: 24),
+                            ),
+
+                            Image.asset('assets/images/appIcons/icon-show-conquist.png'),
+                                
                           ],
                         )),
                     onTap: () {
