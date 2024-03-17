@@ -108,8 +108,9 @@ class GlobalProgress extends StatelessWidget {
           ),
           
           const SizedBox(height: 8),
+            if (!isMascot) // This will only display the AnimatedProgressBar if isMascot is true.
             AnimatedProgressBar(
-              progress: progressPercentage.floorToDouble(), 
+              progress: progressPercentage.floorToDouble(),
               maxProgress: 100,
               barColor: textColor,
             ),

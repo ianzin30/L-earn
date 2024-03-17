@@ -85,12 +85,63 @@ class ChildMonitoringSpecific extends StatelessWidget {
                 ],
               ),
             ),
+            const SizedBox(height: 16),
             Column(
-              children: activitiesList[children.lastActivitie].lessionsList.map((e) {
-                bool isFinished = children.activities[children.lastActivitie].length >= e.id;
-                return LessionCardStatic(lession: e, isFinished: isFinished,);
-                }).toList(),
-            )
+            children: activitiesList[children.lastActivitie]
+                .lessionsList
+                .where((e) =>
+                    children.activities[children.lastActivitie].length >
+                    e.id) // Filter for not finished lessons
+                .map((e) {
+              // No need to check for isFinished since we already filtered the list.
+              return Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8),
+                child: LessionCardStatic(
+                    lession: e, isFinished: true, isLocked: false),
+              );
+            }).toList(),
+          ),
+
+          const SizedBox(height: 16),
+          RichText(
+            text: const TextSpan(
+              children: [
+                TextSpan(
+                  text: 'Próximos passos\n',
+                  style: TextStyle(
+                      color: Color(0xFF222222),
+                      fontFamily: "Fieldwork-Geo",
+                      fontSize: 14,
+                      fontWeight: FontWeight.w800),
+                ),
+                WidgetSpan(child: SizedBox(height: 18)),
+                TextSpan(
+                    text:
+                        'Essas são as próximas atividades a serem cobertas pela crança!',
+                    style: TextStyle(
+                        color: Color(0xFF5C5C5C),
+                        fontFamily: "Fieldwork-Geo",
+                        fontSize: 12,
+                        fontWeight: FontWeight.w300))
+              ],
+            ),
+          ),
+          Column(
+            children: activitiesList[children.lastActivitie]
+                .lessionsList
+                .where((e) =>
+                    children.activities[children.lastActivitie].length <
+                    e.id) 
+                .map((e) {
+              return Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8),
+                child: LessionCardStatic(
+                    lession: e, isFinished: false, isLocked: false),
+              );
+            }).toList(),
+          ),
+
+
        ]),
       ),
     );

@@ -28,13 +28,13 @@ class ActivitieCardStatic extends StatelessWidget {
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
             ),
-            boxShadow: [
+            /*boxShadow: [
               BoxShadow(
                 color: Colors.black.withOpacity(0.25),
                 offset: const Offset(0, 4),
                 blurRadius: 10,
               ),
-            ],
+            ],*/
           ),
           child: Stack(
             children: [
