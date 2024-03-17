@@ -34,6 +34,7 @@ class _MonitoringPageState extends State<MonitoringPage> {
       appBar: LearnAppBar(
         pageIndex: 2,
         pagePosition: widget.pagePosition.value,
+        heigth: 248,
         child: Container(
             alignment: Alignment.centerLeft,
             padding: const EdgeInsets.fromLTRB(14, 48, 14, 0),
@@ -92,10 +93,10 @@ class _MonitoringPageState extends State<MonitoringPage> {
               color:  const Color(0xFFfffbfe),
               borderRadius: BorderRadius.circular(20),
               boxShadow:  [BoxShadow(
-                color: Color(0xFF5C5C5C).withOpacity(0.3),
+                color: const Color(0xFF5C5C5C).withOpacity(0.1),
                 spreadRadius: 1,
                 blurRadius: 3,
-                offset:  Offset(1, 1),
+                offset: const Offset(0, 0),
               )]
             ) ,
             child:ChildrenMonitoringGraph(

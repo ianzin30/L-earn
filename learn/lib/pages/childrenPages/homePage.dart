@@ -85,7 +85,7 @@ class ChildrenHomePage extends StatelessWidget {
               ),
               child: child.value,
             ),
-            const SizedBox(height: 40),
+            const SizedBox(height: 16),
             AchievementsWidget(
               childAcheivments: child.value.acheivments,
             ),

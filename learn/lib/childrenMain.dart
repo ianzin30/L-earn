@@ -66,6 +66,7 @@ class _ChildrenMainState extends State<ChildrenMain> {
         child: Scaffold(
           body: Stack(children: [
             PageView(
+              physics: const NeverScrollableScrollPhysics(),
               controller: _pageController,
               onPageChanged: (index) {
                 setState(() {

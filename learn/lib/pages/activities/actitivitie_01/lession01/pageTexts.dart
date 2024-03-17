@@ -320,7 +320,12 @@ PageType2 pg11 = PageType2(
                 children: [
                   TextSpan(
                     text: 'O que você aconselha a ela?',
-                    style: preOptionsBoldStyle,
+                    style: TextStyle(
+                      color: Color(0xFFFFFFFF),
+                      fontSize: 24,
+                      fontFamily: "Fieldwork-Geo",
+                      fontWeight: FontWeight.normal,
+                    ),
                   ),
                 ],
               ),

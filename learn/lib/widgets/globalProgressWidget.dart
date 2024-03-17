@@ -26,7 +26,7 @@ class GlobalProgress extends StatelessWidget {
     final textColor = isMascot ? const Color(0xFFFFFFFF) : const Color(0xFF040862);
 
     final finalBoxShadow = boxShadow ?? BoxShadow(
-            color: textColor.withOpacity(0.6),
+            color: textColor.withOpacity(0.2),
             spreadRadius: 0,
             blurRadius: 16,
             offset: const Offset(0,0),
