@@ -326,6 +326,7 @@ class Activitie {
   final int level;
   final List<Color> backgroundColors;
   final List<Lession> lessionsList;
+  final String? iconPath;
 
   Activitie({
     required this.id,
@@ -336,5 +337,6 @@ class Activitie {
     this.lessionsList = const [],
     this.level = 1,
     this.backgroundColors = const [Color(0XFF1290A2), Color(0xFF82DA59)],
+    this.iconPath,  
   });
 }

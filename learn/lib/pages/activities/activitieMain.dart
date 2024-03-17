@@ -16,7 +16,7 @@ class ActivitieMain extends StatelessWidget {
     return Scaffold(
         appBar: LearnAppBarSuper(
           superHeigth: 280,
-          globalHeigth: 250,
+          globalHeigth: 280,
           superWidget: content,
           child: Container(
               //width: MediaQuery.sizeOf(context).width,

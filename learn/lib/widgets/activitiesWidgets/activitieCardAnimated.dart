@@ -47,8 +47,9 @@ class _ActivitieCardState extends State<ActivitieCard> with SingleTickerProvider
 
   void _onTap() {
     if (!widget.activitie.isLocked) {
+      widget.activitie.withProgress = true;
       Navigator.push(
-            context, MaterialPageRoute(builder: (context) => ActivitieMain(content: widget.activitie, child: widget.child,)?? Container())
+            context, MaterialPageRoute(builder: (context) => ActivitieMain(content: widget.activitie, child: widget.child)?? Container())
           );
     }
     _animationController
