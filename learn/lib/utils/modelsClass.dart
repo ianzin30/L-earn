@@ -160,6 +160,7 @@ class VolatileChildren extends ValueNotifier<Children> {
   }
 }
 
+
 class Parents {
   String name;
   String photoPath;
@@ -170,7 +171,33 @@ class Parents {
     this.photoPath = "assets/images/appImages/ianzinho.jpg",
     this.dependents = const [],
   });
+
+  Map<String, dynamic> getJson() {
+    return {
+      'name': name,
+      'photoPath': photoPath,
+      'dependents': dependents.map((e) => e.childrenCode).toList(),
+    };
+  }
 }
+
+class VolatileParents extends ValueNotifier<Parents>{
+  Parents parents;
+  VolatileParents({required this.parents}) : super(parents);
+  
+  void setParents(Parents parents) {
+    this.parents = parents;
+    notifyListeners();
+  }
+
+  void addDependent(Children children) {
+    parents.dependents.add(children);
+    notifyListeners();
+  }
+
+  
+}
+
 
 Children luciano = Children(
     childrenCode: "1111",
@@ -230,13 +257,34 @@ Parents currentUser = Parents(
   name: FirebaseAuth.instance.currentUser?.email ?? "No name",
   photoPath: FirebaseAuth.instance.currentUser?.photoURL ??
       "assets/images/appImages/ianzinho.jpg",
-  dependents: [luciano], // Add the children of the current user here
+  dependents: [luciano],
 );
 
 Parents joana = Parents(
     name: "Joana Dias",
     dependents: [luciano, carlos],
     photoPath: "assets/images/appImages/joana-dias.png");
+
+Future<Parents> loadParent(String email) async {
+  DocumentSnapshot parentData = await FirebaseFirestore.instance
+      .collection('parent')
+      .doc(email)
+      .get();
+
+  if (parentData.exists) {
+    String name = parentData.get("name");
+    String photoPath = parentData.get("photoPath");
+    List<dynamic> getList = parentData.get("dependents");
+    List<String> dependents = getList.map((item) => item.toString()).toList();
+    List<Future<Children>> futureChildrenList = dependents.map((e) => loadChildren(e)).toList();
+    List<Children> childrenList = await Future.wait(futureChildrenList);
+    return Parents(
+        name: name,
+        photoPath: photoPath,
+        dependents: childrenList);
+  }
+  throw Exception();
+}
 
 int diffYears(DateTime birthDate) {
   DateTime now = DateTime.now();

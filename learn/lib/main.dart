@@ -27,9 +27,7 @@ class MyApp extends StatelessWidget {
           ),
           home: LoginPage(),
           routes: {
-            '/parentsMain': (context) => ParentsMain(
-                  parent: joana,
-                ),
+            '/parentsMain': (context) => ParentsMain(),
             '/childrenMain': (context) => ChildrenMain(),
             '/signUpParents': (context) => SignParentsPage(),
           },

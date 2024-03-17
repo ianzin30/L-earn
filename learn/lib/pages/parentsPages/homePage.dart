@@ -6,18 +6,20 @@ import 'package:learn/widgets/globalProgressWidget.dart';
 import 'package:learn/utils/modelsClass.dart';
 import 'package:learn/widgets/notifications/showSugestion.dart';
 import 'package:learn/widgets/monitoramento.dart';
+import 'package:provider/provider.dart';
+
 
 class ParentsHPage extends StatelessWidget {
   final ValueNotifier<double> pagePosition;
-  final Parents parent;
 
   ParentsHPage({
     required this.pagePosition,
-    required this.parent
   });
 
   @override
   Widget build(BuildContext context) {
+    VolatileParents parent = Provider.of<VolatileParents>(context);
+    
     return Scaffold(
       appBar: LearnAppBarSuper(
         superHeigth: 320,
@@ -30,11 +32,11 @@ class ParentsHPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               UserPhotoAndName(
-                userName: parent.name,
-                userPhotoPath: parent.photoPath,
+                userName: parent.value.name,
+                userPhotoPath: parent.value.photoPath,
                 firstLine: "Seja bem-vindo,\n",
                 fontWeight1: FontWeight.w400,
-                secondLine: parent.name,
+                secondLine: parent.value.name,
                 fontWeight2: FontWeight.bold,
               ),
             ]
@@ -51,14 +53,15 @@ class ParentsHPage extends StatelessWidget {
                 Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => ActivitiesSugestionPage(children: parent.dependents[0])));
+                              builder: (context) => ActivitiesSugestionPage(children: parent.value.dependents[0])));
               },
               width: MediaQuery.sizeOf(context).width-32, 
-              childName: parent.dependents[0].name, 
+              childName: parent.value.dependents[0].name, 
               activitieName: "Orçamento de um passeio no Shopping"
             ),
             const SizedBox(height: 32,),
-            MonitoringWidget(parent: parent)
+            MonitoringWidget(parent: parent.value),
+            const SizedBox(height: 80,)
           ],
         ),
       ),

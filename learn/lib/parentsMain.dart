@@ -3,15 +3,10 @@ import 'package:learn/pages/parentsPages/homePage.dart';
 import 'widgets/global/navBar.dart';
 import 'pages/parentsPages/profilePage.dart';
 import 'pages/parentsPages/monitoringPage.dart';
-
-// Dados mockados
 import 'package:learn/utils/modelsClass.dart';
+import 'package:provider/provider.dart';
 
 class ParentsMain extends StatefulWidget {
-  final Parents parent;
-
-  ParentsMain({required this.parent});
-
   @override
   _ParentsMainState createState() => _ParentsMainState();
 }
@@ -53,17 +48,12 @@ class _ParentsMainState extends State<ParentsMain> {
 
   @override
   Widget build(BuildContext context) {
+    final parent = ModalRoute.of(context)?.settings.arguments as Parents;
+
     List<Widget> _pageOptions = [
-      ParentsHPage(
-        pagePosition: pagePosition,
-        parent: widget.parent,
-      ),
-      MonitoringPage(parent: widget.parent, pagePosition: pagePosition),
-      ProfilePage(
-        pagePosition: pagePosition,
-        parent: widget.parent,
-        pageController: _pageController,
-      )
+      ParentsHPage(pagePosition: pagePosition,),
+      MonitoringPage(pagePosition: pagePosition),
+      ProfilePage(pagePosition: pagePosition,pageController: _pageController,)
     ];
 
     List<Map<String, dynamic>> navItems = [
@@ -72,7 +62,9 @@ class _ParentsMainState extends State<ParentsMain> {
       {'icon': Icons.person, 'name': 'Perfil'},
     ];
 
-    return Scaffold(
+    return ChangeNotifierProvider<VolatileParents>(
+    create: (context) => VolatileParents(parents: parent),
+    child: Scaffold(
         body: Stack(
       children: [
         PageView(
@@ -94,6 +86,8 @@ class _ParentsMainState extends State<ParentsMain> {
               navItems: navItems,
             ))
       ],
-    ));
+    )
+    )
+    );
   }
 }

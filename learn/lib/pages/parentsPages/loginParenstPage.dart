@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:learn/widgets/login/loginEnterButton.dart';
 import 'package:learn/widgets/login/loginAppBar.dart';
 import 'package:learn/widgets/login/loginInfoContainter.dart';
+import 'package:learn/utils/modelsClass.dart';
 
 class LoginInputFields extends StatelessWidget {
   final TextEditingController emailController;
@@ -88,24 +89,6 @@ class _LoginParentsPageState extends State<LoginParentsPage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
-  Future<void> signInWithFirebase() async {
-    try {
-      final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: _emailController.text,
-        password: _passwordController.text,
-      );
-      Navigator.pushReplacementNamed(context, '/parentsMain');
-    } on FirebaseAuthException catch (e) {
-      if (e.code == 'user-not-found') {
-        print('No user found for that email.');
-      } else if (e.code == 'wrong-password') {
-        print('Wrong password provided for that user.');
-      } else {
-        print('the error is $e');
-      }
-    }
-  }
-
   @override
   void dispose() {
     _emailController.dispose();
@@ -139,8 +122,36 @@ class _LoginParentsPageState extends State<LoginParentsPage> {
                   ),
                   const SizedBox(height: 32),
                   LoginEnterButton(
-                      onPressed: () {
-                        signInWithFirebase();
+                      onPressed: () async {
+                        try {
+                          final credential = await FirebaseAuth.instance
+                              .signInWithEmailAndPassword(
+                            email: _emailController.text,
+                            password: _passwordController.text,
+                          );
+
+                          User? parent = credential.user;
+                          if (parent != null) {
+                            Parents parentUser =
+                                await loadParent(parent.email ?? "");
+                            Navigator.pushReplacementNamed(
+                                context, '/parentsMain',
+                                arguments: parentUser);
+                          }
+                        } on FirebaseAuthException catch (e) {
+                          if (e.code == 'user-not-found') {
+                            print('No user found for that email.');
+                          } else if (e.code == 'wrong-password') {
+                            print('Wrong password provided for that user.');
+                          } else {
+                            print('the error is $e');
+                          }
+                          rethrow;
+                        } catch (e) {
+                          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                              content: Text(
+                                  'As credenciais informadas não são válidas, tente novamente')));
+                        }
                       },
                       title: "Entrar",
                       colors: const [Color(0xFF646AE3), Color(0xFF262B91)]),
