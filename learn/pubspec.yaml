@@ -87,6 +87,7 @@ flutter:
   - ./assets/images/appIcons/icon-award.png
   - ./assets/images/appIcons/icon-lock-default.png
   - ./assets/images/appIcons/notification.png
+  - ./assets/images/appIcons/icon-show-conquist.png
 
   # Badges
   - ./assets/images/appIcons/badge-bronze-default.png

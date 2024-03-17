@@ -19,13 +19,13 @@ List<Activitie> activitiesList = [
         page: Lession01Main()
       ),
       Lession(
-        id: 0, 
+        id: 1, 
         title: "Passeando no Shopping antes do cinema!", 
         description: "Estar no Shopping e não passear com os amigos antes do Cinema é o mesmo que não ter ido no Shopping né? Mas é preciso ter muito cuidado com os gastos!",
         page: Lession01Main()
       ),
       Lession(
-        id: 0, 
+        id: 2, 
         title: "Depois do passeio... Fazerndo as contas", 
         description: "Agora que o passeio passou, precisamos anotar tudo que gastamos para evitar prejuízos no futuro, vamos nessa?!",
         page: Lession01Main()
@@ -47,13 +47,13 @@ List<Activitie> activitiesList = [
         page: Lession01Main()
       ),
       Lession(
-        id: 0, 
+        id: 1, 
         title: "Passeando no Shopping antes do cinema!", 
         description: "Estar no Shopping e não passear com os amigos antes do Cinema é o mesmo que não ter ido no Shopping né? Mas é preciso ter muito cuidado com os gastos!",
         page: Lession01Main()
       ),
       Lession(
-        id: 0, 
+        id: 2, 
         title: "Depois do passeio... Fazerndo as contas", 
         description: "Agora que o passeio passou, precisamos anotar tudo que gastamos para evitar prejuízos no futuro, vamos nessa?!",
         page: Lession01Main()

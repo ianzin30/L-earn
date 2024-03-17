@@ -8,6 +8,8 @@ import 'package:learn/widgets/globalProgressWidget.dart';
 import 'package:learn/utils/activitiesList.dart';
 import 'package:learn/utils/modelsClass.dart';
 import 'package:learn/widgets/activitiesWidgets/activitieCardStatic.dart';
+import 'package:learn/utils/activitiesList.dart';
+import 'package:learn/widgets/activitiesWidgets/newLessionCard.dart';
 
 class ChildMonitoringSpecific extends StatelessWidget {
   final Children children;
@@ -83,17 +85,12 @@ class ChildMonitoringSpecific extends StatelessWidget {
                 ],
               ),
             ),
-            //const SizedBox(height: 16),
-           /*ActivitieCardStatic(
-              activitie: activitiesList[children.lastActivitie],
-              isLocked: false,
-              progress: getProgress(children.lastActivitie,
-                  children.activities[children.lastActivitie]),
-            ),*/
-            //const SizedBox(height: 40),
-            //AchievementsWidget(
-              //childAcheivments: children.acheivments,
-           // ),
+            Column(
+              children: activitiesList[children.lastActivitie].lessionsList.map((e) {
+                bool isFinished = children.activities[children.lastActivitie].length >= e.id;
+                return LessionCardStatic(lession: e, isFinished: isFinished,);
+                }).toList(),
+            )
        ]),
       ),
     );

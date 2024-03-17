@@ -212,7 +212,7 @@ Children luciano = Children(
       AcheivmentsDate(date: DateTime(2024, 01, 12), id: 3)
     ],
     activities: [
-      [0],
+      [0, 1],
       [],
     ],
     xpPerDay: {
@@ -239,7 +239,7 @@ Children carlos = Children(
       AcheivmentsDate(date: DateTime(2024, 01, 12), id: 3)
     ],
     activities: [
-      [0],
+      [],
       [],
     ],
     xpPerDay: {
