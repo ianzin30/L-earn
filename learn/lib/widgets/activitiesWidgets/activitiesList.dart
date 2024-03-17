@@ -6,6 +6,7 @@ import 'package:learn/utils/activitiesList.dart';
 
 class ActivitiesList extends StatelessWidget {
   final Children child;
+
   const ActivitiesList({
     required this.child,
     super.key

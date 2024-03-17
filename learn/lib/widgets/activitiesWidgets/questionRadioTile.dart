@@ -7,6 +7,7 @@ class QuestionRadioTile extends StatelessWidget {
   final bool isCorrect;
   final VoidCallback onTap;
   final LayerLink link;
+  final String? balloonPath;
 
   const QuestionRadioTile({
     Key? key,
@@ -15,6 +16,7 @@ class QuestionRadioTile extends StatelessWidget {
     required this.isCorrect,
     required this.onTap,
     required this.link,
+    this.balloonPath
   }) : super(key: key);
 
   @override
