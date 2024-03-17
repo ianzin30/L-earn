@@ -35,8 +35,8 @@ class ChildrenMonitoringGraph extends StatelessWidget {
     }
     
     List<String> names = selectedChild == null
-      ? ['Todos'] + children.map((child) => child.name).toList()
-      : [selectedChild!.name];
+      ? ['Todos'] + children.map((child) => child.name.split(' ')[0]).toList()
+      : [selectedChild!.name.split(' ')[0]];
 
     List<List<_ChartData>> chartData = [];
     if (selectedChild == null) {
@@ -48,9 +48,13 @@ class ChildrenMonitoringGraph extends StatelessWidget {
 
 
     return SfCartesianChart(
-      legend: const Legend(isVisible: true, overflowMode: LegendItemOverflowMode.wrap),
-      primaryXAxis: const CategoryAxis(),
-      primaryYAxis: const NumericAxis(minimum: 0, maximum: 1000, interval: 200),
+      legend: Legend(
+        isVisible: true, overflowMode: LegendItemOverflowMode.scroll,alignment: ChartAlignment.near, textStyle:TextStyle(
+          color: Colors.black, fontWeight: FontWeight.bold
+        ) ),
+      primaryXAxis: CategoryAxis(majorGridLines: MajorGridLines(color: Colors.black.withOpacity(0.1)),),
+      primaryYAxis: NumericAxis(minimum: 0, maximum: 1000, interval: 200, majorGridLines: MajorGridLines(color: Colors.black.withOpacity(0.1)),),
+
       series: List.generate(
         chartData.length,
         (index) => AreaSeries<_ChartData, String>(
@@ -60,6 +64,7 @@ class ChildrenMonitoringGraph extends StatelessWidget {
           borderDrawMode: BorderDrawMode.top,
           borderColor: colors[index % colors.length].withOpacity(0.5),
           borderWidth: 1,
+          legendIconType: LegendIconType.circle,
           xValueMapper: (_ChartData data, _) => data.x,
           yValueMapper: (_ChartData data, _) => data.y,
           gradient: LinearGradient(
