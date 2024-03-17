@@ -7,19 +7,19 @@ import 'package:learn/widgets/monitoramento.dart';
 import 'package:learn/widgets/achivievementWidget.dart';
 import 'package:learn/utils/modelsClass.dart';
 import 'package:learn/pages/parentsPages/addDependentPage.dart';
+import 'package:provider/provider.dart';
 
 class ProfilePage extends StatelessWidget {
   final ValueNotifier<double> pagePosition;
-  final Parents parent;
   final PageController pageController;
 
   ProfilePage(
       {required this.pagePosition,
-      required this.parent,
       required this.pageController});
 
   @override
   Widget build(BuildContext context) {
+    VolatileParents parent = Provider.of<VolatileParents>(context);
     return Scaffold(
       appBar: LearnAppBar(
         heigth: 248,
@@ -47,11 +47,11 @@ class ProfilePage extends StatelessWidget {
               ),
               const SizedBox(height: 32),
               UserPhotoAndName(
-                userName: parent.name,
-                userPhotoPath: parent.photoPath,
+                userName: parent.value.name,
+                userPhotoPath: parent.value.photoPath,
                 firstLine: "Seja bem-vindo,\n",
                 fontWeight1: FontWeight.w400,
-                secondLine: parent.name,
+                secondLine: parent.value.name,
                 fontWeight2: FontWeight.bold,
               ),
             ]),
@@ -139,13 +139,15 @@ class ProfilePage extends StatelessWidget {
               height: 16,
             ),
             Column(
-              children: parent.dependents
+              children: parent.value.dependents
                   .map((child) => ChildMonitoringBox(
                         child: child,
                       ))
                   .toList(),
-            )
-          ]),
+            ),
+          const SizedBox(height: 80,)
+          ]
+          ),
         ),
       ),
     );

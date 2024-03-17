@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:learn/widgets/global/learnAppBar.dart';
 import 'package:learn/utils/modelsClass.dart';
-import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:learn/widgets/childrenMonitoringGraph.dart';
 import 'package:learn/widgets/childrenMonitoringSelector.dart';
+import 'package:provider/provider.dart';
+
 
 class MonitoringPage extends StatefulWidget {
   final ValueNotifier<double> pagePosition;
-  final Parents parent;
-
+  
   MonitoringPage({
-    required this.pagePosition, 
-    required this.parent, Key? key
+    required this.pagePosition, Key? key
     }) : super(key: key);
 
 
@@ -31,6 +29,7 @@ class _MonitoringPageState extends State<MonitoringPage> {
 
   @override
   Widget build(BuildContext context) {
+    VolatileParents parent = Provider.of<VolatileParents>(context);
     return Scaffold(
       appBar: LearnAppBar(
         pageIndex: 2,
@@ -73,7 +72,7 @@ class _MonitoringPageState extends State<MonitoringPage> {
                 onTap: () => _onChildTap(null),
                 child: null,
               ),
-              ...widget.parent.dependents
+              ...parent.value.dependents
                   .map((child) => ChildSelect(
                         isSelected: selectedChild == child,
                         onTap: () => _onChildTap(child),
@@ -100,7 +99,7 @@ class _MonitoringPageState extends State<MonitoringPage> {
               )]
             ) ,
             child:ChildrenMonitoringGraph(
-            children: widget.parent.dependents,
+            children: parent.value.dependents,
             selectedChild: selectedChild,
           ),
           ),
@@ -127,7 +126,7 @@ class _MonitoringPageState extends State<MonitoringPage> {
                 height: 119 * 0.25)
             )
           ),
-          const SizedBox(height: 8,)
+          const SizedBox(height: 120,)
         ],
       ),
       ),)

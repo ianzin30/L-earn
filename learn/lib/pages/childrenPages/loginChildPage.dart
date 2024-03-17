@@ -5,7 +5,6 @@ import 'package:learn/widgets/login/loginAppBar.dart';
 import 'package:learn/widgets/login/loginEnterButton.dart';
 import 'package:learn/widgets/login/loginInfoContainter.dart';
 
-
 class LoginChildPage extends StatefulWidget {
   const LoginChildPage({Key? key}) : super(key: key);
 
@@ -67,25 +66,25 @@ class LoginChildPageState extends State<LoginChildPage> {
             Expanded(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget> [
+                children: <Widget>[
                   const Column(
                     children: [
                       Text(
                         "Código de acesso",
-                        style:  TextStyle(
+                        style: TextStyle(
                           fontSize: 22,
                           color: Color(0xFF4349B8),
                           fontFamily: "Fieldwork-Geo",
                           fontWeight: FontWeight.w600,
                         ),
                       ),
-                       SizedBox(
+                      SizedBox(
                         height: 24.0,
                       ),
                       Text(
                           "O seu código de acesso pode ser retirado com os seus responsáveis",
                           textAlign: TextAlign.center,
-                          style:  TextStyle(
+                          style: TextStyle(
                             fontSize: 16,
                             color: Color(0xFF5F5F5F),
                             fontFamily: "Fieldwork-Geo",
@@ -93,7 +92,6 @@ class LoginChildPageState extends State<LoginChildPage> {
                           )),
                     ],
                   ),
-
                   const SizedBox(height: 32.0),
                   Row(
                     children: List.generate(
@@ -124,8 +122,7 @@ class LoginChildPageState extends State<LoginChildPage> {
                                 ),
                                 cursorColor: Colors.black,
                                 // Estilo da borda
-                                decoration:const InputDecoration(
-
+                                decoration: const InputDecoration(
                                   border: InputBorder.none,
                                   counterText: '',
                                   hintText: '0',
@@ -148,16 +145,15 @@ class LoginChildPageState extends State<LoginChildPage> {
                   LoginEnterButton(
                       onPressed: () async {
                         String childrenCode = values.join();
-                        try{
+                        try {
                           Children userChild = await loadChildren(childrenCode);
-                          Navigator.pushReplacementNamed(context,
-                          '/childrenMain',
-                          arguments: userChild
-                          );
-                        }catch(e){
-                        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                            content: Text(
-                                'Código Inválido, contate seu responsável e tente novamente')));
+                          Navigator.pushReplacementNamed(
+                              context, '/childrenMain',
+                              arguments: userChild);
+                        } catch (e) {
+                          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                              content: Text(
+                                  'Código Inválido, contate seu responsável e tente novamente')));
                         }
                       },
                       title: "Entrar",
