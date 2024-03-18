@@ -2,12 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:learn/widgets/global/backButton.dart';
 import 'package:learn/widgets/global/commonButton.dart';
 import 'package:learn/widgets/lessionProgressBar.dart';
+import 'package:learn/utils/modelsClass.dart';
 
 class FinalPage extends StatelessWidget {
   final PageController pageController;
+  final VolatileChildren children;
+  double percentage;
 
   FinalPage({
     required this.pageController,
+    required this.children,
+    required this.percentage,
   });
 
   @override
@@ -45,35 +50,44 @@ class FinalPage extends StatelessWidget {
             ),
             Center(
               child: Image.asset(
-                "assets/images/mascote/mascot-happy.png",
+                "assets/images/mascote/mascot-${(percentage >= 0.7) ? 'happy' : 'sad'}.png",
                 height: 240,
               ),
             ),
-            const SizedBox(height: 64,),
-            
-            Center(
-              child: LessionProgressBar(percentage: 80.0,)
+            const SizedBox(
+              height: 64,
             ),
-            
-            const SizedBox(height: 36,),
-
+            Center(
+                child: LessionProgressBar(
+              percentage: percentage * 100,
+            )),
+            const SizedBox(
+              height: 36,
+            ),
             RichText(
-                text: const TextSpan(
-                    children: [
-                      TextSpan(
-                              text : "Atividade Completa!\n\n",
-                              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-                      ),
-                      TextSpan(text : "Parabéns por conseguir ajudar a Connie mais uma vez! Você fez excelentes escolhas, continue assim!",)
-                    ],
-                    style: TextStyle(
-                        color: Color(0xFFFFFFFF),
-                        fontSize: 16,
-                        fontWeight: FontWeight.w400,
-                        fontFamily: "Fieldwork-Geo"),
-                    ),
-                    textAlign: TextAlign.center,
-                    ),
+              text: TextSpan(
+                children: [
+                  TextSpan(
+                    text: (percentage >= 0.7)
+                        ? "Atividade Completa!\n\n"
+                        : "Repita a Atividade\n\n",
+                    style: const TextStyle(
+                        fontWeight: FontWeight.bold, fontSize: 20),
+                  ),
+                  TextSpan(
+                    text: (percentage >= 0.7)
+                        ? "Parabéns por conseguir ajudar a Connie mais uma vez! Você fez excelentes escolhas, continue assim!"
+                        : "Vamos tentar ajudar a Connie mais uma vez! Você fez boas escolhas, mas vamos tentar novamente!",
+                  )
+                ],
+                style: const TextStyle(
+                    color: Color(0xFFFFFFFF),
+                    fontSize: 16,
+                    fontWeight: FontWeight.w400,
+                    fontFamily: "Fieldwork-Geo"),
+              ),
+              textAlign: TextAlign.center,
+            ),
             const SizedBox(
               height: 100,
             ),
@@ -83,9 +97,9 @@ class FinalPage extends StatelessWidget {
       Positioned(
           bottom: 120,
           child: LearnButton(
-            text: const Text(
-              "Continuar",
-              style: TextStyle(
+            text: Text(
+              (percentage >= 0.7) ? "Continuar" : "Repetir",
+              style: const TextStyle(
                 color: Color(0xff101573),
                 fontSize: 14,
                 fontWeight: FontWeight.w400,
@@ -94,7 +108,16 @@ class FinalPage extends StatelessWidget {
             ),
             buttonColor: const Color(0xFFFFFFFF),
             onPressed: () {
-              Navigator.pop(context);
+              print(percentage);
+              if ((percentage >= 0.7)) {
+                pageController.nextPage(
+                    duration: const Duration(milliseconds: 500),
+                    curve: Curves.ease);
+                    return;
+              }
+              pageController.animateToPage(0,
+                  duration: const Duration(milliseconds: 500),
+                  curve: Curves.easeInOut);
             },
           ))
     ]));

@@ -5,7 +5,7 @@ import 'package:learn/widgets/activitiesWidgets/activitieCardAnimated.dart';
 import 'package:learn/utils/activitiesList.dart';
 
 class ActivitiesList extends StatelessWidget {
-  final Children child;
+  final VolatileChildren child;
 
   const ActivitiesList({
     required this.child,
@@ -21,8 +21,8 @@ class ActivitiesList extends StatelessWidget {
         child: ActivitieCard(
           activitie: ActivitieCardStatic(
             activitie:activitiesList[i],
-            isLocked: i +1 > child.activities.length,
-            progress: child.activities.length > i ? getProgress(i, child.activities[i]) : 0,
+            isLocked: i +1 > child.value.activities.length,
+            progress: child.value.activities.length > i ? getProgress(i, child.value.activities[i]) : 0,
             ),
             child: child,
         ),

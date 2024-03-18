@@ -6,11 +6,13 @@ class LessionCardStatic extends StatelessWidget {
   final Lession lession;
   final bool isLocked;
   final bool isFinished;
+  final VoidCallback callback;
 
   LessionCardStatic(
       {required this.lession,
       this.isLocked = true,
       this.isFinished = false,
+      required this.callback,
       super.key});
 
   @override
@@ -70,12 +72,12 @@ class LessionCardStatic extends StatelessWidget {
         ),
       ),
       onTap: () {
-        print(isLocked);
         if (!isLocked && !isFinished) {
-          Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => lession.page ?? Container()));
+          //Navigator.push(
+          //    context,
+          //    MaterialPageRoute(
+          //       builder: (context) => ?? Container()));
+        callback();
         }
       },
     );

@@ -6,12 +6,12 @@ import 'package:learn/utils/modelsClass.dart';
 class ActivitieCard extends StatefulWidget {
   final ActivitieCardStatic activitie;
   final bool isActivitie;
-  final Children? child;
+  final VolatileChildren child;
 
   ActivitieCard({
     required this.activitie,
     this.isActivitie = false,
-    this.child,
+    required this.child,
   });
 
   @override

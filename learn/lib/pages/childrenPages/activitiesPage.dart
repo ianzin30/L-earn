@@ -64,7 +64,7 @@ class ChildrenActivitiesPage extends StatelessWidget {
                       fontWeight: FontWeight.w300),
                 ),
                 const SizedBox(height: 8),
-                ActivitiesList(child: child.value),
+                ActivitiesList(child: child),
                 const SizedBox(height: 120,)
               ]))),
     

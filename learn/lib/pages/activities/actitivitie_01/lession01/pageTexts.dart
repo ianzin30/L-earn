@@ -341,7 +341,7 @@ PageType2 pg11 = PageType2(
             options: ["Levar uma quantia dinheiro a mais, caso ela precise em uma emergência",
         "Levar somente o valor do ingresso e do lanche que ela pesquisou antes de sair de casa",
         "Não vão acontecer imprevistos, vamos apostar!"],
-  correct: 1,
+  correct: 0,
   ballonPath: [1,2,3].map((e) => "assets/images/ballons/pg11-a$e.png").toList()
 );
 

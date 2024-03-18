@@ -132,6 +132,7 @@ class _QuestionPageState extends State<QuestionPage> {
                     ),
                   ),
                   buttonColor:  const Color(0xFFFFFFFF).withOpacity(selecionada == -1 ? 0.3 : 1),
+                  borderColor: const Color(0xFFFFFFFF).withOpacity(selecionada == -1 ? 0.3 : 1),
                   width: 120,
                   onPressed: marked? () {
                     widget.pageController.nextPage(

@@ -92,7 +92,7 @@ class ChildMonitoringSpecific extends StatelessWidget {
               return Padding(
                 padding: const EdgeInsets.symmetric(vertical: 8),
                 child: LessionCardStatic(
-                    lession: e, isFinished: true, isLocked: false),
+                    lession: e, isFinished: true, isLocked: false, callback: (){},),
               );
             }).toList(),
           ),
@@ -131,7 +131,7 @@ class ChildMonitoringSpecific extends StatelessWidget {
               return Padding(
                 padding: const EdgeInsets.symmetric(vertical: 8),
                 child: LessionCardStatic(
-                    lession: e, isFinished: false, isLocked: true),
+                    lession: e, isFinished: false, isLocked: true, callback: (){},),
               );
             }).toList(),
           ),
