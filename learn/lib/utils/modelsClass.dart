@@ -162,9 +162,17 @@ class VolatileChildren extends ValueNotifier<Children> {
     notifyListeners();
   }
 
-  void addActivity(int activitieId) {
-    children.activities[activitieId]
-        .add(children.activities[activitieId].last + 1);
+  void addActivity() {
+    bool added = false;
+    for (int i = 0; i < children.activities.length; i++) {
+      if (children.activities[i].length < 3) {
+        children.activities[i].add(children.activities[i].length);
+        added = true;
+        break;
+      }
+    }
+    if (!added) {children.activities.add([]);}
+    children.acheivments.add(AcheivmentsDate(date: today, id: 4));
     children.update();
     notifyListeners();
   }
@@ -307,7 +315,7 @@ class Lession {
   final int id;
   final String title;
   final String description;
-  Widget? page;
+  Type? page;
 
   Lession({
     required this.id,
@@ -337,6 +345,6 @@ class Activitie {
     this.lessionsList = const [],
     this.level = 1,
     this.backgroundColors = const [Color(0XFF1290A2), Color(0xFF82DA59)],
-    this.iconPath,  
+    this.iconPath,
   });
 }

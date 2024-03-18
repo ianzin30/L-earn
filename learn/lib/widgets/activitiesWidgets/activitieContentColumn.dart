@@ -8,12 +8,14 @@ class ActivitieContentColumn extends StatelessWidget {
   final String title;
   final String description;
   final List<Lession> lessions;
+  final VoidCallback callback;
   int finishedLessions;
 
   ActivitieContentColumn(
       {required this.title,
       required this.description,
       required this.lessions,
+      required this.callback,
       this.finishedLessions = 0});
 
   @override
@@ -27,6 +29,7 @@ class ActivitieContentColumn extends StatelessWidget {
           lession: lessions[i],
           isLocked: !(i <= finishedLessions),
           isFinished: i < finishedLessions,
+          callback: callback,
         ),
       ));
     }

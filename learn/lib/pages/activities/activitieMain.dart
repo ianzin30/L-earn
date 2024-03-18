@@ -3,12 +3,13 @@ import 'package:learn/widgets/activitiesWidgets/activitieCardStatic.dart';
 import 'package:learn/widgets/global/learnAppBar.dart';
 import 'package:learn/widgets/activitiesWidgets/activitieContentColumn.dart';
 import 'package:learn/utils/modelsClass.dart';
+import 'package:learn/pages/activities/actitivitie_01/lession01/lession01Main.dart';
 
 class ActivitieMain extends StatelessWidget {
   final ActivitieCardStatic content;
-  final Children? child;
+  final VolatileChildren child;
 
-  ActivitieMain({required this.content, this.child});
+  ActivitieMain({required this.content, required this.child});
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +43,13 @@ class ActivitieMain extends StatelessWidget {
               title: "Conteúdo das atividades",
               description: "Selecione a atividade",
               lessions: content.activitie.lessionsList,
-              finishedLessions: child?.activities[content.activitie.id].length ?? 0,
+              finishedLessions: child.value.activities[content.activitie.id].length,
+              callback: () {
+                Navigator.push(
+              context,
+              MaterialPageRoute(
+                 builder: (context) => Lession01Main(children: child,)));
+              },
             ))));
   }
 }

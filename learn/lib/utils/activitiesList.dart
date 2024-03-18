@@ -17,19 +17,19 @@ List<Activitie> activitiesList = [
         id: 0, 
         title: "Montando o orçamento para o passeio", 
         description: "Antes de ir para o passeio, precisamos nos planejar com o dinheiro disponível que temos, esse é o primeiro passo para um passeio de qualidade!",
-        page: Lession01Main()
+        page: Lession01Main
       ),
       Lession(
         id: 1, 
         title: "Passeando no Shopping antes do cinema!", 
         description: "Estar no Shopping e não passear com os amigos antes do Cinema é o mesmo que não ter ido no Shopping né? Mas é preciso ter muito cuidado com os gastos!",
-        page: Lession01Main()
+        page: Lession01Main
       ),
       Lession(
         id: 2, 
         title: "Depois do passeio... Fazerndo as contas", 
         description: "Agora que o passeio passou, precisamos anotar tudo que gastamos para evitar prejuízos no futuro, vamos nessa?!",
-        page: Lession01Main()
+        page: Lession01Main
       ),
     ]
   ),
@@ -46,19 +46,19 @@ List<Activitie> activitiesList = [
         id: 0, 
         title: "Montando o orçamento para o passeio", 
         description: "Antes de ir para o passeio, precisamos nos planejar com o dinheiro disponível que temos, esse é o primeiro passo para um passeio de qualidade!",
-        page: Lession01Main()
+        page: Lession01Main
       ),
       Lession(
         id: 1, 
         title: "Passeando no Shopping antes do cinema!", 
         description: "Estar no Shopping e não passear com os amigos antes do Cinema é o mesmo que não ter ido no Shopping né? Mas é preciso ter muito cuidado com os gastos!",
-        page: Lession01Main()
+        page: Lession01Main
       ),
       Lession(
         id: 2, 
         title: "Depois do passeio... Fazerndo as contas", 
         description: "Agora que o passeio passou, precisamos anotar tudo que gastamos para evitar prejuízos no futuro, vamos nessa?!",
-        page: Lession01Main()
+        page: Lession01Main
       ),
     ]
   ),
@@ -75,19 +75,19 @@ List<Activitie> activitiesList = [
         id: 0, 
         title: "Montando o orçamento para o passeio", 
         description: "Antes de ir para o passeio, precisamos nos planejar com o dinheiro disponível que temos, esse é o primeiro passo para um passeio de qualidade!",
-        page: Lession01Main()
+        page: Lession01Main
       ),
       Lession(
         id: 0, 
         title: "Passeando no Shopping antes do cinema!", 
         description: "Estar no Shopping e não passear com os amigos antes do Cinema é o mesmo que não ter ido no Shopping né? Mas é preciso ter muito cuidado com os gastos!",
-        page: Lession01Main()
+        page: Lession01Main
       ),
       Lession(
         id: 0, 
         title: "Depois do passeio... Fazerndo as contas", 
         description: "Agora que o passeio passou, precisamos anotar tudo que gastamos para evitar prejuízos no futuro, vamos nessa?!",
-        page: Lession01Main()
+        page: Lession01Main
       ),
     ]
   ),
@@ -104,19 +104,19 @@ List<Activitie> activitiesList = [
         id: 0, 
         title: "Montando o orçamento para o passeio", 
         description: "Antes de ir para o passeio, precisamos nos planejar com o dinheiro disponível que temos, esse é o primeiro passo para um passeio de qualidade!",
-        page: Lession01Main()
+        page: Lession01Main
       ),
       Lession(
         id: 0, 
         title: "Passeando no Shopping antes do cinema!", 
         description: "Estar no Shopping e não passear com os amigos antes do Cinema é o mesmo que não ter ido no Shopping né? Mas é preciso ter muito cuidado com os gastos!",
-        page: Lession01Main()
+        page: Lession01Main
       ),
       Lession(
         id: 0, 
         title: "Depois do passeio... Fazerndo as contas", 
         description: "Agora que o passeio passou, precisamos anotar tudo que gastamos para evitar prejuízos no futuro, vamos nessa?!",
-        page: Lession01Main()
+        page: Lession01Main
       ),
     ]
   )
