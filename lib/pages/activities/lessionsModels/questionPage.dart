@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:learn/widgets/global/backButton.dart';
 import 'package:learn/widgets/global/commonButton.dart';
-import 'package:learn/widgets/activitiesWidgets/questionRadioTile.dart';
+import 'package:learn/widgets/lessions/questionRadioTile.dart';
 
 class QuestionPage extends StatefulWidget {
   final PageController pageController;
@@ -222,7 +222,7 @@ class _QuestionPageState extends State<QuestionPage> {
       },
     );
 
-    Overlay.of(context)!.insert(_overlayEntry!); // Insere a sobreposição na árvore de widgets
+    Overlay.of(context).insert(_overlayEntry!); // Insere a sobreposição na árvore de widgets
 
   }
 }

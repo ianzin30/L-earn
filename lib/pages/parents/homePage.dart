@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:learn/pages/parentsPages/activitiesSugestionPage.dart';
+import 'package:learn/pages/parents/sugestionPage.dart';
 import 'package:learn/widgets/global/learnAppBar.dart';
-import 'package:learn/widgets/user-profile.dart';
-import 'package:learn/widgets/globalProgressWidget.dart';
+import 'package:learn/widgets/profile/user-profile.dart';
+import 'package:learn/widgets/global/globalProgressWidget.dart';
 import 'package:learn/utils/modelsClass.dart';
 import 'package:learn/widgets/notifications/showSugestion.dart';
-import 'package:learn/widgets/monitoramento.dart';
+import 'package:learn/widgets/monitoring/monitoramento.dart';
 import 'package:provider/provider.dart';
 
 

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:learn/widgets/activitiesWidgets/activitieCardAnimated.dart';
-import 'package:learn/widgets/activitiesWidgets/activitieCardStatic.dart';
+import 'package:learn/widgets/activities/activitieCardAnimated.dart';
+import 'package:learn/widgets/activities/activitieCardStatic.dart';
 import 'package:learn/widgets/global/learnAppBar.dart';
-import 'package:learn/widgets/StreakWidget.dart';
-import 'package:learn/widgets/achivievementWidget.dart';
-import 'package:learn/widgets/user-profile.dart';
-import 'package:learn/widgets/globalProgressWidget.dart';
+import 'package:learn/widgets/profile/StreakWidget.dart';
+import 'package:learn/widgets/conquists/achivievementWidget.dart';
+import 'package:learn/widgets/profile/user-profile.dart';
+import 'package:learn/widgets/global/globalProgressWidget.dart';
 import 'package:learn/utils/modelsClass.dart';
 import 'package:learn/utils/activitiesList.dart';
 import 'package:provider/provider.dart';

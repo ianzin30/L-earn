@@ -46,7 +46,7 @@ class ActivitieCardStatic extends StatelessWidget {
                       const SizedBox(width: 16,),
                       Column(
                         children: [
-                          Container (
+                          SizedBox (
                             width:  widgetWidth*( withProgress ? 0.6 : 0.45),
                              child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -96,7 +96,7 @@ class ActivitieCardStatic extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Container(
+                          SizedBox(
                             width: widgetWidth*0.70,
                             child: AnimatedProgressBar(
                               progress: progress,

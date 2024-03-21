@@ -14,9 +14,9 @@ class LearnNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.only(bottom: 16), // Ajuste para evitar overflow
+      padding: const EdgeInsets.only(bottom: 16), 
       width: MediaQuery.of(context).size.width * 0.6,
-      height: kToolbarHeight + 16, // Adicionei 16 para dar mais espaço e evitar overflow
+      height: kToolbarHeight + 16, 
       decoration: const BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.all(Radius.circular(16)),
@@ -32,14 +32,14 @@ class LearnNavBar extends StatelessWidget {
       child: ClipRRect(
         borderRadius: const BorderRadius.all(Radius.circular(16)),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround, // Espaçamento igual entre os itens
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: List.generate(navItems.length, (index) {
             String iconName = navItems[index]['name'].toString().toLowerCase();
             bool isSelected = selectedIndex == index;
             return InkWell(
               onTap: () => onItemTapped(index),
-              splashColor: Colors.transparent, // Remover splash ao clicar
-              highlightColor: Colors.transparent, // Remover highlight ao clicar
+              splashColor: Colors.transparent, 
+              highlightColor: Colors.transparent, 
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.end,

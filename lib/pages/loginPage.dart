@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:learn/pages/parentsPages/loginParenstPage.dart';
+import 'package:learn/pages/parents/loginParenstPage.dart';
 import 'package:learn/widgets/login/BoxSelectorLogin.dart';
-import 'childrenPages/loginChildPage.dart';
+import 'children/loginChildPage.dart';
 import 'package:learn/widgets/login/loginEnterButton.dart';
 import 'package:learn/widgets/login/loginAppBar.dart';
 import 'package:learn/widgets/login/loginInfoContainter.dart';
@@ -12,7 +12,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  String userType = 'aprendiz'; // valor padrão
+  String userType = 'aprendiz'; 
 
   void _handleUserTypeChange(String type) {
     setState(() {
@@ -62,8 +62,6 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                           );
                         } else {
-                          //Navigator.pushReplacementNamed(
-                          //    context, '/parentsMain');
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:learn/pages/parentsPages/homePage.dart';
+import 'package:learn/pages/parents/homePage.dart';
 import 'widgets/global/navBar.dart';
-import 'pages/parentsPages/profilePage.dart';
-import 'pages/parentsPages/monitoringPage.dart';
+import 'pages/parents/profilePage.dart';
+import 'pages/parents/monitoringPage.dart';
 import 'package:learn/utils/modelsClass.dart';
 import 'package:provider/provider.dart';
 

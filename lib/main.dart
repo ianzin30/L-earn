@@ -1,11 +1,11 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:learn/firebase_options.dart';
+import 'package:learn/backend/firebase_options.dart';
 import 'pages/loginPage.dart';
 import 'parentsMain.dart';
 import 'childrenMain.dart';
-import 'pages/parentsPages/SignUpParentsPage.dart';
+import 'pages/parents/signUp.dart';
 import 'package:learn/utils/modelsClass.dart';
 
 Future<void> main() async {

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:learn/pages/parentsPages/childMonitoring.dart';
-import 'package:learn/pages/parentsPages/childMonitoringSpecific.dart';
+import 'package:learn/pages/parents/individualChildMonitoring.dart';
 import 'package:learn/utils/modelsClass.dart';
 
 class MonitoringWidget extends StatelessWidget {
@@ -82,7 +81,6 @@ class ChildMonitoringBox extends StatelessWidget {
                       )));
         },
         child: Container(
-          //margin: const EdgeInsets.symmetric(horizontal: 14),
           padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
           decoration: BoxDecoration(
             border: Border.all(color: Colors.grey.shade300),
@@ -107,7 +105,7 @@ class ChildMonitoringBox extends StatelessWidget {
                       style: const TextStyle(
                           fontSize: 11, fontFamily: 'Fieldwork-Geo')),
                    Row(children: [
-                    LevelBox(text: "Prata I"),
+                    LevelBox(text: getLevel(child.pontuation)),
                     LevelBox(text: "${child.activities.length} trilhas concluídas"),
                   ])
                 ],

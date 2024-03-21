@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:learn/widgets/achivievementIcons.dart';
+import 'package:learn/widgets/conquists/achivievementIcons.dart';
 import 'package:learn/utils/modelsClass.dart';
-import 'package:learn/pages/childrenPages/acheivementsPage.dart';
+import 'package:learn/pages/children/acheivementsPage.dart';
 
 class AchievementsWidget extends StatelessWidget {
   final List<AcheivmentsDate> childAcheivments;

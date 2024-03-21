@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:learn/widgets/globalProgressWidget.dart';
-import 'package:learn/widgets/user-profile.dart';
+import 'package:learn/widgets/profile/user-profile.dart';
 import '/widgets/global/learnAppBar.dart';
-import 'package:learn/pages/parentsPages/childMonitoring.dart';
-import 'package:learn/widgets/monitoramento.dart';
-import 'package:learn/widgets/achivievementWidget.dart';
+import 'package:learn/widgets/monitoring/monitoramento.dart';
 import 'package:learn/utils/modelsClass.dart';
-import 'package:learn/pages/parentsPages/addDependentPage.dart';
+import 'package:learn/pages/parents/addDependentPage.dart';
 import 'package:provider/provider.dart';
 
 class ProfilePage extends StatelessWidget {

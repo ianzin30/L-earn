@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:learn/utils/modelsClass.dart';
 import 'package:learn/widgets/global/learnAppBar.dart';
-import 'package:learn/widgets/activitiesWidgets/activitiesList.dart';
+import 'package:learn/widgets/activities/activitiesList.dart';
 import 'package:provider/provider.dart';
 
 class ChildrenActivitiesPage extends StatelessWidget {

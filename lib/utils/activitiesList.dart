@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:learn/pages/activities/actitivitie_01/lession01/lession01Main.dart';
+import 'package:learn/pages/activities/lession01Main.dart';
 import './modelsClass.dart';
 
 

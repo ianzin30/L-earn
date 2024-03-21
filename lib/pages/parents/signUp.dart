@@ -100,7 +100,7 @@ class _SignParentsPageState extends State<SignParentsPage> {
         email: _emailController.text,
         password: _passwordController.text,
       );
-      // Navigate to a different screen if signup is successful, or show success message
+      
       Navigator.pushReplacementNamed(context, '/parentsMain');
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {

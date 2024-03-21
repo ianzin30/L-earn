@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:learn/utils/modelsClass.dart';
-import 'package:learn/utils/animatedProgressBar.dart';
 
 class LessionCardStatic extends StatelessWidget {
   final Lession lession;
@@ -73,10 +72,6 @@ class LessionCardStatic extends StatelessWidget {
       ),
       onTap: () {
         if (!isLocked && !isFinished) {
-          //Navigator.push(
-          //    context,
-          //    MaterialPageRoute(
-          //       builder: (context) => ?? Container()));
         callback();
         }
       },

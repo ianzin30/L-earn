@@ -1,12 +1,10 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
-import '../../lessionsModels/questionPage.dart';
-import '../../lessionsModels/mascotPage.dart';
-import 'pageTexts.dart';
-import '../../lessionsModels/completedActivityPage.dart';
+import 'package:learn/pages/activities/lessionsModels/questionPage.dart';
+import 'package:learn/pages/activities/lessionsModels/mascotPage.dart';
+import 'package:learn/pages/activities/lessionsModels/completedActivityPage.dart';
+import 'package:learn/pages/activities/lessionsModels/newConquist.dart';
 import 'package:learn/utils/modelsClass.dart';
-import '../../lessionsModels/newConquist.dart';
+import 'pageTexts.dart';
 
 
 double stringRealToDouble(String input) {
@@ -142,11 +140,9 @@ class _Lession01MainState extends State<Lession01Main> {
         },
       ),
 
-      //Page06(pageController: _pageController),
       MascotPage(
           pageController: _pageController, text: pg6.text, isHappy: true),
 
-      //Page07(pageController: _pageController),
       QuestionPage(
         pageController: _pageController,
         questionText: pg7.text,
@@ -159,11 +155,9 @@ class _Lession01MainState extends State<Lession01Main> {
         },
       ),
 
-      //Page08(pageController: _pageController),
       MascotPage(
           pageController: _pageController, text: pg8.text, isHappy: true),
 
-      //Page09(pageController: _pageController),
       QuestionPage(
         pageController: _pageController,
         questionText: pg9.text,
@@ -179,11 +173,9 @@ class _Lession01MainState extends State<Lession01Main> {
         },
       ),
 
-      //Page10(pageController: _pageController),
       MascotPage(
           pageController: _pageController, text: pg10.text, isHappy: true),
 
-      //Page11(pageController: _pageController),
       QuestionPage(
         pageController: _pageController,
         questionText: pg11.text,
@@ -212,7 +204,6 @@ class _Lession01MainState extends State<Lession01Main> {
           ),
           isHappy: true),
 
-      //Page13(pageController: _pageController),
       QuestionPage(
         pageController: _pageController,
         questionText: pg13.text,
@@ -227,7 +218,6 @@ class _Lession01MainState extends State<Lession01Main> {
               escolhas['ingresso']! + escolhas['lanche']! + escolhas['extra']!;
         },
       ),
-      //Page14(pageController: _pageController),
       MascotPage(
         pageController: _pageController,
         text: RichText(

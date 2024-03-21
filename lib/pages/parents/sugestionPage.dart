@@ -1,15 +1,8 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:learn/utils/levelBarUtils.dart';
 import '../../widgets/global/learnAppBar.dart';
-import 'package:learn/widgets/StreakWidget.dart';
-import 'package:learn/widgets/activitiesWidgets/trilhaSoldi.dart';
-import '/widgets/achivievementWidget.dart';
-import 'package:learn/widgets/user-profile.dart';
-import 'package:learn/widgets/globalProgressWidget.dart';
+import 'package:learn/widgets/profile/user-profile.dart';
 import 'package:learn/utils/modelsClass.dart';
-import 'package:learn/widgets/activitiesWidgets/activitieCardStatic.dart';
 
 
 class ActivitiesSugestionPage extends StatelessWidget {

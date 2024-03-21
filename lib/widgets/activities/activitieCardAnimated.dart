@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:learn/widgets/activitiesWidgets/activitieCardStatic.dart';
+import 'package:learn/widgets/activities/activitieCardStatic.dart';
 import 'package:learn/pages/activities/activitieMain.dart';
 import 'package:learn/utils/modelsClass.dart';
 
@@ -26,15 +26,15 @@ class _ActivitieCardState extends State<ActivitieCard> with SingleTickerProvider
   void initState() {
     super.initState();
     _animationController = AnimationController(
-      duration: const Duration(milliseconds: 150), // Um pouco mais rápido para um "pulo"
+      duration: const Duration(milliseconds: 150),
       vsync: this,
     );
     _scaleAnimation = Tween<double>(begin: 1.0, end: 1.1)
       .animate(
         CurvedAnimation(
           parent: _animationController,
-          curve: Curves.easeOut, // Começa rápido e termina lentamente
-          reverseCurve: Curves.easeIn, // Começa lentamente e termina rápido
+          curve: Curves.easeOut,
+          reverseCurve: Curves.easeIn,
         ),
       );
   }
@@ -49,12 +49,12 @@ class _ActivitieCardState extends State<ActivitieCard> with SingleTickerProvider
     if (!widget.activitie.isLocked) {
       widget.activitie.withProgress = true;
       Navigator.push(
-            context, MaterialPageRoute(builder: (context) => ActivitieMain(content: widget.activitie, child: widget.child)?? Container())
+            context, MaterialPageRoute(builder: (context) => ActivitieMain(content: widget.activitie, child: widget.child))
           );
     }
     _animationController
       .forward()
-      .then((_) => _animationController.reverse()); // Faz a animação "pulo"
+      .then((_) => _animationController.reverse());
   }
 
   @override

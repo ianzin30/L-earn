@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:learn/utils/modelsClass.dart';
-import 'package:learn/widgets/activitiesWidgets/activitieCardStatic.dart';
-import 'package:learn/widgets/activitiesWidgets/activitieCardAnimated.dart';
+import 'package:learn/widgets/activities/activitieCardStatic.dart';
+import 'package:learn/widgets/activities/activitieCardAnimated.dart';
 import 'package:learn/utils/activitiesList.dart';
 
 class ActivitiesList extends StatelessWidget {

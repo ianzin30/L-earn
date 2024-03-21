@@ -1,15 +1,13 @@
 import 'dart:math';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:learn/utils/modelsClass.dart';
 import 'package:learn/widgets/global/learnAppBar.dart';
-import '/widgets/selectedGoals.dart';
-import '/widgets/childrenDataBox.dart';
+import '../../widgets/settings/selectedGoals.dart';
+import '../../widgets/settings/childrenDataBox.dart';
 import 'package:learn/widgets/login/loginEnterButton.dart';
-import 'package:learn/pages/parentsPages/verificationCodePage.dart';
-import 'package:firebase_core/firebase_core.dart';
+import 'package:learn/pages/parents/verificationCodePage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 

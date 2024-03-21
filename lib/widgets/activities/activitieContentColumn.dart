@@ -1,6 +1,6 @@
 import "package:flutter/material.dart";
 import 'package:learn/utils/modelsClass.dart';
-import 'package:learn/widgets/activitiesWidgets/newLessionCard.dart';
+import 'package:learn/widgets/activities/lessionCard.dart';
 
 const isStatic = false;
 
@@ -56,7 +56,7 @@ class ActivitieContentColumn extends StatelessWidget {
                     fontWeight: FontWeight.w400),
               ),
             ]),
-            SizedBox(height: 8,),
+            const SizedBox(height: 8,),
           Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: atividades,

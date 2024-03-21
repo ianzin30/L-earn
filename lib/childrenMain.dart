@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'widgets/global/navBar.dart';
-import '/pages/childrenPages/homePage.dart';
-import '/pages/childrenPages/activitiesPage.dart';
-import '/pages/childrenPages/MascotPage.dart';
+import 'pages/children/homePage.dart';
+import 'pages/children/activitiesPage.dart';
+import 'pages/children/MascotPage.dart';
 import 'package:learn/utils/modelsClass.dart';
 import 'package:provider/provider.dart';
 

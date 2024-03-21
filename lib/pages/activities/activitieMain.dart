@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:learn/widgets/activitiesWidgets/activitieCardStatic.dart';
+import 'package:learn/utils/activitiesList.dart';
+import 'package:learn/widgets/activities/activitieCardStatic.dart';
 import 'package:learn/widgets/global/learnAppBar.dart';
-import 'package:learn/widgets/activitiesWidgets/activitieContentColumn.dart';
+import 'package:learn/widgets/activities/activitieContentColumn.dart';
 import 'package:learn/utils/modelsClass.dart';
-import 'package:learn/pages/activities/actitivitie_01/lession01/lession01Main.dart';
+import 'package:learn/pages/activities/lession01Main.dart';
 
 class ActivitieMain extends StatelessWidget {
   final ActivitieCardStatic content;
@@ -13,12 +14,17 @@ class ActivitieMain extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
+    final int activitieId = content.activitie.id;
     return Scaffold(
         appBar: LearnAppBarSuper(
           superHeigth: 280,
           globalHeigth: 280,
-          superWidget: content,
+          superWidget: ActivitieCardStatic(
+            activitie: content.activitie,
+            isLocked: content.isLocked,
+            withProgress: true,
+            progress: getProgress(activitieId, child.value.activities[activitieId]),
+          ),
           child: Container(
               //width: MediaQuery.sizeOf(context).width,
               padding: EdgeInsets.fromLTRB(

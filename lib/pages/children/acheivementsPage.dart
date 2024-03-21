@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:learn/widgets/global/learnAppBar.dart';
 import 'package:learn/utils/modelsClass.dart';
-import 'package:learn/widgets/achivievementIcons.dart';
+import 'package:learn/widgets/conquists/achivievementIcons.dart';
 import 'package:learn/utils/acheiviementsList.dart';
 
 class AchiviementsPage extends StatelessWidget {
@@ -17,7 +17,6 @@ class AchiviementsPage extends StatelessWidget {
     List<AcheivmentsDate> missingAchievements = [];
 
     for (var achievement in achievementsList) {
-      print(achievement.id);
       if (!childAchievementsIds.contains(achievement.id)) {
         missingAchievements
             .add(AcheivmentsDate(date: DateTime.now(), id: achievement.id));
